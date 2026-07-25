@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tadas Gets Married!</title>
+  <style>
+  :root {
+    --bg: #0f0e0a;
+    --surface: #181610;
+    --surface-raised: #1f1d16;
+    --accent: #c99a2e;
+    --accent-light: #ddb44e;
+    --accent-dim: rgba(201, 154, 46, 0.10);
+    --accent-border: rgba(201, 154, 46, 0.20);
+    --text: #e8dcc8;
+    --text-secondary: #b0a898;
+    --text-muted: #847d6f;
+    --border: #282520;
+    --green: #7dba6e;
+    --green-dim: rgba(125, 186, 110, 0.12);
+    --green-border: rgba(125, 186, 110, 0.28);
+    --orange: #e8a33c;
+    --orange-dim: rgba(232, 163, 60, 0.12);
+    --orange-border: rgba(232, 163, 60, 0.28);
+    --red: #d45a52;
+    --red-dim: rgba(212, 90, 82, 0.12);
+    --red-border: rgba(212, 90, 82, 0.28);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --font-display: -apple-system, "Segoe UI", system-ui, Helvetica, Arial, sans-serif;
+    --font-serif: Georgia, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    --font-body: -apple-system, "Segoe UI", system-ui, Helvetica, Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 56px 20px 44px;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-serif);
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(36px, 8.5vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+  }
+
+  .hero-location {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section { padding: 40px 0 0; }
+
+  .section-label {
+    font-family: var(--font-serif);
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .crew-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .attendee {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 10px 12px;
+    text-align: center;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .attendee:hover { border-color: #3a3730; }
+  .attendee--goh { border-color: var(--accent-border); }
+
+  .attendee-name {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .attendee-role {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .status {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.15s;
+    user-select: none;
+    border: 1px solid;
+  }
+
+  .status--confirmed { background: var(--green-dim); color: var(--green); border-color: var(--green-border); }
+  .status--pending { background: var(--orange-dim); color: var(--orange); border-color: var(--orange-border); }
+  .status--declined { background: var(--red-dim); color: var(--red); border-color: var(--red-border); }
+
+  .remove-btn {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 4px;
+    line-height: 1;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+  }
+
+  .attendee:hover .remove-btn { opacity: 1; }
+  .remove-btn:hover { color: var(--red); }
+
+  .add-form {
+    display: flex;
+    gap: 8px;
+  }
+
+  .add-input {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 9px 14px;
+    color: var(--text);
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .add-input::placeholder { color: var(--text-muted); }
+  .add-input:focus { border-color: var(--accent); }
+
+  .add-btn {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+
+  .add-btn:hover { opacity: 0.88; }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background: var(--border);
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .tl-item:last-child { margin-bottom: 0; }
+
+  .tl-dot {
+    position: absolute;
+    left: -28px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2.5px solid var(--bg);
+    box-shadow: 0 0 0 1.5px var(--accent);
+    z-index: 1;
+  }
+
+  .tl-dot--walk {
+    width: 6px;
+    height: 6px;
+    left: -26px;
+    top: 14px;
+    background: var(--border);
+    box-shadow: 0 0 0 1.5px var(--border);
+  }
+
+  .train {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .train-icon {
+    font-size: 22px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-dim);
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .train-label {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .train-time {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .train-route {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .walk {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .walk-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .walk-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .walk-stats {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .walk-map {
+    padding: 14px 16px;
+  }
+
+  .walk-map svg { width: 100%; height: auto; display: block; }
+
+  .walk-dir {
+    padding: 0 18px 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  @keyframes dash-flow {
+    to { stroke-dashoffset: -30; }
+  }
+
+  .route-path {
+    animation: dash-flow 1.8s linear infinite;
+  }
+
+  .venue {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .venue-time {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 800;
+    font-size: 13px;
+    padding: 6px 18px;
+    display: inline-block;
+    letter-spacing: 0.02em;
+  }
+
+  .venue-body { padding: 20px 18px; }
+
+  .venue-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .venue-addr {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+
+  .stars-icons { color: var(--accent); letter-spacing: 1px; }
+
+  .stars-num {
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  .stars-count {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .venue-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+
+  .reviews-label {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .quote {
+    border-left: 2px solid var(--accent-border);
+    padding: 8px 14px;
+    margin-bottom: 6px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  .reviews { margin-bottom: 20px; }
+
+  .dish {
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius);
+    padding: 18px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+
+  .dish-img {
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1.5px solid var(--accent-border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dish-img svg { width: 100%; height: 100%; }
+
+  .dish-badge {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .dish-name {
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .dish-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  .optional-tag {
+    display: inline-block;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .hotel-note {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+    line-height: 1.55;
+  }
+
+  .hotel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .hotel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+  }
+
+  .hotel-name {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+
+  .hotel-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+
+  .hotel-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-top: 6px;
+  }
+
+  .hotel-price span {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .morning-train {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .morning-train-icon { font-size: 20px; }
+  .morning-train-sub { font-size: 12px; color: var(--text-muted); }
+
+  .page-footer {
+    text-align: center;
+    padding: 48px 20px 60px;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tl-item {
+    animation: slide-up 0.4s ease both;
+  }
+
+  .tl-item:nth-child(1) { animation-delay: 0.04s; }
+  .tl-item:nth-child(2) { animation-delay: 0.08s; }
+  .tl-item:nth-child(3) { animation-delay: 0.12s; }
+  .tl-item:nth-child(4) { animation-delay: 0.16s; }
+  .tl-item:nth-child(5) { animation-delay: 0.20s; }
+  .tl-item:nth-child(6) { animation-delay: 0.24s; }
+  .tl-item:nth-child(7) { animation-delay: 0.28s; }
+  .tl-item:nth-child(8) { animation-delay: 0.32s; }
+  .tl-item:nth-child(9) { animation-delay: 0.36s; }
+  .tl-item:nth-child(10) { animation-delay: 0.40s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tl-item { animation: none; }
+    .route-path { animation: none; }
+  }
+
+  @media (max-width: 540px) {
+    .hero { padding: 40px 16px 36px; }
+    .container { padding: 0 14px; }
+    .crew-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    .dish { flex-direction: column; text-align: center; }
+    .dish-img { width: 96px; height: 96px; }
+    .hotel-grid { grid-template-columns: 1fr; }
+    .venue-name { font-size: 19px; }
+    .timeline { padding-left: 28px; }
+    .train { flex-direction: column; text-align: center; gap: 8px; }
+  }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-eyebrow">Bachelor Party</div>
+  <h1 class="hero-title">Tadas Gets <em>Married!</em></h1>
+  <p class="hero-sub">A Day in New York City</p>
+  <p class="hero-location">Manhattan, NY</p>
+</header>
+
+<div class="container">
+  <section class="section">
+    <div class="section-label">The Crew</div>
+    <div class="crew-grid" id="crew-grid"></div>
+    <form class="add-form" id="add-form">
+      <input class="add-input" type="text" id="name-input" placeholder="Add attendee name..." autocomplete="off" />
+      <button class="add-btn" type="submit">Add</button>
+    </form>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Itinerary</div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="train">
+          <div class="train-icon">&#x1f682;</div>
+          <div>
+            <div class="train-label">LIRR Departure</div>
+            <div class="train-time">9:31 AM</div>
+            <div class="train-route">Ronkonkoma &#x2192; Penn Station</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot tl-dot--walk"></div>
+        <div class="walk">
+          <div class="walk-header">
+            <span class="walk-label">&#x1f6b6; Walking</span>
+            <span class="walk-stats">20&ndash;25 min &middot; 1.1 mi</span>
+          </div>
+          <div class="walk-map">
+            <svg viewBox="0 0 500 200">
+              <rect width="500" height="200" rx="6" fill="#0c0b08"/>
+              <line x1="50" y1="40" x2="50" y2="170" stroke="#1a1810" stroke-width="1"/>
+              <line x1="140" y1="40" x2="140" y2="170" stroke="#1a1810" stroke-width="1"/>
+              <line x1="230" y1="40" x2="230" y2="170" stroke="#1a1810" stroke-width="1"/>
+              <line x1="310" y1="40" x2="310" y2="170" stroke="#1a1810" stroke-width="1"/>
+              <line x1="390" y1="40" x2="390" y2="170" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="50" x2="470" y2="50" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="100" x2="470" y2="100" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="160" x2="470" y2="160" stroke="#1a1810" stroke-width="1"/>
+              <text x="470" y="46" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">34th St</text>
+              <text x="470" y="96" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">30th St</text>
+              <text x="470" y="156" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">26th St</text>
+              <text x="230" y="190" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">8th Ave</text>
+              <text x="140" y="190" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">10th Ave</text>
+              <text x="50" y="190" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">12th Ave</text>
+              <text x="390" y="190" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">7th Ave</text>
+              <path d="M390,50 L310,50 L310,160 L50,160" fill="none" stroke="#c99a2e" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" class="route-path"/>
+              <circle cx="390" cy="50" r="6" fill="#7dba6e"/>
+              <text x="390" y="36" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Penn Station</text>
+              <circle cx="50" cy="160" r="6" fill="#c99a2e"/>
+              <text x="50" y="148" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Frying Pan</text>
+            </svg>
+          </div>
+          <div class="walk-dir">&#x2192; South on 8th Ave to 26th St, then west to the Hudson River waterfront</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="venue">
+          <div class="venue-time">12:00 PM</div>
+          <div class="venue-body">
+            <h2 class="venue-name">The Frying Pan</h2>
+            <div class="venue-addr">207 12th Avenue, Pier 66 &middot; Chelsea</div>
+            <div class="stars">
+              <span class="stars-icons">&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</span>
+              <span class="stars-num">4.3</span>
+              <span class="stars-count">(2,600+ reviews)</span>
+            </div>
+            <p class="venue-desc">
+              A floating bar &amp; restaurant on a restored 1929 lightship at Pier 66.
+              The vessel sank in 1986, was raised, and rebuilt into one of NYC&#x2019;s best outdoor
+              waterfront spots. Casual vibes, sunset views over the Hudson, and ice-cold drinks on the water.
+            </p>
+            <div class="reviews">
+              <div class="reviews-label">What people say</div>
+              <div class="quote">&#x201c;One of the best outdoor bars in NYC, located directly on the Hudson River.&#x201d;</div>
+              <div class="quote">&#x201c;The food is absolutely amazing and the drinks are priced super reasonable.&#x201d;</div>
+            </div>
+            <div class="dish">
+              <div class="dish-img">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <radialGradient id="p1" cx="50%" cy="45%" r="50%"><stop offset="0%" stop-color="#181610"/><stop offset="100%" stop-color="#0f0e0a"/></radialGradient>
+                    <linearGradient id="bun" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dbb150"/><stop offset="100%" stop-color="#b8892e"/></linearGradient>
+                    <linearGradient id="lob" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f28b6e"/><stop offset="100%" stop-color="#e06050"/></linearGradient>
+                  </defs>
+                  <circle cx="100" cy="100" r="95" fill="url(#p1)"/>
+                  <ellipse cx="100" cy="115" rx="72" ry="16" fill="#b8892e" opacity="0.25"/>
+                  <rect x="35" y="88" width="130" height="32" rx="16" fill="url(#bun)"/>
+                  <rect x="42" y="85" width="116" height="12" rx="6" fill="url(#bun)"/>
+                  <path d="M50,88 Q65,68 80,80 Q95,65 110,78 Q125,62 140,80 Q150,72 155,88" fill="url(#lob)"/>
+                  <ellipse cx="62" cy="76" rx="5" ry="3" fill="#f5a08d" opacity="0.6"/>
+                  <ellipse cx="95" cy="70" rx="6" ry="3.5" fill="#f5a08d" opacity="0.6"/>
+                  <ellipse cx="130" cy="72" rx="5" ry="3" fill="#f5a08d" opacity="0.6"/>
+                  <circle cx="70" cy="82" r="2" fill="#6abf6a"/><circle cx="88" cy="78" r="1.5" fill="#6abf6a"/><circle cx="108" cy="76" r="2" fill="#6abf6a"/><circle cx="125" cy="80" r="1.5" fill="#6abf6a"/><circle cx="142" cy="82" r="1.8" fill="#6abf6a"/>
+                  <path d="M155,100 Q165,90 170,95 Q172,100 168,105 Q163,108 158,105" fill="#e8c850" opacity="0.7"/>
+                </svg>
+              </div>
+              <div>
+                <div class="dish-badge">#1 Ordered</div>
+                <div class="dish-name">Lobster Roll</div>
+                <div class="dish-desc">Fresh lobster on a buttered split-top roll. The waterfront classic, paired with their famous frozen sangria.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot tl-dot--walk"></div>
+        <div class="walk">
+          <div class="walk-header">
+            <span class="walk-label">&#x1f6b6; Walking</span>
+            <span class="walk-stats">22&ndash;27 min &middot; 1.1 mi</span>
+          </div>
+          <div class="walk-map">
+            <svg viewBox="0 0 500 200">
+              <rect width="500" height="200" rx="6" fill="#0c0b08"/>
+              <line x1="40" y1="30" x2="40" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="130" y1="30" x2="130" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="220" y1="30" x2="220" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="300" y1="30" x2="300" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="370" y1="30" x2="370" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="430" y1="30" x2="430" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="20" y1="60" x2="480" y2="60" stroke="#1a1810" stroke-width="1"/>
+              <line x1="20" y1="110" x2="480" y2="110" stroke="#1a1810" stroke-width="1"/>
+              <line x1="20" y1="160" x2="480" y2="160" stroke="#1a1810" stroke-width="1"/>
+              <text x="465" y="56" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">30th</text>
+              <text x="465" y="106" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">28th</text>
+              <text x="465" y="156" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">26th</text>
+              <text x="40" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">12th</text>
+              <text x="220" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">8th</text>
+              <text x="370" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Bway</text>
+              <text x="430" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">5th</text>
+              <path d="M40,160 L370,160 L370,60" fill="none" stroke="#c99a2e" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" class="route-path"/>
+              <circle cx="40" cy="160" r="6" fill="#7dba6e"/>
+              <text x="40" y="146" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Frying Pan</text>
+              <circle cx="370" cy="60" r="6" fill="#c99a2e"/>
+              <text x="370" y="46" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Swingers</text>
+            </svg>
+          </div>
+          <div class="walk-dir">&#x2192; East on 26th St across town, then north on Broadway to 29th St</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="venue">
+          <div class="venue-time">3:30 PM</div>
+          <div class="venue-body">
+            <h2 class="venue-name">Swingers</h2>
+            <div class="venue-addr">35 W 29th St &middot; NoMad</div>
+            <div class="stars">
+              <span class="stars-icons">&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</span>
+              <span class="stars-num">4.4</span>
+              <span class="stars-count">(990+ reviews)</span>
+            </div>
+            <p class="venue-desc">
+              A 23,000 sq ft underground crazy golf venue from London. Three 9-hole courses,
+              six cocktail bars, live DJs, and gourmet street food&mdash;all themed as a 1920s
+              English country golf club. Personal caddies deliver drinks to you on the course. 21+ only.
+            </p>
+            <div class="reviews">
+              <div class="reviews-label">What people say</div>
+              <div class="quote">&#x201c;I&#x2019;ve never had more fun at a bar in my adult life. Super cute decor and expertly curated music.&#x201d;</div>
+              <div class="quote">&#x201c;Such a fun place! Food, drinks, service, a live DJ&mdash;all great!&#x201d;</div>
+            </div>
+            <div class="dish">
+              <div class="dish-img">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <radialGradient id="p2" cx="50%" cy="45%" r="50%"><stop offset="0%" stop-color="#181610"/><stop offset="100%" stop-color="#0f0e0a"/></radialGradient>
+                    <linearGradient id="drk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff6b9d"/><stop offset="50%" stop-color="#c44dff"/><stop offset="100%" stop-color="#4d8bff"/></linearGradient>
+                  </defs>
+                  <circle cx="100" cy="100" r="95" fill="url(#p2)"/>
+                  <polygon points="60,55 140,55 115,120" fill="none" stroke="#ddb44e" stroke-width="2"/>
+                  <polygon points="63,60 137,60 114,118" fill="url(#drk)" opacity="0.75"/>
+                  <rect x="98" y="118" width="4" height="30" rx="2" fill="#ddb44e"/>
+                  <ellipse cx="100" cy="152" rx="22" ry="5" fill="#ddb44e"/>
+                  <circle cx="125" cy="68" r="6" fill="#ff3366"/>
+                  <rect x="124" y="50" width="2" height="18" rx="1" fill="#4caf50"/>
+                  <ellipse cx="125" cy="50" rx="5" ry="3" fill="#4caf50"/>
+                  <rect x="42" y="70" width="4" height="75" rx="2" fill="#8b8b8b" transform="rotate(-15, 44, 108)"/>
+                  <rect x="30" y="58" width="20" height="14" rx="2" fill="#c99a2e" transform="rotate(-15, 40, 65)"/>
+                  <circle cx="40" cy="56" r="3" fill="#ddb44e" transform="rotate(-15, 40, 56)"/>
+                </svg>
+              </div>
+              <div>
+                <div class="dish-badge">#1 Ordered</div>
+                <div class="dish-name">Frozen Cocktails &amp; Quesabirria</div>
+                <div class="dish-desc">Grab the Full Swing package&mdash;9 holes bundled with a $50 food &amp; drink credit. Frozen cocktails from the bar plus quesabirria tacos from Fonda.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot tl-dot--walk"></div>
+        <div class="walk">
+          <div class="walk-header">
+            <span class="walk-label">&#x1f6b6; Walking</span>
+            <span class="walk-stats">8&ndash;10 min &middot; 0.4 mi</span>
+          </div>
+          <div class="walk-map">
+            <svg viewBox="0 0 440 200">
+              <rect width="440" height="200" rx="6" fill="#0c0b08"/>
+              <line x1="100" y1="30" x2="100" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="200" y1="30" x2="200" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="290" y1="30" x2="290" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="380" y1="30" x2="380" y2="180" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="45" x2="420" y2="45" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="80" x2="420" y2="80" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="115" x2="420" y2="115" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="150" x2="420" y2="150" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="170" x2="420" y2="170" stroke="#1a1810" stroke-width="1"/>
+              <text x="410" y="41" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">36th</text>
+              <text x="410" y="76" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">34th</text>
+              <text x="410" y="146" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">30th</text>
+              <text x="410" y="166" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">29th</text>
+              <text x="100" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">7th</text>
+              <text x="200" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">6th</text>
+              <text x="290" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Bway</text>
+              <text x="380" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">5th</text>
+              <path d="M290,170 L200,170 L200,45" fill="none" stroke="#c99a2e" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" class="route-path"/>
+              <circle cx="290" cy="170" r="6" fill="#7dba6e"/>
+              <text x="290" y="158" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Swingers</text>
+              <circle cx="200" cy="45" r="6" fill="#c99a2e"/>
+              <text x="200" y="33" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Keens</text>
+            </svg>
+          </div>
+          <div class="walk-dir">&#x2192; North on 6th Ave, 7 blocks straight up to 36th St</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="venue">
+          <div class="venue-time">7:00 PM</div>
+          <div class="venue-body">
+            <h2 class="venue-name">Keens Steakhouse</h2>
+            <div class="venue-addr">72 W 36th St &middot; Midtown</div>
+            <div class="stars">
+              <span class="stars-icons">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</span>
+              <span class="stars-num">4.6</span>
+              <span class="stars-count">(9,700+ reviews)</span>
+            </div>
+            <p class="venue-desc">
+              NYC&#x2019;s legendary steakhouse since 1885. Mahogany walls, 50,000 clay smoking pipes
+              on the ceilings, and a Pipe Club roster that includes Teddy Roosevelt, Babe Ruth,
+              and Albert Einstein. The Infatuation gave it a 9.0&mdash;&#x201c;Nowhere in Manhattan is
+              history more palpable.&#x201d;
+            </p>
+            <div class="reviews">
+              <div class="reviews-label">What people say</div>
+              <div class="quote">&#x201c;Hands down best steakhouse in the city with wonderful service.&#x201d;</div>
+              <div class="quote">&#x201c;Consistently serves remarkably tender, flavorful, and perfectly charred Prime cuts.&#x201d;</div>
+            </div>
+            <div class="dish">
+              <div class="dish-img">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <radialGradient id="p3" cx="50%" cy="45%" r="50%"><stop offset="0%" stop-color="#181610"/><stop offset="100%" stop-color="#0f0e0a"/></radialGradient>
+                    <linearGradient id="chp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5e3c"/><stop offset="50%" stop-color="#6d3a1f"/><stop offset="100%" stop-color="#4a2510"/></linearGradient>
+                    <linearGradient id="ser" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a06030"/><stop offset="100%" stop-color="#703818"/></linearGradient>
+                  </defs>
+                  <circle cx="100" cy="100" r="95" fill="url(#p3)"/>
+                  <ellipse cx="100" cy="115" rx="70" ry="38" fill="#1a1810" stroke="#282520" stroke-width="1.5"/>
+                  <ellipse cx="95" cy="105" rx="45" ry="30" fill="url(#chp)"/>
+                  <ellipse cx="95" cy="105" rx="38" ry="24" fill="url(#ser)"/>
+                  <ellipse cx="95" cy="105" rx="28" ry="16" fill="#c4786a" opacity="0.45"/>
+                  <rect x="125" y="75" width="8" height="45" rx="4" fill="#f0ebd8" transform="rotate(20, 129, 98)"/>
+                  <ellipse cx="137" cy="72" rx="8" ry="6" fill="#f0ebd8" transform="rotate(20, 137, 72)"/>
+                  <circle cx="50" cy="130" r="14" fill="#1a1810" stroke="#282520" stroke-width="1"/>
+                  <circle cx="50" cy="130" r="10" fill="#4caf50" opacity="0.65"/>
+                  <circle cx="50" cy="130" r="6" fill="#66bb6a" opacity="0.45"/>
+                </svg>
+              </div>
+              <div>
+                <div class="dish-badge">Legendary #1</div>
+                <div class="dish-name">The Mutton Chop</div>
+                <div class="dish-desc">A 26-ounce, 2-inch-thick saddle chop of year-old lamb, seared at 1,000&deg;F. On the menu since 1935. Served with mint jelly and saut&eacute;ed escarole.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot tl-dot--walk"></div>
+        <div class="walk">
+          <div class="walk-header">
+            <span class="walk-label">&#x1f6b6; Walking</span>
+            <span class="walk-stats">5&ndash;7 min &middot; 0.3 mi</span>
+          </div>
+          <div class="walk-map">
+            <svg viewBox="0 0 400 160">
+              <rect width="400" height="160" rx="6" fill="#0c0b08"/>
+              <line x1="80" y1="20" x2="80" y2="140" stroke="#1a1810" stroke-width="1"/>
+              <line x1="180" y1="20" x2="180" y2="140" stroke="#1a1810" stroke-width="1"/>
+              <line x1="280" y1="20" x2="280" y2="140" stroke="#1a1810" stroke-width="1"/>
+              <line x1="370" y1="20" x2="370" y2="140" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="40" x2="390" y2="40" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="80" x2="390" y2="80" stroke="#1a1810" stroke-width="1"/>
+              <line x1="30" y1="120" x2="390" y2="120" stroke="#1a1810" stroke-width="1"/>
+              <text x="375" y="36" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">36th</text>
+              <text x="375" y="76" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">35th</text>
+              <text x="375" y="116" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">34th</text>
+              <text x="80" y="152" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">8th</text>
+              <text x="180" y="152" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">7th</text>
+              <text x="280" y="152" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">6th</text>
+              <text x="370" y="152" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">5th</text>
+              <path d="M280,40 L180,40 L180,120" fill="none" stroke="#c99a2e" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" class="route-path"/>
+              <circle cx="280" cy="40" r="6" fill="#7dba6e"/>
+              <text x="280" y="28" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Keens</text>
+              <circle cx="180" cy="120" r="6" fill="#c99a2e"/>
+              <text x="180" y="136" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Penn Station</text>
+            </svg>
+          </div>
+          <div class="walk-dir">&#x2192; West on 36th to 7th Ave, south 2 blocks to Penn Station</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="train">
+          <div class="train-icon">&#x1f686;</div>
+          <div>
+            <div class="train-label">LIRR Return</div>
+            <div class="train-time">10:17 PM</div>
+            <div class="train-route">Penn Station &#x2192; Ronkonkoma</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Stay The Night?</div>
+    <div class="optional-tag">Optional</div>
+    <p class="hotel-note">
+      If the crew wants to keep the night going, here are Hilton options near Penn Station
+      with an early train back Sunday morning.
+    </p>
+    <div class="hotel-grid">
+      <div class="hotel">
+        <div class="hotel-name">Hilton Garden Inn<br/>Times Square South</div>
+        <div class="hotel-meta">326 W 37th St</div>
+        <div class="hotel-meta">&#x1f6b6; 5 min from Penn Station</div>
+        <div class="hotel-price">~$213+ <span>/night</span></div>
+      </div>
+      <div class="hotel">
+        <div class="hotel-name">DoubleTree by Hilton<br/>Chelsea</div>
+        <div class="hotel-meta">128 W 29th St</div>
+        <div class="hotel-meta">&#x1f6b6; 10 min from Penn Station</div>
+        <div class="hotel-price">~$200+ <span>/night</span></div>
+      </div>
+    </div>
+    <div class="morning-train">
+      <span class="morning-train-icon">&#x1f682;</span>
+      <div>
+        <strong>8:17 AM Sunday</strong>
+        <div class="morning-train-sub">Penn Station &#x2192; Ronkonkoma</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page-footer">Made with care for Tadas</div>
+
+<script>
+  const STATUSES = ['confirmed', 'pending', 'declined'];
+  const LABELS = { confirmed: 'Confirmed', pending: 'Pending', declined: 'Declined' };
+
+  let attendees;
+  try {
+    attendees = JSON.parse(localStorage.getItem('bp-attendees'));
+    if (!Array.isArray(attendees)) throw 0;
+  } catch {
+    attendees = [{ id: 1, name: 'Tadas', role: 'Guest of Honor', status: 'confirmed' }];
+  }
+
+  function save() {
+    localStorage.setItem('bp-attendees', JSON.stringify(attendees));
+  }
+
+  function render() {
+    const grid = document.getElementById('crew-grid');
+    grid.innerHTML = attendees.map(a => {
+      const isGoh = a.role === 'Guest of Honor';
+      return `<div class="attendee${isGoh ? ' attendee--goh' : ''}">
+        ${!isGoh ? `<button class="remove-btn" onclick="removeAttendee(${a.id})" title="Remove">&#x2715;</button>` : ''}
+        <div class="attendee-name">${esc(a.name)}</div>
+        ${a.role ? `<div class="attendee-role">${esc(a.role)}</div>` : ''}
+        <span class="status status--${a.status}" onclick="toggleStatus(${a.id})" title="Click to change">${LABELS[a.status]}</span>
+      </div>`;
+    }).join('');
+  }
+
+  function esc(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  window.toggleStatus = function(id) {
+    const a = attendees.find(x => x.id === id);
+    if (!a) return;
+    a.status = STATUSES[(STATUSES.indexOf(a.status) + 1) % 3];
+    save();
+    render();
+  };
+
+  window.removeAttendee = function(id) {
+    attendees = attendees.filter(x => x.id !== id);
+    save();
+    render();
+  };
+
+  document.getElementById('add-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const input = document.getElementById('name-input');
+    const name = input.value.trim();
+    if (!name) return;
+    attendees.push({ id: Date.now(), name, role: '', status: 'pending' });
+    save();
+    render();
+    input.value = '';
+    input.focus();
+  });
+
+  render();
+</script>
+
+</body>
+</html>
