@@ -1077,32 +1077,57 @@
   const STATUSES = ['confirmed', 'pending', 'declined'];
   const LABELS = { confirmed: 'Confirmed', pending: 'Pending', declined: 'Declined' };
 
-  let attendees;
-  try {
-    attendees = JSON.parse(localStorage.getItem('bp-attendees'));
-    if (!Array.isArray(attendees)) throw 0;
-  } catch {
-    attendees = [
-      { id: 1, name: 'Tadas', role: 'Guest of Honor', status: 'confirmed' },
-      { id: 2, name: 'Mike', role: 'Best Man', status: 'confirmed' },
-      { id: 3, name: 'Eddie', role: 'Groomsman', status: 'pending' },
-      { id: 4, name: 'Tauras', role: 'Groomsman', status: 'pending' }
-    ];
+  let attendees = [];
+  let fileSha = null;
+  let saving = false;
+
+  async function load() {
+    try {
+      const res = await fetch('/api/attendees');
+      if (!res.ok) throw new Error('Failed to load');
+      const data = await res.json();
+      attendees = data.attendees;
+      fileSha = data.sha;
+    } catch (err) {
+      console.error('Load error:', err);
+      attendees = [{ id: 1, name: 'Tadas', role: 'Guest of Honor', status: 'confirmed' }];
+    }
+    render();
   }
 
-  function save() {
-    localStorage.setItem('bp-attendees', JSON.stringify(attendees));
+  async function save() {
+    if (saving) return;
+    saving = true;
+    try {
+      const res = await fetch('/api/attendees', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ attendees, sha: fileSha }),
+      });
+      if (res.status === 409) {
+        alert('Someone else updated the list. Refreshing...');
+        location.reload();
+        return;
+      }
+      if (!res.ok) throw new Error('Save failed');
+      const data = await res.json();
+      fileSha = data.sha;
+    } catch (err) {
+      console.error('Save error:', err);
+    } finally {
+      saving = false;
+    }
   }
 
   function render() {
     const grid = document.getElementById('crew-grid');
-    grid.innerHTML = attendees.map(a => {
+    grid.innerHTML = attendees.map((a, i) => {
       const isGoh = a.role === 'Guest of Honor';
       return `<div class="attendee${isGoh ? ' attendee--goh' : ''}">
-        ${!isGoh ? `<button class="remove-btn" onclick="removeAttendee(${a.id})" title="Remove">&#x2715;</button>` : ''}
+        ${!isGoh ? `<button class="remove-btn" onclick="removeAttendee(${i})" title="Remove">&#x2715;</button>` : ''}
         <div class="attendee-name">${esc(a.name)}</div>
         ${a.role ? `<div class="attendee-role">${esc(a.role)}</div>` : ''}
-        <span class="status status--${a.status}" onclick="toggleStatus(${a.id})" title="Click to change">${LABELS[a.status]}</span>
+        <span class="status status--${a.status}" onclick="toggleStatus(${i})" title="Click to change">${LABELS[a.status]}</span>
       </div>`;
     }).join('');
   }
@@ -1113,18 +1138,18 @@
     return d.innerHTML;
   }
 
-  window.toggleStatus = function(id) {
-    const a = attendees.find(x => x.id === id);
+  window.toggleStatus = function(i) {
+    const a = attendees[i];
     if (!a) return;
     a.status = STATUSES[(STATUSES.indexOf(a.status) + 1) % 3];
-    save();
     render();
+    save();
   };
 
-  window.removeAttendee = function(id) {
-    attendees = attendees.filter(x => x.id !== id);
-    save();
+  window.removeAttendee = function(i) {
+    attendees.splice(i, 1);
     render();
+    save();
   };
 
   document.getElementById('add-form').addEventListener('submit', function(e) {
@@ -1133,13 +1158,13 @@
     const name = input.value.trim();
     if (!name) return;
     attendees.push({ id: Date.now(), name, role: '', status: 'pending' });
-    save();
     render();
+    save();
     input.value = '';
     input.focus();
   });
 
-  render();
+  load();
 </script>
 
 </body>
