@@ -606,6 +606,8 @@
   .tl-item:nth-child(8) { animation-delay: 0.32s; }
   .tl-item:nth-child(9) { animation-delay: 0.36s; }
   .tl-item:nth-child(10) { animation-delay: 0.40s; }
+  .tl-item:nth-child(11) { animation-delay: 0.44s; }
+  .tl-item:nth-child(12) { animation-delay: 0.48s; }
 
   @media (prefers-reduced-motion: reduce) {
     .tl-item { animation: none; }
@@ -631,7 +633,7 @@
   <div class="hero-eyebrow">Bachelor Party</div>
   <h1 class="hero-title">Tadas Gets <em>Married!</em></h1>
   <p class="hero-sub">A Day in New York City</p>
-  <p class="hero-location">Manhattan, NY</p>
+  <p class="hero-location">Manhattan &amp; Brooklyn, NY</p>
 </header>
 
 <div class="container">
@@ -841,37 +843,43 @@
         <div class="tl-dot tl-dot--walk"></div>
         <div class="walk">
           <div class="walk-header">
-            <span class="walk-label">&#x1f6b6; Walking</span>
-            <span class="walk-stats">8&ndash;10 min &middot; 0.4 mi</span>
+            <span class="walk-label">&#x1f697; Uber</span>
+            <span class="walk-stats">15&ndash;25 min &middot; 4.2 mi</span>
           </div>
           <div class="walk-map">
-            <svg viewBox="0 0 440 200">
-              <rect width="440" height="200" rx="6" fill="#0c0b08"/>
-              <line x1="100" y1="30" x2="100" y2="180" stroke="#1a1810" stroke-width="1"/>
-              <line x1="200" y1="30" x2="200" y2="180" stroke="#1a1810" stroke-width="1"/>
-              <line x1="290" y1="30" x2="290" y2="180" stroke="#1a1810" stroke-width="1"/>
-              <line x1="380" y1="30" x2="380" y2="180" stroke="#1a1810" stroke-width="1"/>
-              <line x1="30" y1="45" x2="420" y2="45" stroke="#1a1810" stroke-width="1"/>
-              <line x1="30" y1="80" x2="420" y2="80" stroke="#1a1810" stroke-width="1"/>
-              <line x1="30" y1="115" x2="420" y2="115" stroke="#1a1810" stroke-width="1"/>
-              <line x1="30" y1="150" x2="420" y2="150" stroke="#1a1810" stroke-width="1"/>
-              <line x1="30" y1="170" x2="420" y2="170" stroke="#1a1810" stroke-width="1"/>
-              <text x="410" y="41" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">36th</text>
-              <text x="410" y="76" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">34th</text>
-              <text x="410" y="146" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">30th</text>
-              <text x="410" y="166" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">29th</text>
-              <text x="100" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">7th</text>
-              <text x="200" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">6th</text>
-              <text x="290" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Bway</text>
-              <text x="380" y="195" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">5th</text>
-              <path d="M290,170 L200,170 L200,45" fill="none" stroke="#c99a2e" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" class="route-path"/>
-              <circle cx="290" cy="170" r="6" fill="#7dba6e"/>
-              <text x="290" y="158" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Swingers</text>
-              <circle cx="200" cy="45" r="6" fill="#c99a2e"/>
-              <text x="200" y="33" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Keens</text>
+            <svg viewBox="0 0 500 240">
+              <rect width="500" height="240" rx="6" fill="#0c0b08"/>
+              <rect x="20" y="30" width="220" height="170" rx="3" fill="none" stroke="#1a1810" stroke-width="1"/>
+              <text x="130" y="22" text-anchor="middle" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">Manhattan</text>
+              <line x1="60" y1="30" x2="60" y2="200" stroke="#1a1810" stroke-width="1"/>
+              <line x1="120" y1="30" x2="120" y2="200" stroke="#1a1810" stroke-width="1"/>
+              <line x1="180" y1="30" x2="180" y2="200" stroke="#1a1810" stroke-width="1"/>
+              <line x1="20" y1="80" x2="240" y2="80" stroke="#1a1810" stroke-width="1"/>
+              <line x1="20" y1="130" x2="240" y2="130" stroke="#1a1810" stroke-width="1"/>
+              <text x="60" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Bway</text>
+              <text x="120" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">5th</text>
+              <text x="180" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">3rd</text>
+              <text x="238" y="76" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">29th</text>
+              <rect x="290" y="50" width="190" height="150" rx="3" fill="none" stroke="#1a1810" stroke-width="1"/>
+              <text x="385" y="42" text-anchor="middle" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">Williamsburg</text>
+              <line x1="330" y1="50" x2="330" y2="200" stroke="#1a1810" stroke-width="1"/>
+              <line x1="390" y1="50" x2="390" y2="200" stroke="#1a1810" stroke-width="1"/>
+              <line x1="440" y1="50" x2="440" y2="200" stroke="#1a1810" stroke-width="1"/>
+              <line x1="290" y1="100" x2="480" y2="100" stroke="#1a1810" stroke-width="1"/>
+              <line x1="290" y1="150" x2="480" y2="150" stroke="#1a1810" stroke-width="1"/>
+              <text x="330" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Driggs</text>
+              <text x="390" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Bedford</text>
+              <text x="440" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Berry</text>
+              <rect x="250" y="95" width="30" height="18" rx="3" fill="#1a1810" stroke="#282520" stroke-width="1"/>
+              <text x="265" y="107" text-anchor="middle" fill="#4a4538" font-size="7" font-family="inherit">E. River</text>
+              <path d="M60,80 L240,80 L250,95 Q265,105 280,100 L330,100 L330,150 L390,150" fill="none" stroke="#c99a2e" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" class="route-path"/>
+              <circle cx="60" cy="80" r="6" fill="#7dba6e"/>
+              <text x="60" y="68" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Swingers</text>
+              <circle cx="390" cy="150" r="6" fill="#c99a2e"/>
+              <text x="390" y="168" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Peter Luger</text>
             </svg>
           </div>
-          <div class="walk-dir">&#x2192; North on 6th Ave, 7 blocks straight up to 36th St</div>
+          <div class="walk-dir">&#x2192; Uber across the Williamsburg Bridge to Brooklyn</div>
         </div>
       </div>
 
@@ -880,6 +888,64 @@
         <div class="venue">
           <div class="venue-time">7:00 PM</div>
           <div class="venue-body">
+            <div class="optional-tag" style="margin-bottom:8px">Option 1</div>
+            <h2 class="venue-name">Peter Luger Steak House</h2>
+            <div class="venue-addr">178 Broadway &middot; Williamsburg, Brooklyn</div>
+            <div class="stars">
+              <span class="stars-icons">&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</span>
+              <span class="stars-num">4.4</span>
+              <span class="stars-count">(13,500+ reviews)</span>
+            </div>
+            <p class="venue-desc">
+              Brooklyn&#x2019;s legendary steakhouse since 1887. Cash only, no menus needed&mdash;you&#x2019;re here
+              for the Porterhouse. Zagat rated it #1 steakhouse in NYC for 30 consecutive years.
+              Old-school German beer hall atmosphere with famously gruff waiters and wood-paneled walls.
+            </p>
+            <div class="reviews">
+              <div class="reviews-label">What people say</div>
+              <div class="quote">&#x201c;The Porterhouse for two is arguably the best steak you will ever eat in your entire life.&#x201d;</div>
+              <div class="quote">&#x201c;A quintessential NYC experience. The sizzling platter presentation is iconic.&#x201d;</div>
+            </div>
+            <div class="dish">
+              <div class="dish-img">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <radialGradient id="p3" cx="50%" cy="45%" r="50%"><stop offset="0%" stop-color="#181610"/><stop offset="100%" stop-color="#0f0e0a"/></radialGradient>
+                    <linearGradient id="stk" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a0503a"/><stop offset="50%" stop-color="#8b3c28"/><stop offset="100%" stop-color="#6d2a18"/></linearGradient>
+                    <linearGradient id="siz" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c0c0c0"/><stop offset="100%" stop-color="#888888"/></linearGradient>
+                  </defs>
+                  <circle cx="100" cy="100" r="95" fill="url(#p3)"/>
+                  <ellipse cx="100" cy="118" rx="68" ry="10" fill="#181610" opacity="0.6"/>
+                  <rect x="30" y="95" width="140" height="30" rx="3" fill="url(#siz)"/>
+                  <rect x="28" y="92" width="144" height="6" rx="2" fill="#d0d0d0"/>
+                  <ellipse cx="100" cy="88" rx="52" ry="28" fill="url(#stk)"/>
+                  <ellipse cx="100" cy="85" rx="42" ry="20" fill="#c4786a" opacity="0.35"/>
+                  <path d="M75,78 Q85,70 100,75 Q115,68 125,78" fill="none" stroke="#ddb44e" stroke-width="1.5" opacity="0.6"/>
+                  <path d="M80,85 Q90,78 105,82 Q118,76 120,85" fill="none" stroke="#ddb44e" stroke-width="1" opacity="0.4"/>
+                  <rect x="55" y="68" width="5" height="50" rx="2.5" fill="#f0ebd8" transform="rotate(-8, 57, 93)"/>
+                  <circle cx="57" cy="63" r="5" fill="#f0ebd8" transform="rotate(-8, 57, 63)"/>
+                  <line x1="70" y1="72" x2="68" y2="58" stroke="#f0ebd8" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                  <line x1="80" y1="68" x2="82" y2="55" stroke="#f0ebd8" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+                  <line x1="110" y1="68" x2="114" y2="54" stroke="#f0ebd8" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+                  <line x1="125" y1="72" x2="128" y2="58" stroke="#f0ebd8" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+                </svg>
+              </div>
+              <div>
+                <div class="dish-badge">Legendary #1</div>
+                <div class="dish-name">Porterhouse for Two</div>
+                <div class="dish-desc">USDA Prime dry-aged Porterhouse, sliced tableside and served sizzling on a hot plate with their signature house steak sauce. Cash only.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="venue" style="border-color: var(--accent-border); border-style: dashed;">
+          <div class="venue-time" style="background: var(--surface-raised); color: var(--accent);">7:00 PM &#x2014; ALT</div>
+          <div class="venue-body">
+            <div class="optional-tag" style="margin-bottom:8px">Option 2</div>
             <h2 class="venue-name">Keens Steakhouse</h2>
             <div class="venue-addr">72 W 36th St &middot; Midtown</div>
             <div class="stars">
@@ -891,7 +957,7 @@
               NYC&#x2019;s legendary steakhouse since 1885. Mahogany walls, 50,000 clay smoking pipes
               on the ceilings, and a Pipe Club roster that includes Teddy Roosevelt, Babe Ruth,
               and Albert Einstein. The Infatuation gave it a 9.0&mdash;&#x201c;Nowhere in Manhattan is
-              history more palpable.&#x201d;
+              history more palpable.&#x201d; Stays in Manhattan&mdash;8-minute walk from Swingers.
             </p>
             <div class="reviews">
               <div class="reviews-label">What people say</div>
@@ -902,11 +968,11 @@
               <div class="dish-img">
                 <svg viewBox="0 0 200 200">
                   <defs>
-                    <radialGradient id="p3" cx="50%" cy="45%" r="50%"><stop offset="0%" stop-color="#181610"/><stop offset="100%" stop-color="#0f0e0a"/></radialGradient>
+                    <radialGradient id="p3b" cx="50%" cy="45%" r="50%"><stop offset="0%" stop-color="#181610"/><stop offset="100%" stop-color="#0f0e0a"/></radialGradient>
                     <linearGradient id="chp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5e3c"/><stop offset="50%" stop-color="#6d3a1f"/><stop offset="100%" stop-color="#4a2510"/></linearGradient>
                     <linearGradient id="ser" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a06030"/><stop offset="100%" stop-color="#703818"/></linearGradient>
                   </defs>
-                  <circle cx="100" cy="100" r="95" fill="url(#p3)"/>
+                  <circle cx="100" cy="100" r="95" fill="url(#p3b)"/>
                   <ellipse cx="100" cy="115" rx="70" ry="38" fill="#1a1810" stroke="#282520" stroke-width="1.5"/>
                   <ellipse cx="95" cy="105" rx="45" ry="30" fill="url(#chp)"/>
                   <ellipse cx="95" cy="105" rx="38" ry="24" fill="url(#ser)"/>
@@ -932,34 +998,31 @@
         <div class="tl-dot tl-dot--walk"></div>
         <div class="walk">
           <div class="walk-header">
-            <span class="walk-label">&#x1f6b6; Walking</span>
-            <span class="walk-stats">5&ndash;7 min &middot; 0.3 mi</span>
+            <span class="walk-label">&#x1f697; Uber to Station</span>
+            <span class="walk-stats">20&ndash;30 min</span>
           </div>
           <div class="walk-map">
-            <svg viewBox="0 0 400 160">
-              <rect width="400" height="160" rx="6" fill="#0c0b08"/>
-              <line x1="80" y1="20" x2="80" y2="140" stroke="#1a1810" stroke-width="1"/>
-              <line x1="180" y1="20" x2="180" y2="140" stroke="#1a1810" stroke-width="1"/>
-              <line x1="280" y1="20" x2="280" y2="140" stroke="#1a1810" stroke-width="1"/>
-              <line x1="370" y1="20" x2="370" y2="140" stroke="#1a1810" stroke-width="1"/>
-              <line x1="30" y1="40" x2="390" y2="40" stroke="#1a1810" stroke-width="1"/>
-              <line x1="30" y1="80" x2="390" y2="80" stroke="#1a1810" stroke-width="1"/>
-              <line x1="30" y1="120" x2="390" y2="120" stroke="#1a1810" stroke-width="1"/>
-              <text x="375" y="36" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">36th</text>
-              <text x="375" y="76" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">35th</text>
-              <text x="375" y="116" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">34th</text>
-              <text x="80" y="152" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">8th</text>
-              <text x="180" y="152" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">7th</text>
-              <text x="280" y="152" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">6th</text>
-              <text x="370" y="152" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">5th</text>
-              <path d="M280,40 L180,40 L180,120" fill="none" stroke="#c99a2e" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" class="route-path"/>
-              <circle cx="280" cy="40" r="6" fill="#7dba6e"/>
-              <text x="280" y="28" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Keens</text>
-              <circle cx="180" cy="120" r="6" fill="#c99a2e"/>
-              <text x="180" y="136" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Penn Station</text>
+            <svg viewBox="0 0 500 180">
+              <rect width="500" height="180" rx="6" fill="#0c0b08"/>
+              <rect x="20" y="30" width="160" height="120" rx="3" fill="none" stroke="#1a1810" stroke-width="1"/>
+              <text x="100" y="22" text-anchor="middle" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">Brooklyn / Manhattan</text>
+              <rect x="280" y="30" width="200" height="120" rx="3" fill="none" stroke="#1a1810" stroke-width="1"/>
+              <text x="380" y="22" text-anchor="middle" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">Queens</text>
+              <line x1="320" y1="30" x2="320" y2="150" stroke="#1a1810" stroke-width="1"/>
+              <line x1="380" y1="30" x2="380" y2="150" stroke="#1a1810" stroke-width="1"/>
+              <line x1="440" y1="30" x2="440" y2="150" stroke="#1a1810" stroke-width="1"/>
+              <line x1="280" y1="70" x2="480" y2="70" stroke="#1a1810" stroke-width="1"/>
+              <line x1="280" y1="110" x2="480" y2="110" stroke="#1a1810" stroke-width="1"/>
+              <text x="196" y="95" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">BQE</text>
+              <text x="248" y="95" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">LIE</text>
+              <path d="M80,90 L180,90 Q210,90 230,85 L280,70 L440,70" fill="none" stroke="#c99a2e" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" class="route-path"/>
+              <circle cx="80" cy="90" r="6" fill="#7dba6e"/>
+              <text x="80" y="78" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Dinner</text>
+              <circle cx="440" cy="70" r="6" fill="#c99a2e"/>
+              <text x="440" y="58" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Woodside</text>
             </svg>
           </div>
-          <div class="walk-dir">&#x2192; West on 36th to 7th Ave, south 2 blocks to Penn Station</div>
+          <div class="walk-dir">&#x2192; Uber from dinner to Woodside LIRR station in Queens</div>
         </div>
       </div>
 
@@ -969,8 +1032,8 @@
           <div class="train-icon">&#x1f686;</div>
           <div>
             <div class="train-label">LIRR Return</div>
-            <div class="train-time">10:17 PM</div>
-            <div class="train-route">Penn Station &#x2192; Ronkonkoma</div>
+            <div class="train-time">~10:30 PM</div>
+            <div class="train-route">Woodside &#x2192; Ronkonkoma</div>
           </div>
         </div>
       </div>
@@ -981,20 +1044,20 @@
     <div class="section-label">Stay The Night?</div>
     <div class="optional-tag">Optional</div>
     <p class="hotel-note">
-      If the crew wants to keep the night going, here are Hilton options near Penn Station
-      with an early train back Sunday morning.
+      If the crew wants to keep the night going, here are hotel options
+      with an Uber to Woodside and an early train back Sunday morning.
     </p>
     <div class="hotel-grid">
       <div class="hotel">
         <div class="hotel-name">Hilton Garden Inn<br/>Times Square South</div>
         <div class="hotel-meta">326 W 37th St</div>
-        <div class="hotel-meta">&#x1f6b6; 5 min from Penn Station</div>
+        <div class="hotel-meta">&#x1f6b6; Midtown Manhattan</div>
         <div class="hotel-price">~$213+ <span>/night</span></div>
       </div>
       <div class="hotel">
         <div class="hotel-name">DoubleTree by Hilton<br/>Chelsea</div>
         <div class="hotel-meta">128 W 29th St</div>
-        <div class="hotel-meta">&#x1f6b6; 10 min from Penn Station</div>
+        <div class="hotel-meta">&#x1f6b6; Near Swingers</div>
         <div class="hotel-price">~$200+ <span>/night</span></div>
       </div>
     </div>
@@ -1002,7 +1065,7 @@
       <span class="morning-train-icon">&#x1f682;</span>
       <div>
         <strong>8:17 AM Sunday</strong>
-        <div class="morning-train-sub">Penn Station &#x2192; Ronkonkoma</div>
+        <div class="morning-train-sub">Uber to Woodside &#x2192; LIRR to Ronkonkoma</div>
       </div>
     </div>
   </section>
