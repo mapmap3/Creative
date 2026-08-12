@@ -662,43 +662,45 @@
         <div class="tl-dot tl-dot--walk"></div>
         <div class="walk">
           <div class="walk-header">
-            <span class="walk-label">&#x1f697; Uber</span>
-            <span class="walk-stats">15&ndash;25 min &middot; 4.2 mi</span>
+            <span class="walk-label">&#x1f687; Subway</span>
+            <span class="walk-stats">~25 min &middot; 1 transfer</span>
           </div>
           <div class="walk-map">
-            <svg viewBox="0 0 500 240">
-              <rect width="500" height="240" rx="6" fill="#0c0b08"/>
-              <rect x="20" y="30" width="220" height="170" rx="3" fill="none" stroke="#1a1810" stroke-width="1"/>
-              <text x="130" y="22" text-anchor="middle" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">Manhattan</text>
-              <line x1="60" y1="30" x2="60" y2="200" stroke="#1a1810" stroke-width="1"/>
-              <line x1="120" y1="30" x2="120" y2="200" stroke="#1a1810" stroke-width="1"/>
-              <line x1="180" y1="30" x2="180" y2="200" stroke="#1a1810" stroke-width="1"/>
-              <line x1="20" y1="80" x2="240" y2="80" stroke="#1a1810" stroke-width="1"/>
-              <line x1="20" y1="130" x2="240" y2="130" stroke="#1a1810" stroke-width="1"/>
-              <text x="60" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">8th Ave</text>
-              <text x="120" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">7th Ave</text>
-              <text x="180" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">5th Ave</text>
-              <text x="238" y="76" text-anchor="end" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">34th St</text>
-              <rect x="290" y="50" width="190" height="150" rx="3" fill="none" stroke="#1a1810" stroke-width="1"/>
-              <text x="385" y="42" text-anchor="middle" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">Williamsburg</text>
-              <line x1="330" y1="50" x2="330" y2="200" stroke="#1a1810" stroke-width="1"/>
-              <line x1="390" y1="50" x2="390" y2="200" stroke="#1a1810" stroke-width="1"/>
-              <line x1="440" y1="50" x2="440" y2="200" stroke="#1a1810" stroke-width="1"/>
-              <line x1="290" y1="100" x2="480" y2="100" stroke="#1a1810" stroke-width="1"/>
-              <line x1="290" y1="150" x2="480" y2="150" stroke="#1a1810" stroke-width="1"/>
-              <text x="330" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Driggs</text>
-              <text x="390" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Bedford</text>
-              <text x="440" y="215" text-anchor="middle" fill="#4a4538" font-size="8" font-family="inherit">Berry</text>
-              <rect x="250" y="95" width="30" height="18" rx="3" fill="#1a1810" stroke="#282520" stroke-width="1"/>
-              <text x="265" y="107" text-anchor="middle" fill="#4a4538" font-size="7" font-family="inherit">E. River</text>
-              <path d="M120,80 L240,80 L250,95 Q265,105 280,100 L330,100 L330,150 L390,150" fill="none" stroke="#c99a2e" stroke-width="3" stroke-dasharray="8 5" stroke-linecap="round" class="route-path"/>
-              <circle cx="120" cy="80" r="6" fill="#7dba6e"/>
-              <text x="120" y="68" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Penn Station</text>
-              <circle cx="390" cy="150" r="6" fill="#c99a2e"/>
-              <text x="390" y="168" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Peter Luger</text>
+            <svg viewBox="0 0 500 220">
+              <rect width="500" height="220" rx="6" fill="#0c0b08"/>
+              <!-- Subway line diagram -->
+              <line x1="40" y1="110" x2="460" y2="110" stroke="#1a1810" stroke-width="1"/>
+              <!-- 1/2/3 line (red) -->
+              <line x1="80" y1="110" x2="230" y2="110" stroke="#ee352e" stroke-width="4" stroke-linecap="round"/>
+              <text x="155" y="98" text-anchor="middle" fill="#ee352e" font-size="10" font-weight="700">1 2 3</text>
+              <!-- L train line (grey/silver) -->
+              <line x1="230" y1="110" x2="400" y2="110" stroke="#a7a9ac" stroke-width="4" stroke-linecap="round"/>
+              <text x="315" y="98" text-anchor="middle" fill="#a7a9ac" font-size="10" font-weight="700">L train</text>
+              <!-- Animated route overlay -->
+              <path d="M80,110 L400,110" fill="none" stroke="#c99a2e" stroke-width="2" stroke-dasharray="8 5" stroke-linecap="round" class="route-path" opacity="0.6"/>
+              <!-- Station dots -->
+              <circle cx="80" cy="110" r="8" fill="#0c0b08" stroke="#ee352e" stroke-width="3"/>
+              <text x="80" y="140" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">Penn Station</text>
+              <text x="80" y="154" text-anchor="middle" fill="#4a4538" font-size="8">34th St</text>
+              <!-- Transfer at 14th St -->
+              <circle cx="230" cy="110" r="8" fill="#0c0b08" stroke="#ffffff" stroke-width="3"/>
+              <rect x="218" y="58" width="24" height="16" rx="3" fill="#282520"/>
+              <text x="230" y="70" text-anchor="middle" fill="#c99a2e" font-size="9" font-weight="700">&#x21C4;</text>
+              <text x="230" y="140" text-anchor="middle" fill="#b0a898" font-size="10" font-weight="700">14th St</text>
+              <text x="230" y="154" text-anchor="middle" fill="#4a4538" font-size="8">Transfer</text>
+              <!-- Bedford Ave -->
+              <circle cx="400" cy="110" r="8" fill="#0c0b08" stroke="#c99a2e" stroke-width="3"/>
+              <text x="400" y="140" text-anchor="middle" fill="#ddb44e" font-size="10" font-weight="700">Bedford Ave</text>
+              <text x="400" y="154" text-anchor="middle" fill="#4a4538" font-size="8">5 min walk to Peter Luger</text>
+              <!-- East River marker -->
+              <rect x="300" y="76" width="50" height="14" rx="3" fill="#1a1810" stroke="#282520" stroke-width="1"/>
+              <text x="325" y="86" text-anchor="middle" fill="#4a4538" font-size="7" font-family="inherit">East River</text>
+              <!-- Manhattan / Brooklyn labels -->
+              <text x="155" y="185" text-anchor="middle" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">Manhattan</text>
+              <text x="400" y="185" text-anchor="middle" fill="#4a4538" font-size="9" font-family="Georgia,serif" font-style="italic">Brooklyn</text>
             </svg>
           </div>
-          <div class="walk-dir">&#x2192; Uber across the Williamsburg Bridge to Brooklyn</div>
+          <div class="walk-dir">&#x2192; 1/2/3 to 14th St, transfer to L train to Bedford Ave, walk to Peter Luger</div>
         </div>
       </div>
 
