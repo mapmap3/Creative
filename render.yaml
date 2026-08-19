@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: creative
+    name: bach
     runtime: node
     plan: starter
     buildCommand: npm install
@@ -8,3 +8,20 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: REPO_BRANCH
+        value: main
+  - type: web
+    name: calendar
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: REPO_BRANCH
+        value: main
