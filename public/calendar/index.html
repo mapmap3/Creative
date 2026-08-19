@@ -325,7 +325,6 @@ function formatWeekLabel(monday) {
   const d1 = monday.getDate();
   const m2 = friday.getMonth() + 1;
   const d2 = friday.getDate();
-  if (m1 === m2) return `${m1}/${d1} – ${d2}`;
   return `${m1}/${d1} – ${m2}/${d2}`;
 }
 
