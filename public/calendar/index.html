@@ -19,7 +19,7 @@
 
   header {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     padding: 32px 20px 20px;
     display: flex;
     flex-direction: column;
@@ -52,6 +52,7 @@
     background-repeat: no-repeat;
     background-position: right 12px center;
     cursor: pointer;
+    min-width: 0;
   }
 
   .controls select:focus {
@@ -62,21 +63,20 @@
 
   .calendar-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     padding: 0 20px 40px;
     display: flex;
     flex-direction: column;
-    gap: 0;
   }
 
-  .week-header {
+  .weekday-header {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 6px;
     padding: 0 0 10px;
   }
 
-  .week-header span {
+  .weekday-header span {
     text-align: center;
     font-size: 11px;
     font-weight: 600;
@@ -85,22 +85,38 @@
     color: #999;
   }
 
-  .week-row {
+  .weekday-row {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 6px;
     margin-bottom: 6px;
   }
 
+  .weekend-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+  }
+
+  .weekend-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #bbb;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+
   .day-cell {
-    aspect-ratio: 1;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 500;
+    padding: 8px 4px;
+    min-height: 70px;
     position: relative;
     transition: all 0.15s ease;
     border: 1.5px solid transparent;
@@ -108,68 +124,83 @@
   }
 
   .day-cell .day-number {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 1;
+    margin-bottom: 4px;
   }
 
-  .day-cell .sitter-dot-row {
+  .day-cell .sitter-names {
     display: flex;
-    gap: 3px;
-    margin-top: 4px;
-    min-height: 8px;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    width: 100%;
   }
 
-  .sitter-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+  .sitter-tag {
+    font-size: 9px;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: #fff;
+    line-height: 1.4;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  /* Adjacent weeks - faded */
-  .week-prev .day-cell,
-  .week-next .day-cell {
+  .week-faded .day-cell {
     opacity: 0.35;
     background: #f0eeeb;
   }
 
-  .week-prev .day-cell:hover,
-  .week-next .day-cell:hover {
+  .week-faded .day-cell:hover {
     opacity: 0.5;
   }
 
-  /* Current week */
-  .week-current .day-cell {
+  .week-active .day-cell {
     background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   }
 
-  .week-current .day-cell.today {
+  .week-active .day-cell.today {
     border-color: #7c6f9c;
     background: #f8f6fb;
   }
 
-  .week-current .day-cell.today .day-number {
+  .week-active .day-cell.today .day-number {
     color: #7c6f9c;
     font-weight: 700;
   }
 
-  /* Sitter mode - selectable */
-  .sitter-mode .week-current .day-cell {
+  .weekend-row.week-faded .day-cell {
+    opacity: 0.35;
+    background: #f0eeeb;
+    box-shadow: none;
+  }
+
+  .weekend-row.week-active .day-cell {
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .sitter-mode .week-active .day-cell {
     cursor: pointer;
   }
 
-  .sitter-mode .week-current .day-cell:hover {
+  .sitter-mode .week-active .day-cell:hover {
     border-color: #c4b8db;
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
 
-  .sitter-mode .week-current .day-cell.selected-by-me {
+  .sitter-mode .week-active .day-cell.selected-by-me {
     background: #ede8f5;
     border-color: #7c6f9c;
   }
 
-  .sitter-mode .week-current .day-cell.selected-by-me .day-number {
+  .sitter-mode .week-active .day-cell.selected-by-me .day-number {
     color: #5a4d7a;
     font-weight: 700;
   }
@@ -178,29 +209,6 @@
     height: 1px;
     background: #e8e5e0;
     margin: 8px 0;
-  }
-
-  .legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    padding: 16px 20px;
-    max-width: 600px;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: #777;
-  }
-
-  .legend-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
   }
 
   .status-bar {
@@ -242,47 +250,39 @@
 <div class="sitter-label" id="sitterLabel"></div>
 
 <div class="calendar-container" id="calendar">
-  <div class="week-header">
-    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
-    <span>Thu</span><span>Fri</span><span>Sat</span>
+  <div class="weekday-header">
+    <span>Mon</span><span>Tue</span><span>Wed</span>
+    <span>Thu</span><span>Fri</span>
   </div>
-  <div id="weekPrev" class="week-row week-prev"></div>
-  <div class="divider"></div>
-  <div id="weekCurrent" class="week-row week-current"></div>
-  <div class="divider"></div>
-  <div id="weekNext" class="week-row week-next"></div>
-</div>
 
-<div class="legend" id="legend"></div>
+  <div id="prevWeekdays" class="weekday-row week-faded"></div>
+  <div class="divider"></div>
+
+  <div id="currentWeekdays" class="weekday-row week-active"></div>
+  <div class="weekend-label">Weekend</div>
+  <div id="currentWeekend" class="weekend-row week-active"></div>
+
+  <div class="divider"></div>
+  <div id="nextWeekdays" class="weekday-row week-faded"></div>
+</div>
 
 <script>
 const SITTERS = ['Grandma', 'Grandpa', 'Aunt Sarah', 'Uncle Mike', 'Babysitter'];
 const SITTER_COLORS = ['#e07b7b', '#5ba3cf', '#6abf8a', '#d4a55a', '#b07cc3'];
+const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
 let bookings = {};
 let fileSha = null;
 let activeSitter = '';
 let saving = false;
 
-function getMonday(d) {
+function getMondayOfWeek(d) {
   const date = new Date(d);
   const day = date.getDay();
   const diff = day === 0 ? -6 : 1 - day;
   date.setDate(date.getDate() + diff);
   date.setHours(0, 0, 0, 0);
   return date;
-}
-
-function getSunday(d) {
-  const date = new Date(d);
-  const day = date.getDay();
-  date.setDate(date.getDate() - day);
-  date.setHours(0, 0, 0, 0);
-  return date;
-}
-
-function getWeekStart(d) {
-  return getSunday(d);
 }
 
 function addDays(d, n) {
@@ -295,13 +295,14 @@ function dateKey(d) {
   return d.toISOString().split('T')[0];
 }
 
-function formatWeekLabel(start) {
-  const end = addDays(start, 6);
-  const opts = { month: 'short', day: 'numeric' };
-  const startStr = start.toLocaleDateString('en-US', opts);
-  const endStr = end.toLocaleDateString('en-US', opts);
-  const year = start.getFullYear();
-  return `${startStr} – ${endStr}, ${year}`;
+function formatWeekLabel(monday) {
+  const friday = addDays(monday, 4);
+  const m1 = monday.getMonth() + 1;
+  const d1 = monday.getDate();
+  const m2 = friday.getMonth() + 1;
+  const d2 = friday.getDate();
+  if (m1 === m2) return `${m1}/${d1} – ${d2}`;
+  return `${m1}/${d1} – ${m2}/${d2}`;
 }
 
 function isToday(d) {
@@ -312,13 +313,13 @@ function isToday(d) {
 function populateWeekDropdown() {
   const sel = document.getElementById('weekSelect');
   const today = new Date();
-  const currentWeekStart = getWeekStart(today);
+  const currentMonday = getMondayOfWeek(today);
 
   for (let i = -8; i <= 16; i++) {
-    const weekStart = addDays(currentWeekStart, i * 7);
+    const monday = addDays(currentMonday, i * 7);
     const opt = document.createElement('option');
-    opt.value = dateKey(weekStart);
-    opt.textContent = formatWeekLabel(weekStart);
+    opt.value = dateKey(monday);
+    opt.textContent = formatWeekLabel(monday);
     if (i === 0) opt.selected = true;
     sel.appendChild(opt);
   }
@@ -334,74 +335,94 @@ function populateSitterDropdown() {
   });
 }
 
-function renderLegend() {
-  const el = document.getElementById('legend');
-  el.innerHTML = SITTERS.map((s, i) =>
-    `<div class="legend-item"><div class="legend-dot" style="background:${SITTER_COLORS[i]}"></div>${s}</div>`
-  ).join('');
-}
-
 function getSittersForDate(d) {
   const key = dateKey(d);
   return bookings[key] || [];
 }
 
-function renderWeekRow(container, weekStart, isCurrent) {
-  container.innerHTML = '';
-  for (let i = 0; i < 7; i++) {
-    const day = addDays(weekStart, i);
-    const cell = document.createElement('div');
-    cell.className = 'day-cell';
-    if (isCurrent && isToday(day)) cell.classList.add('today');
+function buildDayCell(day, isActive) {
+  const cell = document.createElement('div');
+  cell.className = 'day-cell';
+  if (isActive && isToday(day)) cell.classList.add('today');
 
-    const sitters = getSittersForDate(day);
-    const isSelectedByMe = activeSitter && sitters.includes(activeSitter);
-    if (isSelectedByMe) cell.classList.add('selected-by-me');
+  const sitters = getSittersForDate(day);
+  const isSelectedByMe = activeSitter && sitters.includes(activeSitter);
+  if (isSelectedByMe) cell.classList.add('selected-by-me');
 
-    const num = document.createElement('div');
-    num.className = 'day-number';
-    num.textContent = day.getDate();
-    cell.appendChild(num);
+  const dayOfWeek = DAY_NAMES[day.getDay()];
+  const num = document.createElement('div');
+  num.className = 'day-number';
+  num.textContent = day.getDate();
+  cell.appendChild(num);
 
-    const dotRow = document.createElement('div');
-    dotRow.className = 'sitter-dot-row';
-    sitters.forEach(s => {
-      const idx = SITTERS.indexOf(s);
-      if (idx >= 0) {
-        const dot = document.createElement('div');
-        dot.className = 'sitter-dot';
-        dot.style.background = SITTER_COLORS[idx];
-        dotRow.appendChild(dot);
-      }
-    });
-    cell.appendChild(dotRow);
-
-    if (isCurrent && activeSitter) {
-      cell.addEventListener('click', () => toggleDate(day));
+  const namesContainer = document.createElement('div');
+  namesContainer.className = 'sitter-names';
+  sitters.forEach(s => {
+    const idx = SITTERS.indexOf(s);
+    if (idx >= 0) {
+      const tag = document.createElement('div');
+      tag.className = 'sitter-tag';
+      tag.style.background = SITTER_COLORS[idx];
+      tag.textContent = s;
+      namesContainer.appendChild(tag);
     }
+  });
+  cell.appendChild(namesContainer);
 
-    container.appendChild(cell);
+  if (isActive && activeSitter) {
+    cell.addEventListener('click', () => toggleDate(day));
   }
+
+  return cell;
+}
+
+function renderWeekdayRow(container, monday, isActive) {
+  container.innerHTML = '';
+  for (let i = 0; i < 5; i++) {
+    const day = addDays(monday, i);
+    container.appendChild(buildDayCell(day, isActive));
+  }
+}
+
+function renderWeekendRow(container, monday, isActive) {
+  container.innerHTML = '';
+  const sat = addDays(monday, 5);
+  const sun = addDays(monday, 6);
+
+  const satCell = buildDayCell(sat, isActive);
+  const sunCell = buildDayCell(sun, isActive);
+
+  const satLabel = document.createElement('div');
+  satLabel.style.cssText = 'font-size:10px;color:#999;text-align:center;margin-bottom:2px;font-weight:500';
+  satLabel.textContent = 'Sat ' + sat.getDate();
+  satCell.querySelector('.day-number').textContent = 'Sat ' + sat.getDate();
+
+  const sunLabel = document.createElement('div');
+  sunLabel.textContent = 'Sun ' + sun.getDate();
+  sunCell.querySelector('.day-number').textContent = 'Sun ' + sun.getDate();
+
+  container.appendChild(satCell);
+  container.appendChild(sunCell);
 }
 
 function render() {
   const weekVal = document.getElementById('weekSelect').value;
-  const weekStart = new Date(weekVal + 'T00:00:00');
-  const prevStart = addDays(weekStart, -7);
-  const nextStart = addDays(weekStart, 7);
+  const monday = new Date(weekVal + 'T00:00:00');
+  const prevMonday = addDays(monday, -7);
+  const nextMonday = addDays(monday, 7);
 
-  const body = document.body;
   if (activeSitter) {
-    body.classList.add('sitter-mode');
-    const label = document.getElementById('sitterLabel');
-    label.textContent = `Tap dates you can watch Lyla, ${activeSitter}`;
+    document.body.classList.add('sitter-mode');
+    document.getElementById('sitterLabel').textContent =
+      `Tap dates you can watch Lyla, ${activeSitter}`;
   } else {
-    body.classList.remove('sitter-mode');
+    document.body.classList.remove('sitter-mode');
   }
 
-  renderWeekRow(document.getElementById('weekPrev'), prevStart, false);
-  renderWeekRow(document.getElementById('weekCurrent'), weekStart, true);
-  renderWeekRow(document.getElementById('weekNext'), nextStart, false);
+  renderWeekdayRow(document.getElementById('prevWeekdays'), prevMonday, false);
+  renderWeekdayRow(document.getElementById('currentWeekdays'), monday, true);
+  renderWeekendRow(document.getElementById('currentWeekend'), monday, true);
+  renderWeekdayRow(document.getElementById('nextWeekdays'), nextMonday, false);
 }
 
 async function toggleDate(day) {
@@ -437,7 +458,9 @@ async function loadBookings() {
     fileSha = data.sha;
     setStatus('', '');
   } catch (e) {
-    setStatus('Could not load calendar', 'error');
+    bookings = {};
+    fileSha = null;
+    setStatus('', '');
     console.error(e);
   }
   render();
@@ -484,7 +507,6 @@ document.getElementById('sitterSelect').addEventListener('change', (e) => {
 
 populateWeekDropdown();
 populateSitterDropdown();
-renderLegend();
 loadBookings();
 </script>
 
