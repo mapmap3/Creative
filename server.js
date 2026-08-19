@@ -10,6 +10,7 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = process.env.REPO_OWNER || 'mapmap3';
 const REPO_NAME = process.env.REPO_NAME || 'Creative';
 const CSV_PATH = 'data/attendees.csv';
+const LYLA_CSV_PATH = 'data/lyla-calendar.csv';
 const BRANCH = process.env.REPO_BRANCH || 'main';
 
 app.use(express.json());
@@ -84,6 +85,64 @@ app.put('/api/attendees', async (req, res) => {
     }
     res.status(500).json({ error: 'Failed to save attendees' });
   }
+});
+
+// Lyla calendar API
+function csvToBookings(csv) {
+  const lines = csv.trim().split('\n');
+  return lines.slice(1).filter(l => l.trim()).map(line => {
+    const [sitter, date] = line.split(',').map(s => s.trim());
+    return { sitter, date };
+  });
+}
+
+function bookingsToCsv(bookings) {
+  const header = 'sitter,date';
+  const rows = bookings.map(b => `${b.sitter},${b.date}`);
+  return header + '\n' + rows.join('\n') + '\n';
+}
+
+app.get('/api/lyla-calendar', async (_req, res) => {
+  try {
+    const data = await githubRequest(`/contents/${LYLA_CSV_PATH}?ref=${BRANCH}`);
+    const csv = Buffer.from(data.content, 'base64').toString('utf-8');
+    const bookings = csvToBookings(csv);
+    res.json({ bookings, sha: data.sha });
+  } catch (err) {
+    console.error('GET /api/lyla-calendar error:', err.message);
+    res.status(500).json({ error: 'Failed to load calendar' });
+  }
+});
+
+app.put('/api/lyla-calendar', async (req, res) => {
+  try {
+    const { bookings, sha } = req.body;
+    if (!bookings || !sha) {
+      return res.status(400).json({ error: 'bookings and sha required' });
+    }
+    const csv = bookingsToCsv(bookings);
+    const content = Buffer.from(csv).toString('base64');
+    const data = await githubRequest(`/contents/${LYLA_CSV_PATH}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        message: 'Update Lyla calendar',
+        content,
+        sha,
+        branch: BRANCH,
+      }),
+    });
+    res.json({ sha: data.content.sha });
+  } catch (err) {
+    console.error('PUT /api/lyla-calendar error:', err.message);
+    if (err.message.includes('409')) {
+      return res.status(409).json({ error: 'Conflict — someone else updated. Please refresh.' });
+    }
+    res.status(500).json({ error: 'Failed to save calendar' });
+  }
+});
+
+app.get('/lyla', (_req, res) => {
+  res.sendFile(join(__dirname, 'public', 'lyla', 'index.html'));
 });
 
 app.get('*', (_req, res) => {

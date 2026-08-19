@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyla's Calendar</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #faf9f7;
+    color: #2d2d2d;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header {
+    width: 100%;
+    max-width: 600px;
+    padding: 32px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: #1a1a1a;
+  }
+
+  .controls {
+    display: flex;
+    gap: 12px;
+  }
+
+  .controls select {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid #d4d0cb;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 14px;
+    color: #2d2d2d;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+  }
+
+  .controls select:focus {
+    outline: none;
+    border-color: #7c6f9c;
+    box-shadow: 0 0 0 3px rgba(124, 111, 156, 0.15);
+  }
+
+  .calendar-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .week-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    padding: 0 0 10px;
+  }
+
+  .week-header span {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #999;
+  }
+
+  .week-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .day-cell {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.15s ease;
+    border: 1.5px solid transparent;
+    background: #fff;
+  }
+
+  .day-cell .day-number {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .day-cell .sitter-dot-row {
+    display: flex;
+    gap: 3px;
+    margin-top: 4px;
+    min-height: 8px;
+  }
+
+  .sitter-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+
+  /* Adjacent weeks - faded */
+  .week-prev .day-cell,
+  .week-next .day-cell {
+    opacity: 0.35;
+    background: #f0eeeb;
+  }
+
+  .week-prev .day-cell:hover,
+  .week-next .day-cell:hover {
+    opacity: 0.5;
+  }
+
+  /* Current week */
+  .week-current .day-cell {
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .week-current .day-cell.today {
+    border-color: #7c6f9c;
+    background: #f8f6fb;
+  }
+
+  .week-current .day-cell.today .day-number {
+    color: #7c6f9c;
+    font-weight: 700;
+  }
+
+  /* Sitter mode - selectable */
+  .sitter-mode .week-current .day-cell {
+    cursor: pointer;
+  }
+
+  .sitter-mode .week-current .day-cell:hover {
+    border-color: #c4b8db;
+    transform: scale(1.04);
+  }
+
+  .sitter-mode .week-current .day-cell.selected-by-me {
+    background: #ede8f5;
+    border-color: #7c6f9c;
+  }
+
+  .sitter-mode .week-current .day-cell.selected-by-me .day-number {
+    color: #5a4d7a;
+    font-weight: 700;
+  }
+
+  .divider {
+    height: 1px;
+    background: #e8e5e0;
+    margin: 8px 0;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    padding: 16px 20px;
+    max-width: 600px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #777;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .status-bar {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    padding: 8px 0;
+    min-height: 28px;
+  }
+
+  .status-bar.error { color: #c0392b; }
+  .status-bar.saving { color: #7c6f9c; }
+
+  .sitter-label {
+    text-align: center;
+    font-size: 13px;
+    color: #7c6f9c;
+    font-weight: 500;
+    padding: 4px 0 12px;
+    display: none;
+  }
+
+  .sitter-mode .sitter-label { display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Lyla's Calendar</h1>
+  <div class="controls">
+    <select id="weekSelect"></select>
+    <select id="sitterSelect">
+      <option value="">View All</option>
+    </select>
+  </div>
+</header>
+
+<div class="status-bar" id="status"></div>
+<div class="sitter-label" id="sitterLabel"></div>
+
+<div class="calendar-container" id="calendar">
+  <div class="week-header">
+    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+    <span>Thu</span><span>Fri</span><span>Sat</span>
+  </div>
+  <div id="weekPrev" class="week-row week-prev"></div>
+  <div class="divider"></div>
+  <div id="weekCurrent" class="week-row week-current"></div>
+  <div class="divider"></div>
+  <div id="weekNext" class="week-row week-next"></div>
+</div>
+
+<div class="legend" id="legend"></div>
+
+<script>
+const SITTERS = ['Grandma', 'Grandpa', 'Aunt Sarah', 'Uncle Mike', 'Babysitter'];
+const SITTER_COLORS = ['#e07b7b', '#5ba3cf', '#6abf8a', '#d4a55a', '#b07cc3'];
+
+let bookings = {};
+let fileSha = null;
+let activeSitter = '';
+let saving = false;
+
+function getMonday(d) {
+  const date = new Date(d);
+  const day = date.getDay();
+  const diff = day === 0 ? -6 : 1 - day;
+  date.setDate(date.getDate() + diff);
+  date.setHours(0, 0, 0, 0);
+  return date;
+}
+
+function getSunday(d) {
+  const date = new Date(d);
+  const day = date.getDay();
+  date.setDate(date.getDate() - day);
+  date.setHours(0, 0, 0, 0);
+  return date;
+}
+
+function getWeekStart(d) {
+  return getSunday(d);
+}
+
+function addDays(d, n) {
+  const r = new Date(d);
+  r.setDate(r.getDate() + n);
+  return r;
+}
+
+function dateKey(d) {
+  return d.toISOString().split('T')[0];
+}
+
+function formatWeekLabel(start) {
+  const end = addDays(start, 6);
+  const opts = { month: 'short', day: 'numeric' };
+  const startStr = start.toLocaleDateString('en-US', opts);
+  const endStr = end.toLocaleDateString('en-US', opts);
+  const year = start.getFullYear();
+  return `${startStr} – ${endStr}, ${year}`;
+}
+
+function isToday(d) {
+  const now = new Date();
+  return dateKey(d) === dateKey(now);
+}
+
+function populateWeekDropdown() {
+  const sel = document.getElementById('weekSelect');
+  const today = new Date();
+  const currentWeekStart = getWeekStart(today);
+
+  for (let i = -8; i <= 16; i++) {
+    const weekStart = addDays(currentWeekStart, i * 7);
+    const opt = document.createElement('option');
+    opt.value = dateKey(weekStart);
+    opt.textContent = formatWeekLabel(weekStart);
+    if (i === 0) opt.selected = true;
+    sel.appendChild(opt);
+  }
+}
+
+function populateSitterDropdown() {
+  const sel = document.getElementById('sitterSelect');
+  SITTERS.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s;
+    opt.textContent = s;
+    sel.appendChild(opt);
+  });
+}
+
+function renderLegend() {
+  const el = document.getElementById('legend');
+  el.innerHTML = SITTERS.map((s, i) =>
+    `<div class="legend-item"><div class="legend-dot" style="background:${SITTER_COLORS[i]}"></div>${s}</div>`
+  ).join('');
+}
+
+function getSittersForDate(d) {
+  const key = dateKey(d);
+  return bookings[key] || [];
+}
+
+function renderWeekRow(container, weekStart, isCurrent) {
+  container.innerHTML = '';
+  for (let i = 0; i < 7; i++) {
+    const day = addDays(weekStart, i);
+    const cell = document.createElement('div');
+    cell.className = 'day-cell';
+    if (isCurrent && isToday(day)) cell.classList.add('today');
+
+    const sitters = getSittersForDate(day);
+    const isSelectedByMe = activeSitter && sitters.includes(activeSitter);
+    if (isSelectedByMe) cell.classList.add('selected-by-me');
+
+    const num = document.createElement('div');
+    num.className = 'day-number';
+    num.textContent = day.getDate();
+    cell.appendChild(num);
+
+    const dotRow = document.createElement('div');
+    dotRow.className = 'sitter-dot-row';
+    sitters.forEach(s => {
+      const idx = SITTERS.indexOf(s);
+      if (idx >= 0) {
+        const dot = document.createElement('div');
+        dot.className = 'sitter-dot';
+        dot.style.background = SITTER_COLORS[idx];
+        dotRow.appendChild(dot);
+      }
+    });
+    cell.appendChild(dotRow);
+
+    if (isCurrent && activeSitter) {
+      cell.addEventListener('click', () => toggleDate(day));
+    }
+
+    container.appendChild(cell);
+  }
+}
+
+function render() {
+  const weekVal = document.getElementById('weekSelect').value;
+  const weekStart = new Date(weekVal + 'T00:00:00');
+  const prevStart = addDays(weekStart, -7);
+  const nextStart = addDays(weekStart, 7);
+
+  const body = document.body;
+  if (activeSitter) {
+    body.classList.add('sitter-mode');
+    const label = document.getElementById('sitterLabel');
+    label.textContent = `Tap dates you can watch Lyla, ${activeSitter}`;
+  } else {
+    body.classList.remove('sitter-mode');
+  }
+
+  renderWeekRow(document.getElementById('weekPrev'), prevStart, false);
+  renderWeekRow(document.getElementById('weekCurrent'), weekStart, true);
+  renderWeekRow(document.getElementById('weekNext'), nextStart, false);
+}
+
+async function toggleDate(day) {
+  if (!activeSitter || saving) return;
+  const key = dateKey(day);
+  if (!bookings[key]) bookings[key] = [];
+
+  const idx = bookings[key].indexOf(activeSitter);
+  if (idx >= 0) {
+    bookings[key].splice(idx, 1);
+    if (bookings[key].length === 0) delete bookings[key];
+  } else {
+    bookings[key].push(activeSitter);
+  }
+
+  render();
+  await saveBookings();
+}
+
+async function loadBookings() {
+  setStatus('Loading…', '');
+  try {
+    const res = await fetch('/api/lyla-calendar');
+    if (!res.ok) throw new Error('Failed to load');
+    const data = await res.json();
+    bookings = {};
+    data.bookings.forEach(b => {
+      if (!bookings[b.date]) bookings[b.date] = [];
+      if (!bookings[b.date].includes(b.sitter)) {
+        bookings[b.date].push(b.sitter);
+      }
+    });
+    fileSha = data.sha;
+    setStatus('', '');
+  } catch (e) {
+    setStatus('Could not load calendar', 'error');
+    console.error(e);
+  }
+  render();
+}
+
+async function saveBookings() {
+  saving = true;
+  setStatus('Saving…', 'saving');
+  try {
+    const flat = [];
+    Object.entries(bookings).forEach(([date, sitters]) => {
+      sitters.forEach(s => flat.push({ sitter: s, date }));
+    });
+    flat.sort((a, b) => a.date.localeCompare(b.date) || a.sitter.localeCompare(b.sitter));
+
+    const res = await fetch('/api/lyla-calendar', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ bookings: flat, sha: fileSha }),
+    });
+    if (!res.ok) throw new Error('Save failed');
+    const data = await res.json();
+    fileSha = data.sha;
+    setStatus('Saved', '');
+    setTimeout(() => setStatus('', ''), 1500);
+  } catch (e) {
+    setStatus('Save failed – try again', 'error');
+    console.error(e);
+  }
+  saving = false;
+}
+
+function setStatus(msg, cls) {
+  const el = document.getElementById('status');
+  el.textContent = msg;
+  el.className = 'status-bar' + (cls ? ' ' + cls : '');
+}
+
+document.getElementById('weekSelect').addEventListener('change', render);
+document.getElementById('sitterSelect').addEventListener('change', (e) => {
+  activeSitter = e.target.value;
+  render();
+});
+
+populateWeekDropdown();
+populateSitterDropdown();
+renderLegend();
+loadBookings();
+</script>
+
+</body>
+</html>
