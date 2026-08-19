@@ -13,7 +13,17 @@ const CSV_PATH = 'data/attendees.csv';
 const LYLA_CSV_PATH = 'data/lyla-calendar.csv';
 const BRANCH = process.env.REPO_BRANCH || 'main';
 
+const APP_MODE = process.env.APP_MODE || 'bach';
+
 app.use(express.json());
+
+app.get('/', (_req, res) => {
+  if (APP_MODE === 'calendar') {
+    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
+  }
+  res.sendFile(join(__dirname, 'public', 'index.html'));
+});
+
 app.use(express.static(join(__dirname, 'public')));
 
 async function githubRequest(endpoint, options = {}) {
@@ -139,15 +149,6 @@ app.put('/api/lyla-calendar', async (req, res) => {
     }
     res.status(500).json({ error: 'Failed to save calendar' });
   }
-});
-
-const APP_MODE = process.env.APP_MODE || 'bach';
-
-app.get('/', (_req, res) => {
-  if (APP_MODE === 'calendar') {
-    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
-  }
-  res.sendFile(join(__dirname, 'public', 'index.html'));
 });
 
 app.get('/calendar', (_req, res) => {
