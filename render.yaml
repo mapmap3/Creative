@@ -25,3 +25,5 @@ services:
         sync: false
       - key: REPO_BRANCH
         value: main
+      - key: APP_MODE
+        value: calendar
