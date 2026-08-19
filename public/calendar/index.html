@@ -34,6 +34,15 @@
     color: #1a1a1a;
   }
 
+  .month-label {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: #444;
+    padding: 0 0 4px;
+    letter-spacing: -0.2px;
+  }
+
   .controls {
     display: flex;
     gap: 12px;
@@ -123,6 +132,24 @@
     background: #fff;
   }
 
+  .weekend-row .day-cell {
+    min-height: 44px;
+    padding: 6px 4px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .weekend-row .day-cell .day-number {
+    margin-bottom: 0;
+  }
+
+  .weekend-row .day-cell .sitter-names {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
   .day-cell .day-number {
     font-size: 15px;
     font-weight: 500;
@@ -154,10 +181,11 @@
   .week-faded .day-cell {
     opacity: 0.35;
     background: #f0eeeb;
+    cursor: pointer;
   }
 
   .week-faded .day-cell:hover {
-    opacity: 0.5;
+    opacity: 0.55;
   }
 
   .week-active .day-cell {
@@ -173,12 +201,6 @@
   .week-active .day-cell.today .day-number {
     color: #7c6f9c;
     font-weight: 700;
-  }
-
-  .weekend-row.week-faded .day-cell {
-    opacity: 0.35;
-    background: #f0eeeb;
-    box-shadow: none;
   }
 
   .weekend-row.week-active .day-cell {
@@ -250,6 +272,7 @@
 <div class="sitter-label" id="sitterLabel"></div>
 
 <div class="calendar-container" id="calendar">
+  <div class="month-label" id="monthLabel"></div>
   <div class="weekday-header">
     <span>Mon</span><span>Tue</span><span>Wed</span>
     <span>Thu</span><span>Fri</span>
@@ -269,7 +292,8 @@
 <script>
 const SITTERS = ['Grandma', 'Grandpa', 'Aunt Sarah', 'Uncle Mike', 'Babysitter'];
 const SITTER_COLORS = ['#e07b7b', '#5ba3cf', '#6abf8a', '#d4a55a', '#b07cc3'];
-const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONTH_NAMES = ['January','February','March','April','May','June',
+  'July','August','September','October','November','December'];
 
 let bookings = {};
 let fileSha = null;
@@ -308,6 +332,26 @@ function formatWeekLabel(monday) {
 function isToday(d) {
   const now = new Date();
   return dateKey(d) === dateKey(now);
+}
+
+function setSelectedWeek(mondayKey) {
+  const sel = document.getElementById('weekSelect');
+  sel.value = mondayKey;
+  render();
+}
+
+function navigateToWeek(monday) {
+  const key = dateKey(monday);
+  const sel = document.getElementById('weekSelect');
+  const exists = Array.from(sel.options).some(o => o.value === key);
+  if (!exists) {
+    const opt = document.createElement('option');
+    opt.value = key;
+    opt.textContent = formatWeekLabel(monday);
+    sel.appendChild(opt);
+  }
+  sel.value = key;
+  render();
 }
 
 function populateWeekDropdown() {
@@ -349,7 +393,6 @@ function buildDayCell(day, isActive) {
   const isSelectedByMe = activeSitter && sitters.includes(activeSitter);
   if (isSelectedByMe) cell.classList.add('selected-by-me');
 
-  const dayOfWeek = DAY_NAMES[day.getDay()];
   const num = document.createElement('div');
   num.className = 'day-number';
   num.textContent = day.getDate();
@@ -376,11 +419,15 @@ function buildDayCell(day, isActive) {
   return cell;
 }
 
-function renderWeekdayRow(container, monday, isActive) {
+function renderWeekdayRow(container, monday, isActive, navigateMonday) {
   container.innerHTML = '';
   for (let i = 0; i < 5; i++) {
     const day = addDays(monday, i);
-    container.appendChild(buildDayCell(day, isActive));
+    const cell = buildDayCell(day, isActive);
+    if (!isActive && navigateMonday) {
+      cell.addEventListener('click', () => navigateToWeek(navigateMonday));
+    }
+    container.appendChild(cell);
   }
 }
 
@@ -392,17 +439,25 @@ function renderWeekendRow(container, monday, isActive) {
   const satCell = buildDayCell(sat, isActive);
   const sunCell = buildDayCell(sun, isActive);
 
-  const satLabel = document.createElement('div');
-  satLabel.style.cssText = 'font-size:10px;color:#999;text-align:center;margin-bottom:2px;font-weight:500';
-  satLabel.textContent = 'Sat ' + sat.getDate();
   satCell.querySelector('.day-number').textContent = 'Sat ' + sat.getDate();
-
-  const sunLabel = document.createElement('div');
-  sunLabel.textContent = 'Sun ' + sun.getDate();
   sunCell.querySelector('.day-number').textContent = 'Sun ' + sun.getDate();
 
   container.appendChild(satCell);
   container.appendChild(sunCell);
+}
+
+function updateMonthLabel(monday) {
+  const friday = addDays(monday, 4);
+  const m1 = monday.getMonth();
+  const m2 = friday.getMonth();
+  const y = monday.getFullYear();
+  let label;
+  if (m1 === m2) {
+    label = `${MONTH_NAMES[m1]} ${y}`;
+  } else {
+    label = `${MONTH_NAMES[m1]} / ${MONTH_NAMES[m2]} ${y}`;
+  }
+  document.getElementById('monthLabel').textContent = label;
 }
 
 function render() {
@@ -410,6 +465,8 @@ function render() {
   const monday = new Date(weekVal + 'T00:00:00');
   const prevMonday = addDays(monday, -7);
   const nextMonday = addDays(monday, 7);
+
+  updateMonthLabel(monday);
 
   if (activeSitter) {
     document.body.classList.add('sitter-mode');
@@ -419,10 +476,10 @@ function render() {
     document.body.classList.remove('sitter-mode');
   }
 
-  renderWeekdayRow(document.getElementById('prevWeekdays'), prevMonday, false);
-  renderWeekdayRow(document.getElementById('currentWeekdays'), monday, true);
+  renderWeekdayRow(document.getElementById('prevWeekdays'), prevMonday, false, prevMonday);
+  renderWeekdayRow(document.getElementById('currentWeekdays'), monday, true, null);
   renderWeekendRow(document.getElementById('currentWeekend'), monday, true);
-  renderWeekdayRow(document.getElementById('nextWeekdays'), nextMonday, false);
+  renderWeekdayRow(document.getElementById('nextWeekdays'), nextMonday, false, nextMonday);
 }
 
 async function toggleDate(day) {
