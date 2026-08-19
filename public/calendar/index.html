@@ -439,8 +439,8 @@ function renderWeekendRow(container, monday, isActive) {
   const satCell = buildDayCell(sat, isActive);
   const sunCell = buildDayCell(sun, isActive);
 
-  satCell.querySelector('.day-number').textContent = 'Sat ' + sat.getDate();
-  sunCell.querySelector('.day-number').textContent = 'Sun ' + sun.getDate();
+  satCell.querySelector('.day-number').textContent = sat.getDate();
+  sunCell.querySelector('.day-number').textContent = sun.getDate();
 
   container.appendChild(satCell);
   container.appendChild(sunCell);
