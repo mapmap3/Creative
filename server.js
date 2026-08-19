@@ -145,13 +145,13 @@ const APP_MODE = process.env.APP_MODE || 'bach';
 
 app.get('/', (_req, res) => {
   if (APP_MODE === 'calendar') {
-    return res.sendFile(join(__dirname, 'public', 'lyla', 'index.html'));
+    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
   }
   res.sendFile(join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/lyla', (_req, res) => {
-  res.sendFile(join(__dirname, 'public', 'lyla', 'index.html'));
+app.get('/calendar', (_req, res) => {
+  res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
 });
 
 app.get('*', (_req, res) => {
