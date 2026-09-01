@@ -660,8 +660,8 @@ const DATA = {
     { id:"probiotic-enzyme", name:"Raw Probiotic + Enzyme Blend", dose:"60 mg", category:"Digestive Support", notes:"Probiotic organisms and digestive enzymes." },
     { id:"olive-leaf", name:"Olive Leaf Extract", dose:"680 mg", category:"Herbal Extracts", notes:"Oleuropein — antimicrobial and BP-lowering." },
     { id:"oleuropein", name:"Oleuropein", dose:"50 mg", category:"Herbal Extracts", notes:"Active olive leaf compound. Additional standalone dose." },
-    { id:"spike-tri-support", name:"Spike Protein Tri Support", dose:"varies", category:"Specialty Blends", notes:"Nattokinase, bromelain, dandelion. Fibrinolytic.",
-      subIngredients: ["Nattokinase","Bromelain","Dandelion Extract"] },
+    { id:"spike-tri-support", name:"Spike Protein Tri Support", dose:"800 mg", category:"Specialty Blends", notes:"Nattokinase 400 mg (12,000 FU) + Serrapeptase 100 mg (360,000 SPU). Potent fibrinolytic.", flag:"high",
+      subIngredients: ["Serrapeptase 100 mg (360,000 SPU)","Nattokinase 400 mg (12,000 FU)","Natural Enzyme Harmony Blend 100 mg (Papain, Curcumin, Bromelain, Rutin, Amla)","Essential Elements Synergy Blend 100 mg (Vit C, Mg, B6, Ca)","Inulin 100 mg"] },
     { id:"l-lysine", name:"L-Lysine", dose:"3,000 mg", category:"Amino Acids", notes:"Immune support and collagen production." },
     { id:"black-seed-oil", name:"Black Seed Oil", dose:"2,000 mg", category:"Herbal Extracts", notes:"Thymoquinone — anti-inflammatory, immune-modulating." },
     { id:"alcar", name:"Acetyl L-Carnitine", dose:"1,500 mg", category:"Amino Acids", notes:"Mitochondrial function and cognitive health." },
@@ -678,15 +678,23 @@ const DATA = {
     { id:"lycopene", name:"Lycopene", dose:"50 mg", category:"Antioxidants", notes:"Carotenoid antioxidant. Prostate support." },
     { id:"iodine", name:"Iodine", dose:"300 mg (300,000 mcg)", category:"Minerals", notes:"~2,000x the RDA. Requires thyroid monitoring.", flag:"critical" },
     { id:"burnslim", name:"BurnSlim Proprietary Blend", dose:"800 mg", category:"Weight Management", notes:"Contains berberine — drug-like potency for blood sugar.",
-      subIngredients: ["Olive Leaf Extract (20% oleuropein)","Moringa oleifera Extract","Berberine HCl 9%","Citrus Bioflavonoid 50%","Holy Basil Extract","African Mango Seed Extract","Cayenne Pepper Extract 4:1"] }
+      subIngredients: ["Olive Leaf Extract (20% oleuropein)","Moringa oleifera Extract","Berberine HCl 9%","Citrus Bioflavonoid 50%","Holy Basil Extract","African Mango Seed Extract","Cayenne Pepper Extract 4:1"] },
+    { id:"antimicrobial-blend", name:"Antimicrobial Herbal Blend", dose:"2,070 mg", category:"Immune Support", notes:"Potent antimicrobial/anti-parasitic. Contains resveratrol, wormwood, serrapeptase, and piperine.", flag:"high",
+      subIngredients: ["Japanese Knotweed (20% Resveratrol) 600 mg","Cat's Claw (4% Oxindole Alkaloids) 250 mg","Cistus Incanus Leaf 10:1 200 mg","Cryptolepis Sanguinolenta Leaf 20:1 200 mg","Sweet Wormwood Leaf 200 mg","Chinese Skullcap (50% Baicalin) 200 mg","Alchornea Cordifolia Stem 20:1 100 mg","Sarsaparilla Extract 4:1 60 mg","Serrapeptase 2000 SPU/mg 55 mg","Black Pepper Extract (95% Piperine) 5 mg"] },
+    { id:"pulse-male", name:"Pulse Male (NO Booster)", dose:"660 mg", category:"Hormonal Support", notes:"Nitric oxide booster. L-Arginine + L-Citrulline stack.",
+      subIngredients: ["L-Arginine (base) 200 mg","L-Arginine AKG 2:1 200 mg","L-Citrulline HCl 100 mg","L-Citrulline Malate 100 mg","Beta Alanine 40 mg","Niacin 7.5 mg","Calcium 18 mg"] },
+    { id:"snap-prostate", name:"Snap Prostate Health Blend", dose:"2,000 mg", category:"Hormonal Support", notes:"Prostate support with saw palmetto, nettle, mushrooms, turmeric, green tea, lycopene. Adds more zinc (11 mg) and copper (0.9 mg).",
+      subIngredients: ["Vitamin C 27 mg","Magnesium (citrate) 60 mg","Zinc (citrate) 11 mg","Selenium 55 mcg","Copper (bisglycinate) 0.9 mg","Prostate Mushroom Blend 900 mg (Maitake, Reishi)","Urinary Blend 600 mg (Saw Palmetto 45% FA, Nettle Root, Beta Sitosterol)","Antioxidant Blend 500 mg (Turmeric 95% curcuminoids, Green Tea 45% EGCG, Lycopene)"] },
+    { id:"blood-sugar-support", name:"Blood Sugar Support Formula", dose:"~310 mg + vitamins", category:"Weight Management", notes:"Contains guggul, bitter melon, gymnema, cinnamon, banaba, ALA, and LICORICE ROOT. Multiple potent hypoglycemic agents plus chromium.", flag:"high",
+      subIngredients: ["Vitamin C 52.5 mg","Vitamin E 15.75 mg","Biotin 315 mcg","Magnesium (Oxide) 125 mg","Zinc (Oxide) 7.5 mg","Manganese 1 mg","Chromium 76 mcg","Guggul Extract (10% guggulsterones)","Juniper Berry Powder","Alpha Lipoic Acid","Bitter Melon Extract 4:1","Cayenne Pepper Powder","Licorice Root Extract 4:1","Cinnamon Bark Powder","Banaba Leaf Extract","White Mulberry Leaf","Yarrow Flower Powder","Taurine","Gymnema sylvestre Leaf"] }
   ],
   interactions: [
     {
       id:"int-01", severity:"critical",
-      title:"Extreme Bleeding Risk: NSAIDs + Multiple Blood Thinners",
-      supplements:["advil","aged-garlic","krill-oil","spike-tri-support","turmeric-blend","black-seed-oil"],
-      description:"Ibuprofen at 1,800 mg/day inhibits platelet function. Combining with aged garlic (7,500 mg — potent blood thinner), krill oil (omega-3s thin blood), nattokinase (fibrinolytic enzyme), turmeric/curcumin (antiplatelet), and black seed oil (anticoagulant) creates compounding bleeding risk. Each alone has mild-to-moderate anticoagulant effects; together they significantly increase risk of GI bleeds, bruising, and hemorrhage.",
-      recommendation:"This combination should be reviewed by a physician immediately. At minimum, reduce the number of blood-thinning agents taken concurrently."
+      title:"Extreme Bleeding Risk: NSAIDs + Multiple Blood Thinners + Fibrinolytics",
+      supplements:["advil","aged-garlic","krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","antimicrobial-blend","snap-prostate"],
+      description:"Ibuprofen at 1,800 mg/day inhibits platelet function. This stack layers on nattokinase (400 mg / 12,000 FU — potent fibrinolytic), serrapeptase in TWO products (155 mg combined — another fibrinolytic), bromelain, aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from THREE sources (turmeric blend, Snap prostate, spike support), and black seed oil. Resveratrol (600 mg Japanese knotweed) also has antiplatelet activity. This is an exceptionally dangerous compounding of 8+ anticoagulant/fibrinolytic mechanisms.",
+      recommendation:"This combination requires immediate physician review. The stacking of nattokinase + serrapeptase + bromelain + NSAIDs + garlic + curcumin creates serious hemorrhage risk."
     },
     {
       id:"int-02", severity:"critical",
@@ -704,10 +712,10 @@ const DATA = {
     },
     {
       id:"int-04", severity:"high",
-      title:"Zinc-Copper Imbalance",
-      supplements:["zinc","copper","codeage-multi"],
-      description:"100 mg zinc picolinate is 2.5× the upper tolerable limit (40 mg). The multivitamin adds 7.5 mg. Total ~107.5 mg. High zinc blocks copper absorption, risking copper deficiency anemia and neurological problems. The ~2.75 mg total copper is insufficient to balance. Ideal zinc:copper ratio is 10–15:1; this stack is ~39:1.",
-      recommendation:"Reduce zinc to 30–50 mg/day or increase copper. Monitor serum zinc, copper, and ceruloplasmin."
+      title:"Zinc-Copper Imbalance (Now ~126 mg Zinc)",
+      supplements:["zinc","copper","codeage-multi","snap-prostate","blood-sugar-support"],
+      description:"Zinc from all sources: picolinate 100 mg + multi 7.5 mg + Snap prostate 11 mg + blood sugar formula 7.5 mg = ~126 mg total. This is 3× the upper tolerable limit (40 mg). Total copper is only ~3.65 mg (Thorne 2 mg + multi 0.75 mg + Snap 0.9 mg). The zinc:copper ratio is ~35:1 vs. the ideal 10–15:1. Chronic high zinc causes copper deficiency anemia and neurological damage.",
+      recommendation:"Reduce zinc to 30–50 mg/day total. At minimum, consolidate zinc sources and increase copper."
     },
     {
       id:"int-05", severity:"high",
@@ -724,11 +732,11 @@ const DATA = {
       recommendation:"Monitor blood pressure regularly. If on BP medication, this combination could cause dangerous hypotension."
     },
     {
-      id:"int-07", severity:"high",
-      title:"Multiple Blood-Sugar-Lowering Agents",
-      supplements:["burnslim","moringa","black-seed-oil","codeage-multi","alcar"],
-      description:"Berberine (in BurnSlim) is as potent as metformin for blood sugar reduction. Moringa, black seed oil, chromium (in the multi), and ALCAR also lower blood sugar. Stacking creates hypoglycemia risk, especially if fasting or on diabetes medication.",
-      recommendation:"Monitor blood glucose. If diabetic or pre-diabetic, coordinate with physician."
+      id:"int-07", severity:"critical",
+      title:"Extreme Blood-Sugar-Lowering Stack: Hypoglycemia Risk",
+      supplements:["burnslim","blood-sugar-support","moringa","black-seed-oil","codeage-multi","alcar"],
+      description:"This stack now contains an extraordinary number of hypoglycemic agents: berberine (BurnSlim — metformin-equivalent), PLUS gymnema sylvestre (blocks sugar taste and absorption), bitter melon (insulin-mimetic), banaba leaf (corosolic acid — glucose transporter activator), cinnamon (insulin sensitizer), alpha lipoic acid (glucose uptake), white mulberry (alpha-glucosidase inhibitor) — all from the blood sugar formula. Add moringa, black seed oil, chromium from TWO sources (~116 mcg total), and ALCAR. This is comparable to stacking multiple diabetes medications.",
+      recommendation:"Serious hypoglycemia risk, especially when fasting or exercising. If not diabetic, this level of blood sugar suppression is potentially dangerous. Requires glucose monitoring."
     },
     {
       id:"int-08", severity:"high",
@@ -740,30 +748,30 @@ const DATA = {
     {
       id:"int-09", severity:"high",
       title:"Immune Stimulation Overload",
-      supplements:["elderberry","echinacea","oregano-oil","aged-garlic","black-seed-oil","l-lysine","vitamin-c"],
-      description:"An extraordinary number of immune-stimulating compounds. Elderberry and echinacea are immune activators. Oregano oil, garlic, and black seed oil are antimicrobials. For someone with autoimmune conditions, this level of immune stimulation could trigger or worsen flares.",
-      recommendation:"If there is any autoimmune history, consult an immunologist."
+      supplements:["elderberry","echinacea","oregano-oil","aged-garlic","black-seed-oil","l-lysine","vitamin-c","antimicrobial-blend"],
+      description:"An extraordinary number of immune-stimulating and antimicrobial compounds. Elderberry and echinacea are immune activators. Oregano oil, garlic, and black seed oil are antimicrobials. The new antimicrobial blend adds cat's claw (immune stimulant), sweet wormwood (artemisinin), cryptolepis, and Chinese skullcap. For someone with autoimmune conditions, this level of immune stimulation could trigger or worsen flares.",
+      recommendation:"If there is any autoimmune history, consult an immunologist. The antimicrobial load from this many sources may also devastate beneficial gut flora."
     },
     {
       id:"int-10", severity:"high",
-      title:"Hormonal Stack Interactions",
-      supplements:["atlas-x","boron","saw-palmetto"],
-      description:"Atlas X blend (horny goat weed, fenugreek, tongkat ali, nettle) plus standalone boron and saw palmetto creates a potent hormonal combination. Saw palmetto and nettle both block DHT conversion. Boron raises free testosterone. Fenugreek also appears in the Codeage multi. Unpredictable hormonal effects.",
-      recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). Watch for mood or prostate changes."
+      title:"Hormonal Stack Interactions (5+ Products)",
+      supplements:["atlas-x","boron","saw-palmetto","snap-prostate","pulse-male"],
+      description:"Testosterone/hormonal support from 5+ products: Atlas X (horny goat weed, fenugreek, tongkat ali, nettle, citrulline), Pulse Male (arginine, citrulline — NO/erection support), Snap Prostate (saw palmetto, nettle, beta-sitosterol), standalone boron (25 mg) and saw palmetto (450 mg). Saw palmetto now from TWO sources. Nettle from TWO sources. DHT-blocking from multiple angles. Fenugreek also in Codeage multi. The guggul in the blood sugar formula also has hormonal activity. Unpredictable combined hormonal effects.",
+      recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). The redundancy across products means much higher effective doses than any single label suggests."
     },
     {
       id:"int-11", severity:"moderate",
-      title:"Iron Absorption Competition",
-      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate"],
-      description:"The Codeage multi contains iron (27.5 mg). Zinc (100+ mg), calcium, and magnesium all compete with iron for absorption when taken simultaneously. The very high zinc dose significantly impairs iron absorption.",
-      recommendation:"Take iron-containing supplements at a separate time from zinc, calcium, and magnesium — 2+ hours apart."
+      title:"Iron Absorption Blocked by Zinc, EGCG, and Minerals",
+      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate","snap-prostate"],
+      description:"The Codeage multi contains iron (27.5 mg). Zinc (~126 mg total), calcium, and magnesium all compete with iron for absorption. Green tea EGCG (in Snap Prostate, 45% of 500 mg antioxidant blend) is a potent iron absorption inhibitor. The combined mineral competition plus EGCG chelation may render the iron supplementation almost entirely ineffective.",
+      recommendation:"Take iron 2+ hours away from zinc, calcium, magnesium, and green tea. Or take iron with vitamin C to enhance absorption."
     },
     {
-      id:"int-12", severity:"moderate",
-      title:"Piperine Amplifies Everything",
-      supplements:["turmeric-blend","beetroot-blend","burnslim"],
-      description:"Black pepper (piperine) in the turmeric and beetroot blends increases bioavailability of many compounds by 30–2,000% by inhibiting CYP3A4 and P-glycoprotein. This means all other supplements — including ibuprofen, berberine, and curcumin — may have amplified effects, increasing both benefits and toxicity.",
-      recommendation:"Be aware that piperine potentiates virtually everything else in this stack, especially berberine and NSAIDs."
+      id:"int-12", severity:"high",
+      title:"Piperine from 4 Sources Amplifies Everything",
+      supplements:["turmeric-blend","beetroot-blend","burnslim","antimicrobial-blend"],
+      description:"Black pepper / piperine now appears in FOUR products: turmeric blend, beetroot blend, BurnSlim (cayenne), and the antimicrobial blend (5 mg at 95% piperine). Piperine inhibits CYP3A4 and P-glycoprotein, increasing bioavailability of many compounds by 30–2,000%. This means ibuprofen, berberine, curcumin, resveratrol, and virtually everything else in this 50-supplement stack may have significantly amplified effects. With this many sources, the cumulative piperine dose creates unpredictable potentiation of already-high doses.",
+      recommendation:"The piperine load is turning every other dose in this stack into an effectively higher dose. This is especially dangerous for berberine, NSAIDs, and the blood-thinning agents."
     },
     {
       id:"int-13", severity:"moderate",
@@ -795,17 +803,17 @@ const DATA = {
     },
     {
       id:"int-17", severity:"moderate",
-      title:"Excessive Magnesium from Multiple Sources",
-      supplements:["mag-threonate","mag-glycinate","codeage-multi"],
-      description:"Magnesium from L-threonate (~144 mg), glycinate (~50 mg), and multivitamin (~15 mg) totals ~200+ mg supplemental elemental Mg. UL for supplemental Mg is 350 mg. With dietary Mg, may cause loose stools.",
-      recommendation:"Likely fine but spread doses throughout the day. Watch for GI symptoms."
+      title:"Chromium from 3 Sources",
+      supplements:["codeage-multi","blood-sugar-support","snap-prostate"],
+      description:"Chromium from multi (40 mcg) + blood sugar formula (76 mcg) = 116 mcg total. While below the NOAEL, chromium supplementation combined with the extensive blood-sugar-lowering stack amplifies hypoglycemia risk. Chromium picolinate at high doses has been associated with kidney and liver toxicity in case reports.",
+      recommendation:"The chromium itself is within safe limits, but its glucose-lowering effect adds to an already aggressive blood sugar stack."
     },
     {
       id:"int-18", severity:"moderate",
-      title:"L-Citrulline + Beetroot: Amplified Nitric Oxide",
-      supplements:["atlas-x","beetroot-blend"],
-      description:"L-Citrulline (200 mg in Atlas X) converts to nitric oxide. Beetroot nitrates also convert to NO. Combined with other vasodilators (magnesium, garlic, olive leaf), could cause excessive vasodilation.",
-      recommendation:"Monitor blood pressure, especially after dosing."
+      title:"Massive Nitric Oxide Stack: Citrulline + Arginine + Beetroot",
+      supplements:["atlas-x","pulse-male","beetroot-blend"],
+      description:"L-Citrulline now from TWO products: Atlas X (200 mg) + Pulse Male (200 mg total from HCl and Malate forms). L-Arginine from Pulse Male (400 mg total from base and AKG forms). Beetroot nitrates also convert to NO. Combined with other vasodilators (magnesium, garlic, olive leaf), this is a substantial nitric oxide production stack that could cause excessive vasodilation, headaches, and blood pressure drops.",
+      recommendation:"Monitor blood pressure. Be cautious combining with the multiple BP-lowering agents already in the stack."
     },
     {
       id:"int-19", severity:"low",
@@ -827,6 +835,55 @@ const DATA = {
       supplements:["glutathione","vitamin-c"],
       description:"Vitamin C recycles oxidized glutathione back to its active reduced form. Liposomal glutathione has better absorption. Solid antioxidant foundation.",
       recommendation:"Good combination for antioxidant support."
+    },
+    {
+      id:"int-22", severity:"critical",
+      title:"Licorice Root Raises Blood Pressure & Depletes Potassium",
+      supplements:["blood-sugar-support","potassium","mag-threonate","mag-glycinate","olive-leaf","aged-garlic"],
+      description:"The blood sugar formula contains licorice root extract, which inhibits 11-beta-hydroxysteroid dehydrogenase, causing cortisol to activate mineralocorticoid receptors. This raises blood pressure, causes potassium wasting, and fluid retention — directly COUNTERACTING the potassium supplement (1,020 mg), magnesium, olive leaf, and garlic that are all trying to lower BP. Licorice-induced hypokalemia combined with potassium supplementation creates unpredictable electrolyte swings that can affect heart rhythm.",
+      recommendation:"Licorice root is a serious concern in a stack that simultaneously tries to lower BP and supplement potassium. It should be removed or the blood sugar formula should be replaced with one without licorice."
+    },
+    {
+      id:"int-23", severity:"high",
+      title:"Wormwood (Artemisinin) Liver Toxicity Concern",
+      supplements:["antimicrobial-blend","oregano-oil","advil"],
+      description:"Sweet wormwood (artemisinin, 200 mg) is hepatotoxic with prolonged use. Combined with oil of oregano (6,000 mg — also hepatotoxic at high doses) and ibuprofen (1,800 mg — hepatotoxic potential), this creates compounding liver stress. Cat's claw in the same blend can also affect liver enzymes. This trio should not be taken daily long-term.",
+      recommendation:"Limit antimicrobial blend and oregano oil to short courses (2-4 weeks). Monitor liver enzymes (ALT, AST) if using chronically."
+    },
+    {
+      id:"int-24", severity:"high",
+      title:"Duplicate Serrapeptase + Nattokinase: Double Fibrinolytic Load",
+      supplements:["spike-tri-support","antimicrobial-blend"],
+      description:"Serrapeptase appears in TWO products: spike support (100 mg / 360,000 SPU) and antimicrobial blend (55 mg / 2,000 SPU per mg = 110,000 SPU). Total serrapeptase ~155 mg / ~470,000 SPU. Combined with nattokinase (400 mg / 12,000 FU), this is an extremely potent fibrinolytic cocktail that dissolves blood clots. Adding this to the existing NSAIDs, garlic, and curcumin makes the bleeding risk severe.",
+      recommendation:"Do not take both products simultaneously. Choose one source of fibrinolytic enzymes and take it separately from blood-thinning agents."
+    },
+    {
+      id:"int-25", severity:"high",
+      title:"Duplicate Saw Palmetto & Nettle from Multiple Products",
+      supplements:["saw-palmetto","snap-prostate","atlas-x"],
+      description:"Saw palmetto: standalone 450 mg PLUS Snap Prostate urinary blend (45% fatty acids, from 600 mg blend). Nettle: Atlas X 100 mg PLUS Snap Prostate urinary blend. Both are 5-alpha-reductase inhibitors that block DHT conversion. Double-dosing of DHT blockers can cause sexual side effects, breast tenderness, or mood changes similar to finasteride (a prescription DHT blocker).",
+      recommendation:"Use ONE source of saw palmetto and nettle, not three products containing them."
+    },
+    {
+      id:"int-26", severity:"moderate",
+      title:"Cat's Claw May Amplify Immune-Suppressing Effects",
+      supplements:["antimicrobial-blend","echinacea","elderberry"],
+      description:"Cat's claw (250 mg, 4% oxindole alkaloids) is an immune modulator that can both stimulate and suppress immune function depending on the alkaloid type. Pentacyclic oxindole alkaloids (POAs) stimulate immunity, while tetracyclic (TOAs) suppress it. Without knowing the alkaloid profile, combining with other immune stimulants (echinacea, elderberry) creates unpredictable immune modulation.",
+      recommendation:"Verify the cat's claw product specifies POA-dominant (immune-stimulating) if that is the intent."
+    },
+    {
+      id:"int-27", severity:"moderate",
+      title:"Resveratrol + Curcumin: CYP Enzyme Inhibition Stack",
+      supplements:["antimicrobial-blend","turmeric-blend","snap-prostate"],
+      description:"Japanese knotweed (600 mg, 20% resveratrol = ~120 mg resveratrol) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine (which also inhibits CYP3A4), this can significantly slow the metabolism of ibuprofen and other substances, effectively increasing their half-life and blood levels.",
+      recommendation:"Be aware that ibuprofen and other drugs may stay in the system longer due to CYP inhibition from multiple sources."
+    },
+    {
+      id:"int-28", severity:"moderate",
+      title:"Magnesium from 5+ Sources: Total ~400 mg Elemental",
+      supplements:["mag-threonate","mag-glycinate","codeage-multi","snap-prostate","blood-sugar-support"],
+      description:"Magnesium now from 5 sources: L-threonate (~144 mg elemental), glycinate (~50 mg), multi (15 mg), Snap prostate (60 mg citrate, ~10 mg elemental), blood sugar formula (125 mg oxide, ~5 mg elemental at oxide's low bioavailability). Total supplemental elemental Mg ~224 mg, within the 350 mg UL, but combined with dietary intake may cause osmotic diarrhea.",
+      recommendation:"Spread magnesium doses throughout the day. Magnesium oxide has poor bioavailability — the blood sugar formula's form is not contributing much."
     }
   ]
 };

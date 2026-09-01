@@ -287,15 +287,17 @@
     {
       "id": "spike-tri-support",
       "name": "Spike Protein Tri Support",
-      "dose": "varies",
-      "doseValue": 0,
+      "dose": "800 mg",
+      "doseValue": 800,
       "doseUnit": "mg",
       "category": "Specialty Blends",
-      "notes": "Contains nattokinase, bromelain, dandelion, and other ingredients.",
+      "notes": "Nattokinase 400 mg (12,000 FU) + Serrapeptase 100 mg (360,000 SPU). Potent fibrinolytic enzymes.",
       "subIngredients": [
-        "Nattokinase",
-        "Bromelain",
-        "Dandelion Extract"
+        "Serrapeptase (360,000 SPU) 100 mg",
+        "Nattokinase (12,000 FU) 400 mg",
+        "Natural Enzyme Harmony Blend 100 mg (Papain, Curcumin, Bromelain, Rutin, Amla)",
+        "Essential Elements Synergy Blend 100 mg (Vitamin C, Magnesium, B6, Calcium)",
+        "Inulin 100 mg"
       ]
     },
     {
@@ -448,6 +450,83 @@
         "Cayenne Pepper Extract 4:1"
       ],
       "notes": "Weight management blend with blood-sugar-lowering ingredients. Contains berberine which has drug-like potency."
+    },
+    {
+      "id": "antimicrobial-blend",
+      "name": "Antimicrobial Herbal Blend",
+      "dose": "2,070 mg",
+      "doseValue": 2070,
+      "doseUnit": "mg",
+      "category": "Immune Support",
+      "subIngredients": [
+        "Japanese Knotweed Extract (20% Resveratrol) 600 mg",
+        "Cat's Claw Extract (4% Oxindole Alkaloids) 250 mg",
+        "Cistus Incanus Leaf Extract 10:1 200 mg",
+        "Cryptolepis Sanguinolenta Leaf Extract 20:1 200 mg",
+        "Sweet Wormwood Leaf Powder 200 mg",
+        "Chinese Skullcap Extract (50% Baicalin) 200 mg",
+        "Alchornea Cordifolia Stem Extract 20:1 100 mg",
+        "Sarsaparilla Extract Powder 4:1 60 mg",
+        "Serrapeptase 2000 SPU/mg 55 mg",
+        "Black Pepper Extract (95% Piperine) 5 mg"
+      ],
+      "notes": "Potent antimicrobial/anti-parasitic blend. Contains resveratrol, wormwood (artemisinin), serrapeptase, and piperine. Wormwood is hepatotoxic with prolonged use."
+    },
+    {
+      "id": "pulse-male",
+      "name": "Pulse Male (Nitric Oxide Booster)",
+      "dose": "660 mg",
+      "doseValue": 660,
+      "doseUnit": "mg",
+      "category": "Hormonal Support",
+      "subIngredients": [
+        "L-Arginine (base) 200 mg",
+        "L-Arginine AKG 2:1 Extract 200 mg",
+        "L-Citrulline HCl 100 mg",
+        "L-Citrulline Malate 100 mg",
+        "Beta Alanine 40 mg",
+        "Niacin 7.5 mg NE",
+        "Calcium (Calcium Carbonate) 18 mg"
+      ],
+      "notes": "Nitric oxide booster. L-Arginine + L-Citrulline stack for blood flow and male performance."
+    },
+    {
+      "id": "snap-prostate",
+      "name": "Snap Prostate Health Blend",
+      "dose": "2,000 mg",
+      "doseValue": 2000,
+      "doseUnit": "mg",
+      "category": "Hormonal Support",
+      "subIngredients": [
+        "Vitamin C (ascorbic acid) 27 mg",
+        "Magnesium (citrate) 60 mg",
+        "Zinc (citrate) 11 mg",
+        "Selenium (L-selenomethionine) 55 mcg",
+        "Copper (bisglycinate) 0.9 mg",
+        "Prostate Support Mushroom Blend 900 mg (Maitake, Reishi)",
+        "Urinary Support Blend 600 mg (Saw Palmetto 45% FA, Stinging Nettle Root, Beta Sitosterol)",
+        "Antioxidant Blend 500 mg (Turmeric 95% curcuminoids, Green Tea 45% EGCG, Lycopene)"
+      ],
+      "notes": "Prostate support with saw palmetto, nettle, mushrooms, turmeric, green tea, lycopene. Adds more zinc (11 mg) and copper (0.9 mg)."
+    },
+    {
+      "id": "blood-sugar-support",
+      "name": "Blood Sugar Support Formula",
+      "dose": "~310 mg + vitamins",
+      "doseValue": 310,
+      "doseUnit": "mg",
+      "category": "Weight Management",
+      "subIngredients": [
+        "Vitamin C (Ascorbic Acid) 52.5 mg",
+        "Vitamin E (d-Alpha Tocopheryl Succinate) 15.75 mg",
+        "Biotin 315 mcg",
+        "Magnesium (Oxide) 125 mg",
+        "Zinc (Oxide) 7.5 mg",
+        "Manganese (Amino Acid Chelate) 1 mg",
+        "Chromium (Amino Acid Chelate) 76 mcg",
+        "Proprietary Blend 82.4 mg: Guggul (10% guggulsterones), Juniper Berry, Alpha Lipoic Acid, Bitter Melon 4:1, Cayenne Pepper, Licorice Root Extract 4:1, Cinnamon Bark, Banaba Leaf, White Mulberry Leaf, Yarrow Flower, Taurine, Gymnema sylvestre Leaf"
+      ],
+      "notes": "Contains guggul, bitter melon, gymnema, cinnamon, banaba, ALA, and LICORICE ROOT. Multiple potent hypoglycemic agents. Licorice raises BP and depletes potassium."
     }
   ],
   "interactions": [
