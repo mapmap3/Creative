@@ -1,0 +1,623 @@
+{
+  "subject": "Dad's Supplement Stack",
+  "lastUpdated": "2026-09-01",
+  "supplements": [
+    {
+      "id": "d3",
+      "name": "Vitamin D3 (Cholecalciferol)",
+      "dose": "100,000 IU",
+      "doseValue": 100000,
+      "doseUnit": "IU",
+      "category": "Fat-Soluble Vitamins",
+      "notes": "Extremely high dose — typical upper limit is 4,000 IU/day. Requires medical supervision."
+    },
+    {
+      "id": "k2",
+      "name": "Vitamin K2 (MK-7)",
+      "dose": "8,500 mcg",
+      "doseValue": 8500,
+      "doseUnit": "mcg",
+      "category": "Fat-Soluble Vitamins",
+      "notes": "Very high dose. Often paired with high-dose D3 to direct calcium to bones."
+    },
+    {
+      "id": "mag-threonate",
+      "name": "Magnesium L-Threonate",
+      "dose": "2,000 mg",
+      "doseValue": 2000,
+      "doseUnit": "mg",
+      "category": "Minerals",
+      "notes": "Brain-penetrating form of magnesium. 2,000 mg of the compound yields ~144 mg elemental Mg."
+    },
+    {
+      "id": "mag-glycinate",
+      "name": "Magnesium Glycinate",
+      "dose": "350 mg",
+      "doseValue": 350,
+      "doseUnit": "mg",
+      "category": "Minerals",
+      "notes": "Well-absorbed, calming form of magnesium."
+    },
+    {
+      "id": "pumpkin-seed",
+      "name": "Organic Pumpkin Seed",
+      "dose": "600 mg",
+      "doseValue": 600,
+      "doseUnit": "mg",
+      "category": "Whole Food Extracts",
+      "notes": "Source of zinc, magnesium, and phytosterols."
+    },
+    {
+      "id": "broccoli",
+      "name": "Organic Broccoli",
+      "dose": "100 mg",
+      "doseValue": 100,
+      "doseUnit": "mg",
+      "category": "Whole Food Extracts",
+      "notes": "Source of sulforaphane and indole-3-carbinol."
+    },
+    {
+      "id": "kale",
+      "name": "Organic Kale",
+      "dose": "100 mg",
+      "doseValue": 100,
+      "doseUnit": "mg",
+      "category": "Whole Food Extracts",
+      "notes": "Source of vitamin K1, lutein, and other phytonutrients."
+    },
+    {
+      "id": "zinc",
+      "name": "Zinc Picolinate",
+      "dose": "100 mg",
+      "doseValue": 100,
+      "doseUnit": "mg",
+      "category": "Minerals",
+      "notes": "Very high dose — RDA is 11 mg. Upper tolerable limit is 40 mg/day."
+    },
+    {
+      "id": "krill-oil",
+      "name": "Krill Oil",
+      "dose": "2,000 mg",
+      "doseValue": 2000,
+      "doseUnit": "mg",
+      "category": "Omega Fatty Acids",
+      "notes": "Provides EPA, DHA as phospholipids, plus astaxanthin (~600 mcg). Also provides ~600 mcg additional nutrients."
+    },
+    {
+      "id": "collinsonia",
+      "name": "Collinsonia Root",
+      "dose": "892 mg",
+      "doseValue": 892,
+      "doseUnit": "mg",
+      "category": "Herbal Extracts",
+      "notes": "Stone root — traditionally used for vascular and digestive support."
+    },
+    {
+      "id": "advil",
+      "name": "Advil (Ibuprofen / NSAID)",
+      "dose": "1,800 mg",
+      "doseValue": 1800,
+      "doseUnit": "mg",
+      "category": "OTC Medications",
+      "notes": "Near maximum OTC daily dose (max 1,200 mg OTC / 3,200 mg Rx). Major interaction concern."
+    },
+    {
+      "id": "b2",
+      "name": "Vitamin B2 (Riboflavin)",
+      "dose": "400 mg",
+      "doseValue": 400,
+      "doseUnit": "mg",
+      "category": "B Vitamins",
+      "notes": "Therapeutic dose — commonly used for migraine prevention at 400 mg."
+    },
+    {
+      "id": "b3",
+      "name": "Vitamin B3 (Niacinamide)",
+      "dose": "500 mg",
+      "doseValue": 500,
+      "doseUnit": "mg",
+      "category": "B Vitamins",
+      "notes": "Moderate-high dose. Niacinamide form avoids flushing."
+    },
+    {
+      "id": "codeage-multi",
+      "name": "Codeage Men's Fermented Multivitamin",
+      "dose": "2 capsules",
+      "doseValue": 2,
+      "doseUnit": "capsules",
+      "category": "Multivitamins",
+      "notes": "Contains vitamins A, C, D3, E, B-complex, minerals (iron, zinc, selenium, copper, boron, chromium), men's vitality blend (hawthorn, ginseng, fenugreek, beet, cordyceps, astragalus, schizandra), probiotics (1B CFU), digestive enzymes, omega-3 from microalgae, CoQ10 25mg, K2 (MK-7).",
+      "subIngredients": [
+        "Vitamin A (Beta Carotene) 450 mcg",
+        "Vitamin C (L-Ascorbic Acid) 45 mg",
+        "Vitamin D3 (Lichen) 20 mcg / 800 IU",
+        "Vitamin E (D-Alpha Tocopherol) 16 mg",
+        "Thiamin 0.75 mg",
+        "Riboflavin 0.75 mg",
+        "Niacin (Niacinamide)",
+        "B6 (P5P) 10 mg",
+        "Folate (Quatrefolic) 340 mcg DFE",
+        "B12 (Methylcobalamin) 3 mcg",
+        "Biotin 30 mcg",
+        "Pantothenic Acid",
+        "Choline 150 mg",
+        "Calcium 2.5 mg",
+        "Iron (Ferrous Fumarate) 27.5 mg",
+        "Phosphorus 55 mg",
+        "Iodine 15 mg",
+        "Magnesium (Citrate & Oxide) 15 mg",
+        "Zinc (L-OptiZinc) 7.5 mg",
+        "Selenium (L-Selenomethionine) 75 mcg",
+        "Copper (Bisglycinate Chelate) 0.75 mg",
+        "Boron 1.2 mg",
+        "Chromium (GTF) 40 mcg",
+        "CoQ10 25 mg",
+        "Omega-3 (Microalgae) 27.5 mg",
+        "Vitamin K2 (MK-7) 80 mcg",
+        "Probiotic Blend 1B CFU (L. bulgaricus, B. bifidum)",
+        "Digestive Enzymes (Amylase, Lipase)"
+      ]
+    },
+    {
+      "id": "beef-organs",
+      "name": "Grassfed Beef Organs",
+      "dose": "3,000 mg",
+      "doseValue": 3000,
+      "doseUnit": "mg",
+      "category": "Whole Food Extracts",
+      "notes": "Typically contains liver, heart, kidney, pancreas, spleen. Source of bioavailable B12, iron, CoQ10, and fat-soluble vitamins."
+    },
+    {
+      "id": "elderberry",
+      "name": "Organic Black Elderberry 10:1 Extract",
+      "dose": "500 mg",
+      "doseValue": 500,
+      "doseUnit": "mg",
+      "category": "Immune Support",
+      "notes": "Immune-modulating. 10:1 extract equivalent to 5,000 mg whole elderberry."
+    },
+    {
+      "id": "echinacea",
+      "name": "Echinacea",
+      "dose": "1,300 mg",
+      "doseValue": 1300,
+      "doseUnit": "mg",
+      "category": "Immune Support",
+      "notes": "Immune stimulant. High dose."
+    },
+    {
+      "id": "copper",
+      "name": "Thorne Copper Bisglycinate",
+      "dose": "2 mg",
+      "doseValue": 2,
+      "doseUnit": "mg",
+      "category": "Minerals",
+      "notes": "Important to balance with high zinc intake. RDA is 0.9 mg."
+    },
+    {
+      "id": "b1",
+      "name": "Vitamin B1 (Benfotiamine)",
+      "dose": "300 mg",
+      "doseValue": 300,
+      "doseUnit": "mg",
+      "category": "B Vitamins",
+      "notes": "Fat-soluble form of thiamine with better bioavailability."
+    },
+    {
+      "id": "b6",
+      "name": "Vitamin B6 (P5P)",
+      "dose": "25 mg",
+      "doseValue": 25,
+      "doseUnit": "mg",
+      "category": "B Vitamins",
+      "notes": "Active form. UL is 100 mg/day. Chronic high-dose B6 can cause neuropathy."
+    },
+    {
+      "id": "b12",
+      "name": "Vitamin B12 (Methylcobalamin)",
+      "dose": "1,000 mcg",
+      "doseValue": 1000,
+      "doseUnit": "mcg",
+      "category": "B Vitamins",
+      "notes": "Active methylated form. Common supplemental dose."
+    },
+    {
+      "id": "aged-garlic",
+      "name": "Aged Garlic Extract (Elcare)",
+      "dose": "7,500 mg",
+      "doseValue": 7500,
+      "doseUnit": "mg",
+      "category": "Herbal Extracts",
+      "notes": "Very high dose. Has blood-thinning and blood-pressure-lowering effects."
+    },
+    {
+      "id": "oregano-oil",
+      "name": "Oil of Oregano (Resilia)",
+      "dose": "6,000 mg",
+      "doseValue": 6000,
+      "doseUnit": "mg",
+      "category": "Herbal Extracts",
+      "notes": "Extremely high dose. Contains carvacrol and thymol. Antimicrobial but can affect gut flora."
+    },
+    {
+      "id": "vitamin-c",
+      "name": "Raw Vitamin C",
+      "dose": "500 mg",
+      "doseValue": 500,
+      "doseUnit": "mg",
+      "category": "Water-Soluble Vitamins",
+      "notes": "Whole-food derived vitamin C."
+    },
+    {
+      "id": "fruit-veg-blend",
+      "name": "Raw Organic Fruit & Vegetable Blend",
+      "dose": "720 mg",
+      "doseValue": 720,
+      "doseUnit": "mg",
+      "category": "Whole Food Extracts",
+      "notes": "Phytonutrient blend from whole foods."
+    },
+    {
+      "id": "probiotic-enzyme",
+      "name": "Raw Probiotic + Enzyme Blend",
+      "dose": "60 mg",
+      "doseValue": 60,
+      "doseUnit": "mg",
+      "category": "Digestive Support",
+      "notes": "Probiotic organisms and digestive enzymes."
+    },
+    {
+      "id": "olive-leaf",
+      "name": "Olive Leaf Extract",
+      "dose": "680 mg",
+      "doseValue": 680,
+      "doseUnit": "mg",
+      "category": "Herbal Extracts",
+      "notes": "Contains oleuropein. Antimicrobial and blood-pressure-lowering."
+    },
+    {
+      "id": "oleuropein",
+      "name": "Oleuropein (from Olive Leaf)",
+      "dose": "50 mg",
+      "doseValue": 50,
+      "doseUnit": "mg",
+      "category": "Herbal Extracts",
+      "notes": "Active compound from olive leaf. Additional standalone dose on top of olive leaf extract."
+    },
+    {
+      "id": "spike-tri-support",
+      "name": "Spike Protein Tri Support",
+      "dose": "varies",
+      "doseValue": 0,
+      "doseUnit": "mg",
+      "category": "Specialty Blends",
+      "notes": "Contains nattokinase, bromelain, dandelion, and other ingredients.",
+      "subIngredients": [
+        "Nattokinase",
+        "Bromelain",
+        "Dandelion Extract"
+      ]
+    },
+    {
+      "id": "l-lysine",
+      "name": "L-Lysine",
+      "dose": "3,000 mg",
+      "doseValue": 3000,
+      "doseUnit": "mg",
+      "category": "Amino Acids",
+      "notes": "High dose amino acid. Used for immune support and collagen production."
+    },
+    {
+      "id": "black-seed-oil",
+      "name": "Black Seed Oil (Nigella sativa)",
+      "dose": "2,000 mg",
+      "doseValue": 2000,
+      "doseUnit": "mg",
+      "category": "Herbal Extracts",
+      "notes": "Contains thymoquinone. Anti-inflammatory and immune-modulating."
+    },
+    {
+      "id": "alcar",
+      "name": "Acetyl L-Carnitine (ALCAR)",
+      "dose": "1,500 mg",
+      "doseValue": 1500,
+      "doseUnit": "mg",
+      "category": "Amino Acids",
+      "notes": "Supports mitochondrial function and cognitive health."
+    },
+    {
+      "id": "moringa",
+      "name": "Organic Moringa",
+      "dose": "1,000 mg",
+      "doseValue": 1000,
+      "doseUnit": "mg",
+      "category": "Whole Food Extracts",
+      "notes": "Nutrient-dense superfood. Can lower blood sugar and blood pressure."
+    },
+    {
+      "id": "glutathione",
+      "name": "Liposomal Glutathione",
+      "dose": "735 mg",
+      "doseValue": 735,
+      "doseUnit": "mg",
+      "category": "Antioxidants",
+      "notes": "Master antioxidant. Liposomal form for better absorption."
+    },
+    {
+      "id": "turmeric-blend",
+      "name": "Pure Turmeric + Bee Propolis + Ginger + Pepper + MCT Oil + Vitamin C",
+      "dose": "1,270 mg total",
+      "doseValue": 1270,
+      "doseUnit": "mg",
+      "category": "Anti-Inflammatory Blends",
+      "notes": "Curcumin from turmeric is anti-inflammatory. Black pepper (piperine) enhances absorption of many supplements."
+    },
+    {
+      "id": "potassium",
+      "name": "Potassium",
+      "dose": "1,020 mg",
+      "doseValue": 1020,
+      "doseUnit": "mg",
+      "category": "Minerals",
+      "notes": "Electrolyte. Important for heart and muscle function. Adequate intake is 2,600-3,400 mg/day from all sources."
+    },
+    {
+      "id": "beetroot-blend",
+      "name": "Organic Beetroot + MCT Oil + Pepper",
+      "dose": "905 mg",
+      "doseValue": 905,
+      "doseUnit": "mg",
+      "category": "Whole Food Extracts",
+      "notes": "Beetroot is a nitric oxide precursor. Supports blood flow and exercise performance."
+    },
+    {
+      "id": "eye-formula",
+      "name": "Advanced Eye Formula 14-in-1",
+      "dose": "490 mg",
+      "doseValue": 490,
+      "doseUnit": "mg",
+      "category": "Specialty Blends",
+      "notes": "Likely contains lutein, zeaxanthin, bilberry, astaxanthin, and other eye-health nutrients."
+    },
+    {
+      "id": "atlas-x",
+      "name": "Atlas X Masculinity Blend (Ereforce)",
+      "dose": "1,485 mg total",
+      "doseValue": 1485,
+      "doseUnit": "mg",
+      "category": "Hormonal Support",
+      "subIngredients": [
+        "Horny Goat Weed Extract (Epimedium) 500 mg",
+        "Fenugreek Powder (seed) 200 mg",
+        "L-Citrulline DL-Malate 200 mg",
+        "Nettle Extract (leaf) 100 mg",
+        "Tongkat Ali Extract (root) 50 mg"
+      ],
+      "notes": "Testosterone and libido support blend."
+    },
+    {
+      "id": "boron",
+      "name": "Boron",
+      "dose": "25 mg",
+      "doseValue": 25,
+      "doseUnit": "mg",
+      "category": "Minerals",
+      "notes": "Very high dose. UL is 20 mg/day for adults. Supports bone and hormone metabolism."
+    },
+    {
+      "id": "saw-palmetto",
+      "name": "Saw Palmetto",
+      "dose": "450 mg",
+      "doseValue": 450,
+      "doseUnit": "mg",
+      "category": "Herbal Extracts",
+      "notes": "Used for prostate health. Can have hormonal effects."
+    },
+    {
+      "id": "lycopene",
+      "name": "Lycopene",
+      "dose": "50 mg",
+      "doseValue": 50,
+      "doseUnit": "mg",
+      "category": "Antioxidants",
+      "notes": "Carotenoid antioxidant. Supports prostate health."
+    },
+    {
+      "id": "iodine",
+      "name": "Iodine",
+      "dose": "300 mg",
+      "doseValue": 300000,
+      "doseUnit": "mcg",
+      "category": "Minerals",
+      "notes": "Extremely high dose. RDA is 150 mcg. UL is 1,100 mcg. This is ~2,000x the RDA. Requires thyroid monitoring."
+    },
+    {
+      "id": "burnslim",
+      "name": "BurnSlim Proprietary Blend",
+      "dose": "800 mg",
+      "doseValue": 800,
+      "doseUnit": "mg",
+      "category": "Weight Management",
+      "subIngredients": [
+        "Olive Leaf Extract (20% oleuropein)",
+        "Moringa oleifera Extract (30% saponins)",
+        "Berberine Hydrochloride Extract 9% (Phellodendron amurense)",
+        "Citrus Bioflavonoid 50%",
+        "Holy Basil Extract (Ocimum sanctum) 2.5% ursolic acid",
+        "African Mango (Irvingia gabonensis) Seed Extract",
+        "Cayenne Pepper Extract 4:1"
+      ],
+      "notes": "Weight management blend with blood-sugar-lowering ingredients. Contains berberine which has drug-like potency."
+    }
+  ],
+  "interactions": [
+    {
+      "id": "int-01",
+      "severity": "critical",
+      "title": "Extreme Bleeding Risk: NSAIDs + Multiple Blood Thinners",
+      "supplements": ["advil", "aged-garlic", "krill-oil", "spike-tri-support", "turmeric-blend", "black-seed-oil"],
+      "description": "Ibuprofen at 1,800 mg/day inhibits platelet function. Combining with aged garlic (7,500 mg — potent blood thinner), krill oil (omega-3s thin blood), nattokinase (fibrinolytic enzyme), turmeric/curcumin (antiplatelet), and black seed oil (anticoagulant properties) creates a compounding bleeding risk. Each of these alone has mild-to-moderate anticoagulant effects; together they significantly increase risk of GI bleeds, bruising, and hemorrhage.",
+      "recommendation": "This combination should be reviewed by a physician immediately. At minimum, reduce the number of blood-thinning agents taken concurrently."
+    },
+    {
+      "id": "int-02",
+      "severity": "critical",
+      "title": "Vitamin D3 Toxicity Risk at 100,000 IU/day",
+      "supplements": ["d3", "k2", "codeage-multi"],
+      "description": "100,000 IU daily of D3 is far above the upper tolerable intake of 4,000 IU/day and even above the weekly bolus doses (50,000 IU/week) used therapeutically. This can cause hypercalcemia — dangerously high calcium levels leading to kidney stones, arterial calcification, nausea, confusion, and cardiac arrhythmias. While K2 helps direct calcium away from arteries, it cannot fully compensate for this level of D3. The multivitamin adds another ~800 IU.",
+      "recommendation": "Require serum 25(OH)D and calcium levels. This dose should only be used short-term under medical supervision for documented severe deficiency."
+    },
+    {
+      "id": "int-03",
+      "severity": "critical",
+      "title": "Extreme Iodine Dose: Thyroid Disruption Risk",
+      "supplements": ["iodine", "codeage-multi"],
+      "description": "300 mg (300,000 mcg) of iodine is approximately 2,000 times the RDA (150 mcg) and 273 times the upper tolerable limit (1,100 mcg). This can cause thyroid storm, hypothyroidism (Wolff-Chaikoff effect), or hyperthyroidism (Jod-Basedow phenomenon). The multivitamin adds additional iodine. Kelp/seaweed in other supplements may contribute more.",
+      "recommendation": "This dose is dangerous without close endocrinologist supervision and regular thyroid function testing (TSH, free T3, free T4)."
+    },
+    {
+      "id": "int-04",
+      "severity": "high",
+      "title": "Zinc-Copper Imbalance",
+      "supplements": ["zinc", "copper", "codeage-multi"],
+      "description": "100 mg of zinc picolinate is 2.5x the upper tolerable limit (40 mg). The multivitamin adds another 7.5 mg. High zinc intake blocks copper absorption, leading to copper deficiency anemia and neurological problems. The 2 mg copper supplement and ~0.75 mg from the multi (total ~2.75 mg) are insufficient to balance ~107.5 mg of zinc. Ideal zinc:copper ratio is 10-15:1; this stack is ~39:1.",
+      "recommendation": "Reduce zinc to 30-50 mg/day or increase copper supplementation. Monitor serum zinc, copper, and ceruloplasmin levels."
+    },
+    {
+      "id": "int-05",
+      "severity": "high",
+      "title": "NSAIDs + GI-Irritating Supplements",
+      "supplements": ["advil", "oregano-oil", "aged-garlic", "turmeric-blend"],
+      "description": "Ibuprofen at 1,800 mg/day already carries significant GI risk (ulcers, gastritis). Oil of oregano (6,000 mg — extremely high) is caustic to the GI lining. Aged garlic at high doses and turmeric/ginger can also irritate the stomach. Combined, these dramatically increase the risk of GI ulceration and bleeding.",
+      "recommendation": "Take ibuprofen with food and consider a PPI if chronic use is needed. Reduce oregano oil dose significantly."
+    },
+    {
+      "id": "int-06",
+      "severity": "high",
+      "title": "Multiple Blood-Pressure-Lowering Agents: Hypotension Risk",
+      "supplements": ["potassium", "mag-threonate", "mag-glycinate", "olive-leaf", "oleuropein", "beetroot-blend", "aged-garlic", "moringa", "black-seed-oil"],
+      "description": "This stack contains numerous agents that lower blood pressure: magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), beetroot (nitric oxide), aged garlic (vasodilator), moringa (blood-pressure-lowering), and black seed oil (antihypertensive). Taking all of these together may cause excessive blood pressure drops, dizziness, and fainting, especially when standing.",
+      "recommendation": "Monitor blood pressure regularly. If already on BP medication, this combination could cause dangerous hypotension."
+    },
+    {
+      "id": "int-07",
+      "severity": "high",
+      "title": "Multiple Blood-Sugar-Lowering Agents: Hypoglycemia Risk",
+      "supplements": ["burnslim", "moringa", "black-seed-oil", "codeage-multi", "alcar"],
+      "description": "Berberine (in BurnSlim) is as potent as metformin for blood sugar reduction. Moringa, black seed oil, chromium (in the multi), and ALCAR also lower blood sugar. Stacking these creates risk of hypoglycemia, especially if fasting or on diabetes medication.",
+      "recommendation": "Monitor blood glucose. If diabetic or pre-diabetic, coordinate with physician."
+    },
+    {
+      "id": "int-08",
+      "severity": "high",
+      "title": "Boron Above Upper Tolerable Limit",
+      "supplements": ["boron", "codeage-multi"],
+      "description": "25 mg of boron exceeds the UL of 20 mg/day. The multivitamin adds another 1.2 mg. Total ~26.2 mg. While boron supports testosterone and bone metabolism, excess can cause nausea, vomiting, diarrhea, and at very high doses, reproductive toxicity.",
+      "recommendation": "Reduce to 3-10 mg/day unless directed by a physician."
+    },
+    {
+      "id": "int-09",
+      "severity": "high",
+      "title": "Immune Stimulation Overload",
+      "supplements": ["elderberry", "echinacea", "oregano-oil", "aged-garlic", "black-seed-oil", "l-lysine", "vitamin-c", "bee-propolis"],
+      "description": "This stack contains an extraordinary number of immune-stimulating compounds. Elderberry and echinacea are immune activators. Oil of oregano, garlic, and black seed oil are antimicrobials. For someone with autoimmune conditions, this level of immune stimulation could trigger or worsen flares. Echinacea is specifically cautioned in autoimmune disease.",
+      "recommendation": "If there is any autoimmune history, consult an immunologist before continuing this combination."
+    },
+    {
+      "id": "int-10",
+      "severity": "high",
+      "title": "Hormonal Stack Interactions",
+      "supplements": ["atlas-x", "boron", "saw-palmetto", "fenugreek"],
+      "description": "The Atlas X blend (horny goat weed, fenugreek, tongkat ali, nettle), plus standalone boron and saw palmetto, creates a potent hormonal combination. Fenugreek appears in both Atlas X and the Codeage multi. Saw palmetto is a 5-alpha-reductase inhibitor (blocks DHT). Nettle also has anti-DHT properties. Boron raises free testosterone. These can have unpredictable hormonal effects.",
+      "recommendation": "Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). Watch for mood changes, prostate symptoms, or hair changes."
+    },
+    {
+      "id": "int-11",
+      "severity": "moderate",
+      "title": "Iron Absorption Competition",
+      "supplements": ["codeage-multi", "zinc", "calcium"],
+      "description": "The Codeage multi contains iron (27.5 mg as ferrous fumarate). Zinc (100+ mg), calcium, and magnesium all compete with iron for absorption when taken simultaneously. The very high zinc dose will significantly impair iron absorption.",
+      "recommendation": "Take iron-containing supplements at a separate time from zinc, calcium, and magnesium — ideally 2+ hours apart."
+    },
+    {
+      "id": "int-12",
+      "severity": "moderate",
+      "title": "Piperine/Black Pepper Enhances Everything",
+      "supplements": ["turmeric-blend", "beetroot-blend", "burnslim"],
+      "description": "Black pepper (piperine) appears in the turmeric blend, beetroot blend, and cayenne in BurnSlim has similar effects. Piperine increases bioavailability of many compounds by 30-2000% by inhibiting liver and gut enzymes (CYP3A4, P-glycoprotein). This means ALL other supplements — including ibuprofen, berberine, and curcumin — may have significantly amplified effects, increasing both benefits and toxicity risks.",
+      "recommendation": "Be aware that piperine potentiates the effects of virtually everything else in this stack, especially berberine and NSAIDs."
+    },
+    {
+      "id": "int-13",
+      "severity": "moderate",
+      "title": "Oil of Oregano + Probiotics: Counterproductive",
+      "supplements": ["oregano-oil", "probiotic-enzyme", "codeage-multi"],
+      "description": "Oil of oregano at 6,000 mg is a potent broad-spectrum antimicrobial that kills both harmful and beneficial bacteria. Taking it with probiotics (from the probiotic blend and the Codeage multi) is counterproductive — the oregano oil will likely kill the probiotic organisms before they can colonize.",
+      "recommendation": "If using oil of oregano, take probiotics at least 4-6 hours apart, or use oregano in short courses rather than continuously."
+    },
+    {
+      "id": "int-14",
+      "severity": "moderate",
+      "title": "Redundant Olive Leaf / Moringa Sources",
+      "supplements": ["olive-leaf", "oleuropein", "burnslim", "moringa"],
+      "description": "Olive leaf extract appears standalone (680 mg), as oleuropein (50 mg), and in BurnSlim (20% oleuropein olive leaf). Moringa appears standalone (1,000 mg) and in BurnSlim. This creates unnecessarily high and unpredictable total doses of both compounds, amplifying the blood-pressure-lowering and blood-sugar-lowering effects.",
+      "recommendation": "Consolidate sources. Choose either standalone olive leaf or BurnSlim, not both."
+    },
+    {
+      "id": "int-15",
+      "severity": "moderate",
+      "title": "Fenugreek Duplication & Hormonal Effects",
+      "supplements": ["atlas-x", "codeage-multi"],
+      "description": "Fenugreek appears in both the Atlas X blend (200 mg) and the Codeage Men's Vitality blend. Fenugreek has estrogenic compounds (diosgenin) and can affect both testosterone and estrogen levels. Double-dosing amplifies the unpredictability of hormonal effects.",
+      "recommendation": "Account for total fenugreek intake from all sources."
+    },
+    {
+      "id": "int-16",
+      "severity": "moderate",
+      "title": "Nattokinase + NSAIDs: Enhanced Fibrinolysis",
+      "supplements": ["spike-tri-support", "advil"],
+      "description": "Nattokinase is a potent fibrinolytic enzyme that breaks down fibrin (blood clots). Combined with ibuprofen's antiplatelet effects, this can dangerously impair the body's ability to stop bleeding. Bromelain (also in the tri-support) adds additional anticoagulant effects.",
+      "recommendation": "Do not combine nattokinase with NSAIDs without physician guidance, especially before any surgical procedure."
+    },
+    {
+      "id": "int-17",
+      "severity": "moderate",
+      "title": "Excessive Magnesium from Multiple Sources",
+      "supplements": ["mag-threonate", "mag-glycinate", "codeage-multi"],
+      "description": "Magnesium from L-threonate (~144 mg elemental), glycinate (~50 mg elemental from 350 mg), and the multivitamin (~15 mg) totals roughly 200+ mg of supplemental elemental magnesium. The UL for supplemental magnesium is 350 mg. While this is within limits, combined with dietary magnesium, it may cause loose stools or diarrhea.",
+      "recommendation": "This level is likely fine but watch for GI symptoms. Spread doses throughout the day."
+    },
+    {
+      "id": "int-18",
+      "severity": "moderate",
+      "title": "L-Citrulline + Beetroot: Amplified Nitric Oxide",
+      "supplements": ["atlas-x", "beetroot-blend"],
+      "description": "L-Citrulline (200 mg in Atlas X) converts to L-arginine and then nitric oxide. Beetroot nitrates are also converted to nitric oxide. Combined with other vasodilators in the stack (magnesium, garlic, olive leaf), this could cause excessive vasodilation and blood pressure drops.",
+      "recommendation": "Monitor blood pressure, especially after dosing."
+    },
+    {
+      "id": "int-19",
+      "severity": "low",
+      "title": "Synergistic: D3 + K2 + Magnesium + Boron",
+      "supplements": ["d3", "k2", "mag-threonate", "mag-glycinate", "boron"],
+      "description": "This is a well-designed synergistic combination. K2 directs D3-mobilized calcium to bones and away from arteries. Magnesium is required for D3 metabolism (converts D3 to active 1,25-dihydroxy form). Boron reduces urinary calcium and magnesium loss. However, the D3 dose itself is the concern — the support stack is good.",
+      "recommendation": "Good combination — just address the D3 dose."
+    },
+    {
+      "id": "int-20",
+      "severity": "low",
+      "title": "Synergistic: B-Vitamin Complex Coverage",
+      "supplements": ["b1", "b2", "b3", "b6", "b12", "codeage-multi"],
+      "description": "The standalone B vitamins (B1, B2, B3, B6, B12) plus those in the multivitamin provide thorough B-complex coverage. B vitamins work synergistically and are water-soluble (excess is excreted). Benfotiamine (B1) and P5P (B6) are superior bioavailable forms. Methylcobalamin (B12) is the active form. This is a well-constructed B-vitamin protocol.",
+      "recommendation": "Good selection of forms. Monitor B6 total intake — keep under 100 mg/day long-term to avoid neuropathy."
+    },
+    {
+      "id": "int-21",
+      "severity": "low",
+      "title": "Synergistic: Glutathione + Vitamin C + NAC Precursors",
+      "supplements": ["glutathione", "vitamin-c"],
+      "description": "Vitamin C recycles oxidized glutathione back to its active reduced form. Liposomal glutathione has better absorption than standard. This is a solid antioxidant foundation.",
+      "recommendation": "Good combination for antioxidant support."
+    }
+  ]
+}

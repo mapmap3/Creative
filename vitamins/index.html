@@ -1,0 +1,1017 @@
+<title>Dad's Supplement Interactions</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --ground: #F4F2EC;
+  --surface: #FFFFFF;
+  --surface-raised: #FAFAF7;
+  --border: #DDD9D0;
+  --border-light: #EAE7E0;
+  --text: #2C2A26;
+  --text-secondary: #6B6760;
+  --text-tertiary: #9B968D;
+  --heading: #2B3A4E;
+  --accent: #4A7FA5;
+  --accent-hover: #3A6B8E;
+  --critical: #C72C2C;
+  --critical-bg: #FDF2F2;
+  --critical-border: #E8AAAA;
+  --high: #CF6B1E;
+  --high-bg: #FEF6EE;
+  --high-border: #E8C9A0;
+  --moderate: #8B7D1A;
+  --moderate-bg: #FDFBEE;
+  --moderate-border: #DDD6A0;
+  --low: #2D7A52;
+  --low-bg: #F0F9F4;
+  --low-border: #A8D5BC;
+  --pill-bg: #EDEAE4;
+  --pill-text: #4A4740;
+  --category-bg: #E8E5DE;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --font-display: 'Newsreader', 'Georgia', serif;
+  --font-body: 'Work Sans', 'Helvetica Neue', sans-serif;
+  --radius: 6px;
+  --radius-sm: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #1C1D21;
+    --surface: #26272C;
+    --surface-raised: #2C2D33;
+    --border: #3A3B42;
+    --border-light: #333439;
+    --text: #E2DFD8;
+    --text-secondary: #9B978F;
+    --text-tertiary: #706C65;
+    --heading: #C5D4E6;
+    --accent: #6BA3CB;
+    --accent-hover: #89B8DA;
+    --critical: #E85555;
+    --critical-bg: #2E1F1F;
+    --critical-border: #5C2828;
+    --high: #E89040;
+    --high-bg: #2E2518;
+    --high-border: #5C4420;
+    --moderate: #C4B440;
+    --moderate-bg: #2A2818;
+    --moderate-border: #524E20;
+    --low: #4DB87A;
+    --low-bg: #1A2E22;
+    --low-border: #2A5C3E;
+    --pill-bg: #35363C;
+    --pill-text: #C5C2BA;
+    --category-bg: #32333A;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground: #1C1D21;
+  --surface: #26272C;
+  --surface-raised: #2C2D33;
+  --border: #3A3B42;
+  --border-light: #333439;
+  --text: #E2DFD8;
+  --text-secondary: #9B978F;
+  --text-tertiary: #706C65;
+  --heading: #C5D4E6;
+  --accent: #6BA3CB;
+  --accent-hover: #89B8DA;
+  --critical: #E85555;
+  --critical-bg: #2E1F1F;
+  --critical-border: #5C2828;
+  --high: #E89040;
+  --high-bg: #2E2518;
+  --high-border: #5C4420;
+  --moderate: #C4B440;
+  --moderate-bg: #2A2818;
+  --moderate-border: #524E20;
+  --low: #4DB87A;
+  --low-bg: #1A2E22;
+  --low-border: #2A5C3E;
+  --pill-bg: #35363C;
+  --pill-text: #C5C2BA;
+  --category-bg: #32333A;
+  --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--ground);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 24px 0;
+}
+
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--heading);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.summary-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.severity-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.severity-count.critical { background: var(--critical-bg); color: var(--critical); border: 1px solid var(--critical-border); }
+.severity-count.high { background: var(--high-bg); color: var(--high); border: 1px solid var(--high-border); }
+.severity-count.moderate { background: var(--moderate-bg); color: var(--moderate); border: 1px solid var(--moderate-border); }
+.severity-count.low { background: var(--low-bg); color: var(--low); border: 1px solid var(--low-border); }
+
+.severity-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.critical .severity-dot { background: var(--critical); }
+.high .severity-dot { background: var(--high); }
+.moderate .severity-dot { background: var(--moderate); }
+.low .severity-dot { background: var(--low); }
+
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: none;
+}
+
+.tab {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  padding: 10px 18px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  margin-bottom: -1px;
+}
+
+.tab:hover { color: var(--text); }
+.tab.active {
+  color: var(--heading);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-bar label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 4px;
+}
+
+.filter-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 180px;
+  max-width: 320px;
+  margin-left: auto;
+}
+
+.search-box input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-box input::placeholder { color: var(--text-tertiary); }
+.search-box input:focus { border-color: var(--accent); }
+
+.interaction-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: box-shadow 0.15s;
+}
+
+.interaction-card:hover { box-shadow: var(--shadow-hover); }
+
+.card-stripe {
+  display: flex;
+  gap: 0;
+}
+
+.stripe {
+  width: 4px;
+  flex-shrink: 0;
+}
+
+.stripe.critical { background: var(--critical); }
+.stripe.high { background: var(--high); }
+.stripe.moderate { background: var(--moderate); }
+.stripe.low { background: var(--low); }
+
+.card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-header {
+  padding: 14px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  user-select: none;
+}
+
+.card-header:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.severity-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.severity-badge.critical { background: var(--critical-bg); color: var(--critical); }
+.severity-badge.high { background: var(--high-bg); color: var(--high); }
+.severity-badge.moderate { background: var(--moderate-bg); color: var(--moderate); }
+.severity-badge.low { background: var(--low-bg); color: var(--low); }
+
+.card-title-area { flex: 1; min-width: 0; }
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--heading);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.card-supplements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.supp-pill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: var(--pill-bg);
+  color: var(--pill-text);
+  white-space: nowrap;
+}
+
+.expand-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  color: var(--text-tertiary);
+  transition: transform 0.2s;
+}
+
+.interaction-card.open .expand-icon { transform: rotate(180deg); }
+
+.card-body {
+  padding: 0 16px 16px;
+  padding-left: 16px;
+  display: none;
+}
+
+.interaction-card.open .card-body { display: block; }
+
+.card-body-inner {
+  border-top: 1px solid var(--border-light);
+  padding-top: 14px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 14px;
+  max-width: 70ch;
+}
+
+.recommendation {
+  font-size: 13px;
+  line-height: 1.55;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+  background: var(--surface-raised);
+  color: var(--text-secondary);
+  max-width: 70ch;
+}
+
+.recommendation strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.severity-section-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 28px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.severity-section-label.critical { color: var(--critical); }
+.severity-section-label.high { color: var(--high); }
+.severity-section-label.moderate { color: var(--moderate); }
+.severity-section-label.low { color: var(--low); }
+
+.severity-section-label:first-of-type { margin-top: 0; }
+
+/* Supplements view */
+.supplements-view { display: none; }
+.supplements-view.active { display: block; }
+.interactions-view.active { display: block; }
+
+.category-group {
+  margin-bottom: 28px;
+}
+
+.category-label {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--heading);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.supp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.supp-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.supp-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+.supp-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--heading);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.supp-dose {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.supp-dose .warning {
+  color: var(--high);
+  font-weight: 600;
+}
+
+.supp-notes {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.supp-interactions-count {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent);
+}
+
+.supp-sub-ingredients {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-light);
+}
+
+.supp-sub-ingredients summary {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  list-style: none;
+}
+
+.supp-sub-ingredients summary::before {
+  content: '+ ';
+  color: var(--text-tertiary);
+}
+
+.supp-sub-ingredients[open] summary::before { content: '- '; }
+
+.supp-sub-ingredients ul {
+  margin-top: 4px;
+  padding-left: 14px;
+}
+
+.supp-sub-ingredients li {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+.disclaimer {
+  margin-top: 40px;
+  padding: 16px 18px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+.disclaimer strong { color: var(--text-secondary); }
+
+.no-results {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-tertiary);
+  font-size: 15px;
+}
+
+.total-supps {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: 22px; }
+  .header-top { flex-direction: column; }
+  .supp-grid { grid-template-columns: 1fr; }
+  .main { padding: 16px; }
+  .search-box { max-width: none; margin-left: 0; }
+  .filter-bar { gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+
+<div class="page-header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <h1>Supplement Interaction Analysis</h1>
+        <div class="subtitle">Complete stack review &middot; <span class="total-supps" id="totalCount"></span></div>
+      </div>
+      <div class="summary-pills" id="summaryPills"></div>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-view="interactions" onclick="switchView('interactions')">Interactions</button>
+      <button class="tab" data-view="supplements" onclick="switchView('supplements')">Supplement List</button>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="interactions-view active" id="interactionsView">
+    <div class="filter-bar">
+      <label>Severity</label>
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
+      <button class="filter-btn" data-filter="critical" onclick="setFilter('critical')">Critical</button>
+      <button class="filter-btn" data-filter="high" onclick="setFilter('high')">High</button>
+      <button class="filter-btn" data-filter="moderate" onclick="setFilter('moderate')">Moderate</button>
+      <button class="filter-btn" data-filter="low" onclick="setFilter('low')">Synergistic</button>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search interactions or supplements…" oninput="filterInteractions()">
+      </div>
+    </div>
+    <div id="interactionsList"></div>
+  </div>
+
+  <div class="supplements-view" id="supplementsView">
+    <div class="filter-bar">
+      <div class="search-box" style="margin-left:0; max-width:400px;">
+        <input type="text" id="suppSearchInput" placeholder="Search supplements…" oninput="filterSupplements()">
+      </div>
+    </div>
+    <div id="supplementsList"></div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> This analysis is for informational purposes only and does not constitute medical advice. Supplement interactions are based on general pharmacological knowledge. Individual responses vary. Consult a qualified healthcare provider before making changes to any supplement regimen, especially with the dosages listed here.
+  </div>
+</div>
+
+<script>
+const DATA = {
+  supplements: [
+    { id:"d3", name:"Vitamin D3 (Cholecalciferol)", dose:"100,000 IU", category:"Fat-Soluble Vitamins", notes:"Extremely high dose — typical upper limit is 4,000 IU/day", flag:"critical" },
+    { id:"k2", name:"Vitamin K2 (MK-7)", dose:"8,500 mcg", category:"Fat-Soluble Vitamins", notes:"Very high dose. Paired with D3 to direct calcium to bones." },
+    { id:"mag-threonate", name:"Magnesium L-Threonate", dose:"2,000 mg", category:"Minerals", notes:"Brain-penetrating form. ~144 mg elemental Mg." },
+    { id:"mag-glycinate", name:"Magnesium Glycinate", dose:"350 mg", category:"Minerals", notes:"Well-absorbed calming form." },
+    { id:"pumpkin-seed", name:"Organic Pumpkin Seed", dose:"600 mg", category:"Whole Food Extracts", notes:"Source of zinc, magnesium, phytosterols." },
+    { id:"broccoli", name:"Organic Broccoli", dose:"100 mg", category:"Whole Food Extracts", notes:"Sulforaphane and indole-3-carbinol source." },
+    { id:"kale", name:"Organic Kale", dose:"100 mg", category:"Whole Food Extracts", notes:"Vitamin K1, lutein, phytonutrients." },
+    { id:"zinc", name:"Zinc Picolinate", dose:"100 mg", category:"Minerals", notes:"Very high — RDA 11 mg, UL 40 mg/day", flag:"high" },
+    { id:"krill-oil", name:"Krill Oil", dose:"2,000 mg", category:"Omega Fatty Acids", notes:"EPA, DHA as phospholipids, ~600 mcg astaxanthin." },
+    { id:"collinsonia", name:"Collinsonia Root", dose:"892 mg", category:"Herbal Extracts", notes:"Stone root — vascular and digestive support." },
+    { id:"advil", name:"Advil (Ibuprofen)", dose:"1,800 mg", category:"OTC Medications", notes:"Near maximum OTC dose. Major interaction concern.", flag:"critical" },
+    { id:"b2", name:"Vitamin B2 (Riboflavin)", dose:"400 mg", category:"B Vitamins", notes:"Therapeutic dose for migraine prevention." },
+    { id:"b3", name:"Vitamin B3 (Niacinamide)", dose:"500 mg", category:"B Vitamins", notes:"Moderate-high. Niacinamide avoids flushing." },
+    { id:"codeage-multi", name:"Codeage Men's Fermented Multivitamin", dose:"2 capsules", category:"Multivitamins", notes:"Comprehensive multi with minerals, vitality blend, probiotics, CoQ10.",
+      subIngredients: ["Vitamin A 450 mcg","Vitamin C 45 mg","Vitamin D3 800 IU","Vitamin E 16 mg","Thiamin 0.75 mg","Riboflavin 0.75 mg","Niacin","B6 (P5P) 10 mg","Folate 340 mcg DFE","B12 3 mcg","Biotin 30 mcg","Choline 150 mg","Iron 27.5 mg","Iodine 15 mg","Magnesium 15 mg","Zinc 7.5 mg","Selenium 75 mcg","Copper 0.75 mg","Boron 1.2 mg","Chromium 40 mcg","CoQ10 25 mg","K2 (MK-7) 80 mcg","Probiotics 1B CFU","Omega-3 27.5 mg","Men's Vitality Blend","Digestive Enzymes"] },
+    { id:"beef-organs", name:"Grassfed Beef Organs", dose:"3,000 mg", category:"Whole Food Extracts", notes:"Liver, heart, kidney — bioavailable B12, iron, CoQ10." },
+    { id:"elderberry", name:"Black Elderberry 10:1 Extract", dose:"500 mg", category:"Immune Support", notes:"Equiv. to 5,000 mg whole elderberry. Immune-modulating." },
+    { id:"echinacea", name:"Echinacea", dose:"1,300 mg", category:"Immune Support", notes:"Immune stimulant. Cautioned in autoimmune conditions." },
+    { id:"copper", name:"Thorne Copper Bisglycinate", dose:"2 mg", category:"Minerals", notes:"Balances high zinc. RDA is 0.9 mg." },
+    { id:"b1", name:"Vitamin B1 (Benfotiamine)", dose:"300 mg", category:"B Vitamins", notes:"Fat-soluble thiamine, better bioavailability." },
+    { id:"b6", name:"Vitamin B6 (P5P)", dose:"25 mg", category:"B Vitamins", notes:"Active form. UL 100 mg/day. High chronic doses risk neuropathy." },
+    { id:"b12", name:"Vitamin B12 (Methylcobalamin)", dose:"1,000 mcg", category:"B Vitamins", notes:"Active methylated form." },
+    { id:"aged-garlic", name:"Aged Garlic Extract", dose:"7,500 mg", category:"Herbal Extracts", notes:"Very high dose. Blood-thinning and BP-lowering.", flag:"high" },
+    { id:"oregano-oil", name:"Oil of Oregano", dose:"6,000 mg", category:"Herbal Extracts", notes:"Extremely high dose. Antimicrobial — can disrupt gut flora.", flag:"high" },
+    { id:"vitamin-c", name:"Raw Vitamin C", dose:"500 mg", category:"Water-Soluble Vitamins", notes:"Whole-food derived." },
+    { id:"fruit-veg-blend", name:"Raw Organic Fruit & Veg Blend", dose:"720 mg", category:"Whole Food Extracts", notes:"Phytonutrient blend." },
+    { id:"probiotic-enzyme", name:"Raw Probiotic + Enzyme Blend", dose:"60 mg", category:"Digestive Support", notes:"Probiotic organisms and digestive enzymes." },
+    { id:"olive-leaf", name:"Olive Leaf Extract", dose:"680 mg", category:"Herbal Extracts", notes:"Oleuropein — antimicrobial and BP-lowering." },
+    { id:"oleuropein", name:"Oleuropein", dose:"50 mg", category:"Herbal Extracts", notes:"Active olive leaf compound. Additional standalone dose." },
+    { id:"spike-tri-support", name:"Spike Protein Tri Support", dose:"varies", category:"Specialty Blends", notes:"Nattokinase, bromelain, dandelion. Fibrinolytic.",
+      subIngredients: ["Nattokinase","Bromelain","Dandelion Extract"] },
+    { id:"l-lysine", name:"L-Lysine", dose:"3,000 mg", category:"Amino Acids", notes:"Immune support and collagen production." },
+    { id:"black-seed-oil", name:"Black Seed Oil", dose:"2,000 mg", category:"Herbal Extracts", notes:"Thymoquinone — anti-inflammatory, immune-modulating." },
+    { id:"alcar", name:"Acetyl L-Carnitine", dose:"1,500 mg", category:"Amino Acids", notes:"Mitochondrial function and cognitive health." },
+    { id:"moringa", name:"Organic Moringa", dose:"1,000 mg", category:"Whole Food Extracts", notes:"Can lower blood sugar and blood pressure." },
+    { id:"glutathione", name:"Liposomal Glutathione", dose:"735 mg", category:"Antioxidants", notes:"Master antioxidant. Liposomal for better absorption." },
+    { id:"turmeric-blend", name:"Turmeric + Bee Propolis + Ginger + Pepper + MCT + Vit C", dose:"1,270 mg", category:"Anti-Inflammatory Blends", notes:"Curcumin with piperine enhancer. Anti-inflammatory." },
+    { id:"potassium", name:"Potassium", dose:"1,020 mg", category:"Minerals", notes:"Electrolyte. Adequate intake 2,600–3,400 mg/day from all sources." },
+    { id:"beetroot-blend", name:"Organic Beetroot + MCT + Pepper", dose:"905 mg", category:"Whole Food Extracts", notes:"Nitric oxide precursor. Supports blood flow." },
+    { id:"eye-formula", name:"Advanced Eye Formula 14-in-1", dose:"490 mg", category:"Specialty Blends", notes:"Likely lutein, zeaxanthin, bilberry, astaxanthin." },
+    { id:"atlas-x", name:"Atlas X Masculinity Blend", dose:"1,050 mg", category:"Hormonal Support", notes:"Testosterone and libido support.",
+      subIngredients: ["Horny Goat Weed 500 mg","Fenugreek 200 mg","L-Citrulline DL-Malate 200 mg","Nettle Extract 100 mg","Tongkat Ali 50 mg"] },
+    { id:"boron", name:"Boron", dose:"25 mg", category:"Minerals", notes:"Above UL of 20 mg. Bone and hormone metabolism.", flag:"high" },
+    { id:"saw-palmetto", name:"Saw Palmetto", dose:"450 mg", category:"Herbal Extracts", notes:"Prostate health. 5-alpha-reductase inhibitor." },
+    { id:"lycopene", name:"Lycopene", dose:"50 mg", category:"Antioxidants", notes:"Carotenoid antioxidant. Prostate support." },
+    { id:"iodine", name:"Iodine", dose:"300 mg (300,000 mcg)", category:"Minerals", notes:"~2,000x the RDA. Requires thyroid monitoring.", flag:"critical" },
+    { id:"burnslim", name:"BurnSlim Proprietary Blend", dose:"800 mg", category:"Weight Management", notes:"Contains berberine — drug-like potency for blood sugar.",
+      subIngredients: ["Olive Leaf Extract (20% oleuropein)","Moringa oleifera Extract","Berberine HCl 9%","Citrus Bioflavonoid 50%","Holy Basil Extract","African Mango Seed Extract","Cayenne Pepper Extract 4:1"] }
+  ],
+  interactions: [
+    {
+      id:"int-01", severity:"critical",
+      title:"Extreme Bleeding Risk: NSAIDs + Multiple Blood Thinners",
+      supplements:["advil","aged-garlic","krill-oil","spike-tri-support","turmeric-blend","black-seed-oil"],
+      description:"Ibuprofen at 1,800 mg/day inhibits platelet function. Combining with aged garlic (7,500 mg — potent blood thinner), krill oil (omega-3s thin blood), nattokinase (fibrinolytic enzyme), turmeric/curcumin (antiplatelet), and black seed oil (anticoagulant) creates compounding bleeding risk. Each alone has mild-to-moderate anticoagulant effects; together they significantly increase risk of GI bleeds, bruising, and hemorrhage.",
+      recommendation:"This combination should be reviewed by a physician immediately. At minimum, reduce the number of blood-thinning agents taken concurrently."
+    },
+    {
+      id:"int-02", severity:"critical",
+      title:"Vitamin D3 Toxicity Risk at 100,000 IU/day",
+      supplements:["d3","k2","codeage-multi"],
+      description:"100,000 IU daily of D3 is far above the upper tolerable intake of 4,000 IU/day and even above therapeutic weekly bolus doses (50,000 IU/week). This can cause hypercalcemia — dangerously high calcium levels leading to kidney stones, arterial calcification, nausea, confusion, and cardiac arrhythmias. While K2 helps direct calcium away from arteries, it cannot fully compensate. The multivitamin adds another ~800 IU.",
+      recommendation:"Requires serum 25(OH)D and calcium levels. This dose should only be used short-term under medical supervision for documented severe deficiency."
+    },
+    {
+      id:"int-03", severity:"critical",
+      title:"Extreme Iodine Dose: Thyroid Disruption",
+      supplements:["iodine","codeage-multi"],
+      description:"300 mg (300,000 mcg) of iodine is ~2,000 times the RDA (150 mcg) and 273 times the upper tolerable limit (1,100 mcg). This can cause thyroid storm, hypothyroidism (Wolff-Chaikoff effect), or hyperthyroidism (Jod-Basedow phenomenon). The multivitamin adds additional iodine.",
+      recommendation:"Dangerous without close endocrinologist supervision and regular thyroid function testing (TSH, free T3, free T4)."
+    },
+    {
+      id:"int-04", severity:"high",
+      title:"Zinc-Copper Imbalance",
+      supplements:["zinc","copper","codeage-multi"],
+      description:"100 mg zinc picolinate is 2.5× the upper tolerable limit (40 mg). The multivitamin adds 7.5 mg. Total ~107.5 mg. High zinc blocks copper absorption, risking copper deficiency anemia and neurological problems. The ~2.75 mg total copper is insufficient to balance. Ideal zinc:copper ratio is 10–15:1; this stack is ~39:1.",
+      recommendation:"Reduce zinc to 30–50 mg/day or increase copper. Monitor serum zinc, copper, and ceruloplasmin."
+    },
+    {
+      id:"int-05", severity:"high",
+      title:"NSAIDs + GI-Irritating Supplements",
+      supplements:["advil","oregano-oil","aged-garlic","turmeric-blend"],
+      description:"Ibuprofen at 1,800 mg/day carries significant GI risk. Oil of oregano (6,000 mg) is caustic to the GI lining. High-dose garlic and turmeric/ginger can also irritate the stomach. Combined, these dramatically increase the risk of GI ulceration and bleeding.",
+      recommendation:"Take ibuprofen with food. Consider a PPI if chronic use is needed. Reduce oregano oil dose significantly."
+    },
+    {
+      id:"int-06", severity:"high",
+      title:"Multiple Blood-Pressure-Lowering Agents",
+      supplements:["potassium","mag-threonate","mag-glycinate","olive-leaf","oleuropein","beetroot-blend","aged-garlic","moringa","black-seed-oil"],
+      description:"Magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), beetroot (nitric oxide), aged garlic (vasodilator), moringa, and black seed oil all lower blood pressure. Together, they may cause excessive drops, dizziness, and fainting.",
+      recommendation:"Monitor blood pressure regularly. If on BP medication, this combination could cause dangerous hypotension."
+    },
+    {
+      id:"int-07", severity:"high",
+      title:"Multiple Blood-Sugar-Lowering Agents",
+      supplements:["burnslim","moringa","black-seed-oil","codeage-multi","alcar"],
+      description:"Berberine (in BurnSlim) is as potent as metformin for blood sugar reduction. Moringa, black seed oil, chromium (in the multi), and ALCAR also lower blood sugar. Stacking creates hypoglycemia risk, especially if fasting or on diabetes medication.",
+      recommendation:"Monitor blood glucose. If diabetic or pre-diabetic, coordinate with physician."
+    },
+    {
+      id:"int-08", severity:"high",
+      title:"Boron Above Upper Tolerable Limit",
+      supplements:["boron","codeage-multi"],
+      description:"25 mg boron exceeds the UL of 20 mg/day. The multivitamin adds 1.2 mg (total ~26.2 mg). Excess can cause nausea, vomiting, diarrhea, and at very high doses, reproductive toxicity.",
+      recommendation:"Reduce to 3–10 mg/day unless directed by a physician."
+    },
+    {
+      id:"int-09", severity:"high",
+      title:"Immune Stimulation Overload",
+      supplements:["elderberry","echinacea","oregano-oil","aged-garlic","black-seed-oil","l-lysine","vitamin-c"],
+      description:"An extraordinary number of immune-stimulating compounds. Elderberry and echinacea are immune activators. Oregano oil, garlic, and black seed oil are antimicrobials. For someone with autoimmune conditions, this level of immune stimulation could trigger or worsen flares.",
+      recommendation:"If there is any autoimmune history, consult an immunologist."
+    },
+    {
+      id:"int-10", severity:"high",
+      title:"Hormonal Stack Interactions",
+      supplements:["atlas-x","boron","saw-palmetto"],
+      description:"Atlas X blend (horny goat weed, fenugreek, tongkat ali, nettle) plus standalone boron and saw palmetto creates a potent hormonal combination. Saw palmetto and nettle both block DHT conversion. Boron raises free testosterone. Fenugreek also appears in the Codeage multi. Unpredictable hormonal effects.",
+      recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). Watch for mood or prostate changes."
+    },
+    {
+      id:"int-11", severity:"moderate",
+      title:"Iron Absorption Competition",
+      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate"],
+      description:"The Codeage multi contains iron (27.5 mg). Zinc (100+ mg), calcium, and magnesium all compete with iron for absorption when taken simultaneously. The very high zinc dose significantly impairs iron absorption.",
+      recommendation:"Take iron-containing supplements at a separate time from zinc, calcium, and magnesium — 2+ hours apart."
+    },
+    {
+      id:"int-12", severity:"moderate",
+      title:"Piperine Amplifies Everything",
+      supplements:["turmeric-blend","beetroot-blend","burnslim"],
+      description:"Black pepper (piperine) in the turmeric and beetroot blends increases bioavailability of many compounds by 30–2,000% by inhibiting CYP3A4 and P-glycoprotein. This means all other supplements — including ibuprofen, berberine, and curcumin — may have amplified effects, increasing both benefits and toxicity.",
+      recommendation:"Be aware that piperine potentiates virtually everything else in this stack, especially berberine and NSAIDs."
+    },
+    {
+      id:"int-13", severity:"moderate",
+      title:"Oil of Oregano vs. Probiotics",
+      supplements:["oregano-oil","probiotic-enzyme","codeage-multi"],
+      description:"Oil of oregano (6,000 mg) is a potent broad-spectrum antimicrobial that kills beneficial bacteria too. Taking it with probiotics is counterproductive — the oregano will likely kill the probiotic organisms.",
+      recommendation:"If using oregano oil, take probiotics 4–6 hours apart, or use oregano in short courses."
+    },
+    {
+      id:"int-14", severity:"moderate",
+      title:"Redundant Olive Leaf & Moringa Sources",
+      supplements:["olive-leaf","oleuropein","burnslim","moringa"],
+      description:"Olive leaf appears standalone (680 mg), as oleuropein (50 mg), and in BurnSlim. Moringa appears standalone (1,000 mg) and in BurnSlim. This creates unpredictable total doses, amplifying BP- and blood-sugar-lowering effects.",
+      recommendation:"Consolidate sources. Choose either standalone or BurnSlim, not both."
+    },
+    {
+      id:"int-15", severity:"moderate",
+      title:"Fenugreek Duplication",
+      supplements:["atlas-x","codeage-multi"],
+      description:"Fenugreek in both Atlas X (200 mg) and the Codeage Men's Vitality blend. Fenugreek contains diosgenin which affects both testosterone and estrogen. Double-dosing amplifies unpredictability.",
+      recommendation:"Account for total fenugreek from all sources."
+    },
+    {
+      id:"int-16", severity:"moderate",
+      title:"Nattokinase + NSAIDs: Enhanced Fibrinolysis",
+      supplements:["spike-tri-support","advil"],
+      description:"Nattokinase breaks down fibrin (blood clots). Combined with ibuprofen's antiplatelet effects, this dangerously impairs clotting ability. Bromelain adds additional anticoagulant effects.",
+      recommendation:"Do not combine nattokinase with NSAIDs without physician guidance, especially before surgery."
+    },
+    {
+      id:"int-17", severity:"moderate",
+      title:"Excessive Magnesium from Multiple Sources",
+      supplements:["mag-threonate","mag-glycinate","codeage-multi"],
+      description:"Magnesium from L-threonate (~144 mg), glycinate (~50 mg), and multivitamin (~15 mg) totals ~200+ mg supplemental elemental Mg. UL for supplemental Mg is 350 mg. With dietary Mg, may cause loose stools.",
+      recommendation:"Likely fine but spread doses throughout the day. Watch for GI symptoms."
+    },
+    {
+      id:"int-18", severity:"moderate",
+      title:"L-Citrulline + Beetroot: Amplified Nitric Oxide",
+      supplements:["atlas-x","beetroot-blend"],
+      description:"L-Citrulline (200 mg in Atlas X) converts to nitric oxide. Beetroot nitrates also convert to NO. Combined with other vasodilators (magnesium, garlic, olive leaf), could cause excessive vasodilation.",
+      recommendation:"Monitor blood pressure, especially after dosing."
+    },
+    {
+      id:"int-19", severity:"low",
+      title:"Synergistic: D3 + K2 + Magnesium + Boron",
+      supplements:["d3","k2","mag-threonate","mag-glycinate","boron"],
+      description:"Well-designed synergistic combination. K2 directs D3-mobilized calcium to bones. Magnesium is required for D3 metabolism. Boron reduces urinary calcium and magnesium loss. The support stack is good — the D3 dose itself is the concern.",
+      recommendation:"Good combination — just address the D3 dose."
+    },
+    {
+      id:"int-20", severity:"low",
+      title:"Synergistic: Complete B-Vitamin Coverage",
+      supplements:["b1","b2","b3","b6","b12","codeage-multi"],
+      description:"Standalone B vitamins plus those in the multi provide thorough B-complex coverage. Benfotiamine (B1), P5P (B6), and methylcobalamin (B12) are superior bioavailable forms. B vitamins work synergistically and excess is excreted.",
+      recommendation:"Good selection of forms. Keep B6 under 100 mg/day long-term."
+    },
+    {
+      id:"int-21", severity:"low",
+      title:"Synergistic: Glutathione + Vitamin C",
+      supplements:["glutathione","vitamin-c"],
+      description:"Vitamin C recycles oxidized glutathione back to its active reduced form. Liposomal glutathione has better absorption. Solid antioxidant foundation.",
+      recommendation:"Good combination for antioxidant support."
+    }
+  ]
+};
+
+const suppMap = {};
+DATA.supplements.forEach(s => { suppMap[s.id] = s; });
+
+function getInteractionCountForSupplement(suppId) {
+  return DATA.interactions.filter(i => i.supplements.includes(suppId)).length;
+}
+
+function renderSummary() {
+  const counts = { critical: 0, high: 0, moderate: 0, low: 0 };
+  DATA.interactions.forEach(i => { counts[i.severity]++; });
+  document.getElementById('totalCount').textContent = DATA.supplements.length + ' supplements';
+  const labels = { critical:'Critical', high:'High', moderate:'Moderate', low:'Synergistic' };
+  document.getElementById('summaryPills').innerHTML = Object.entries(counts)
+    .filter(([,v]) => v > 0)
+    .map(([k,v]) => `<span class="severity-count ${k}"><span class="severity-dot"></span>${v} ${labels[k]}</span>`)
+    .join('');
+}
+
+let currentFilter = 'all';
+let currentSearch = '';
+
+function setFilter(f) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.filter === f);
+  });
+  renderInteractions();
+}
+
+function filterInteractions() {
+  currentSearch = document.getElementById('searchInput').value.toLowerCase();
+  renderInteractions();
+}
+
+function renderInteractions() {
+  const container = document.getElementById('interactionsList');
+  let filtered = DATA.interactions;
+
+  if (currentFilter !== 'all') {
+    filtered = filtered.filter(i => i.severity === currentFilter);
+  }
+
+  if (currentSearch) {
+    filtered = filtered.filter(i => {
+      const suppNames = i.supplements.map(s => suppMap[s] ? suppMap[s].name : s).join(' ').toLowerCase();
+      return i.title.toLowerCase().includes(currentSearch) ||
+             i.description.toLowerCase().includes(currentSearch) ||
+             suppNames.includes(currentSearch);
+    });
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="no-results">No interactions match your filters.</div>';
+    return;
+  }
+
+  const order = ['critical','high','moderate','low'];
+  const labels = { critical:'Critical', high:'High Risk', moderate:'Moderate', low:'Synergistic' };
+  let html = '';
+  let lastSeverity = '';
+
+  const sorted = [...filtered].sort((a,b) => order.indexOf(a.severity) - order.indexOf(b.severity));
+
+  sorted.forEach(interaction => {
+    if (interaction.severity !== lastSeverity) {
+      html += `<div class="severity-section-label ${interaction.severity}">${labels[interaction.severity]}</div>`;
+      lastSeverity = interaction.severity;
+    }
+
+    const pills = interaction.supplements
+      .map(s => suppMap[s] ? `<span class="supp-pill">${suppMap[s].name.split('(')[0].trim()}</span>` : '')
+      .join('');
+
+    html += `
+      <div class="interaction-card" id="card-${interaction.id}">
+        <div class="card-stripe">
+          <div class="stripe ${interaction.severity}"></div>
+          <div class="card-content">
+            <div class="card-header" tabindex="0" onclick="toggleCard('${interaction.id}')" onkeydown="if(event.key==='Enter')toggleCard('${interaction.id}')">
+              <span class="severity-badge ${interaction.severity}">${interaction.severity}</span>
+              <div class="card-title-area">
+                <div class="card-title">${interaction.title}</div>
+                <div class="card-supplements">${pills}</div>
+              </div>
+              <svg class="expand-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+            </div>
+            <div class="card-body">
+              <div class="card-body-inner">
+                <p class="description">${interaction.description}</p>
+                <div class="recommendation"><strong>Recommendation:</strong> ${interaction.recommendation}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function toggleCard(id) {
+  document.getElementById('card-' + id).classList.toggle('open');
+}
+
+function switchView(view) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
+  document.getElementById('interactionsView').classList.toggle('active', view === 'interactions');
+  document.getElementById('supplementsView').classList.toggle('active', view === 'supplements');
+  if (view === 'supplements') renderSupplements();
+}
+
+function filterSupplements() {
+  renderSupplements();
+}
+
+function renderSupplements() {
+  const container = document.getElementById('supplementsList');
+  const search = (document.getElementById('suppSearchInput').value || '').toLowerCase();
+
+  const categories = {};
+  DATA.supplements.forEach(s => {
+    if (search && !s.name.toLowerCase().includes(search) && !s.category.toLowerCase().includes(search) && !(s.notes||'').toLowerCase().includes(search)) return;
+    if (!categories[s.category]) categories[s.category] = [];
+    categories[s.category].push(s);
+  });
+
+  const catOrder = [
+    'OTC Medications','Fat-Soluble Vitamins','Minerals','B Vitamins','Water-Soluble Vitamins',
+    'Omega Fatty Acids','Amino Acids','Antioxidants','Immune Support','Herbal Extracts',
+    'Anti-Inflammatory Blends','Whole Food Extracts','Hormonal Support','Specialty Blends',
+    'Multivitamins','Digestive Support','Weight Management'
+  ];
+
+  const sortedCats = Object.keys(categories).sort((a,b) => {
+    const ai = catOrder.indexOf(a), bi = catOrder.indexOf(b);
+    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+  });
+
+  if (sortedCats.length === 0) {
+    container.innerHTML = '<div class="no-results">No supplements match your search.</div>';
+    return;
+  }
+
+  let html = '';
+  sortedCats.forEach(cat => {
+    html += `<div class="category-group"><div class="category-label">${cat}</div><div class="supp-grid">`;
+    categories[cat].forEach(s => {
+      const intCount = getInteractionCountForSupplement(s.id);
+      const flagClass = s.flag === 'critical' ? 'color:var(--critical);font-weight:600' :
+                        s.flag === 'high' ? 'color:var(--high);font-weight:600' : '';
+      let subHtml = '';
+      if (s.subIngredients && s.subIngredients.length) {
+        subHtml = `<details class="supp-sub-ingredients"><summary>${s.subIngredients.length} sub-ingredients</summary><ul>${s.subIngredients.map(si => `<li>${si}</li>`).join('')}</ul></details>`;
+      }
+      html += `
+        <div class="supp-card" onclick="showSuppInteractions('${s.id}')">
+          <div class="supp-name">${s.name}</div>
+          <div class="supp-dose">${s.dose}${s.flag ? ' <span class="warning">&#9888;</span>' : ''}</div>
+          <div class="supp-notes" ${flagClass ? `style="${flagClass}"` : ''}>${s.notes || ''}</div>
+          ${subHtml}
+          ${intCount > 0 ? `<div class="supp-interactions-count">${intCount} interaction${intCount > 1 ? 's' : ''} &rarr;</div>` : ''}
+        </div>`;
+    });
+    html += '</div></div>';
+  });
+
+  container.innerHTML = html;
+}
+
+function showSuppInteractions(suppId) {
+  const supp = suppMap[suppId];
+  if (!supp) return;
+  switchView('interactions');
+  document.getElementById('searchInput').value = supp.name.split('(')[0].trim();
+  currentSearch = supp.name.split('(')[0].trim().toLowerCase();
+  currentFilter = 'all';
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+  renderInteractions();
+  document.querySelectorAll('.interaction-card').forEach(c => c.classList.add('open'));
+}
+
+renderSummary();
+renderInteractions();
+</script>
