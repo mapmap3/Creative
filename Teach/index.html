@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teach Timeline</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title">Teach</h1>
+    <p class="site-subtitle">A Timeline of Everything</p>
+  </header>
+
+  <nav class="filter-bar" id="filterBar">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="history">
+        <span class="filter-dot history-dot"></span>History
+      </button>
+      <button class="filter-btn" data-filter="science">
+        <span class="filter-dot science-dot"></span>Science
+      </button>
+      <button class="filter-btn" data-filter="math">
+        <span class="filter-dot math-dot"></span>Math
+      </button>
+      <button class="filter-btn" data-filter="literature">
+        <span class="filter-dot literature-dot"></span>Literature
+      </button>
+    </div>
+    <div class="card-count" id="cardCount"></div>
+  </nav>
+
+  <main class="timeline-container">
+    <div class="timeline-line"></div>
+    <div class="timeline" id="timeline"></div>
+    <div class="future-section" id="futureSection">
+      <h2 class="future-heading">The Next 10 Decades</h2>
+      <div class="future-grid" id="futureGrid"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-category" id="modalCategory"></div>
+      <div class="modal-year" id="modalYear"></div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-detail" id="modalDetail"></p>
+    </div>
+  </div>
+
+  <script src="data-history.js"></script>
+  <script src="data-science.js"></script>
+  <script src="data-math.js"></script>
+  <script src="data-literature.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
