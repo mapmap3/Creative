@@ -640,8 +640,6 @@ const DATA = {
     { id:"kale", name:"Organic Kale", dose:"100 mg", category:"Whole Food Extracts", notes:"Vitamin K1, lutein, phytonutrients." },
     { id:"zinc", name:"Zinc Picolinate", dose:"100 mg", category:"Minerals", notes:"Very high — RDA 11 mg, UL 40 mg/day", flag:"high" },
     { id:"krill-oil", name:"Krill Oil", dose:"2,000 mg", category:"Omega Fatty Acids", notes:"EPA, DHA as phospholipids, ~600 mcg astaxanthin." },
-    { id:"collinsonia", name:"Collinsonia Root", dose:"892 mg", category:"Herbal Extracts", notes:"Stone root — vascular and digestive support." },
-    { id:"advil", name:"Advil (Ibuprofen)", dose:"1,800 mg", category:"OTC Medications", notes:"Near maximum OTC dose. Major interaction concern.", flag:"critical" },
     { id:"b2", name:"Vitamin B2 (Riboflavin)", dose:"400 mg", category:"B Vitamins", notes:"Therapeutic dose for migraine prevention." },
     { id:"b3", name:"Vitamin B3 (Niacinamide)", dose:"500 mg", category:"B Vitamins", notes:"Moderate-high. Niacinamide avoids flushing." },
     { id:"codeage-multi", name:"Codeage Men's Fermented Multivitamin", dose:"2 capsules", category:"Multivitamins", notes:"Comprehensive multi with minerals, vitality blend, probiotics, CoQ10.",
@@ -691,10 +689,10 @@ const DATA = {
   interactions: [
     {
       id:"int-01", severity:"critical",
-      title:"Extreme Bleeding Risk: NSAIDs + Multiple Blood Thinners + Fibrinolytics",
-      supplements:["advil","aged-garlic","krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","antimicrobial-blend","snap-prostate"],
-      description:"Ibuprofen at 1,800 mg/day inhibits platelet function. This stack layers on nattokinase (400 mg / 12,000 FU — potent fibrinolytic), serrapeptase in TWO products (155 mg combined — another fibrinolytic), bromelain, aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from THREE sources (turmeric blend, Snap prostate, spike support), and black seed oil. Resveratrol (600 mg Japanese knotweed) also has antiplatelet activity. This is an exceptionally dangerous compounding of 8+ anticoagulant/fibrinolytic mechanisms.",
-      recommendation:"This combination requires immediate physician review. The stacking of nattokinase + serrapeptase + bromelain + NSAIDs + garlic + curcumin creates serious hemorrhage risk."
+      title:"Extreme Bleeding Risk: 7+ Anticoagulant & Fibrinolytic Mechanisms",
+      supplements:["aged-garlic","krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","antimicrobial-blend","snap-prostate"],
+      description:"This stack layers 7+ blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase in TWO products (155 mg combined — fibrinolytic), bromelain, aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from THREE sources (turmeric blend, Snap prostate, spike support), black seed oil, and resveratrol (600 mg Japanese knotweed — antiplatelet). This is an exceptionally dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
+      recommendation:"This combination requires immediate physician review. The stacking of nattokinase + serrapeptase + bromelain + garlic + curcumin creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
       id:"int-02", severity:"critical",
@@ -719,10 +717,10 @@ const DATA = {
     },
     {
       id:"int-05", severity:"high",
-      title:"NSAIDs + GI-Irritating Supplements",
-      supplements:["advil","oregano-oil","aged-garlic","turmeric-blend"],
-      description:"Ibuprofen at 1,800 mg/day carries significant GI risk. Oil of oregano (6,000 mg) is caustic to the GI lining. High-dose garlic and turmeric/ginger can also irritate the stomach. Combined, these dramatically increase the risk of GI ulceration and bleeding.",
-      recommendation:"Take ibuprofen with food. Consider a PPI if chronic use is needed. Reduce oregano oil dose significantly."
+      title:"GI-Irritating Combination: Oregano + Garlic + Turmeric",
+      supplements:["oregano-oil","aged-garlic","turmeric-blend"],
+      description:"Oil of oregano (6,000 mg) is caustic to the GI lining. High-dose garlic (7,500 mg) and turmeric/ginger can also irritate the stomach. Combined, these dramatically increase the risk of GI ulceration, gastritis, and discomfort.",
+      recommendation:"Reduce oregano oil dose significantly. Take with food and consider spacing doses apart."
     },
     {
       id:"int-06", severity:"high",
@@ -770,8 +768,8 @@ const DATA = {
       id:"int-12", severity:"high",
       title:"Piperine from 4 Sources Amplifies Everything",
       supplements:["turmeric-blend","beetroot-blend","burnslim","antimicrobial-blend"],
-      description:"Black pepper / piperine now appears in FOUR products: turmeric blend, beetroot blend, BurnSlim (cayenne), and the antimicrobial blend (5 mg at 95% piperine). Piperine inhibits CYP3A4 and P-glycoprotein, increasing bioavailability of many compounds by 30–2,000%. This means ibuprofen, berberine, curcumin, resveratrol, and virtually everything else in this 50-supplement stack may have significantly amplified effects. With this many sources, the cumulative piperine dose creates unpredictable potentiation of already-high doses.",
-      recommendation:"The piperine load is turning every other dose in this stack into an effectively higher dose. This is especially dangerous for berberine, NSAIDs, and the blood-thinning agents."
+      description:"Black pepper / piperine now appears in FOUR products: turmeric blend, beetroot blend, BurnSlim (cayenne), and the antimicrobial blend (5 mg at 95% piperine). Piperine inhibits CYP3A4 and P-glycoprotein, increasing bioavailability of many compounds by 30–2,000%. This means berberine, curcumin, resveratrol, and virtually everything else in this stack may have significantly amplified effects. With this many sources, the cumulative piperine dose creates unpredictable potentiation of already-high doses.",
+      recommendation:"The piperine load is turning every other dose in this stack into an effectively higher dose. This is especially dangerous for berberine and the blood-thinning agents."
     },
     {
       id:"int-13", severity:"moderate",
@@ -793,13 +791,6 @@ const DATA = {
       supplements:["atlas-x","codeage-multi"],
       description:"Fenugreek in both Atlas X (200 mg) and the Codeage Men's Vitality blend. Fenugreek contains diosgenin which affects both testosterone and estrogen. Double-dosing amplifies unpredictability.",
       recommendation:"Account for total fenugreek from all sources."
-    },
-    {
-      id:"int-16", severity:"moderate",
-      title:"Nattokinase + NSAIDs: Enhanced Fibrinolysis",
-      supplements:["spike-tri-support","advil"],
-      description:"Nattokinase breaks down fibrin (blood clots). Combined with ibuprofen's antiplatelet effects, this dangerously impairs clotting ability. Bromelain adds additional anticoagulant effects.",
-      recommendation:"Do not combine nattokinase with NSAIDs without physician guidance, especially before surgery."
     },
     {
       id:"int-17", severity:"moderate",
@@ -845,16 +836,16 @@ const DATA = {
     },
     {
       id:"int-23", severity:"high",
-      title:"Wormwood (Artemisinin) Liver Toxicity Concern",
-      supplements:["antimicrobial-blend","oregano-oil","advil"],
-      description:"Sweet wormwood (artemisinin, 200 mg) is hepatotoxic with prolonged use. Combined with oil of oregano (6,000 mg — also hepatotoxic at high doses) and ibuprofen (1,800 mg — hepatotoxic potential), this creates compounding liver stress. Cat's claw in the same blend can also affect liver enzymes. This trio should not be taken daily long-term.",
+      title:"Wormwood + Oregano 6,000mg: Liver Toxicity Concern",
+      supplements:["antimicrobial-blend","oregano-oil"],
+      description:"Sweet wormwood (artemisinin, 200 mg) is hepatotoxic with prolonged use. Combined with oil of oregano (6,000 mg — also hepatotoxic at high doses), this creates compounding liver stress. Cat's claw in the same blend can also affect liver enzymes. These should not be taken daily long-term.",
       recommendation:"Limit antimicrobial blend and oregano oil to short courses (2-4 weeks). Monitor liver enzymes (ALT, AST) if using chronically."
     },
     {
       id:"int-24", severity:"high",
       title:"Duplicate Serrapeptase + Nattokinase: Double Fibrinolytic Load",
       supplements:["spike-tri-support","antimicrobial-blend"],
-      description:"Serrapeptase appears in TWO products: spike support (100 mg / 360,000 SPU) and antimicrobial blend (55 mg / 2,000 SPU per mg = 110,000 SPU). Total serrapeptase ~155 mg / ~470,000 SPU. Combined with nattokinase (400 mg / 12,000 FU), this is an extremely potent fibrinolytic cocktail that dissolves blood clots. Adding this to the existing NSAIDs, garlic, and curcumin makes the bleeding risk severe.",
+      description:"Serrapeptase appears in TWO products: spike support (100 mg / 360,000 SPU) and antimicrobial blend (55 mg / 2,000 SPU per mg = 110,000 SPU). Total serrapeptase ~155 mg / ~470,000 SPU. Combined with nattokinase (400 mg / 12,000 FU), this is an extremely potent fibrinolytic cocktail that dissolves blood clots. Adding this to the existing garlic and curcumin anticoagulants makes the bleeding risk severe.",
       recommendation:"Do not take both products simultaneously. Choose one source of fibrinolytic enzymes and take it separately from blood-thinning agents."
     },
     {
@@ -875,8 +866,8 @@ const DATA = {
       id:"int-27", severity:"moderate",
       title:"Resveratrol + Curcumin: CYP Enzyme Inhibition Stack",
       supplements:["antimicrobial-blend","turmeric-blend","snap-prostate"],
-      description:"Japanese knotweed (600 mg, 20% resveratrol = ~120 mg resveratrol) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine (which also inhibits CYP3A4), this can significantly slow the metabolism of ibuprofen and other substances, effectively increasing their half-life and blood levels.",
-      recommendation:"Be aware that ibuprofen and other drugs may stay in the system longer due to CYP inhibition from multiple sources."
+      description:"Japanese knotweed (600 mg, 20% resveratrol = ~120 mg resveratrol) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine (which also inhibits CYP3A4), this can significantly slow the metabolism of medications and other substances, effectively increasing their half-life and blood levels.",
+      recommendation:"Be aware that medications and other drugs may stay in the system longer due to CYP inhibition from multiple sources."
     },
     {
       id:"int-28", severity:"moderate",

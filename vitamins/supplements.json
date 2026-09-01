@@ -84,24 +84,6 @@
       "notes": "Provides EPA, DHA as phospholipids, plus astaxanthin (~600 mcg). Also provides ~600 mcg additional nutrients."
     },
     {
-      "id": "collinsonia",
-      "name": "Collinsonia Root",
-      "dose": "892 mg",
-      "doseValue": 892,
-      "doseUnit": "mg",
-      "category": "Herbal Extracts",
-      "notes": "Stone root — traditionally used for vascular and digestive support."
-    },
-    {
-      "id": "advil",
-      "name": "Advil (Ibuprofen / NSAID)",
-      "dose": "1,800 mg",
-      "doseValue": 1800,
-      "doseUnit": "mg",
-      "category": "OTC Medications",
-      "notes": "Near maximum OTC daily dose (max 1,200 mg OTC / 3,200 mg Rx). Major interaction concern."
-    },
-    {
       "id": "b2",
       "name": "Vitamin B2 (Riboflavin)",
       "dose": "400 mg",
@@ -533,10 +515,10 @@
     {
       "id": "int-01",
       "severity": "critical",
-      "title": "Extreme Bleeding Risk: NSAIDs + Multiple Blood Thinners",
-      "supplements": ["advil", "aged-garlic", "krill-oil", "spike-tri-support", "turmeric-blend", "black-seed-oil"],
-      "description": "Ibuprofen at 1,800 mg/day inhibits platelet function. Combining with aged garlic (7,500 mg — potent blood thinner), krill oil (omega-3s thin blood), nattokinase (fibrinolytic enzyme), turmeric/curcumin (antiplatelet), and black seed oil (anticoagulant properties) creates a compounding bleeding risk. Each of these alone has mild-to-moderate anticoagulant effects; together they significantly increase risk of GI bleeds, bruising, and hemorrhage.",
-      "recommendation": "This combination should be reviewed by a physician immediately. At minimum, reduce the number of blood-thinning agents taken concurrently."
+      "title": "Extreme Bleeding Risk: 7+ Anticoagulant Mechanisms",
+      "supplements": ["aged-garlic", "krill-oil", "spike-tri-support", "turmeric-blend", "black-seed-oil"],
+      "description": "This stack layers 7+ blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase (155 mg combined from two products — fibrinolytic), bromelain (anticoagulant), aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from three sources (antiplatelet), black seed oil (anticoagulant), and resveratrol (antiplatelet). Together they significantly increase risk of GI bleeds, bruising, and hemorrhage.",
+      "recommendation": "This combination should be reviewed by a physician immediately. Reduce the number of blood-thinning agents taken concurrently. Physician must review before any surgery."
     },
     {
       "id": "int-02",
@@ -565,10 +547,10 @@
     {
       "id": "int-05",
       "severity": "high",
-      "title": "NSAIDs + GI-Irritating Supplements",
-      "supplements": ["advil", "oregano-oil", "aged-garlic", "turmeric-blend"],
-      "description": "Ibuprofen at 1,800 mg/day already carries significant GI risk (ulcers, gastritis). Oil of oregano (6,000 mg — extremely high) is caustic to the GI lining. Aged garlic at high doses and turmeric/ginger can also irritate the stomach. Combined, these dramatically increase the risk of GI ulceration and bleeding.",
-      "recommendation": "Take ibuprofen with food and consider a PPI if chronic use is needed. Reduce oregano oil dose significantly."
+      "title": "GI-Irritating Combination: Oregano + Garlic + Turmeric",
+      "supplements": ["oregano-oil", "aged-garlic", "turmeric-blend"],
+      "description": "Oil of oregano (6,000 mg — extremely high) is caustic to the GI lining. Aged garlic at 7,500 mg and turmeric/ginger can also irritate the stomach. Combined, these dramatically increase the risk of GI ulceration, gastritis, and discomfort.",
+      "recommendation": "Reduce oregano oil dose significantly. Take with food and consider spacing doses apart."
     },
     {
       "id": "int-06",
@@ -623,8 +605,8 @@
       "severity": "moderate",
       "title": "Piperine/Black Pepper Enhances Everything",
       "supplements": ["turmeric-blend", "beetroot-blend", "burnslim"],
-      "description": "Black pepper (piperine) appears in the turmeric blend, beetroot blend, and cayenne in BurnSlim has similar effects. Piperine increases bioavailability of many compounds by 30-2000% by inhibiting liver and gut enzymes (CYP3A4, P-glycoprotein). This means ALL other supplements — including ibuprofen, berberine, and curcumin — may have significantly amplified effects, increasing both benefits and toxicity risks.",
-      "recommendation": "Be aware that piperine potentiates the effects of virtually everything else in this stack, especially berberine and NSAIDs."
+      "description": "Black pepper (piperine) appears in the turmeric blend, beetroot blend, and cayenne in BurnSlim has similar effects. Piperine increases bioavailability of many compounds by 30-2000% by inhibiting liver and gut enzymes (CYP3A4, P-glycoprotein). This means ALL other supplements — including berberine and curcumin — may have significantly amplified effects, increasing both benefits and toxicity risks.",
+      "recommendation": "Be aware that piperine potentiates the effects of virtually everything else in this stack, especially berberine and blood-thinning agents."
     },
     {
       "id": "int-13",
@@ -649,14 +631,6 @@
       "supplements": ["atlas-x", "codeage-multi"],
       "description": "Fenugreek appears in both the Atlas X blend (200 mg) and the Codeage Men's Vitality blend. Fenugreek has estrogenic compounds (diosgenin) and can affect both testosterone and estrogen levels. Double-dosing amplifies the unpredictability of hormonal effects.",
       "recommendation": "Account for total fenugreek intake from all sources."
-    },
-    {
-      "id": "int-16",
-      "severity": "moderate",
-      "title": "Nattokinase + NSAIDs: Enhanced Fibrinolysis",
-      "supplements": ["spike-tri-support", "advil"],
-      "description": "Nattokinase is a potent fibrinolytic enzyme that breaks down fibrin (blood clots). Combined with ibuprofen's antiplatelet effects, this can dangerously impair the body's ability to stop bleeding. Bromelain (also in the tri-support) adds additional anticoagulant effects.",
-      "recommendation": "Do not combine nattokinase with NSAIDs without physician guidance, especially before any surgical procedure."
     },
     {
       "id": "int-17",
