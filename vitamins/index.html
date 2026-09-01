@@ -434,6 +434,156 @@ h1 {
 
 .severity-section-label:first-of-type { margin-top: 0; }
 
+.view-toggle {
+  display: flex;
+  background: var(--pill-bg);
+  border-radius: 20px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.view-toggle-btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 18px;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.view-toggle-btn:hover { color: var(--text); }
+.view-toggle-btn.active {
+  background: var(--surface);
+  color: var(--heading);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.outcome-group {
+  margin-bottom: 24px;
+}
+
+.outcome-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: box-shadow 0.15s;
+}
+
+.outcome-header:hover { box-shadow: var(--shadow-hover); }
+
+.outcome-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  background: var(--surface-raised);
+}
+
+.outcome-title-area { flex: 1; min-width: 0; }
+
+.outcome-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--heading);
+  line-height: 1.3;
+}
+
+.outcome-meta {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.outcome-count {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.outcome-count.critical { background: var(--critical-bg); color: var(--critical); border: 1px solid var(--critical-border); }
+.outcome-count.high { background: var(--high-bg); color: var(--high); border: 1px solid var(--high-border); }
+.outcome-count.moderate { background: var(--moderate-bg); color: var(--moderate); border: 1px solid var(--moderate-border); }
+.outcome-count.low { background: var(--low-bg); color: var(--low); border: 1px solid var(--low-border); }
+
+.outcome-expand {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--text-tertiary);
+  transition: transform 0.2s;
+}
+
+.outcome-group.open .outcome-expand { transform: rotate(180deg); }
+
+.outcome-items {
+  display: none;
+  padding-left: 20px;
+}
+
+.outcome-group.open .outcome-items { display: block; }
+
+.outcome-item {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.15s;
+}
+
+.outcome-item:hover { box-shadow: var(--shadow-hover); }
+
+.outcome-item-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.outcome-item-content {
+  display: none;
+  padding: 0 14px 14px;
+}
+
+.outcome-item.open .outcome-item-content { display: block; }
+
+.outcome-item-content .description { margin-bottom: 12px; }
+
+.outcome-item-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--heading);
+  line-height: 1.3;
+  flex: 1;
+}
+
+.outcome-item .expand-icon { margin-top: 1px; }
+.outcome-item.open .expand-icon { transform: rotate(180deg); }
+
 /* Supplements view */
 .supplements-view { display: none; }
 .supplements-view.active { display: block; }
@@ -601,12 +751,17 @@ h1 {
 <div class="main">
   <div class="interactions-view active" id="interactionsView">
     <div class="filter-bar">
-      <label>Severity</label>
-      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
-      <button class="filter-btn" data-filter="critical" onclick="setFilter('critical')">Critical</button>
-      <button class="filter-btn" data-filter="high" onclick="setFilter('high')">High</button>
-      <button class="filter-btn" data-filter="moderate" onclick="setFilter('moderate')">Moderate</button>
-      <button class="filter-btn" data-filter="low" onclick="setFilter('low')">Synergistic</button>
+      <div class="view-toggle">
+        <button class="view-toggle-btn active" data-mode="severity" onclick="setViewMode('severity')">By Severity</button>
+        <button class="view-toggle-btn" data-mode="outcome" onclick="setViewMode('outcome')">By Health Outcome</button>
+      </div>
+      <div id="severityFilters" style="display:contents">
+        <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
+        <button class="filter-btn" data-filter="critical" onclick="setFilter('critical')">Critical</button>
+        <button class="filter-btn" data-filter="high" onclick="setFilter('high')">High</button>
+        <button class="filter-btn" data-filter="moderate" onclick="setFilter('moderate')">Moderate</button>
+        <button class="filter-btn" data-filter="low" onclick="setFilter('low')">Synergistic</button>
+      </div>
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search interactions or supplements…" oninput="filterInteractions()">
       </div>
@@ -688,189 +843,189 @@ const DATA = {
   ],
   interactions: [
     {
-      id:"int-01", severity:"critical",
+      id:"int-01", severity:"critical", outcome:"Bleeding & Clotting",
       title:"Extreme Bleeding Risk: 7+ Anticoagulant & Fibrinolytic Mechanisms",
       supplements:["aged-garlic","krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","antimicrobial-blend","snap-prostate"],
       description:"This stack layers 7+ blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase in TWO products (155 mg combined — fibrinolytic), bromelain, aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from THREE sources (turmeric blend, Snap prostate, spike support), black seed oil, and resveratrol (600 mg Japanese knotweed — antiplatelet). This is an exceptionally dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
       recommendation:"This combination requires immediate physician review. The stacking of nattokinase + serrapeptase + bromelain + garlic + curcumin creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
-      id:"int-02", severity:"critical",
+      id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
       title:"Vitamin D3 Toxicity Risk at 100,000 IU/day",
       supplements:["d3","k2","codeage-multi"],
       description:"100,000 IU daily of D3 is far above the upper tolerable intake of 4,000 IU/day and even above therapeutic weekly bolus doses (50,000 IU/week). This can cause hypercalcemia — dangerously high calcium levels leading to kidney stones, arterial calcification, nausea, confusion, and cardiac arrhythmias. While K2 helps direct calcium away from arteries, it cannot fully compensate. The multivitamin adds another ~800 IU.",
       recommendation:"Requires serum 25(OH)D and calcium levels. This dose should only be used short-term under medical supervision for documented severe deficiency."
     },
     {
-      id:"int-03", severity:"critical",
+      id:"int-03", severity:"critical", outcome:"Thyroid Function",
       title:"Extreme Iodine Dose: Thyroid Disruption",
       supplements:["iodine","codeage-multi"],
       description:"300 mg (300,000 mcg) of iodine is ~2,000 times the RDA (150 mcg) and 273 times the upper tolerable limit (1,100 mcg). This can cause thyroid storm, hypothyroidism (Wolff-Chaikoff effect), or hyperthyroidism (Jod-Basedow phenomenon). The multivitamin adds additional iodine.",
       recommendation:"Dangerous without close endocrinologist supervision and regular thyroid function testing (TSH, free T3, free T4)."
     },
     {
-      id:"int-04", severity:"high",
+      id:"int-04", severity:"high", outcome:"Bone & Mineral Balance",
       title:"Zinc-Copper Imbalance (Now ~126 mg Zinc)",
       supplements:["zinc","copper","codeage-multi","snap-prostate","blood-sugar-support"],
       description:"Zinc from all sources: picolinate 100 mg + multi 7.5 mg + Snap prostate 11 mg + blood sugar formula 7.5 mg = ~126 mg total. This is 3× the upper tolerable limit (40 mg). Total copper is only ~3.65 mg (Thorne 2 mg + multi 0.75 mg + Snap 0.9 mg). The zinc:copper ratio is ~35:1 vs. the ideal 10–15:1. Chronic high zinc causes copper deficiency anemia and neurological damage.",
       recommendation:"Reduce zinc to 30–50 mg/day total. At minimum, consolidate zinc sources and increase copper."
     },
     {
-      id:"int-05", severity:"high",
+      id:"int-05", severity:"high", outcome:"GI & Digestive",
       title:"GI-Irritating Combination: Oregano + Garlic + Turmeric",
       supplements:["oregano-oil","aged-garlic","turmeric-blend"],
       description:"Oil of oregano (6,000 mg) is caustic to the GI lining. High-dose garlic (7,500 mg) and turmeric/ginger can also irritate the stomach. Combined, these dramatically increase the risk of GI ulceration, gastritis, and discomfort.",
       recommendation:"Reduce oregano oil dose significantly. Take with food and consider spacing doses apart."
     },
     {
-      id:"int-06", severity:"high",
+      id:"int-06", severity:"high", outcome:"Blood Pressure & Heart",
       title:"Multiple Blood-Pressure-Lowering Agents",
       supplements:["potassium","mag-threonate","mag-glycinate","olive-leaf","oleuropein","beetroot-blend","aged-garlic","moringa","black-seed-oil"],
       description:"Magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), beetroot (nitric oxide), aged garlic (vasodilator), moringa, and black seed oil all lower blood pressure. Together, they may cause excessive drops, dizziness, and fainting.",
       recommendation:"Monitor blood pressure regularly. If on BP medication, this combination could cause dangerous hypotension."
     },
     {
-      id:"int-07", severity:"critical",
+      id:"int-07", severity:"critical", outcome:"Blood Sugar",
       title:"Extreme Blood-Sugar-Lowering Stack: Hypoglycemia Risk",
       supplements:["burnslim","blood-sugar-support","moringa","black-seed-oil","codeage-multi","alcar"],
       description:"This stack now contains an extraordinary number of hypoglycemic agents: berberine (BurnSlim — metformin-equivalent), PLUS gymnema sylvestre (blocks sugar taste and absorption), bitter melon (insulin-mimetic), banaba leaf (corosolic acid — glucose transporter activator), cinnamon (insulin sensitizer), alpha lipoic acid (glucose uptake), white mulberry (alpha-glucosidase inhibitor) — all from the blood sugar formula. Add moringa, black seed oil, chromium from TWO sources (~116 mcg total), and ALCAR. This is comparable to stacking multiple diabetes medications.",
       recommendation:"Serious hypoglycemia risk, especially when fasting or exercising. If not diabetic, this level of blood sugar suppression is potentially dangerous. Requires glucose monitoring."
     },
     {
-      id:"int-08", severity:"high",
+      id:"int-08", severity:"high", outcome:"Bone & Mineral Balance",
       title:"Boron Above Upper Tolerable Limit",
       supplements:["boron","codeage-multi"],
       description:"25 mg boron exceeds the UL of 20 mg/day. The multivitamin adds 1.2 mg (total ~26.2 mg). Excess can cause nausea, vomiting, diarrhea, and at very high doses, reproductive toxicity.",
       recommendation:"Reduce to 3–10 mg/day unless directed by a physician."
     },
     {
-      id:"int-09", severity:"high",
+      id:"int-09", severity:"high", outcome:"Immune System",
       title:"Immune Stimulation Overload",
       supplements:["elderberry","echinacea","oregano-oil","aged-garlic","black-seed-oil","l-lysine","vitamin-c","antimicrobial-blend"],
       description:"An extraordinary number of immune-stimulating and antimicrobial compounds. Elderberry and echinacea are immune activators. Oregano oil, garlic, and black seed oil are antimicrobials. The new antimicrobial blend adds cat's claw (immune stimulant), sweet wormwood (artemisinin), cryptolepis, and Chinese skullcap. For someone with autoimmune conditions, this level of immune stimulation could trigger or worsen flares.",
       recommendation:"If there is any autoimmune history, consult an immunologist. The antimicrobial load from this many sources may also devastate beneficial gut flora."
     },
     {
-      id:"int-10", severity:"high",
+      id:"int-10", severity:"high", outcome:"Hormones & Reproductive",
       title:"Hormonal Stack Interactions (5+ Products)",
       supplements:["atlas-x","boron","saw-palmetto","snap-prostate","pulse-male"],
       description:"Testosterone/hormonal support from 5+ products: Atlas X (horny goat weed, fenugreek, tongkat ali, nettle, citrulline), Pulse Male (arginine, citrulline — NO/erection support), Snap Prostate (saw palmetto, nettle, beta-sitosterol), standalone boron (25 mg) and saw palmetto (450 mg). Saw palmetto now from TWO sources. Nettle from TWO sources. DHT-blocking from multiple angles. Fenugreek also in Codeage multi. The guggul in the blood sugar formula also has hormonal activity. Unpredictable combined hormonal effects.",
       recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). The redundancy across products means much higher effective doses than any single label suggests."
     },
     {
-      id:"int-11", severity:"moderate",
+      id:"int-11", severity:"moderate", outcome:"Bone & Mineral Balance",
       title:"Iron Absorption Blocked by Zinc, EGCG, and Minerals",
       supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate","snap-prostate"],
       description:"The Codeage multi contains iron (27.5 mg). Zinc (~126 mg total), calcium, and magnesium all compete with iron for absorption. Green tea EGCG (in Snap Prostate, 45% of 500 mg antioxidant blend) is a potent iron absorption inhibitor. The combined mineral competition plus EGCG chelation may render the iron supplementation almost entirely ineffective.",
       recommendation:"Take iron 2+ hours away from zinc, calcium, magnesium, and green tea. Or take iron with vitamin C to enhance absorption."
     },
     {
-      id:"int-12", severity:"high",
+      id:"int-12", severity:"high", outcome:"Drug Metabolism",
       title:"Piperine from 4 Sources Amplifies Everything",
       supplements:["turmeric-blend","beetroot-blend","burnslim","antimicrobial-blend"],
       description:"Black pepper / piperine now appears in FOUR products: turmeric blend, beetroot blend, BurnSlim (cayenne), and the antimicrobial blend (5 mg at 95% piperine). Piperine inhibits CYP3A4 and P-glycoprotein, increasing bioavailability of many compounds by 30–2,000%. This means berberine, curcumin, resveratrol, and virtually everything else in this stack may have significantly amplified effects. With this many sources, the cumulative piperine dose creates unpredictable potentiation of already-high doses.",
       recommendation:"The piperine load is turning every other dose in this stack into an effectively higher dose. This is especially dangerous for berberine and the blood-thinning agents."
     },
     {
-      id:"int-13", severity:"moderate",
+      id:"int-13", severity:"moderate", outcome:"GI & Digestive",
       title:"Oil of Oregano vs. Probiotics",
       supplements:["oregano-oil","probiotic-enzyme","codeage-multi"],
       description:"Oil of oregano (6,000 mg) is a potent broad-spectrum antimicrobial that kills beneficial bacteria too. Taking it with probiotics is counterproductive — the oregano will likely kill the probiotic organisms.",
       recommendation:"If using oregano oil, take probiotics 4–6 hours apart, or use oregano in short courses."
     },
     {
-      id:"int-14", severity:"moderate",
+      id:"int-14", severity:"moderate", outcome:"Blood Pressure & Heart",
       title:"Redundant Olive Leaf & Moringa Sources",
       supplements:["olive-leaf","oleuropein","burnslim","moringa"],
       description:"Olive leaf appears standalone (680 mg), as oleuropein (50 mg), and in BurnSlim. Moringa appears standalone (1,000 mg) and in BurnSlim. This creates unpredictable total doses, amplifying BP- and blood-sugar-lowering effects.",
       recommendation:"Consolidate sources. Choose either standalone or BurnSlim, not both."
     },
     {
-      id:"int-15", severity:"moderate",
+      id:"int-15", severity:"moderate", outcome:"Hormones & Reproductive",
       title:"Fenugreek Duplication",
       supplements:["atlas-x","codeage-multi"],
       description:"Fenugreek in both Atlas X (200 mg) and the Codeage Men's Vitality blend. Fenugreek contains diosgenin which affects both testosterone and estrogen. Double-dosing amplifies unpredictability.",
       recommendation:"Account for total fenugreek from all sources."
     },
     {
-      id:"int-17", severity:"moderate",
+      id:"int-17", severity:"moderate", outcome:"Blood Sugar",
       title:"Chromium from 3 Sources",
       supplements:["codeage-multi","blood-sugar-support","snap-prostate"],
       description:"Chromium from multi (40 mcg) + blood sugar formula (76 mcg) = 116 mcg total. While below the NOAEL, chromium supplementation combined with the extensive blood-sugar-lowering stack amplifies hypoglycemia risk. Chromium picolinate at high doses has been associated with kidney and liver toxicity in case reports.",
       recommendation:"The chromium itself is within safe limits, but its glucose-lowering effect adds to an already aggressive blood sugar stack."
     },
     {
-      id:"int-18", severity:"moderate",
+      id:"int-18", severity:"moderate", outcome:"Blood Pressure & Heart",
       title:"Massive Nitric Oxide Stack: Citrulline + Arginine + Beetroot",
       supplements:["atlas-x","pulse-male","beetroot-blend"],
       description:"L-Citrulline now from TWO products: Atlas X (200 mg) + Pulse Male (200 mg total from HCl and Malate forms). L-Arginine from Pulse Male (400 mg total from base and AKG forms). Beetroot nitrates also convert to NO. Combined with other vasodilators (magnesium, garlic, olive leaf), this is a substantial nitric oxide production stack that could cause excessive vasodilation, headaches, and blood pressure drops.",
       recommendation:"Monitor blood pressure. Be cautious combining with the multiple BP-lowering agents already in the stack."
     },
     {
-      id:"int-19", severity:"low",
+      id:"int-19", severity:"low", outcome:"Bone & Mineral Balance",
       title:"Synergistic: D3 + K2 + Magnesium + Boron",
       supplements:["d3","k2","mag-threonate","mag-glycinate","boron"],
       description:"Well-designed synergistic combination. K2 directs D3-mobilized calcium to bones. Magnesium is required for D3 metabolism. Boron reduces urinary calcium and magnesium loss. The support stack is good — the D3 dose itself is the concern.",
       recommendation:"Good combination — just address the D3 dose."
     },
     {
-      id:"int-20", severity:"low",
+      id:"int-20", severity:"low", outcome:"Nervous System",
       title:"Synergistic: Complete B-Vitamin Coverage",
       supplements:["b1","b2","b3","b6","b12","codeage-multi"],
       description:"Standalone B vitamins plus those in the multi provide thorough B-complex coverage. Benfotiamine (B1), P5P (B6), and methylcobalamin (B12) are superior bioavailable forms. B vitamins work synergistically and excess is excreted.",
       recommendation:"Good selection of forms. Keep B6 under 100 mg/day long-term."
     },
     {
-      id:"int-21", severity:"low",
+      id:"int-21", severity:"low", outcome:"Immune System",
       title:"Synergistic: Glutathione + Vitamin C",
       supplements:["glutathione","vitamin-c"],
       description:"Vitamin C recycles oxidized glutathione back to its active reduced form. Liposomal glutathione has better absorption. Solid antioxidant foundation.",
       recommendation:"Good combination for antioxidant support."
     },
     {
-      id:"int-22", severity:"critical",
+      id:"int-22", severity:"critical", outcome:"Blood Pressure & Heart",
       title:"Licorice Root Raises Blood Pressure & Depletes Potassium",
       supplements:["blood-sugar-support","potassium","mag-threonate","mag-glycinate","olive-leaf","aged-garlic"],
       description:"The blood sugar formula contains licorice root extract, which inhibits 11-beta-hydroxysteroid dehydrogenase, causing cortisol to activate mineralocorticoid receptors. This raises blood pressure, causes potassium wasting, and fluid retention — directly COUNTERACTING the potassium supplement (1,020 mg), magnesium, olive leaf, and garlic that are all trying to lower BP. Licorice-induced hypokalemia combined with potassium supplementation creates unpredictable electrolyte swings that can affect heart rhythm.",
       recommendation:"Licorice root is a serious concern in a stack that simultaneously tries to lower BP and supplement potassium. It should be removed or the blood sugar formula should be replaced with one without licorice."
     },
     {
-      id:"int-23", severity:"high",
+      id:"int-23", severity:"high", outcome:"Liver & Kidney",
       title:"Wormwood + Oregano 6,000mg: Liver Toxicity Concern",
       supplements:["antimicrobial-blend","oregano-oil"],
       description:"Sweet wormwood (artemisinin, 200 mg) is hepatotoxic with prolonged use. Combined with oil of oregano (6,000 mg — also hepatotoxic at high doses), this creates compounding liver stress. Cat's claw in the same blend can also affect liver enzymes. These should not be taken daily long-term.",
       recommendation:"Limit antimicrobial blend and oregano oil to short courses (2-4 weeks). Monitor liver enzymes (ALT, AST) if using chronically."
     },
     {
-      id:"int-24", severity:"high",
+      id:"int-24", severity:"high", outcome:"Bleeding & Clotting",
       title:"Duplicate Serrapeptase + Nattokinase: Double Fibrinolytic Load",
       supplements:["spike-tri-support","antimicrobial-blend"],
       description:"Serrapeptase appears in TWO products: spike support (100 mg / 360,000 SPU) and antimicrobial blend (55 mg / 2,000 SPU per mg = 110,000 SPU). Total serrapeptase ~155 mg / ~470,000 SPU. Combined with nattokinase (400 mg / 12,000 FU), this is an extremely potent fibrinolytic cocktail that dissolves blood clots. Adding this to the existing garlic and curcumin anticoagulants makes the bleeding risk severe.",
       recommendation:"Do not take both products simultaneously. Choose one source of fibrinolytic enzymes and take it separately from blood-thinning agents."
     },
     {
-      id:"int-25", severity:"high",
+      id:"int-25", severity:"high", outcome:"Hormones & Reproductive",
       title:"Duplicate Saw Palmetto & Nettle from Multiple Products",
       supplements:["saw-palmetto","snap-prostate","atlas-x"],
       description:"Saw palmetto: standalone 450 mg PLUS Snap Prostate urinary blend (45% fatty acids, from 600 mg blend). Nettle: Atlas X 100 mg PLUS Snap Prostate urinary blend. Both are 5-alpha-reductase inhibitors that block DHT conversion. Double-dosing of DHT blockers can cause sexual side effects, breast tenderness, or mood changes similar to finasteride (a prescription DHT blocker).",
       recommendation:"Use ONE source of saw palmetto and nettle, not three products containing them."
     },
     {
-      id:"int-26", severity:"moderate",
+      id:"int-26", severity:"moderate", outcome:"Immune System",
       title:"Cat's Claw May Amplify Immune-Suppressing Effects",
       supplements:["antimicrobial-blend","echinacea","elderberry"],
       description:"Cat's claw (250 mg, 4% oxindole alkaloids) is an immune modulator that can both stimulate and suppress immune function depending on the alkaloid type. Pentacyclic oxindole alkaloids (POAs) stimulate immunity, while tetracyclic (TOAs) suppress it. Without knowing the alkaloid profile, combining with other immune stimulants (echinacea, elderberry) creates unpredictable immune modulation.",
       recommendation:"Verify the cat's claw product specifies POA-dominant (immune-stimulating) if that is the intent."
     },
     {
-      id:"int-27", severity:"moderate",
+      id:"int-27", severity:"moderate", outcome:"Drug Metabolism",
       title:"Resveratrol + Curcumin: CYP Enzyme Inhibition Stack",
       supplements:["antimicrobial-blend","turmeric-blend","snap-prostate"],
       description:"Japanese knotweed (600 mg, 20% resveratrol = ~120 mg resveratrol) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine (which also inhibits CYP3A4), this can significantly slow the metabolism of medications and other substances, effectively increasing their half-life and blood levels.",
       recommendation:"Be aware that medications and other drugs may stay in the system longer due to CYP inhibition from multiple sources."
     },
     {
-      id:"int-28", severity:"moderate",
+      id:"int-28", severity:"moderate", outcome:"Bone & Mineral Balance",
       title:"Magnesium from 5+ Sources: Total ~400 mg Elemental",
       supplements:["mag-threonate","mag-glycinate","codeage-multi","snap-prostate","blood-sugar-support"],
       description:"Magnesium now from 5 sources: L-threonate (~144 mg elemental), glycinate (~50 mg), multi (15 mg), Snap prostate (60 mg citrate, ~10 mg elemental), blood sugar formula (125 mg oxide, ~5 mg elemental at oxide's low bioavailability). Total supplemental elemental Mg ~224 mg, within the 350 mg UL, but combined with dietary intake may cause osmotic diarrhea.",
@@ -899,6 +1054,38 @@ function renderSummary() {
 
 let currentFilter = 'all';
 let currentSearch = '';
+let currentViewMode = 'severity';
+
+const OUTCOME_ORDER = [
+  { key:"Bleeding & Clotting", icon:"🩸" },
+  { key:"Blood Pressure & Heart", icon:"❤️" },
+  { key:"Blood Sugar", icon:"📉" },
+  { key:"Thyroid Function", icon:"🦋" },
+  { key:"Liver & Kidney", icon:"⚗️" },
+  { key:"Bone & Mineral Balance", icon:"🦴" },
+  { key:"GI & Digestive", icon:"🔥" },
+  { key:"Hormones & Reproductive", icon:"⚖️" },
+  { key:"Immune System", icon:"🛡️" },
+  { key:"Drug Metabolism", icon:"💊" },
+  { key:"Nervous System", icon:"🧠" },
+];
+
+function getOutcomeIcon(key) {
+  const o = OUTCOME_ORDER.find(x => x.key === key);
+  return o ? o.icon : "⚠️";
+}
+
+function setViewMode(mode) {
+  currentViewMode = mode;
+  document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  const sf = document.getElementById('severityFilters');
+  if (mode === 'outcome') {
+    sf.style.display = 'none';
+  } else {
+    sf.style.display = 'contents';
+  }
+  renderInteractions();
+}
 
 function setFilter(f) {
   currentFilter = f;
@@ -913,11 +1100,10 @@ function filterInteractions() {
   renderInteractions();
 }
 
-function renderInteractions() {
-  const container = document.getElementById('interactionsList');
+function getFilteredInteractions() {
   let filtered = DATA.interactions;
 
-  if (currentFilter !== 'all') {
+  if (currentViewMode === 'severity' && currentFilter !== 'all') {
     filtered = filtered.filter(i => i.severity === currentFilter);
   }
 
@@ -926,15 +1112,31 @@ function renderInteractions() {
       const suppNames = i.supplements.map(s => suppMap[s] ? suppMap[s].name : s).join(' ').toLowerCase();
       return i.title.toLowerCase().includes(currentSearch) ||
              i.description.toLowerCase().includes(currentSearch) ||
-             suppNames.includes(currentSearch);
+             suppNames.includes(currentSearch) ||
+             (i.outcome || '').toLowerCase().includes(currentSearch);
     });
   }
+
+  return filtered;
+}
+
+function renderInteractions() {
+  const container = document.getElementById('interactionsList');
+  const filtered = getFilteredInteractions();
 
   if (filtered.length === 0) {
     container.innerHTML = '<div class="no-results">No interactions match your filters.</div>';
     return;
   }
 
+  if (currentViewMode === 'outcome') {
+    renderOutcomeView(container, filtered);
+  } else {
+    renderSeverityView(container, filtered);
+  }
+}
+
+function renderSeverityView(container, filtered) {
   const order = ['critical','high','moderate','low'];
   const labels = { critical:'Critical', high:'High Risk', moderate:'Moderate', low:'Synergistic' };
   let html = '';
@@ -947,31 +1149,79 @@ function renderInteractions() {
       html += `<div class="severity-section-label ${interaction.severity}">${labels[interaction.severity]}</div>`;
       lastSeverity = interaction.severity;
     }
+    html += renderInteractionCard(interaction);
+  });
 
-    const pills = interaction.supplements
-      .map(s => suppMap[s] ? `<span class="supp-pill">${suppMap[s].name.split('(')[0].trim()}</span>` : '')
+  container.innerHTML = html;
+}
+
+function renderOutcomeView(container, filtered) {
+  const groups = {};
+  filtered.forEach(i => {
+    const o = i.outcome || 'Other';
+    if (!groups[o]) groups[o] = [];
+    groups[o].push(i);
+  });
+
+  const sortedOutcomes = OUTCOME_ORDER
+    .filter(o => groups[o.key])
+    .map(o => o.key);
+
+  Object.keys(groups).forEach(k => {
+    if (!sortedOutcomes.includes(k)) sortedOutcomes.push(k);
+  });
+
+  const sevOrder = ['critical','high','moderate','low'];
+  const sevLabels = { critical:'Critical', high:'High', moderate:'Moderate', low:'Low' };
+
+  let html = '';
+  sortedOutcomes.forEach(outcome => {
+    const items = groups[outcome].sort((a,b) => sevOrder.indexOf(a.severity) - sevOrder.indexOf(b.severity));
+    const worstSev = items[0].severity;
+    const sevCounts = {};
+    items.forEach(i => { sevCounts[i.severity] = (sevCounts[i.severity] || 0) + 1; });
+
+    const countPills = sevOrder
+      .filter(s => sevCounts[s])
+      .map(s => `<span class="outcome-count ${s}">${sevCounts[s]} ${sevLabels[s]}</span>`)
       .join('');
 
+    const icon = getOutcomeIcon(outcome);
+    const oid = outcome.replace(/[^a-zA-Z]/g, '');
+
     html += `
-      <div class="interaction-card" id="card-${interaction.id}">
-        <div class="card-stripe">
-          <div class="stripe ${interaction.severity}"></div>
-          <div class="card-content">
-            <div class="card-header" tabindex="0" onclick="toggleCard('${interaction.id}')" onkeydown="if(event.key==='Enter')toggleCard('${interaction.id}')">
+      <div class="outcome-group" id="og-${oid}">
+        <div class="outcome-header" onclick="toggleOutcome('${oid}')" tabindex="0" onkeydown="if(event.key==='Enter')toggleOutcome('${oid}')">
+          <div class="outcome-icon">${icon}</div>
+          <div class="outcome-title-area">
+            <div class="outcome-name">${outcome}</div>
+            <div class="outcome-meta">${countPills}</div>
+          </div>
+          <svg class="outcome-expand" viewBox="0 0 20 20" fill="currentColor"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+        </div>
+        <div class="outcome-items">`;
+
+    items.forEach(interaction => {
+      const pills = interaction.supplements
+        .map(s => suppMap[s] ? `<span class="supp-pill">${suppMap[s].name.split('(')[0].trim()}</span>` : '')
+        .join('');
+
+      html += `
+          <div class="outcome-item" id="oi-${interaction.id}">
+            <div class="outcome-item-header" onclick="toggleOutcomeItem('${interaction.id}')" tabindex="0" onkeydown="if(event.key==='Enter')toggleOutcomeItem('${interaction.id}')">
               <span class="severity-badge ${interaction.severity}">${interaction.severity}</span>
-              <div class="card-title-area">
-                <div class="card-title">${interaction.title}</div>
-                <div class="card-supplements">${pills}</div>
-              </div>
+              <div class="outcome-item-title">${interaction.title}</div>
               <svg class="expand-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
             </div>
-            <div class="card-body">
-              <div class="card-body-inner">
-                <p class="description">${interaction.description}</p>
-                <div class="recommendation"><strong>Recommendation:</strong> ${interaction.recommendation}</div>
-              </div>
+            <div class="outcome-item-content">
+              <div class="card-supplements" style="margin-bottom:10px">${pills}</div>
+              <p class="description">${interaction.description}</p>
+              <div class="recommendation"><strong>Recommendation:</strong> ${interaction.recommendation}</div>
             </div>
-          </div>
+          </div>`;
+    });
+
+    html += `
         </div>
       </div>`;
   });
@@ -979,8 +1229,45 @@ function renderInteractions() {
   container.innerHTML = html;
 }
 
+function renderInteractionCard(interaction) {
+  const pills = interaction.supplements
+    .map(s => suppMap[s] ? `<span class="supp-pill">${suppMap[s].name.split('(')[0].trim()}</span>` : '')
+    .join('');
+
+  return `
+    <div class="interaction-card" id="card-${interaction.id}">
+      <div class="card-stripe">
+        <div class="stripe ${interaction.severity}"></div>
+        <div class="card-content">
+          <div class="card-header" tabindex="0" onclick="toggleCard('${interaction.id}')" onkeydown="if(event.key==='Enter')toggleCard('${interaction.id}')">
+            <span class="severity-badge ${interaction.severity}">${interaction.severity}</span>
+            <div class="card-title-area">
+              <div class="card-title">${interaction.title}</div>
+              <div class="card-supplements">${pills}</div>
+            </div>
+            <svg class="expand-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+          </div>
+          <div class="card-body">
+            <div class="card-body-inner">
+              <p class="description">${interaction.description}</p>
+              <div class="recommendation"><strong>Recommendation:</strong> ${interaction.recommendation}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
 function toggleCard(id) {
   document.getElementById('card-' + id).classList.toggle('open');
+}
+
+function toggleOutcome(oid) {
+  document.getElementById('og-' + oid).classList.toggle('open');
+}
+
+function toggleOutcomeItem(id) {
+  document.getElementById('oi-' + id).classList.toggle('open');
 }
 
 function switchView(view) {
@@ -1057,7 +1344,12 @@ function showSuppInteractions(suppId) {
   currentFilter = 'all';
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
   renderInteractions();
-  document.querySelectorAll('.interaction-card').forEach(c => c.classList.add('open'));
+  if (currentViewMode === 'severity') {
+    document.querySelectorAll('.interaction-card').forEach(c => c.classList.add('open'));
+  } else {
+    document.querySelectorAll('.outcome-group').forEach(g => g.classList.add('open'));
+    document.querySelectorAll('.outcome-item').forEach(i => i.classList.add('open'));
+  }
 }
 
 renderSummary();
