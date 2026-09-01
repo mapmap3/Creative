@@ -231,6 +231,10 @@ h1 {
   margin-right: 4px;
 }
 
+#severityFilters {
+  display: contents;
+}
+
 .filter-btn {
   font-family: var(--font-body);
   font-size: 13px;
@@ -719,12 +723,66 @@ h1 {
 }
 
 @media (max-width: 640px) {
-  h1 { font-size: 22px; }
-  .header-top { flex-direction: column; }
-  .supp-grid { grid-template-columns: 1fr; }
-  .main { padding: 16px; }
-  .search-box { max-width: none; margin-left: 0; }
-  .filter-bar { gap: 6px; }
+  .page-header { padding: 20px 16px 0; }
+  h1 { font-size: 20px; }
+  .header-top { flex-direction: column; gap: 12px; }
+  .summary-pills { gap: 6px; }
+  .severity-count { font-size: 12px; padding: 3px 8px; }
+
+  .tabs { gap: 0; }
+  .tab { padding: 10px 14px; font-size: 13px; }
+
+  .main { padding: 14px; }
+
+  .filter-bar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .view-toggle { align-self: stretch; justify-content: center; }
+  .view-toggle-btn { flex: 1; text-align: center; padding: 8px 10px; font-size: 13px; }
+
+  #severityFilters:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .filter-btn { padding: 8px 14px; font-size: 13px; -webkit-tap-highlight-color: transparent; }
+
+  .search-box { max-width: none; margin-left: 0; min-width: 0; }
+  .search-box input { padding: 10px 14px; font-size: 16px; }
+
+  .severity-section-label { font-size: 13px; margin: 20px 0 10px; }
+
+  .interaction-card { margin-bottom: 10px; }
+  .card-header { padding: 12px 12px; gap: 8px; }
+  .severity-badge { font-size: 10px; padding: 3px 6px; }
+  .card-title { font-size: 15px; }
+  .card-supplements { gap: 3px; margin-top: 6px; }
+  .supp-pill { font-size: 10px; padding: 2px 6px; }
+  .expand-icon { width: 18px; height: 18px; }
+  .card-body { padding: 0 12px 12px; }
+  .description { font-size: 13px; line-height: 1.6; max-width: none; }
+  .recommendation { font-size: 12px; padding: 8px 12px; max-width: none; }
+
+  .outcome-group { margin-bottom: 16px; }
+  .outcome-header { padding: 10px 12px; gap: 8px; }
+  .outcome-icon { width: 32px; height: 32px; font-size: 16px; }
+  .outcome-name { font-size: 16px; }
+  .outcome-count { font-size: 10px; padding: 2px 6px; }
+  .outcome-items { padding-left: 0; }
+  .outcome-item-header { padding: 10px 12px; gap: 8px; }
+  .outcome-item-title { font-size: 14px; }
+  .outcome-item-content { padding: 0 12px 12px; }
+
+  .supp-grid { grid-template-columns: 1fr; gap: 8px; }
+  .supp-card { padding: 12px 14px; }
+  .supp-name { font-size: 14px; }
+  .supp-notes { font-size: 11px; }
+
+  .disclaimer { font-size: 11px; padding: 14px; margin-top: 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -755,7 +813,7 @@ h1 {
         <button class="view-toggle-btn active" data-mode="severity" onclick="setViewMode('severity')">By Severity</button>
         <button class="view-toggle-btn" data-mode="outcome" onclick="setViewMode('outcome')">By Health Outcome</button>
       </div>
-      <div id="severityFilters" style="display:contents">
+      <div id="severityFilters">
         <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
         <button class="filter-btn" data-filter="critical" onclick="setFilter('critical')">Critical</button>
         <button class="filter-btn" data-filter="high" onclick="setFilter('high')">High</button>
@@ -1079,11 +1137,7 @@ function setViewMode(mode) {
   currentViewMode = mode;
   document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
   const sf = document.getElementById('severityFilters');
-  if (mode === 'outcome') {
-    sf.style.display = 'none';
-  } else {
-    sf.style.display = 'contents';
-  }
+  sf.hidden = mode === 'outcome';
   renderInteractions();
 }
 
