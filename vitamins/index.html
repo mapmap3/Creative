@@ -723,16 +723,18 @@ h1 {
 }
 
 @media (max-width: 640px) {
+  body { font-size: 16px; }
   .page-header { padding: 20px 16px 0; }
-  h1 { font-size: 20px; }
+  h1 { font-size: 24px; }
   .header-top { flex-direction: column; gap: 12px; }
+  .subtitle { font-size: 15px; }
   .summary-pills { gap: 6px; }
-  .severity-count { font-size: 12px; padding: 3px 8px; }
+  .severity-count { font-size: 14px; padding: 6px 12px; }
 
   .tabs { gap: 0; }
-  .tab { padding: 10px 14px; font-size: 13px; }
+  .tab { padding: 12px 16px; font-size: 15px; }
 
-  .main { padding: 14px; }
+  .main { padding: 16px; }
 
   .filter-bar {
     flex-direction: column;
@@ -741,48 +743,54 @@ h1 {
   }
 
   .view-toggle { align-self: stretch; justify-content: center; }
-  .view-toggle-btn { flex: 1; text-align: center; padding: 8px 10px; font-size: 13px; }
+  .view-toggle-btn { flex: 1; text-align: center; padding: 10px 12px; font-size: 14px; }
 
   #severityFilters:not([hidden]) {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
   }
 
-  .filter-btn { padding: 8px 14px; font-size: 13px; -webkit-tap-highlight-color: transparent; }
+  .filter-btn { padding: 10px 16px; font-size: 14px; -webkit-tap-highlight-color: transparent; }
 
   .search-box { max-width: none; margin-left: 0; min-width: 0; }
-  .search-box input { padding: 10px 14px; font-size: 16px; }
+  .search-box input { padding: 12px 14px; font-size: 16px; }
 
-  .severity-section-label { font-size: 13px; margin: 20px 0 10px; }
+  .severity-section-label { font-size: 15px; margin: 24px 0 12px; }
 
-  .interaction-card { margin-bottom: 10px; }
-  .card-header { padding: 12px 12px; gap: 8px; }
-  .severity-badge { font-size: 10px; padding: 3px 6px; }
-  .card-title { font-size: 15px; }
-  .card-supplements { gap: 3px; margin-top: 6px; }
-  .supp-pill { font-size: 10px; padding: 2px 6px; }
-  .expand-icon { width: 18px; height: 18px; }
-  .card-body { padding: 0 12px 12px; }
-  .description { font-size: 13px; line-height: 1.6; max-width: none; }
-  .recommendation { font-size: 12px; padding: 8px 12px; max-width: none; }
+  .interaction-card { margin-bottom: 12px; }
+  .card-header { padding: 14px 14px; gap: 10px; }
+  .severity-badge { font-size: 12px; padding: 4px 8px; }
+  .card-title { font-size: 17px; }
+  .card-supplements { gap: 5px; margin-top: 8px; }
+  .supp-pill { font-size: 13px; padding: 4px 10px; }
+  .expand-icon { width: 22px; height: 22px; }
+  .card-body { padding: 0 14px 14px; }
+  .description { font-size: 15px; line-height: 1.65; max-width: none; }
+  .recommendation { font-size: 14px; padding: 12px 14px; max-width: none; }
 
-  .outcome-group { margin-bottom: 16px; }
-  .outcome-header { padding: 10px 12px; gap: 8px; }
-  .outcome-icon { width: 32px; height: 32px; font-size: 16px; }
-  .outcome-name { font-size: 16px; }
-  .outcome-count { font-size: 10px; padding: 2px 6px; }
+  .outcome-group { margin-bottom: 18px; }
+  .outcome-header { padding: 14px 14px; gap: 10px; }
+  .outcome-icon { width: 40px; height: 40px; font-size: 20px; }
+  .outcome-name { font-size: 18px; }
+  .outcome-count { font-size: 12px; padding: 4px 8px; }
   .outcome-items { padding-left: 0; }
-  .outcome-item-header { padding: 10px 12px; gap: 8px; }
-  .outcome-item-title { font-size: 14px; }
-  .outcome-item-content { padding: 0 12px 12px; }
+  .outcome-item-header { padding: 14px 14px; gap: 10px; }
+  .outcome-item-title { font-size: 16px; }
+  .outcome-item-content { padding: 0 14px 14px; }
 
-  .supp-grid { grid-template-columns: 1fr; gap: 8px; }
-  .supp-card { padding: 12px 14px; }
-  .supp-name { font-size: 14px; }
-  .supp-notes { font-size: 11px; }
+  .supp-grid { grid-template-columns: 1fr; gap: 10px; }
+  .supp-card { padding: 16px; }
+  .supp-name { font-size: 16px; }
+  .supp-dose { font-size: 14px; }
+  .supp-notes { font-size: 13px; }
+  .supp-interactions-count { font-size: 13px; }
+  .supp-sub-ingredients summary { font-size: 13px; }
+  .supp-sub-ingredients li { font-size: 13px; }
 
-  .disclaimer { font-size: 11px; padding: 14px; margin-top: 28px; }
+  .category-label { font-size: 18px; }
+
+  .disclaimer { font-size: 13px; padding: 16px; margin-top: 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
