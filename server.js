@@ -8,7 +8,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const STRIPE_SECRET_KEY = (process.env.STRIPE_SECRET_KEY || '').trim();
-const stripe = STRIPE_SECRET_KEY ? new Stripe(STRIPE_SECRET_KEY) : null;
+let stripe = null;
+if (STRIPE_SECRET_KEY) {
+  try {
+    stripe = new Stripe(STRIPE_SECRET_KEY);
+    console.log(`[stripe] initialized (key starts with ${STRIPE_SECRET_KEY.slice(0, 7)}...)`);
+  } catch (err) {
+    console.error(`[stripe] failed to initialize: ${err.message}`);
+    console.error(`[stripe] key length=${STRIPE_SECRET_KEY.length}, starts with "${STRIPE_SECRET_KEY.slice(0, 8)}"`);
+  }
+}
 const APP_URL = (process.env.APP_URL || `http://localhost:${PORT}`).replace(/\/+$/, '');
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
