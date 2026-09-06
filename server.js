@@ -1,10 +1,15 @@
 import express from 'express';
+import Stripe from 'stripe';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
+const stripe = STRIPE_SECRET_KEY ? new Stripe(STRIPE_SECRET_KEY) : null;
+const APP_URL = process.env.APP_URL || `http://localhost:${PORT}`;
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = process.env.REPO_OWNER || 'mapmap3';
@@ -164,6 +169,40 @@ app.use('/mike', express.static(join(__dirname, 'mike')));
 app.use('/teach', express.static(join(__dirname, 'teach')));
 
 app.use('/vitamins', express.static(join(__dirname, 'vitamins')));
+
+// Donate checkout session
+app.post('/api/donate', async (req, res) => {
+  if (!stripe) {
+    return res.status(503).json({ error: 'Stripe is not configured.' });
+  }
+  const amount = Number(req.body.amount);
+  if (!Number.isFinite(amount) || amount < 5 || amount > 100) {
+    return res.status(400).json({ error: 'Amount must be between $5 and $100.' });
+  }
+  try {
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      line_items: [{
+        quantity: 1,
+        price_data: {
+          currency: 'usd',
+          unit_amount: Math.round(amount * 100),
+          product_data: {
+            name: 'Donation to GiveAndDo Inc.',
+            description: 'Help end senior loneliness. 100% goes to GiveAndDo Inc., a 501(c)(3) nonprofit.',
+          },
+        },
+      }],
+      metadata: { type: 'donation', source: 'mikepanicci.com' },
+      success_url: `${APP_URL}/mike?donated=success`,
+      cancel_url: `${APP_URL}/mike?donated=cancelled`,
+    });
+    res.json({ url: session.url });
+  } catch (err) {
+    console.error('POST /api/donate error:', err.message);
+    res.status(500).json({ error: 'Failed to create checkout session.' });
+  }
+});
 
 app.get('*', (_req, res) => {
   res.sendFile(join(__dirname, 'public', 'index.html'));

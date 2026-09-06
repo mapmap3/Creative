@@ -463,6 +463,84 @@
     transform: translateY(-1px);
   }
 
+  .donate-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .amount-picker {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .amount-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface-alt);
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    min-width: 64px;
+  }
+
+  .amount-btn:hover {
+    border-color: var(--accent-border);
+  }
+
+  .amount-btn.active {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .custom-amount-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .custom-amount-row span {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .custom-amount-input {
+    width: 90px;
+    padding: 8px 12px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: inherit;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text);
+    text-align: center;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .custom-amount-input:focus {
+    border-color: var(--accent);
+  }
+
+  .donate-error {
+    color: var(--donate-bg);
+    font-size: 13px;
+    margin-bottom: 12px;
+    min-height: 18px;
+  }
+
   /* GiveAndDo card */
   .givedo-card {
     border-color: var(--accent-border);
@@ -791,15 +869,27 @@
     <!-- Donate Section -->
     <div class="donate-section">
       <div class="org-name">GiveAndDo Inc.</div>
-      <div class="org-role">Co-Founder &middot; Mike Panicci</div>
+      <div class="org-role">Co-Founder &middot; Michael Panicci</div>
       <h3>Help Us End Senior Loneliness</h3>
       <p>
         100% of donations go to GiveAndDo Inc., a 501(c)(3) nonprofit connecting volunteers with isolated seniors. Every dollar helps build a world where no senior feels alone.
       </p>
-      <a class="donate-btn" href="https://buy.stripe.com/9B64gBedt6PDe6nh00bfO00" target="_blank" rel="noopener">
+      <div class="amount-picker">
+        <button class="amount-btn" data-amount="5">$5</button>
+        <button class="amount-btn" data-amount="10">$10</button>
+        <button class="amount-btn active" data-amount="30">$30</button>
+        <button class="amount-btn" data-amount="50">$50</button>
+        <button class="amount-btn" data-amount="100">$100</button>
+      </div>
+      <div class="custom-amount-row">
+        <span>$</span>
+        <input class="custom-amount-input" id="donateAmount" type="number" min="5" max="100" value="30" step="1">
+      </div>
+      <div class="donate-error" id="donateError"></div>
+      <button class="donate-btn" id="donateBtn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         Donate Now
-      </a>
+      </button>
     </div>
 
   </div>
@@ -821,6 +911,67 @@ document.querySelectorAll('.tab').forEach(tab => {
 
 if (window.location.hash === '#services') {
   document.querySelector('[data-tab="services"]').click();
+}
+
+// Donation amount picker
+const amountInput = document.getElementById('donateAmount');
+const donateBtn = document.getElementById('donateBtn');
+const donateError = document.getElementById('donateError');
+const amountBtns = document.querySelectorAll('.amount-btn');
+
+amountBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    amountBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    amountInput.value = btn.dataset.amount;
+    donateError.textContent = '';
+  });
+});
+
+amountInput.addEventListener('input', () => {
+  const val = Number(amountInput.value);
+  amountBtns.forEach(b => {
+    b.classList.toggle('active', Number(b.dataset.amount) === val);
+  });
+  donateError.textContent = '';
+});
+
+donateBtn.addEventListener('click', async () => {
+  const amount = Number(amountInput.value);
+  if (!Number.isFinite(amount) || amount < 5 || amount > 100) {
+    donateError.textContent = 'Please enter an amount between $5 and $100.';
+    return;
+  }
+  donateBtn.disabled = true;
+  donateBtn.innerHTML = 'Redirecting…';
+  donateError.textContent = '';
+  try {
+    const res = await fetch('/api/donate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+    window.location.href = data.url;
+  } catch (err) {
+    donateError.textContent = err.message;
+    donateBtn.disabled = false;
+    donateBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Donate Now';
+  }
+});
+
+// Success/cancel feedback
+const params = new URLSearchParams(window.location.search);
+if (params.get('donated') === 'success') {
+  document.querySelector('[data-tab="services"]').click();
+  donateError.style.color = 'var(--green)';
+  donateError.textContent = 'Thank you for your donation!';
+  history.replaceState(null, '', '/mike');
+} else if (params.get('donated') === 'cancelled') {
+  document.querySelector('[data-tab="services"]').click();
+  donateError.textContent = 'Donation cancelled.';
+  history.replaceState(null, '', '/mike');
 }
 </script>
 
