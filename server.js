@@ -155,6 +155,16 @@ app.get('/calendar', (_req, res) => {
   res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
 });
 
+app.get('/mike', (_req, res) => {
+  res.sendFile(join(__dirname, 'mike', 'index.html'));
+});
+
+app.use('/mike', express.static(join(__dirname, 'mike')));
+
+app.use('/teach', express.static(join(__dirname, 'teach')));
+
+app.use('/vitamins', express.static(join(__dirname, 'vitamins')));
+
 app.get('*', (_req, res) => {
   res.sendFile(join(__dirname, 'public', 'index.html'));
 });
