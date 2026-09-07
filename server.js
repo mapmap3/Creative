@@ -19,15 +19,19 @@ app.use(express.json());
 
 app.get('/', (_req, res) => {
   if (APP_MODE === 'calendar') {
-    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
+    return res.sendFile(join(__dirname, 'calendar', 'index.html'));
   }
   if (APP_MODE === 'event') {
-    return res.sendFile(join(__dirname, 'public', 'event', 'index.html'));
+    return res.sendFile(join(__dirname, 'event', 'index.html'));
   }
   res.sendFile(join(__dirname, 'mike', 'index.html'));
 });
 
-app.use(express.static(join(__dirname, 'public')));
+app.use('/event', express.static(join(__dirname, 'event')));
+app.use('/calendar', express.static(join(__dirname, 'calendar')));
+app.use('/mike', express.static(join(__dirname, 'mike')));
+app.use('/teach', express.static(join(__dirname, 'teach')));
+app.use('/vitamins', express.static(join(__dirname, 'vitamins')));
 
 async function githubRequest(endpoint, options = {}) {
   const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}${endpoint}`;
@@ -154,30 +158,12 @@ app.put('/api/lyla-calendar', async (req, res) => {
   }
 });
 
-app.get('/event', (_req, res) => {
-  res.sendFile(join(__dirname, 'public', 'event', 'index.html'));
-});
-
-app.get('/calendar', (_req, res) => {
-  res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
-});
-
-app.get('/mike', (_req, res) => {
-  res.sendFile(join(__dirname, 'mike', 'index.html'));
-});
-
-app.use('/mike', express.static(join(__dirname, 'mike')));
-
-app.use('/teach', express.static(join(__dirname, 'teach')));
-
-app.use('/vitamins', express.static(join(__dirname, 'vitamins')));
-
 app.get('*', (_req, res) => {
   if (APP_MODE === 'calendar') {
-    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
+    return res.sendFile(join(__dirname, 'calendar', 'index.html'));
   }
   if (APP_MODE === 'event') {
-    return res.sendFile(join(__dirname, 'public', 'event', 'index.html'));
+    return res.sendFile(join(__dirname, 'event', 'index.html'));
   }
   res.sendFile(join(__dirname, 'mike', 'index.html'));
 });
