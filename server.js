@@ -13,14 +13,9 @@ const CSV_PATH = 'data/attendees.csv';
 const LYLA_CSV_PATH = 'data/lyla-calendar.csv';
 const BRANCH = process.env.REPO_BRANCH || 'main';
 
-const APP_MODE = process.env.APP_MODE || 'bach';
-
 app.use(express.json());
 
 app.get('/', (_req, res) => {
-  if (APP_MODE === 'calendar') {
-    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
-  }
   res.sendFile(join(__dirname, 'public', 'index.html'));
 });
 
