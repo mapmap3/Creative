@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connecting Concepts Tutoring</title>
+  <meta name="description" content="Connecting Concepts Tutoring - Family-owned virtual tutoring company for K-12 subjects and SAT/ACT prep.">
+  <meta name="keywords" content="tutoring, K-12, SAT, ACT, virtual tutoring, online tutoring, Connecting Concepts Tutoring, CCT">
+  <meta name="author" content="Michael Panicci, Joseph Licata">
+  <meta name="robots" content="noindex">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #1a3a5c;
+      --primary-light: #2a5a8c;
+      --accent: #e8a838;
+      --accent-hover: #d4952e;
+      --text: #333;
+      --text-light: #666;
+      --bg: #ffffff;
+      --bg-alt: #f5f7fa;
+      --bg-dark: #1a3a5c;
+      --white: #ffffff;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* Header / Navigation */
+    header {
+      background: var(--bg-dark);
+      color: var(--white);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.85rem 2.25rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: var(--accent-hover); }
+
+    /* Sections */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-alt {
+      background: var(--bg-alt);
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .section .subtitle {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* About */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .about-content p { margin-bottom: 1.25rem; }
+
+    .founders {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .founder {
+      text-align: center;
+    }
+
+    .founder-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 auto 0.75rem;
+    }
+
+    .founder h4 {
+      font-size: 1.05rem;
+      color: var(--primary);
+    }
+
+    .founder p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* Why Choose Us */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+    }
+
+    .feature h3 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Quote */
+    .quote-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .quote-section blockquote {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.3rem;
+      font-style: italic;
+      line-height: 1.8;
+      opacity: 0.95;
+    }
+
+    .quote-section cite {
+      display: block;
+      margin-top: 1.25rem;
+      font-size: 1rem;
+      font-style: normal;
+      opacity: 0.8;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .contact-item .icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-item h3 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-item p, .contact-item a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .contact-item a:hover { color: var(--primary); }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--primary);
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    footer strong { color: var(--white); }
+
+    /* Archive Notice */
+    .archive-notice {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      color: #6d5c00;
+      text-align: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .archive-notice a {
+      color: #6d5c00;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1.05rem; }
+      .founders { flex-direction: column; gap: 1.5rem; }
+      nav a { margin-left: 1rem; font-size: 0.85rem; }
+      .social-links { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-inner { flex-direction: column; gap: 0.75rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .section { padding: 2.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="archive-notice">
+    This is a static archive of <strong>contutoring.com</strong> as it appeared circa May 2021.
+    Original site archived via the
+    <a href="https://web.archive.org/web/20210509173313/https://www.contutoring.com/" target="_blank" rel="noopener">
+      Wayback Machine (May 9, 2021)</a>.
+  </div>
+
+  <header>
+    <div class="nav-inner">
+      <a class="logo" href="#">Connecting <span>Concepts</span> Tutoring</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#why-us">Why CCT</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Connecting Concepts Tutoring</h1>
+    <p>Family-owned virtual tutoring for all K-12 subjects and SAT/ACT prep. Quality tutors. Great prices.</p>
+    <a class="btn" href="#contact">Get Started</a>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p class="subtitle">A family-owned virtual tutoring company</p>
+    <div class="about-content">
+      <p>
+        Connecting Concepts Tutoring (CCT) is a family-owned virtual tutoring company
+        founded in 2020 to help students of all ages succeed. We provide personalized,
+        one-on-one tutoring for all K-12 subjects as well as SAT and ACT test preparation.
+      </p>
+      <p>
+        We at CCT firmly believe that you determine your future. You can meet your goals
+        and we are here to help you get there. Our mission is to connect students with
+        quality tutors in a safe, supportive, and affordable environment.
+      </p>
+      <div class="founders">
+        <div class="founder">
+          <div class="founder-icon">MP</div>
+          <h4>Michael Panicci</h4>
+          <p>Co-Founder</p>
+        </div>
+        <div class="founder">
+          <div class="founder-icon">JL</div>
+          <h4>Joseph Licata</h4>
+          <p>Co-Founder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt" id="services">
+    <div class="section">
+      <h2>Our Services</h2>
+      <p class="subtitle">The tutoring company to meet all of your educational needs</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">&#x1F4DA;</div>
+          <h3>K-12 Subject Tutoring</h3>
+          <p>
+            Personalized virtual tutoring across all core subjects including Math,
+            Science, English Language Arts, Social Studies, and more for grades K through 12.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#x1F4DD;</div>
+          <h3>SAT Prep</h3>
+          <p>
+            Comprehensive SAT preparation with experienced tutors who help students
+            build strategies, review content, and practice with real test materials.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#x1F393;</div>
+          <h3>ACT Prep</h3>
+          <p>
+            Targeted ACT test preparation covering all sections — English, Math,
+            Reading, Science, and optional Writing — to help students reach their
+            target scores.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="quote-section">
+    <blockquote>
+      &ldquo;We at CCT firmly believe that you determine your future. You can meet
+      your goals and we are here to help you get there. Have courage. Have confidence.
+      Every setback is a learning experience.&rdquo;
+    </blockquote>
+    <cite>&mdash; Connecting Concepts Tutoring</cite>
+  </div>
+
+  <section class="section" id="why-us">
+    <h2>Why Choose CCT?</h2>
+    <p class="subtitle">Quality tutors, great prices, a safe environment</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">&#x1F3E0;</div>
+        <h3>Family-Owned</h3>
+        <p>A family-owned company that treats every student like part of our own family.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1F4BB;</div>
+        <h3>100% Virtual</h3>
+        <p>All sessions are conducted online, making quality tutoring accessible from anywhere.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x2B50;</div>
+        <h3>Quality Tutors</h3>
+        <p>Experienced, knowledgeable tutors dedicated to helping every student succeed.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1F4B0;</div>
+        <h3>Great Prices</h3>
+        <p>Affordable rates so that every family can access the tutoring support they need.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt" id="contact">
+    <div class="section">
+      <h2>Contact Us</h2>
+      <p class="subtitle">Get in touch to start your tutoring journey</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="icon">&#x1F4DE;</div>
+          <h3>Phone</h3>
+          <p><a href="tel:+18332477444">(833) 247-7444</a></p>
+        </div>
+        <div class="contact-item">
+          <div class="icon">&#x2709;</div>
+          <h3>Email</h3>
+          <p><a href="mailto:contact@contutoring.com">contact@contutoring.com</a></p>
+        </div>
+        <div class="contact-item">
+          <div class="icon">&#x1F4CD;</div>
+          <h3>Location</h3>
+          <p>Middle Island, New York</p>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/contutoring/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/contutoring/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://x.com/contutoring" target="_blank" rel="noopener">X / Twitter</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2020&ndash;2021 <strong>Connecting Concepts Tutoring</strong>. All rights reserved.</p>
+    <p style="margin-top:0.5rem;">contutoring.com &middot; Founded by Michael Panicci &amp; Joseph Licata</p>
+  </footer>
+
+</body>
+</html>
