@@ -13,9 +13,17 @@ const CSV_PATH = 'data/attendees.csv';
 const LYLA_CSV_PATH = 'data/lyla-calendar.csv';
 const BRANCH = process.env.REPO_BRANCH || 'main';
 
+const APP_MODE = process.env.APP_MODE || 'mike';
+
 app.use(express.json());
 
 app.get('/', (_req, res) => {
+  if (APP_MODE === 'calendar') {
+    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
+  }
+  if (APP_MODE === 'event') {
+    return res.sendFile(join(__dirname, 'public', 'event', 'index.html'));
+  }
   res.sendFile(join(__dirname, 'mike', 'index.html'));
 });
 
@@ -165,6 +173,12 @@ app.use('/teach', express.static(join(__dirname, 'teach')));
 app.use('/vitamins', express.static(join(__dirname, 'vitamins')));
 
 app.get('*', (_req, res) => {
+  if (APP_MODE === 'calendar') {
+    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
+  }
+  if (APP_MODE === 'event') {
+    return res.sendFile(join(__dirname, 'public', 'event', 'index.html'));
+  }
   res.sendFile(join(__dirname, 'mike', 'index.html'));
 });
 
