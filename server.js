@@ -16,7 +16,7 @@ const BRANCH = process.env.REPO_BRANCH || 'main';
 app.use(express.json());
 
 app.get('/', (_req, res) => {
-  res.sendFile(join(__dirname, 'public', 'index.html'));
+  res.sendFile(join(__dirname, 'mike', 'index.html'));
 });
 
 app.use(express.static(join(__dirname, 'public')));
@@ -146,6 +146,10 @@ app.put('/api/lyla-calendar', async (req, res) => {
   }
 });
 
+app.get('/event', (_req, res) => {
+  res.sendFile(join(__dirname, 'public', 'event', 'index.html'));
+});
+
 app.get('/calendar', (_req, res) => {
   res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
 });
@@ -161,7 +165,7 @@ app.use('/teach', express.static(join(__dirname, 'teach')));
 app.use('/vitamins', express.static(join(__dirname, 'vitamins')));
 
 app.get('*', (_req, res) => {
-  res.sendFile(join(__dirname, 'public', 'index.html'));
+  res.sendFile(join(__dirname, 'mike', 'index.html'));
 });
 
 app.listen(PORT, () => {
