@@ -206,20 +206,20 @@
     {
       "id": "aged-garlic",
       "name": "Aged Garlic Extract (Elcare)",
-      "dose": "7,500 mg",
-      "doseValue": 7500,
+      "dose": "15 mg",
+      "doseValue": 15,
       "doseUnit": "mg",
       "category": "Herbal Extracts",
-      "notes": "Very high dose. Has blood-thinning and blood-pressure-lowering effects."
+      "notes": "Very low dose. Minimal blood-thinning or blood-pressure effects at this level."
     },
     {
       "id": "oregano-oil",
       "name": "Oil of Oregano (Resilia)",
-      "dose": "6,000 mg",
-      "doseValue": 6000,
+      "dose": "30 mg",
+      "doseValue": 30,
       "doseUnit": "mg",
       "category": "Herbal Extracts",
-      "notes": "Extremely high dose. Contains carvacrol and thymol. Antimicrobial but can affect gut flora."
+      "notes": "Low dose. Contains carvacrol and thymol. Mild antimicrobial support at this level."
     },
     {
       "id": "vitamin-c",
@@ -433,27 +433,8 @@
       ],
       "notes": "Weight management blend with blood-sugar-lowering ingredients. Contains berberine which has drug-like potency."
     },
-    {
-      "id": "antimicrobial-blend",
-      "name": "Antimicrobial Herbal Blend",
-      "dose": "2,070 mg",
-      "doseValue": 2070,
-      "doseUnit": "mg",
-      "category": "Immune Support",
-      "subIngredients": [
-        "Japanese Knotweed Extract (20% Resveratrol) 800 mg",
-        "Cat's Claw Extract (4% Oxindole Alkaloids) 250 mg",
-        "Cistus Incanus Leaf Extract 10:1 200 mg",
-        "Cryptolepis Sanguinolenta Leaf Extract 20:1 200 mg",
-        "Sweet Wormwood Leaf Powder 200 mg",
-        "Chinese Skullcap Extract (50% Baicalin) 200 mg",
-        "Alchornea Cordifolia Stem Extract 20:1 100 mg",
-        "Sarsaparilla Extract Powder 4:1 60 mg",
-        "Serrapeptase 2000 SPU/mg 55 mg",
-        "Black Pepper Extract (95% Piperine) 5 mg"
-      ],
-      "notes": "Potent antimicrobial/anti-parasitic blend. Contains resveratrol, wormwood (artemisinin), serrapeptase, and piperine. Wormwood is hepatotoxic with prolonged use."
-    },
+
+
     {
       "id": "pulse-male",
       "name": "Pulse Male (Nitric Oxide Booster)",
@@ -613,10 +594,10 @@
       "id": "int-01",
       "severity": "critical",
       "outcome": "Bleeding & Clotting",
-      "title": "Extreme Bleeding Risk: 10+ Anticoagulant & Fibrinolytic Mechanisms",
-      "supplements": ["aged-garlic", "krill-oil", "spike-tri-support", "turmeric-blend", "black-seed-oil", "antimicrobial-blend", "snap-prostate", "nad-resveratrol-combo", "astaxanthin"],
-      "description": "This stack layers 10+ blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase in TWO products (155 mg combined — fibrinolytic), bromelain, aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from THREE sources, black seed oil, resveratrol now from TWO sources (760 mg total — antiplatelet), quercetin (160 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is an exceptionally dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
-      "recommendation": "This combination requires immediate physician review. The stacking of nattokinase + serrapeptase + bromelain + garlic + curcumin + 760 mg resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
+      "title": "Extreme Bleeding Risk: Multiple Anticoagulant & Fibrinolytic Mechanisms",
+      "supplements": ["krill-oil", "spike-tri-support", "turmeric-blend", "black-seed-oil", "snap-prostate", "nad-resveratrol-combo", "astaxanthin"],
+      "description": "This stack layers multiple blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase (100 mg / 360,000 SPU — fibrinolytic), bromelain, krill oil (omega-3s), curcumin from THREE sources, black seed oil, trans-resveratrol (600 mg — potent antiplatelet), quercetin (160 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is a dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
+      "recommendation": "This combination requires physician review. The stacking of nattokinase + serrapeptase + bromelain + curcumin + 600 mg resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
       "id": "int-02",
@@ -645,22 +626,15 @@
       "description": "Zinc from all sources: picolinate 100 mg + multi 7.5 mg + Snap prostate 11 mg + blood sugar formula 7.5 mg = ~126 mg total. This is 3x the upper tolerable limit (40 mg). Total copper is only ~3.65 mg (Thorne 2 mg + multi 0.75 mg + Snap 0.9 mg). The zinc:copper ratio is ~35:1 vs. the ideal 10-15:1. Chronic high zinc causes copper deficiency anemia and neurological damage.",
       "recommendation": "Reduce zinc to 30-50 mg/day total. At minimum, consolidate zinc sources and increase copper."
     },
-    {
-      "id": "int-05",
-      "severity": "high",
-      "outcome": "GI & Digestive",
-      "title": "GI-Irritating Combination: Oregano + Garlic + Turmeric",
-      "supplements": ["oregano-oil", "aged-garlic", "turmeric-blend"],
-      "description": "Oil of oregano (6,000 mg — extremely high) is caustic to the GI lining. Aged garlic at 7,500 mg and turmeric/ginger can also irritate the stomach. Combined, these dramatically increase the risk of GI ulceration, gastritis, and discomfort.",
-      "recommendation": "Reduce oregano oil dose significantly. Take with food and consider spacing doses apart."
-    },
+
+
     {
       "id": "int-06",
       "severity": "high",
       "outcome": "Blood Pressure & Heart",
       "title": "Multiple Blood-Pressure-Lowering Agents",
-      "supplements": ["potassium", "mag-threonate", "mag-glycinate", "olive-leaf", "oleuropein", "beetroot-blend", "aged-garlic", "moringa", "black-seed-oil"],
-      "description": "This stack contains numerous agents that lower blood pressure: magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), beetroot (nitric oxide), aged garlic (vasodilator), moringa (blood-pressure-lowering), and black seed oil (antihypertensive). Taking all of these together may cause excessive blood pressure drops, dizziness, and fainting, especially when standing.",
+      "supplements": ["potassium", "mag-threonate", "mag-glycinate", "olive-leaf", "oleuropein", "beetroot-blend", "moringa", "black-seed-oil"],
+      "description": "This stack contains numerous agents that lower blood pressure: magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), beetroot (nitric oxide), moringa (blood-pressure-lowering), and black seed oil (antihypertensive). Taking all of these together may cause excessive blood pressure drops, dizziness, and fainting, especially when standing.",
       "recommendation": "Monitor blood pressure regularly. If already on BP medication, this combination could cause dangerous hypotension."
     },
     {
@@ -683,12 +657,12 @@
     },
     {
       "id": "int-09",
-      "severity": "high",
+      "severity": "moderate",
       "outcome": "Immune System",
-      "title": "Immune Stimulation Overload",
-      "supplements": ["elderberry", "echinacea", "oregano-oil", "aged-garlic", "black-seed-oil", "l-lysine", "vitamin-c", "antimicrobial-blend"],
-      "description": "An extraordinary number of immune-stimulating and antimicrobial compounds. Elderberry and echinacea are immune activators. Oregano oil, garlic, and black seed oil are antimicrobials. The antimicrobial blend adds cat's claw (immune stimulant), sweet wormwood (artemisinin), cryptolepis, and Chinese skullcap. For someone with autoimmune conditions, this level of immune stimulation could trigger or worsen flares.",
-      "recommendation": "If there is any autoimmune history, consult an immunologist. The antimicrobial load from this many sources may also devastate beneficial gut flora."
+      "title": "Immune Stimulation from Multiple Sources",
+      "supplements": ["elderberry", "echinacea", "black-seed-oil", "l-lysine", "vitamin-c"],
+      "description": "Several immune-stimulating compounds in the stack: elderberry and echinacea are immune activators, black seed oil is an immune modulator, L-lysine and vitamin C support immune function. For someone with autoimmune conditions, this level of immune stimulation could trigger or worsen flares. Echinacea is specifically cautioned in autoimmune disease.",
+      "recommendation": "If there is any autoimmune history, consult an immunologist before continuing this combination."
     },
     {
       "id": "int-10",
@@ -712,19 +686,10 @@
       "id": "int-12",
       "severity": "high",
       "outcome": "Drug Metabolism",
-      "title": "Piperine from 4 Sources Amplifies Everything",
-      "supplements": ["turmeric-blend", "beetroot-blend", "burnslim", "antimicrobial-blend"],
-      "description": "Black pepper / piperine now appears in FOUR products: turmeric blend, beetroot blend, BurnSlim (cayenne), and the antimicrobial blend (5 mg at 95% piperine). Piperine inhibits CYP3A4 and P-glycoprotein, increasing bioavailability of many compounds by 30-2,000%. This means berberine, curcumin, resveratrol, and virtually everything else in this stack may have significantly amplified effects. With this many sources, the cumulative piperine dose creates unpredictable potentiation of already-high doses.",
+      "title": "Piperine from 3 Sources Amplifies Everything",
+      "supplements": ["turmeric-blend", "beetroot-blend", "burnslim"],
+      "description": "Black pepper / piperine appears in THREE products: turmeric blend, beetroot blend, and BurnSlim (cayenne). Piperine inhibits CYP3A4 and P-glycoprotein, increasing bioavailability of many compounds by 30-2,000%. This means berberine, curcumin, resveratrol, and virtually everything else in this stack may have significantly amplified effects.",
       "recommendation": "The piperine load is turning every other dose in this stack into an effectively higher dose. This is especially dangerous for berberine and the blood-thinning agents."
-    },
-    {
-      "id": "int-13",
-      "severity": "moderate",
-      "outcome": "GI & Digestive",
-      "title": "Oil of Oregano vs. Probiotics",
-      "supplements": ["oregano-oil", "probiotic-enzyme", "codeage-multi"],
-      "description": "Oil of oregano at 6,000 mg is a potent broad-spectrum antimicrobial that kills both harmful and beneficial bacteria. Taking it with probiotics (from the probiotic blend and the Codeage multi) is counterproductive — the oregano oil will likely kill the probiotic organisms before they can colonize.",
-      "recommendation": "If using oil of oregano, take probiotics at least 4-6 hours apart, or use oregano in short courses rather than continuously."
     },
     {
       "id": "int-14",
@@ -794,27 +759,9 @@
       "severity": "critical",
       "outcome": "Blood Pressure & Heart",
       "title": "Licorice Root Raises Blood Pressure & Depletes Potassium",
-      "supplements": ["blood-sugar-support", "potassium", "mag-threonate", "mag-glycinate", "olive-leaf", "aged-garlic"],
-      "description": "The blood sugar formula contains licorice root extract, which inhibits 11-beta-hydroxysteroid dehydrogenase, causing cortisol to activate mineralocorticoid receptors. This raises blood pressure, causes potassium wasting, and fluid retention — directly COUNTERACTING the potassium supplement (1,020 mg), magnesium, olive leaf, and garlic that are all trying to lower BP. Licorice-induced hypokalemia combined with potassium supplementation creates unpredictable electrolyte swings that can affect heart rhythm.",
+      "supplements": ["blood-sugar-support", "potassium", "mag-threonate", "mag-glycinate", "olive-leaf"],
+      "description": "The blood sugar formula contains licorice root extract, which inhibits 11-beta-hydroxysteroid dehydrogenase, causing cortisol to activate mineralocorticoid receptors. This raises blood pressure, causes potassium wasting, and fluid retention — directly COUNTERACTING the potassium supplement (1,020 mg), magnesium, and olive leaf that are all trying to lower BP. Licorice-induced hypokalemia combined with potassium supplementation creates unpredictable electrolyte swings that can affect heart rhythm.",
       "recommendation": "Licorice root is a serious concern in a stack that simultaneously tries to lower BP and supplement potassium. It should be removed or the blood sugar formula should be replaced with one without licorice."
-    },
-    {
-      "id": "int-23",
-      "severity": "high",
-      "outcome": "Liver & Kidney",
-      "title": "Wormwood + Oregano 6,000mg: Liver Toxicity Concern",
-      "supplements": ["antimicrobial-blend", "oregano-oil"],
-      "description": "Sweet wormwood (artemisinin, 200 mg) is hepatotoxic with prolonged use. Combined with oil of oregano (6,000 mg — also hepatotoxic at high doses), this creates compounding liver stress. Cat's claw in the same blend can also affect liver enzymes. These should not be taken daily long-term.",
-      "recommendation": "Limit antimicrobial blend and oregano oil to short courses (2-4 weeks). Monitor liver enzymes (ALT, AST) if using chronically."
-    },
-    {
-      "id": "int-24",
-      "severity": "high",
-      "outcome": "Bleeding & Clotting",
-      "title": "Duplicate Serrapeptase + Nattokinase: Double Fibrinolytic Load",
-      "supplements": ["spike-tri-support", "antimicrobial-blend"],
-      "description": "Serrapeptase appears in TWO products: spike support (100 mg / 360,000 SPU) and antimicrobial blend (55 mg / 2,000 SPU per mg = 110,000 SPU). Total serrapeptase ~155 mg / ~470,000 SPU. Combined with nattokinase (400 mg / 12,000 FU), this is an extremely potent fibrinolytic cocktail that dissolves blood clots. Adding this to the existing garlic and curcumin anticoagulants makes the bleeding risk severe.",
-      "recommendation": "Do not take both products simultaneously. Choose one source of fibrinolytic enzymes and take it separately from blood-thinning agents."
     },
     {
       "id": "int-25",
@@ -826,21 +773,12 @@
       "recommendation": "Use ONE source of saw palmetto and nettle, not three products containing them."
     },
     {
-      "id": "int-26",
-      "severity": "moderate",
-      "outcome": "Immune System",
-      "title": "Cat's Claw May Amplify Immune-Suppressing Effects",
-      "supplements": ["antimicrobial-blend", "echinacea", "elderberry"],
-      "description": "Cat's claw (250 mg, 4% oxindole alkaloids) is an immune modulator that can both stimulate and suppress immune function depending on the alkaloid type. Pentacyclic oxindole alkaloids (POAs) stimulate immunity, while tetracyclic (TOAs) suppress it. Without knowing the alkaloid profile, combining with other immune stimulants (echinacea, elderberry) creates unpredictable immune modulation.",
-      "recommendation": "Verify the cat's claw product specifies POA-dominant (immune-stimulating) if that is the intent."
-    },
-    {
       "id": "int-27",
       "severity": "moderate",
       "outcome": "Drug Metabolism",
       "title": "Resveratrol + Curcumin: CYP Enzyme Inhibition Stack",
-      "supplements": ["antimicrobial-blend", "turmeric-blend", "snap-prostate"],
-      "description": "Japanese knotweed (800 mg, 20% resveratrol = ~160 mg resveratrol) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine (which also inhibits CYP3A4), this can significantly slow the metabolism of medications and other substances, effectively increasing their half-life and blood levels.",
+      "supplements": ["nad-resveratrol-combo", "turmeric-blend", "snap-prostate"],
+      "description": "Trans-resveratrol (600 mg from the NAD combo) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine (which also inhibits CYP3A4), this can significantly slow the metabolism of medications and other substances, effectively increasing their half-life and blood levels.",
       "recommendation": "Be aware that medications and other drugs may stay in the system longer due to CYP inhibition from multiple sources."
     },
     {
@@ -854,12 +792,12 @@
     },
     {
       "id": "int-29",
-      "severity": "critical",
+      "severity": "high",
       "outcome": "Bleeding & Clotting",
-      "title": "Trans Resveratrol 600 mg Adds Major Antiplatelet Load",
-      "supplements": ["nad-resveratrol-combo", "antimicrobial-blend", "aged-garlic", "krill-oil", "spike-tri-support"],
-      "description": "The NAD combo adds 600 mg of trans-resveratrol — a potent antiplatelet agent — on top of the 160 mg resveratrol already in the antimicrobial blend (800 mg Japanese knotweed at 20%). Total resveratrol is now ~760 mg. Combined with nattokinase, serrapeptase, garlic, krill oil, and curcumin, the bleeding risk is now even more extreme than before.",
-      "recommendation": "This dramatically worsens the already-critical bleeding risk. The resveratrol dose alone is comparable to clinical trial doses that showed significant platelet inhibition."
+      "title": "Trans Resveratrol 600 mg Adds Antiplatelet Load",
+      "supplements": ["nad-resveratrol-combo", "krill-oil", "spike-tri-support"],
+      "description": "The NAD combo contains 600 mg of trans-resveratrol — a potent antiplatelet agent. Combined with nattokinase, serrapeptase, krill oil, and curcumin, this adds significant bleeding risk to an already-concerning anticoagulant stack.",
+      "recommendation": "The 600 mg resveratrol dose is comparable to clinical trial doses that showed significant platelet inhibition. Combined with the other blood thinners, this requires physician awareness."
     },
     {
       "id": "int-30",
@@ -884,8 +822,8 @@
       "severity": "high",
       "outcome": "Blood Pressure & Heart",
       "title": "Ashwagandha from 2 Sources + Adaptogens Lower BP Further",
-      "supplements": ["shilajit", "sea-moss-gummies", "potassium", "olive-leaf", "aged-garlic"],
-      "description": "Ashwagandha appears in both the Shilajit product (40 mg) and Sea Moss Gummies. Ashwagandha lowers blood pressure and cortisol. Combined with Panax ginseng (from Shilajit) which also affects BP, plus the existing stack of potassium, olive leaf, garlic, beetroot, and magnesium, the hypotension risk keeps growing.",
+      "supplements": ["shilajit", "sea-moss-gummies", "potassium", "olive-leaf"],
+      "description": "Ashwagandha appears in both the Shilajit product (40 mg) and Sea Moss Gummies. Ashwagandha lowers blood pressure and cortisol. Combined with Panax ginseng (from Shilajit) which also affects BP, plus the existing stack of potassium, olive leaf, beetroot, and magnesium, the hypotension risk keeps growing.",
       "recommendation": "Monitor blood pressure closely. The adaptogens add another BP-lowering mechanism on top of an already-aggressive stack."
     },
     {
@@ -893,7 +831,7 @@
       "severity": "high",
       "outcome": "Immune System",
       "title": "Sea Moss Gummies Add More Immune Stimulants",
-      "supplements": ["sea-moss-gummies", "elderberry", "echinacea", "antimicrobial-blend", "black-seed-oil"],
+      "supplements": ["sea-moss-gummies", "elderberry", "echinacea", "black-seed-oil"],
       "description": "The Sea Moss Gummies contain elderberry, black seed, turmeric, and moringa — all of which already appear as standalone supplements. This adds ANOTHER source of elderberry (now from 2 products), black seed (now from 2 products), turmeric (now from 3+ products), and moringa (now from 3+ products). The total immune stimulation load continues to climb.",
       "recommendation": "Serious redundancy. The gummies duplicate multiple ingredients already taken at much higher standalone doses."
     },
@@ -901,10 +839,10 @@
       "id": "int-34",
       "severity": "high",
       "outcome": "Drug Metabolism",
-      "title": "Sea Moss Gummies Add 5th Source of Piperine/Black Pepper",
-      "supplements": ["sea-moss-gummies", "turmeric-blend", "beetroot-blend", "burnslim", "antimicrobial-blend"],
-      "description": "The Sea Moss Gummies contain black pepper, making it the 5th product with piperine. Each source amplifies absorption of everything else in the stack by inhibiting CYP3A4 and P-glycoprotein. The cumulative piperine dose is now even more unpredictable, making effective doses of berberine, curcumin, resveratrol, and other compounds significantly higher than the labels suggest.",
-      "recommendation": "Five sources of piperine means every other supplement in this stack has amplified, unpredictable absorption. This compounds every other interaction."
+      "title": "Sea Moss Gummies Add 4th Source of Piperine/Black Pepper",
+      "supplements": ["sea-moss-gummies", "turmeric-blend", "beetroot-blend", "burnslim"],
+      "description": "The Sea Moss Gummies contain black pepper, making it the 4th product with piperine. Each source amplifies absorption of everything else in the stack by inhibiting CYP3A4 and P-glycoprotein. The cumulative piperine dose makes effective doses of berberine, curcumin, resveratrol, and other compounds significantly higher than the labels suggest.",
+      "recommendation": "Four sources of piperine means every other supplement in this stack has amplified, unpredictable absorption. This compounds every other interaction."
     },
     {
       "id": "int-35",
@@ -956,8 +894,8 @@
       "severity": "moderate",
       "outcome": "Bleeding & Clotting",
       "title": "Astaxanthin + Quercetin Add to Antiplatelet Load",
-      "supplements": ["astaxanthin", "nad-resveratrol-combo", "aged-garlic", "krill-oil"],
-      "description": "Astaxanthin has mild antiplatelet effects. Quercetin (160 mg in the NAD combo) also inhibits platelet aggregation. While individually these are minor, they add yet more antiplatelet mechanisms to a stack already containing garlic, krill oil, resveratrol (760 mg total), nattokinase, serrapeptase, and curcumin. Every additional antiplatelet compound increases the cumulative bleeding risk.",
+      "supplements": ["astaxanthin", "nad-resveratrol-combo", "krill-oil"],
+      "description": "Astaxanthin has mild antiplatelet effects. Quercetin (160 mg in the NAD combo) also inhibits platelet aggregation. While individually these are minor, they add yet more antiplatelet mechanisms to a stack already containing krill oil, resveratrol (600 mg), nattokinase, serrapeptase, and curcumin. Every additional antiplatelet compound increases the cumulative bleeding risk.",
       "recommendation": "Individually safe, but in this stack they contribute to an already-extreme anticoagulant load."
     }
   ]
