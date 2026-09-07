@@ -482,25 +482,20 @@
     color: var(--text);
     text-decoration: none;
     cursor: pointer;
-    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    transition: border-color 0.15s, background 0.15s;
     min-width: 72px;
     text-align: center;
   }
 
   .amount-btn:hover {
-    border-color: var(--donate-bg);
-    background: rgba(220, 38, 38, 0.06);
-    transform: translateY(-1px);
+    border-color: var(--accent-border);
+    background: var(--accent-dim);
   }
 
   .amount-btn.active {
-    border-color: var(--donate-bg);
-    background: var(--donate-bg);
-    color: #fff;
-  }
-
-  .amount-btn.active:hover {
-    background: var(--donate-hover);
+    border-color: var(--accent);
+    background: var(--accent-dim);
+    color: var(--accent);
   }
 
   .amount-label {
@@ -844,11 +839,15 @@
       <p>
         100% of donations go to GiveAndDo Inc., a 501(c)(3) nonprofit connecting volunteers with isolated seniors. Every dollar helps build a world where no senior feels alone.
       </p>
+      <a class="donate-btn" id="donateBtn" href="https://buy.stripe.com/3cIbJ30mDc9X1jBbFGbfO02" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Donate Now
+      </a>
       <div class="amount-picker">
-        <a class="amount-btn monthly" href="https://buy.stripe.com/28EeVfd9p4Hv6DVeRSbfO01" target="_blank" rel="noopener">$10<span class="amount-label">/month</span></a>
-        <a class="amount-btn active" href="https://buy.stripe.com/3cIbJ30mDc9X1jBbFGbfO02" target="_blank" rel="noopener">$25</a>
-        <a class="amount-btn" href="https://buy.stripe.com/00w28t0mD7TH7HZ9xybfO03" target="_blank" rel="noopener">$50</a>
-        <a class="amount-btn" href="https://buy.stripe.com/00w00l2uL5Lzd2j7pqbfO04" target="_blank" rel="noopener">$100</a>
+        <button class="amount-btn" data-url="https://buy.stripe.com/28EeVfd9p4Hv6DVeRSbfO01" data-label="$10/mo">$10<span class="amount-label">/month</span></button>
+        <button class="amount-btn active" data-url="https://buy.stripe.com/3cIbJ30mDc9X1jBbFGbfO02" data-label="$25">$25</button>
+        <button class="amount-btn" data-url="https://buy.stripe.com/00w28t0mD7TH7HZ9xybfO03" data-label="$50">$50</button>
+        <button class="amount-btn" data-url="https://buy.stripe.com/00w00l2uL5Lzd2j7pqbfO04" data-label="$100">$100</button>
       </div>
     </div>
 
@@ -872,6 +871,16 @@ document.querySelectorAll('.tab').forEach(tab => {
 if (window.location.hash === '#services') {
   document.querySelector('[data-tab="services"]').click();
 }
+
+// Donation amount toggle
+const donateBtn = document.getElementById('donateBtn');
+document.querySelectorAll('.amount-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    donateBtn.href = btn.dataset.url;
+  });
+});
 </script>
 
 </body>
