@@ -373,15 +373,6 @@
       "notes": "Very high dose. UL is 20 mg/day for adults. Supports bone and hormone metabolism."
     },
     {
-      "id": "saw-palmetto",
-      "name": "Saw Palmetto",
-      "dose": "450 mg",
-      "doseValue": 450,
-      "doseUnit": "mg",
-      "category": "Herbal Extracts",
-      "notes": "Used for prostate health. Can have hormonal effects."
-    },
-    {
       "id": "lycopene",
       "name": "Lycopene",
       "dose": "50 mg",
