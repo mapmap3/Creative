@@ -881,7 +881,7 @@ const DATA = {
     { id:"black-seed-oil", name:"Black Seed Oil", dose:"2,000 mg", category:"Herbal Extracts", notes:"Reduces inflammation and supports the immune system. Also has mild blood-thinning and blood-sugar-lowering effects." },
     { id:"alcar", name:"Acetyl L-Carnitine", dose:"1,500 mg", category:"Amino Acids", notes:"Helps cells produce energy. Supports brain function and mental clarity." },
     { id:"moringa", name:"Organic Moringa", dose:"1,000 mg", category:"Whole Food Extracts", notes:"Nutrient-dense plant. Can lower blood sugar and blood pressure — be careful if levels are already normal." },
-    { id:"glutathione", name:"Liposomal Glutathione", dose:"735 mg", category:"Antioxidants", notes:"The body's main detox and cell-protection molecule. This form is wrapped in fat for better absorption." },
+    { id:"glutathione", name:"Liposomal Glutathione", dose:"500 mg", category:"Antioxidants", notes:"The body's main detox and cell-protection molecule. This form is wrapped in fat for better absorption." },
     { id:"turmeric-blend", name:"Turmeric + Bee Propolis + Ginger + Pepper + MCT + Vit C", dose:"1,270 mg", category:"Anti-Inflammatory Blends", notes:"Reduces joint pain and inflammation. The black pepper makes the turmeric absorb up to 20x better." },
     { id:"potassium", name:"Potassium", dose:"1,020 mg", category:"Minerals", notes:"Essential for heart rhythm and muscle function. You need 2,600–3,400 mg/day total from food and supplements." },
     { id:"beetroot-blend", name:"Organic Beetroot + MCT + Pepper", dose:"905 mg", category:"Whole Food Extracts", notes:"Helps open blood vessels and improve circulation. Can lower blood pressure." },
@@ -907,8 +907,8 @@ const DATA = {
       id:"int-01", severity:"critical", outcome:"Bleeding & Clotting",
       title:"Extreme Bleeding Risk: Multiple Anticoagulant & Fibrinolytic Mechanisms",
       supplements:["krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","snap-prostate","nad-resveratrol-combo","astaxanthin"],
-      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase (100 mg / 360,000 SPU — fibrinolytic), bromelain, krill oil (omega-3s), curcumin from THREE sources, black seed oil, trans-resveratrol (600 mg — potent antiplatelet), quercetin (160 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is a dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
-      recommendation:"This combination requires physician review. The stacking of nattokinase + serrapeptase + bromelain + curcumin + 600 mg resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
+      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase (100 mg / 360,000 SPU — fibrinolytic), bromelain, krill oil (omega-3s), curcumin from THREE sources, black seed oil, trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is a dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
+      recommendation:"This combination requires physician review. The stacking of nattokinase + serrapeptase + bromelain + curcumin + resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
       id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
@@ -926,10 +926,10 @@ const DATA = {
     },
     {
       id:"int-04", severity:"high", outcome:"Bone & Mineral Balance",
-      title:"Zinc-Copper Imbalance (Now ~126 mg Zinc)",
-      supplements:["zinc","copper","codeage-multi","snap-prostate","blood-sugar-support"],
-      description:"Zinc from all sources: picolinate 100 mg + multi 7.5 mg + Snap prostate 11 mg + blood sugar formula 7.5 mg = ~126 mg total. This is 3× the upper tolerable limit (40 mg). Total copper is only ~3.65 mg (Thorne 2 mg + multi 0.75 mg + Snap 0.9 mg). The zinc:copper ratio is ~35:1 vs. the ideal 10–15:1. Chronic high zinc causes copper deficiency anemia and neurological damage.",
-      recommendation:"Reduce zinc to 30–50 mg/day total. At minimum, consolidate zinc sources and increase copper."
+      title:"Zinc-Copper Imbalance (~119 mg Zinc)",
+      supplements:["zinc","copper","codeage-multi","snap-prostate"],
+      description:"Zinc from all sources: picolinate 100 mg + multi 7.5 mg + Snap Prostate 11 mg = ~119 mg total. This is 3x the upper tolerable limit (40 mg). Total copper is only ~3.65 mg (Thorne 2 mg + multi 0.75 mg + Snap 0.9 mg). The zinc:copper ratio is ~33:1 vs. the ideal 10-15:1. Chronic high zinc causes copper deficiency anemia and neurological damage.",
+      recommendation:"Reduce zinc to 30-50 mg/day total. At minimum, consolidate zinc sources and increase copper."
     },
     {
       id:"int-06", severity:"high", outcome:"Blood Pressure & Heart",
@@ -939,11 +939,11 @@ const DATA = {
       recommendation:"Monitor blood pressure regularly. If already on BP medication, this combination could cause dangerous hypotension."
     },
     {
-      id:"int-07", severity:"critical", outcome:"Blood Sugar",
-      title:"Extreme Blood-Sugar-Lowering Stack: Hypoglycemia Risk",
-      supplements:["burnslim","blood-sugar-support","moringa","black-seed-oil","codeage-multi","alcar"],
-      description:"This stack now contains an extraordinary number of hypoglycemic agents: berberine (BurnSlim — metformin-equivalent), PLUS gymnema sylvestre (blocks sugar taste and absorption), bitter melon (insulin-mimetic), banaba leaf (corosolic acid — glucose transporter activator), cinnamon (insulin sensitizer), alpha lipoic acid (glucose uptake), white mulberry (alpha-glucosidase inhibitor) — all from the blood sugar formula. Add moringa, black seed oil, chromium from TWO sources (~116 mcg total), and ALCAR. This is comparable to stacking multiple diabetes medications.",
-      recommendation:"Serious hypoglycemia risk, especially when fasting or exercising. If not diabetic, this level of blood sugar suppression is potentially dangerous. Requires glucose monitoring."
+      id:"int-07", severity:"moderate", outcome:"Blood Sugar",
+      title:"Multiple Mild Blood-Sugar-Lowering Agents",
+      supplements:["moringa","black-seed-oil","codeage-multi","alcar"],
+      description:"Several supplements have mild blood-sugar-lowering effects: moringa, black seed oil, chromium (40 mcg from multi), and ALCAR. Individually these are minor, but together they create a moderate glucose-lowering stack, especially when fasting or exercising.",
+      recommendation:"Low risk without the dedicated blood sugar formula and berberine. Monitor if diabetic or on glucose-lowering medication."
     },
     {
       id:"int-08", severity:"high", outcome:"Bone & Mineral Balance",
@@ -961,45 +961,31 @@ const DATA = {
     },
     {
       id:"int-10", severity:"high", outcome:"Hormones & Reproductive",
-      title:"Hormonal Stack Interactions (5 Products)",
-      supplements:["boron","saw-palmetto","snap-prostate","pulse-male","shilajit"],
-      description:"Testosterone/hormonal support from 5 products: Pulse Male (arginine, citrulline — NO/erection support), Snap Prostate (saw palmetto, nettle, beta-sitosterol), Himalayan Shilajit (tribulus, mucuna pruriens, ashwagandha, ginseng), standalone boron (25 mg), and standalone saw palmetto (450 mg). Saw palmetto from TWO sources. DHT-blocking from multiple angles. Mucuna pruriens raises dopamine which drives testosterone. Tribulus and ginseng are classic testosterone boosters. Unpredictable combined hormonal effects.",
-      recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). Five overlapping hormonal products means much higher effective doses than any single label suggests."
+      title:"Hormonal Stack Interactions (3 Products)",
+      supplements:["boron","snap-prostate","shilajit"],
+      description:"Testosterone/hormonal support from 3 products: Snap Prostate (saw palmetto, nettle, beta-sitosterol — DHT blocking), Himalayan Shilajit (tribulus, mucuna pruriens, ashwagandha, ginseng — testosterone boosting), and standalone boron (25 mg — raises free testosterone). DHT-blocking from Snap Prostate combined with testosterone-boosting from Shilajit creates opposing hormonal pressures. Mucuna pruriens raises dopamine which drives testosterone. Tribulus and ginseng are classic testosterone boosters.",
+      recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol). Three overlapping hormonal products still means higher effective doses than any single label suggests."
     },
     {
       id:"int-11", severity:"moderate", outcome:"Bone & Mineral Balance",
       title:"Iron Absorption Blocked by Zinc, EGCG, and Minerals",
       supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate","snap-prostate"],
-      description:"The Codeage multi contains iron (27.5 mg). Zinc (~126 mg total), calcium, and magnesium all compete with iron for absorption. Green tea EGCG (in Snap Prostate, 45% of 500 mg antioxidant blend) is a potent iron absorption inhibitor. The combined mineral competition plus EGCG chelation may render the iron supplementation almost entirely ineffective.",
+      description:"The Codeage multi contains iron (27.5 mg). Zinc (~119 mg total), calcium, and magnesium all compete with iron for absorption. Green tea EGCG (in Snap Prostate, 45% of 500 mg antioxidant blend) is a potent iron absorption inhibitor. The combined mineral competition plus EGCG chelation may render the iron supplementation almost entirely ineffective.",
       recommendation:"Take iron 2+ hours away from zinc, calcium, magnesium, and green tea. Or take iron with vitamin C to enhance absorption."
     },
     {
       id:"int-12", severity:"high", outcome:"Drug Metabolism",
-      title:"Piperine from 3 Sources Amplifies Everything",
-      supplements:["turmeric-blend","beetroot-blend","burnslim"],
-      description:"Black pepper / piperine appears in THREE products: turmeric blend, beetroot blend, and BurnSlim (cayenne). Piperine inhibits CYP3A4 and P-glycoprotein, increasing bioavailability of many compounds by 30–2,000%. This means berberine, curcumin, resveratrol, and virtually everything else in this stack may have significantly amplified effects.",
-      recommendation:"The piperine load is turning every other dose in this stack into an effectively higher dose. This is especially dangerous for berberine and the blood-thinning agents."
+      title:"Piperine/Black Pepper from 3 Sources Amplifies Everything",
+      supplements:["turmeric-blend","beetroot-blend","nad-resveratrol-combo"],
+      description:"Black pepper / piperine appears in THREE products: turmeric blend, beetroot blend, and NMN combo (5 mg). Piperine inhibits CYP3A4 and P-glycoprotein, increasing bioavailability of many compounds by 30-2,000%. This means curcumin, resveratrol, and virtually everything else in this stack may have significantly amplified effects.",
+      recommendation:"The piperine load is turning every other dose in this stack into an effectively higher dose. This is especially concerning for the blood-thinning agents."
     },
     {
-      id:"int-14", severity:"moderate", outcome:"Blood Pressure & Heart",
-      title:"Redundant Olive Leaf & Moringa Sources",
-      supplements:["olive-leaf","oleuropein","burnslim","moringa"],
-      description:"Olive leaf appears standalone (680 mg), as oleuropein (50 mg), and in BurnSlim. Moringa appears standalone (1,000 mg) and in BurnSlim. This creates unpredictable total doses, amplifying BP- and blood-sugar-lowering effects.",
-      recommendation:"Consolidate sources. Choose either standalone or BurnSlim, not both."
-    },
-    {
-      id:"int-17", severity:"moderate", outcome:"Blood Sugar",
-      title:"Chromium from 3 Sources",
-      supplements:["codeage-multi","blood-sugar-support","snap-prostate"],
-      description:"Chromium from multi (40 mcg) + blood sugar formula (76 mcg) = 116 mcg total. While below the NOAEL, chromium supplementation combined with the extensive blood-sugar-lowering stack amplifies hypoglycemia risk. Chromium picolinate at high doses has been associated with kidney and liver toxicity in case reports.",
-      recommendation:"The chromium itself is within safe limits, but its glucose-lowering effect adds to an already aggressive blood sugar stack."
-    },
-    {
-      id:"int-18", severity:"moderate", outcome:"Blood Pressure & Heart",
-      title:"Nitric Oxide Stack: Citrulline + Arginine + Beetroot",
-      supplements:["pulse-male","beetroot-blend"],
-      description:"L-Citrulline from Pulse Male (200 mg total from HCl and Malate forms). L-Arginine from Pulse Male (400 mg total from base and AKG forms). Beetroot nitrates also convert to NO. Combined with other vasodilators (magnesium, olive leaf), this is a notable nitric oxide production stack that could cause vasodilation, headaches, and blood pressure drops.",
-      recommendation:"Monitor blood pressure. Be cautious combining with the multiple BP-lowering agents already in the stack."
+      id:"int-14", severity:"low", outcome:"Blood Pressure & Heart",
+      title:"Overlapping Olive Leaf Sources",
+      supplements:["olive-leaf","oleuropein"],
+      description:"Olive leaf extract appears as standalone (680 mg) and as concentrated oleuropein (50 mg). Both target the same pathway — oleuropein is just the active compound in olive leaf. Combined dose is moderate but redundant.",
+      recommendation:"Consider using one or the other rather than both."
     },
     {
       id:"int-19", severity:"low", outcome:"Bone & Mineral Balance",
@@ -1023,39 +1009,25 @@ const DATA = {
       recommendation:"Good combination for antioxidant support."
     },
     {
-      id:"int-22", severity:"critical", outcome:"Blood Pressure & Heart",
-      title:"Licorice Root Raises Blood Pressure & Depletes Potassium",
-      supplements:["blood-sugar-support","potassium","mag-threonate","mag-glycinate","olive-leaf"],
-      description:"The blood sugar formula contains licorice root extract, which inhibits 11-beta-hydroxysteroid dehydrogenase, causing cortisol to activate mineralocorticoid receptors. This raises blood pressure, causes potassium wasting, and fluid retention — directly COUNTERACTING the potassium supplement (1,020 mg), magnesium, and olive leaf that are all trying to lower BP. Licorice-induced hypokalemia combined with potassium supplementation creates unpredictable electrolyte swings that can affect heart rhythm.",
-      recommendation:"Licorice root is a serious concern in a stack that simultaneously tries to lower BP and supplement potassium. It should be removed or the blood sugar formula should be replaced with one without licorice."
-    },
-    {
-      id:"int-25", severity:"high", outcome:"Hormones & Reproductive",
-      title:"Duplicate Saw Palmetto from Two Products",
-      supplements:["saw-palmetto","snap-prostate"],
-      description:"Saw palmetto: standalone 450 mg PLUS Snap Prostate urinary blend (45% fatty acids, from 600 mg blend). Both are 5-alpha-reductase inhibitors that block DHT conversion. Double-dosing of DHT blockers can cause sexual side effects, breast tenderness, or mood changes similar to finasteride (a prescription DHT blocker).",
-      recommendation:"Use ONE source of saw palmetto, not two products containing it."
-    },
-    {
       id:"int-27", severity:"moderate", outcome:"Drug Metabolism",
       title:"Resveratrol + Curcumin: CYP Enzyme Inhibition Stack",
       supplements:["nad-resveratrol-combo","turmeric-blend","snap-prostate"],
-      description:"Trans-resveratrol (600 mg from the NAD combo) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine (which also inhibits CYP3A4), this can significantly slow the metabolism of medications and other substances, effectively increasing their half-life and blood levels.",
+      description:"Trans-resveratrol (200 mg from the NMN combo) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine from 4 sources (which also inhibits CYP3A4), this can significantly slow the metabolism of medications and other substances, effectively increasing their half-life and blood levels.",
       recommendation:"Be aware that medications and other drugs may stay in the system longer due to CYP inhibition from multiple sources."
     },
     {
-      id:"int-28", severity:"moderate", outcome:"Bone & Mineral Balance",
-      title:"Magnesium from 5+ Sources: Total ~400 mg Elemental",
-      supplements:["mag-threonate","mag-glycinate","codeage-multi","snap-prostate","blood-sugar-support"],
-      description:"Magnesium now from 5 sources: L-threonate (~144 mg elemental), glycinate (~50 mg), multi (15 mg), Snap prostate (60 mg citrate, ~10 mg elemental), blood sugar formula (125 mg oxide, ~5 mg elemental at oxide's low bioavailability). Total supplemental elemental Mg ~224 mg, within the 350 mg UL, but combined with dietary intake may cause osmotic diarrhea.",
-      recommendation:"Spread magnesium doses throughout the day. Magnesium oxide has poor bioavailability — the blood sugar formula's form is not contributing much."
+      id:"int-28", severity:"low", outcome:"Bone & Mineral Balance",
+      title:"Magnesium from 4 Sources: ~219 mg Elemental",
+      supplements:["mag-threonate","mag-glycinate","codeage-multi","snap-prostate"],
+      description:"Magnesium from 4 sources: L-threonate (~144 mg elemental), glycinate (~50 mg), multi (15 mg), Snap Prostate (60 mg citrate, ~10 mg elemental). Total supplemental elemental Mg ~219 mg, within the 350 mg UL from supplements. Well-distributed across bioavailable forms.",
+      recommendation:"Spread magnesium doses throughout the day. Total is within safe range."
     },
     {
-      id:"int-29", severity:"high", outcome:"Bleeding & Clotting",
-      title:"Trans Resveratrol 600 mg Adds Antiplatelet Load",
+      id:"int-29", severity:"moderate", outcome:"Bleeding & Clotting",
+      title:"Trans Resveratrol 200 mg Adds to Antiplatelet Load",
       supplements:["nad-resveratrol-combo","krill-oil","spike-tri-support"],
-      description:"The NAD combo contains 600 mg of trans-resveratrol — a potent antiplatelet agent. Combined with nattokinase, serrapeptase, krill oil, and curcumin, this adds significant bleeding risk to an already-concerning anticoagulant stack.",
-      recommendation:"The 600 mg resveratrol dose is comparable to clinical trial doses that showed significant platelet inhibition. Combined with the other blood thinners, this requires physician awareness."
+      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with nattokinase, serrapeptase, krill oil, and curcumin, it adds another antiplatelet mechanism to an already-loaded anticoagulant stack.",
+      recommendation:"The 200 mg resveratrol dose is lower than the 600 mg originally recorded, but still contributes antiplatelet activity to a stack that already has serious bleeding risk."
     },
     {
       id:"int-30", severity:"high", outcome:"Bone & Mineral Balance",
@@ -1065,11 +1037,11 @@ const DATA = {
       recommendation:"The additional 1,000 IU is trivial next to 100,000 IU, but it shows how supplements keep stacking without awareness of totals."
     },
     {
-      id:"int-31", severity:"high", outcome:"Hormones & Reproductive",
-      title:"Shilajit Adds 5th Hormonal Product to the Stack",
-      supplements:["shilajit","boron","saw-palmetto","snap-prostate","pulse-male"],
-      description:"The Himalayan Shilajit product contains tribulus terrestris (testosterone booster), mucuna pruriens (dopamine/testosterone), ashwagandha (cortisol/testosterone), and Panax ginseng (hormonal adaptogen). This is the 5th product with testosterone-boosting claims, joining Pulse Male, Snap Prostate, standalone boron, and standalone saw palmetto. The combined hormonal manipulation from this many angles is unpredictable.",
-      recommendation:"Five overlapping hormonal products is excessive. Consolidate to 1-2 products. Monitor testosterone, DHT, estradiol, and prolactin levels."
+      id:"int-31", severity:"moderate", outcome:"Hormones & Reproductive",
+      title:"Shilajit's Hormonal Herbs Add to Prostate/Boron Stack",
+      supplements:["shilajit","boron","snap-prostate"],
+      description:"The Himalayan Shilajit product contains tribulus terrestris (testosterone booster), mucuna pruriens (dopamine/testosterone), ashwagandha (cortisol/testosterone), and Panax ginseng (hormonal adaptogen). Combined with Snap Prostate (saw palmetto, nettle — DHT blocking) and boron (25 mg — raises free testosterone), this is still 3 products manipulating hormones from multiple angles.",
+      recommendation:"Monitor testosterone, DHT, and estradiol. The combination is less extreme than before but still overlaps significantly."
     },
     {
       id:"int-32", severity:"high", outcome:"Blood Pressure & Heart",
@@ -1087,24 +1059,24 @@ const DATA = {
     },
     {
       id:"int-34", severity:"high", outcome:"Drug Metabolism",
-      title:"Sea Moss Gummies Add 4th Source of Piperine/Black Pepper",
-      supplements:["sea-moss-gummies","turmeric-blend","beetroot-blend","burnslim"],
-      description:"The Sea Moss Gummies contain black pepper, making it the 4th product with piperine. Each source amplifies absorption of everything else in the stack by inhibiting CYP3A4 and P-glycoprotein. The cumulative piperine dose makes effective doses of berberine, curcumin, resveratrol, and other compounds significantly higher than the labels suggest.",
+      title:"Sea Moss Gummies Add 4th Source of Black Pepper",
+      supplements:["sea-moss-gummies","turmeric-blend","beetroot-blend","nad-resveratrol-combo"],
+      description:"The Sea Moss Gummies contain black pepper, making it the 4th product with piperine (joining turmeric blend, beetroot blend, and NMN combo 5 mg). Each source amplifies absorption of everything else in the stack by inhibiting CYP3A4 and P-glycoprotein. The cumulative piperine dose makes effective doses of curcumin, resveratrol, and other compounds significantly higher than the labels suggest.",
       recommendation:"Four sources of piperine means every other supplement in this stack has amplified, unpredictable absorption. This compounds every other interaction."
     },
     {
-      id:"int-35", severity:"moderate", outcome:"Blood Sugar",
-      title:"Shilajit + Sea Moss Add More Glucose-Lowering Agents",
-      supplements:["shilajit","sea-moss-gummies","burnslim","blood-sugar-support","moringa"],
-      description:"Shilajit lowers blood sugar through fulvic acid and chromium content. Sea moss gummies add turmeric, moringa, and ACV — all glucose-lowering. These join the already-massive blood sugar stack (berberine, gymnema, bitter melon, cinnamon, banaba, ALA, chromium, black seed oil, moringa, ALCAR). The hypoglycemia risk continues to grow with each new product.",
-      recommendation:"The blood sugar lowering redundancy is extreme. Monitor glucose levels, especially when fasting."
+      id:"int-35", severity:"low", outcome:"Blood Sugar",
+      title:"Shilajit + Sea Moss: Mild Glucose-Lowering Overlap",
+      supplements:["shilajit","sea-moss-gummies","moringa"],
+      description:"Shilajit lowers blood sugar mildly through fulvic acid. Sea moss gummies add turmeric, moringa, and ACV — all with mild glucose-lowering effects. Combined with standalone moringa (1,000 mg), these create a modest glucose-lowering background effect.",
+      recommendation:"Low risk without dedicated blood sugar supplements. Monitor glucose if diabetic or on medication."
     },
     {
-      id:"int-36", severity:"moderate", outcome:"Blood Pressure & Heart",
-      title:"CoQ10 from 3 Sources: ~225 mg Total",
-      supplements:["nad-resveratrol-combo","codeage-multi","beef-organs"],
-      description:"CoQ10 now from the NAD combo (100 mg), multivitamin (25 mg), and naturally in beef organs. Total supplemental CoQ10 ~125 mg plus dietary. While CoQ10 is generally safe, it has mild blood-pressure-lowering and blood-thinning effects that add to this stack's existing load.",
-      recommendation:"CoQ10 is generally beneficial but note its contributions to BP-lowering and blood-thinning in this context."
+      id:"int-36", severity:"low", outcome:"Blood Pressure & Heart",
+      title:"CoQ10 from 2 Sources: ~25 mg Supplemental",
+      supplements:["codeage-multi","beef-organs"],
+      description:"CoQ10 from multivitamin (25 mg) and naturally in beef organs. Total supplemental CoQ10 ~25 mg plus dietary. This is a modest, safe level with mild cardiovascular support.",
+      recommendation:"CoQ10 at this level is beneficial. No concerns."
     },
     {
       id:"int-37", severity:"moderate", outcome:"Nervous System",
@@ -1128,11 +1100,11 @@ const DATA = {
       recommendation:"Strong antioxidant combination. Astaxanthin at 12 mg is a well-studied, safe dose."
     },
     {
-      id:"int-40", severity:"moderate", outcome:"Bleeding & Clotting",
-      title:"Astaxanthin + Quercetin Add to Antiplatelet Load",
+      id:"int-40", severity:"low", outcome:"Bleeding & Clotting",
+      title:"Astaxanthin + Quercetin: Minor Antiplatelet Addition",
       supplements:["astaxanthin","nad-resveratrol-combo","krill-oil"],
-      description:"Astaxanthin has mild antiplatelet effects. Quercetin (160 mg in the NAD combo) also inhibits platelet aggregation. While individually these are minor, they add yet more antiplatelet mechanisms to a stack already containing krill oil, resveratrol (600 mg), nattokinase, serrapeptase, and curcumin. Every additional antiplatelet compound increases the cumulative bleeding risk.",
-      recommendation:"Individually safe, but in this stack they contribute to an already-extreme anticoagulant load."
+      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack already containing krill oil, resveratrol (200 mg), nattokinase, serrapeptase, and curcumin.",
+      recommendation:"Individually safe. The antiplatelet contribution is minor compared to the nattokinase/serrapeptase/curcumin load."
     }
   ]
 };
