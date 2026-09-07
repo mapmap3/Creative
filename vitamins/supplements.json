@@ -400,44 +400,6 @@
       "notes": "About 2x the RDA of 150 mcg and well below the upper tolerable limit of 1,100 mcg."
     },
     {
-      "id": "burnslim",
-      "name": "BurnSlim Proprietary Blend",
-      "dose": "800 mg",
-      "doseValue": 800,
-      "doseUnit": "mg",
-      "category": "Weight Management",
-      "subIngredients": [
-        "Olive Leaf Extract (20% oleuropein)",
-        "Moringa oleifera Extract (30% saponins)",
-        "Berberine Hydrochloride Extract 9% (Phellodendron amurense)",
-        "Citrus Bioflavonoid 50%",
-        "Holy Basil Extract (Ocimum sanctum) 2.5% ursolic acid",
-        "African Mango (Irvingia gabonensis) Seed Extract",
-        "Cayenne Pepper Extract 4:1"
-      ],
-      "notes": "Weight management blend with blood-sugar-lowering ingredients. Contains berberine which has drug-like potency."
-    },
-
-
-    {
-      "id": "pulse-male",
-      "name": "Pulse Male (Nitric Oxide Booster)",
-      "dose": "660 mg",
-      "doseValue": 660,
-      "doseUnit": "mg",
-      "category": "Hormonal Support",
-      "subIngredients": [
-        "L-Arginine (base) 200 mg",
-        "L-Arginine AKG 2:1 Extract 200 mg",
-        "L-Citrulline HCl 100 mg",
-        "L-Citrulline Malate 100 mg",
-        "Beta Alanine 40 mg",
-        "Niacin 7.5 mg NE",
-        "Calcium (Calcium Carbonate) 18 mg"
-      ],
-      "notes": "Nitric oxide booster. L-Arginine + L-Citrulline stack for blood flow and male performance."
-    },
-    {
       "id": "snap-prostate",
       "name": "Snap Prostate Health Blend",
       "dose": "2,000 mg",
@@ -455,25 +417,6 @@
         "Antioxidant Blend 500 mg (Turmeric 95% curcuminoids, Green Tea 45% EGCG, Lycopene)"
       ],
       "notes": "Prostate support with saw palmetto, nettle, mushrooms, turmeric, green tea, lycopene. Adds more zinc (11 mg) and copper (0.9 mg)."
-    },
-    {
-      "id": "blood-sugar-support",
-      "name": "Blood Sugar Support Formula",
-      "dose": "~310 mg + vitamins",
-      "doseValue": 310,
-      "doseUnit": "mg",
-      "category": "Weight Management",
-      "subIngredients": [
-        "Vitamin C (Ascorbic Acid) 52.5 mg",
-        "Vitamin E (d-Alpha Tocopheryl Succinate) 15.75 mg",
-        "Biotin 315 mcg",
-        "Magnesium (Oxide) 125 mg",
-        "Zinc (Oxide) 7.5 mg",
-        "Manganese (Amino Acid Chelate) 1 mg",
-        "Chromium (Amino Acid Chelate) 76 mcg",
-        "Proprietary Blend 82.4 mg: Guggul (10% guggulsterones), Juniper Berry, Alpha Lipoic Acid, Bitter Melon 4:1, Cayenne Pepper, Licorice Root Extract 4:1, Cinnamon Bark, Banaba Leaf, White Mulberry Leaf, Yarrow Flower, Taurine, Gymnema sylvestre Leaf"
-      ],
-      "notes": "Contains guggul, bitter melon, gymnema, cinnamon, banaba, ALA, and LICORICE ROOT. Multiple potent hypoglycemic agents. Licorice raises BP and depletes potassium."
     },
     {
       "id": "sea-moss-gummies",
