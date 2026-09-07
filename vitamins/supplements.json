@@ -457,17 +457,18 @@
     },
     {
       "id": "nad-resveratrol-combo",
-      "name": "NAD+ / Trans Resveratrol / Quercetin / CoQ10",
-      "dose": "2,060 mg total",
-      "doseValue": 2060,
+      "name": "NMN / Trans Resveratrol / Apigenin / Quercetin",
+      "dose": "1,305 mg total",
+      "doseValue": 1305,
       "doseUnit": "mg",
       "category": "Antioxidants",
-      "notes": "Anti-aging combo. NAD 1,200 mg supports cellular energy. Trans-resveratrol 600 mg is a potent blood thinner. Quercetin 160 mg boosts absorption and fights inflammation. CoQ10 100 mg supports heart and energy.",
+      "notes": "Anti-aging combo. NMN 1,000 mg is a precursor to NAD+ and supports cellular energy. Trans-resveratrol 200 mg is an antiplatelet/antioxidant. Apigenin 50 mg supports sleep and NAD+ recycling. Quercetin 50 mg boosts absorption and fights inflammation. Black pepper 5 mg enhances bioavailability.",
       "subIngredients": [
-        "NAD 1,200 mg",
-        "Trans Resveratrol 600 mg",
-        "Quercetin Phytosome 160 mg",
-        "Coenzyme Q10 100 mg"
+        "NMN 1,000 mg",
+        "Trans Resveratrol 200 mg",
+        "Apigenin 50 mg",
+        "Quercetin 50 mg",
+        "Black Pepper 5 mg"
       ]
     },
     {
