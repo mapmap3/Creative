@@ -895,7 +895,7 @@ const DATA = {
     { id:"burnslim", name:"BurnSlim Proprietary Blend", dose:"800 mg", category:"Weight Management", notes:"Contains berberine, which lowers blood sugar as strongly as the diabetes drug metformin.",
       subIngredients: ["Olive Leaf Extract (20% oleuropein)","Moringa oleifera Extract","Berberine HCl 9%","Citrus Bioflavonoid 50%","Holy Basil Extract","African Mango Seed Extract","Cayenne Pepper Extract 4:1"] },
     { id:"antimicrobial-blend", name:"Antimicrobial Herbal Blend", dose:"2,070 mg", category:"Immune Support", notes:"Strong infection-fighting and anti-parasite formula. Contains wormwood (hard on the liver), clot-dissolving enzymes, and black pepper that boosts absorption of everything else.", flag:"high",
-      subIngredients: ["Japanese Knotweed (20% Resveratrol) 600 mg","Cat's Claw (4% Oxindole Alkaloids) 250 mg","Cistus Incanus Leaf 10:1 200 mg","Cryptolepis Sanguinolenta Leaf 20:1 200 mg","Sweet Wormwood Leaf 200 mg","Chinese Skullcap (50% Baicalin) 200 mg","Alchornea Cordifolia Stem 20:1 100 mg","Sarsaparilla Extract 4:1 60 mg","Serrapeptase 2000 SPU/mg 55 mg","Black Pepper Extract (95% Piperine) 5 mg"] },
+      subIngredients: ["Japanese Knotweed (20% Resveratrol) 800 mg","Cat's Claw (4% Oxindole Alkaloids) 250 mg","Cistus Incanus Leaf 10:1 200 mg","Cryptolepis Sanguinolenta Leaf 20:1 200 mg","Sweet Wormwood Leaf 200 mg","Chinese Skullcap (50% Baicalin) 200 mg","Alchornea Cordifolia Stem 20:1 100 mg","Sarsaparilla Extract 4:1 60 mg","Serrapeptase 2000 SPU/mg 55 mg","Black Pepper Extract (95% Piperine) 5 mg"] },
     { id:"pulse-male", name:"Pulse Male (NO Booster)", dose:"660 mg", category:"Hormonal Support", notes:"Opens blood vessels to improve circulation and performance. Uses arginine and citrulline.",
       subIngredients: ["L-Arginine (base) 200 mg","L-Arginine AKG 2:1 200 mg","L-Citrulline HCl 100 mg","L-Citrulline Malate 100 mg","Beta Alanine 40 mg","Niacin 7.5 mg","Calcium 18 mg"] },
     { id:"snap-prostate", name:"Snap Prostate Health Blend", dose:"2,000 mg", category:"Hormonal Support", notes:"Prostate support with saw palmetto, mushrooms, turmeric, and green tea. Also adds 11 mg zinc and 0.9 mg copper on top of standalone doses.",
@@ -918,8 +918,8 @@ const DATA = {
       id:"int-01", severity:"critical", outcome:"Bleeding & Clotting",
       title:"Extreme Bleeding Risk: 10+ Anticoagulant & Fibrinolytic Mechanisms",
       supplements:["aged-garlic","krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","antimicrobial-blend","snap-prostate","nad-resveratrol-combo","astaxanthin"],
-      description:"This stack layers 10+ blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase in TWO products (155 mg combined — fibrinolytic), bromelain, aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from THREE sources, black seed oil, resveratrol now from TWO sources (720 mg total — antiplatelet), quercetin (160 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is an exceptionally dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
-      recommendation:"This combination requires immediate physician review. The stacking of nattokinase + serrapeptase + bromelain + garlic + curcumin + 720 mg resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
+      description:"This stack layers 10+ blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase in TWO products (155 mg combined — fibrinolytic), bromelain, aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from THREE sources, black seed oil, resveratrol now from TWO sources (760 mg total — antiplatelet), quercetin (160 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is an exceptionally dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
+      recommendation:"This combination requires immediate physician review. The stacking of nattokinase + serrapeptase + bromelain + garlic + curcumin + 760 mg resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
       id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
@@ -1093,7 +1093,7 @@ const DATA = {
       id:"int-27", severity:"moderate", outcome:"Drug Metabolism",
       title:"Resveratrol + Curcumin: CYP Enzyme Inhibition Stack",
       supplements:["antimicrobial-blend","turmeric-blend","snap-prostate"],
-      description:"Japanese knotweed (600 mg, 20% resveratrol = ~120 mg resveratrol) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine (which also inhibits CYP3A4), this can significantly slow the metabolism of medications and other substances, effectively increasing their half-life and blood levels.",
+      description:"Japanese knotweed (800 mg, 20% resveratrol = ~160 mg resveratrol) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine (which also inhibits CYP3A4), this can significantly slow the metabolism of medications and other substances, effectively increasing their half-life and blood levels.",
       recommendation:"Be aware that medications and other drugs may stay in the system longer due to CYP inhibition from multiple sources."
     },
     {
@@ -1107,7 +1107,7 @@ const DATA = {
       id:"int-29", severity:"critical", outcome:"Bleeding & Clotting",
       title:"Trans Resveratrol 600 mg Adds Major Antiplatelet Load",
       supplements:["nad-resveratrol-combo","antimicrobial-blend","aged-garlic","krill-oil","spike-tri-support"],
-      description:"The new NAD combo adds 600 mg of trans-resveratrol — a potent antiplatelet agent — on top of the 120 mg resveratrol already in the antimicrobial blend (Japanese knotweed). Total resveratrol is now ~720 mg. Combined with nattokinase, serrapeptase, garlic, krill oil, and curcumin, the bleeding risk is now even more extreme than before.",
+      description:"The new NAD combo adds 600 mg of trans-resveratrol — a potent antiplatelet agent — on top of the 160 mg resveratrol already in the antimicrobial blend (800 mg Japanese knotweed at 20%). Total resveratrol is now ~760 mg. Combined with nattokinase, serrapeptase, garlic, krill oil, and curcumin, the bleeding risk is now even more extreme than before.",
       recommendation:"This dramatically worsens the already-critical bleeding risk. The resveratrol dose alone is comparable to clinical trial doses that showed significant platelet inhibition."
     },
     {
@@ -1184,7 +1184,7 @@ const DATA = {
       id:"int-40", severity:"moderate", outcome:"Bleeding & Clotting",
       title:"Astaxanthin + Quercetin Add to Antiplatelet Load",
       supplements:["astaxanthin","nad-resveratrol-combo","aged-garlic","krill-oil"],
-      description:"Astaxanthin has mild antiplatelet effects. Quercetin (160 mg in the NAD combo) also inhibits platelet aggregation. While individually these are minor, they add yet more antiplatelet mechanisms to a stack already containing garlic, krill oil, resveratrol (720 mg total), nattokinase, serrapeptase, and curcumin. Every additional antiplatelet compound increases the cumulative bleeding risk.",
+      description:"Astaxanthin has mild antiplatelet effects. Quercetin (160 mg in the NAD combo) also inhibits platelet aggregation. While individually these are minor, they add yet more antiplatelet mechanisms to a stack already containing garlic, krill oil, resveratrol (760 mg total), nattokinase, serrapeptase, and curcumin. Every additional antiplatelet compound increases the cumulative bleeding risk.",
       recommendation:"Individually safe, but in this stack they contribute to an already-extreme anticoagulant load."
     }
   ]
