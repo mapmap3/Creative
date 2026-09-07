@@ -901,15 +901,25 @@ const DATA = {
     { id:"snap-prostate", name:"Snap Prostate Health Blend", dose:"2,000 mg", category:"Hormonal Support", notes:"Prostate support with saw palmetto, mushrooms, turmeric, and green tea. Also adds 11 mg zinc and 0.9 mg copper on top of standalone doses.",
       subIngredients: ["Vitamin C 27 mg","Magnesium (citrate) 60 mg","Zinc (citrate) 11 mg","Selenium 55 mcg","Copper (bisglycinate) 0.9 mg","Prostate Mushroom Blend 900 mg (Maitake, Reishi)","Urinary Blend 600 mg (Saw Palmetto 45% FA, Nettle Root, Beta Sitosterol)","Antioxidant Blend 500 mg (Turmeric 95% curcuminoids, Green Tea 45% EGCG, Lycopene)"] },
     { id:"blood-sugar-support", name:"Blood Sugar Support Formula", dose:"~310 mg + vitamins", category:"Weight Management", notes:"Packed with ingredients that lower blood sugar — bitter melon, gymnema, cinnamon, and more. Also contains LICORICE ROOT, which raises blood pressure and wastes potassium.", flag:"high",
-      subIngredients: ["Vitamin C 52.5 mg","Vitamin E 15.75 mg","Biotin 315 mcg","Magnesium (Oxide) 125 mg","Zinc (Oxide) 7.5 mg","Manganese 1 mg","Chromium 76 mcg","Guggul Extract (10% guggulsterones)","Juniper Berry Powder","Alpha Lipoic Acid","Bitter Melon Extract 4:1","Cayenne Pepper Powder","Licorice Root Extract 4:1","Cinnamon Bark Powder","Banaba Leaf Extract","White Mulberry Leaf","Yarrow Flower Powder","Taurine","Gymnema sylvestre Leaf"] }
+      subIngredients: ["Vitamin C 52.5 mg","Vitamin E 15.75 mg","Biotin 315 mcg","Magnesium (Oxide) 125 mg","Zinc (Oxide) 7.5 mg","Manganese 1 mg","Chromium 76 mcg","Guggul Extract (10% guggulsterones)","Juniper Berry Powder","Alpha Lipoic Acid","Bitter Melon Extract 4:1","Cayenne Pepper Powder","Licorice Root Extract 4:1","Cinnamon Bark Powder","Banaba Leaf Extract","White Mulberry Leaf","Yarrow Flower Powder","Taurine","Gymnema sylvestre Leaf"] },
+    { id:"sea-moss-gummies", name:"Wild Irish Sea Moss Gummies", dose:"615 mg blend", category:"Whole Food Extracts", notes:"Kitchen-sink gummy with sea moss, apple cider vinegar, turmeric, ashwagandha, black seed, elderberry, and more. Adds another 1,000 IU of Vitamin D on top of the existing mega-dose.", flag:"high",
+      subIngredients: ["Vitamin C 90 mg","Vitamin D3 1,000 IU","Irish Sea Moss equiv 6,000 mg","Apple Cider Vinegar","Dandelion Root","Yellow Dock","Elderberry","Manuka Honey MGO 30+","Ginger","Black Seed","Ashwagandha","Turmeric","Bladderwrack","Burdock Root","Black Pepper","Moringa"] },
+    { id:"shilajit", name:"Himalayan Natural Shilajit", dose:"3,000 mg (from 300 mg 10:1 extract)", category:"Herbal Extracts", notes:"Ancient mineral resin with fulvic acid. Boosts energy, testosterone, and mineral absorption. This product also packs ashwagandha, ginseng, tribulus, and other hormonal herbs.",
+      subIngredients: ["Shilajit 300 mg (10:1 extract, equiv 3,000 mg)","Ashwagandha 40 mg","Ginger 10 mg","Black Musli (Curculigo orchioides) 6 mg","Tribulus terrestris (Gokshura) 6 mg","Mucuna pruriens (Kaunch) 4 mg","Panax Ginseng 4 mg","Anacyclus pyrethrum (Akarkara) 4 mg"] },
+    { id:"nad-resveratrol-combo", name:"NAD+ / Trans Resveratrol / Quercetin / CoQ10", dose:"2,060 mg total", category:"Antioxidants", notes:"Anti-aging combo. NAD 1,200 mg supports cellular energy. Trans-resveratrol 600 mg is a potent blood thinner. Quercetin 160 mg boosts absorption and fights inflammation. CoQ10 100 mg supports heart and energy.", flag:"high",
+      subIngredients: ["NAD 1,200 mg","Trans Resveratrol 600 mg","Quercetin Phytosome 160 mg","Coenzyme Q10 100 mg"] },
+    { id:"saffron", name:"Pure Saffron", dose:"89 mg", category:"Herbal Extracts", notes:"Supports mood, reduces anxiety, and may help with appetite control. Can mildly thin blood at high doses." },
+    { id:"rhodiola", name:"Rhodiola Rosea", dose:"600 mg", category:"Herbal Extracts", notes:"Adaptogen that fights fatigue and stress. Works on serotonin and dopamine. May interact with antidepressants or blood pressure medications." },
+    { id:"tmg", name:"TMG (Trimethylglycine)", dose:"1,500 mg", category:"Amino Acids", notes:"Methyl donor that supports heart health by lowering homocysteine. Works with B12 and folate. Important if taking NMN or NAD since those deplete methyl groups." },
+    { id:"astaxanthin", name:"Astaxanthin", dose:"12 mg", category:"Antioxidants", notes:"Powerful antioxidant from algae — 6,000x stronger than vitamin C. Protects eyes, skin, and joints. Mild blood-thinning effect." }
   ],
   interactions: [
     {
       id:"int-01", severity:"critical", outcome:"Bleeding & Clotting",
-      title:"Extreme Bleeding Risk: 7+ Anticoagulant & Fibrinolytic Mechanisms",
-      supplements:["aged-garlic","krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","antimicrobial-blend","snap-prostate"],
-      description:"This stack layers 7+ blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase in TWO products (155 mg combined — fibrinolytic), bromelain, aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from THREE sources (turmeric blend, Snap prostate, spike support), black seed oil, and resveratrol (600 mg Japanese knotweed — antiplatelet). This is an exceptionally dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
-      recommendation:"This combination requires immediate physician review. The stacking of nattokinase + serrapeptase + bromelain + garlic + curcumin creates serious hemorrhage risk. Physician must review before any surgery."
+      title:"Extreme Bleeding Risk: 10+ Anticoagulant & Fibrinolytic Mechanisms",
+      supplements:["aged-garlic","krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","antimicrobial-blend","snap-prostate","nad-resveratrol-combo","astaxanthin"],
+      description:"This stack layers 10+ blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase in TWO products (155 mg combined — fibrinolytic), bromelain, aged garlic (7,500 mg — blood thinner), krill oil (omega-3s), curcumin from THREE sources, black seed oil, resveratrol now from TWO sources (720 mg total — antiplatelet), quercetin (160 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is an exceptionally dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
+      recommendation:"This combination requires immediate physician review. The stacking of nattokinase + serrapeptase + bromelain + garlic + curcumin + 720 mg resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
       id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
@@ -969,10 +979,10 @@ const DATA = {
     },
     {
       id:"int-10", severity:"high", outcome:"Hormones & Reproductive",
-      title:"Hormonal Stack Interactions (5+ Products)",
-      supplements:["atlas-x","boron","saw-palmetto","snap-prostate","pulse-male"],
-      description:"Testosterone/hormonal support from 5+ products: Atlas X (horny goat weed, fenugreek, tongkat ali, nettle, citrulline), Pulse Male (arginine, citrulline — NO/erection support), Snap Prostate (saw palmetto, nettle, beta-sitosterol), standalone boron (25 mg) and saw palmetto (450 mg). Saw palmetto now from TWO sources. Nettle from TWO sources. DHT-blocking from multiple angles. Fenugreek also in Codeage multi. The guggul in the blood sugar formula also has hormonal activity. Unpredictable combined hormonal effects.",
-      recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). The redundancy across products means much higher effective doses than any single label suggests."
+      title:"Hormonal Stack Interactions (6+ Products)",
+      supplements:["atlas-x","boron","saw-palmetto","snap-prostate","pulse-male","shilajit"],
+      description:"Testosterone/hormonal support from 6+ products: Atlas X (horny goat weed, fenugreek, tongkat ali, nettle, citrulline), Pulse Male (arginine, citrulline — NO/erection support), Snap Prostate (saw palmetto, nettle, beta-sitosterol), Himalayan Shilajit (tribulus, mucuna pruriens, ashwagandha, ginseng), standalone boron (25 mg) and saw palmetto (450 mg). Saw palmetto from TWO sources. Nettle from TWO sources. DHT-blocking from multiple angles. Mucuna pruriens raises dopamine which drives testosterone. Tribulus and ginseng are classic testosterone boosters. The guggul in the blood sugar formula also has hormonal activity. Unpredictable combined hormonal effects.",
+      recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). Six overlapping hormonal products means much higher effective doses than any single label suggests."
     },
     {
       id:"int-11", severity:"moderate", outcome:"Bone & Mineral Balance",
@@ -1092,6 +1102,90 @@ const DATA = {
       supplements:["mag-threonate","mag-glycinate","codeage-multi","snap-prostate","blood-sugar-support"],
       description:"Magnesium now from 5 sources: L-threonate (~144 mg elemental), glycinate (~50 mg), multi (15 mg), Snap prostate (60 mg citrate, ~10 mg elemental), blood sugar formula (125 mg oxide, ~5 mg elemental at oxide's low bioavailability). Total supplemental elemental Mg ~224 mg, within the 350 mg UL, but combined with dietary intake may cause osmotic diarrhea.",
       recommendation:"Spread magnesium doses throughout the day. Magnesium oxide has poor bioavailability — the blood sugar formula's form is not contributing much."
+    },
+    {
+      id:"int-29", severity:"critical", outcome:"Bleeding & Clotting",
+      title:"Trans Resveratrol 600 mg Adds Major Antiplatelet Load",
+      supplements:["nad-resveratrol-combo","antimicrobial-blend","aged-garlic","krill-oil","spike-tri-support"],
+      description:"The new NAD combo adds 600 mg of trans-resveratrol — a potent antiplatelet agent — on top of the 120 mg resveratrol already in the antimicrobial blend (Japanese knotweed). Total resveratrol is now ~720 mg. Combined with nattokinase, serrapeptase, garlic, krill oil, and curcumin, the bleeding risk is now even more extreme than before.",
+      recommendation:"This dramatically worsens the already-critical bleeding risk. The resveratrol dose alone is comparable to clinical trial doses that showed significant platelet inhibition."
+    },
+    {
+      id:"int-30", severity:"high", outcome:"Bone & Mineral Balance",
+      title:"Vitamin D Now 101,000+ IU from Two Sources",
+      supplements:["d3","sea-moss-gummies","codeage-multi"],
+      description:"The Sea Moss Gummies add 1,000 IU of Vitamin D3 on top of the existing 100,000 IU standalone dose and ~800 IU from the multivitamin. Total D3 is now over 101,800 IU/day — making an already dangerous overdose even higher.",
+      recommendation:"The additional 1,000 IU is trivial next to 100,000 IU, but it shows how supplements keep stacking without awareness of totals."
+    },
+    {
+      id:"int-31", severity:"high", outcome:"Hormones & Reproductive",
+      title:"Shilajit Adds 6th Hormonal Product to the Stack",
+      supplements:["shilajit","atlas-x","boron","saw-palmetto","snap-prostate","pulse-male"],
+      description:"The Himalayan Shilajit product contains tribulus terrestris (testosterone booster), mucuna pruriens (dopamine/testosterone), ashwagandha (cortisol/testosterone), and Panax ginseng (hormonal adaptogen). This is the 6th product with testosterone-boosting claims, joining Atlas X, Pulse Male, Snap Prostate, standalone boron, and standalone saw palmetto. The combined hormonal manipulation from this many angles is completely unpredictable.",
+      recommendation:"Six overlapping hormonal products is excessive. Consolidate to 1-2 products. Monitor testosterone, DHT, estradiol, and prolactin levels."
+    },
+    {
+      id:"int-32", severity:"high", outcome:"Blood Pressure & Heart",
+      title:"Ashwagandha from 2 Sources + Adaptogens Lower BP Further",
+      supplements:["shilajit","sea-moss-gummies","potassium","olive-leaf","aged-garlic"],
+      description:"Ashwagandha appears in both the Shilajit product (40 mg) and Sea Moss Gummies. Ashwagandha lowers blood pressure and cortisol. Combined with Panax ginseng (from Shilajit) which also affects BP, plus the existing stack of potassium, olive leaf, garlic, beetroot, and magnesium, the hypotension risk keeps growing.",
+      recommendation:"Monitor blood pressure closely. The adaptogens add another BP-lowering mechanism on top of an already-aggressive stack."
+    },
+    {
+      id:"int-33", severity:"high", outcome:"Immune System",
+      title:"Sea Moss Gummies Add More Immune Stimulants",
+      supplements:["sea-moss-gummies","elderberry","echinacea","antimicrobial-blend","black-seed-oil"],
+      description:"The Sea Moss Gummies contain elderberry, black seed, turmeric, and moringa — all of which already appear as standalone supplements. This adds ANOTHER source of elderberry (now from 2 products), black seed (now from 2 products), turmeric (now from 3+ products), and moringa (now from 3+ products). The total immune stimulation load continues to climb.",
+      recommendation:"Serious redundancy. The gummies duplicate multiple ingredients already taken at much higher standalone doses."
+    },
+    {
+      id:"int-34", severity:"high", outcome:"Drug Metabolism",
+      title:"Sea Moss Gummies Add 5th Source of Piperine/Black Pepper",
+      supplements:["sea-moss-gummies","turmeric-blend","beetroot-blend","burnslim","antimicrobial-blend"],
+      description:"The Sea Moss Gummies contain black pepper, making it the 5th product with piperine. Each source amplifies absorption of everything else in the stack by inhibiting CYP3A4 and P-glycoprotein. The cumulative piperine dose is now even more unpredictable, making effective doses of berberine, curcumin, resveratrol, and other compounds significantly higher than the labels suggest.",
+      recommendation:"Five sources of piperine means every other supplement in this stack has amplified, unpredictable absorption. This compounds every other interaction."
+    },
+    {
+      id:"int-35", severity:"moderate", outcome:"Blood Sugar",
+      title:"Shilajit + Sea Moss Add More Glucose-Lowering Agents",
+      supplements:["shilajit","sea-moss-gummies","burnslim","blood-sugar-support","moringa"],
+      description:"Shilajit lowers blood sugar through fulvic acid and chromium content. Sea moss gummies add turmeric, moringa, and ACV — all glucose-lowering. These join the already-massive blood sugar stack (berberine, gymnema, bitter melon, cinnamon, banaba, ALA, chromium, black seed oil, moringa, ALCAR). The hypoglycemia risk continues to grow with each new product.",
+      recommendation:"The blood sugar lowering redundancy is extreme. Monitor glucose levels, especially when fasting."
+    },
+    {
+      id:"int-36", severity:"moderate", outcome:"Blood Pressure & Heart",
+      title:"CoQ10 from 3 Sources: ~225 mg Total",
+      supplements:["nad-resveratrol-combo","codeage-multi","beef-organs"],
+      description:"CoQ10 now from the NAD combo (100 mg), multivitamin (25 mg), and naturally in beef organs. Total supplemental CoQ10 ~125 mg plus dietary. While CoQ10 is generally safe, it has mild blood-pressure-lowering and blood-thinning effects that add to this stack's existing load.",
+      recommendation:"CoQ10 is generally beneficial but note its contributions to BP-lowering and blood-thinning in this context."
+    },
+    {
+      id:"int-37", severity:"moderate", outcome:"Nervous System",
+      title:"Rhodiola + Saffron: Serotonin & Dopamine Overlap",
+      supplements:["rhodiola","saffron"],
+      description:"Rhodiola rosea increases serotonin and dopamine by inhibiting MAO enzymes. Saffron also affects serotonin reuptake (similar mechanism to SSRIs). Together they create a mild serotonergic combination. If combined with any antidepressant medication, there is a risk of serotonin syndrome — symptoms include agitation, rapid heartbeat, high temperature, and muscle twitching.",
+      recommendation:"Safe together at these doses for most people, but do NOT combine with SSRI/SNRI antidepressants without physician approval."
+    },
+    {
+      id:"int-38", severity:"low", outcome:"Nervous System",
+      title:"Synergistic: TMG + B12 + Folate Methylation Support",
+      supplements:["tmg","b12","codeage-multi"],
+      description:"TMG (trimethylglycine) donates methyl groups to convert homocysteine to methionine. B12 and folate (from the multi) support the same pathway via a different route. Together they provide comprehensive methylation support — important for DNA repair, detox, and cardiovascular health. TMG also helps compensate for methyl group depletion from NAD/NMN supplementation.",
+      recommendation:"Good synergy, especially alongside the NAD supplement. The TMG dose is appropriate."
+    },
+    {
+      id:"int-39", severity:"low", outcome:"Immune System",
+      title:"Synergistic: Astaxanthin + Glutathione + Vitamin C",
+      supplements:["astaxanthin","glutathione","vitamin-c"],
+      description:"Astaxanthin is one of the most potent antioxidants found in nature, working in both water- and fat-soluble environments. Combined with glutathione (the body's master antioxidant) and vitamin C (which recycles glutathione), this trio provides excellent multi-layer antioxidant protection.",
+      recommendation:"Strong antioxidant combination. Astaxanthin at 12 mg is a well-studied, safe dose."
+    },
+    {
+      id:"int-40", severity:"moderate", outcome:"Bleeding & Clotting",
+      title:"Astaxanthin + Quercetin Add to Antiplatelet Load",
+      supplements:["astaxanthin","nad-resveratrol-combo","aged-garlic","krill-oil"],
+      description:"Astaxanthin has mild antiplatelet effects. Quercetin (160 mg in the NAD combo) also inhibits platelet aggregation. While individually these are minor, they add yet more antiplatelet mechanisms to a stack already containing garlic, krill oil, resveratrol (720 mg total), nattokinase, serrapeptase, and curcumin. Every additional antiplatelet compound increases the cumulative bleeding risk.",
+      recommendation:"Individually safe, but in this stack they contribute to an already-extreme anticoagulant load."
     }
   ]
 };
