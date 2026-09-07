@@ -364,22 +364,6 @@
       "notes": "Likely contains lutein, zeaxanthin, bilberry, astaxanthin, and other eye-health nutrients."
     },
     {
-      "id": "atlas-x",
-      "name": "Atlas X Masculinity Blend (Ereforce)",
-      "dose": "1,050 mg",
-      "doseValue": 1050,
-      "doseUnit": "mg",
-      "category": "Hormonal Support",
-      "subIngredients": [
-        "Horny Goat Weed Extract (Epimedium) 500 mg",
-        "Fenugreek Powder (seed) 200 mg",
-        "L-Citrulline DL-Malate 200 mg",
-        "Nettle Extract (leaf) 100 mg",
-        "Tongkat Ali Extract (root) 50 mg"
-      ],
-      "notes": "Testosterone and libido support blend."
-    },
-    {
       "id": "boron",
       "name": "Boron",
       "dose": "25 mg",
@@ -668,10 +652,10 @@
       "id": "int-10",
       "severity": "high",
       "outcome": "Hormones & Reproductive",
-      "title": "Hormonal Stack Interactions (6+ Products)",
-      "supplements": ["atlas-x", "boron", "saw-palmetto", "snap-prostate", "pulse-male", "shilajit"],
-      "description": "Testosterone/hormonal support from 6+ products: Atlas X (horny goat weed, fenugreek, tongkat ali, nettle, citrulline), Pulse Male (arginine, citrulline — NO/erection support), Snap Prostate (saw palmetto, nettle, beta-sitosterol), Himalayan Shilajit (tribulus, mucuna pruriens, ashwagandha, ginseng), standalone boron (25 mg) and saw palmetto (450 mg). Saw palmetto from TWO sources. Nettle from TWO sources. DHT-blocking from multiple angles. Mucuna pruriens raises dopamine which drives testosterone. Tribulus and ginseng are classic testosterone boosters. Unpredictable combined hormonal effects.",
-      "recommendation": "Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). Six overlapping hormonal products means much higher effective doses than any single label suggests."
+      "title": "Hormonal Stack Interactions (5 Products)",
+      "supplements": ["boron", "saw-palmetto", "snap-prostate", "pulse-male", "shilajit"],
+      "description": "Testosterone/hormonal support from 5 products: Pulse Male (arginine, citrulline — NO/erection support), Snap Prostate (saw palmetto, nettle, beta-sitosterol), Himalayan Shilajit (tribulus, mucuna pruriens, ashwagandha, ginseng), standalone boron (25 mg), and standalone saw palmetto (450 mg). Saw palmetto from TWO sources. DHT-blocking from multiple angles. Mucuna pruriens raises dopamine which drives testosterone. Tribulus and ginseng are classic testosterone boosters. Unpredictable combined hormonal effects.",
+      "recommendation": "Monitor hormone levels (total/free testosterone, DHT, estradiol, SHBG). Five overlapping hormonal products means much higher effective doses than any single label suggests."
     },
     {
       "id": "int-11",
@@ -701,15 +685,6 @@
       "recommendation": "Consolidate sources. Choose either standalone olive leaf or BurnSlim, not both."
     },
     {
-      "id": "int-15",
-      "severity": "moderate",
-      "outcome": "Hormones & Reproductive",
-      "title": "Fenugreek Duplication",
-      "supplements": ["atlas-x", "codeage-multi"],
-      "description": "Fenugreek appears in both the Atlas X blend (200 mg) and the Codeage Men's Vitality blend. Fenugreek has estrogenic compounds (diosgenin) and can affect both testosterone and estrogen levels. Double-dosing amplifies the unpredictability of hormonal effects.",
-      "recommendation": "Account for total fenugreek intake from all sources."
-    },
-    {
       "id": "int-17",
       "severity": "moderate",
       "outcome": "Blood Sugar",
@@ -722,9 +697,9 @@
       "id": "int-18",
       "severity": "moderate",
       "outcome": "Blood Pressure & Heart",
-      "title": "Massive Nitric Oxide Stack: Citrulline + Arginine + Beetroot",
-      "supplements": ["atlas-x", "pulse-male", "beetroot-blend"],
-      "description": "L-Citrulline now from TWO products: Atlas X (200 mg) + Pulse Male (200 mg total from HCl and Malate forms). L-Arginine from Pulse Male (400 mg total from base and AKG forms). Beetroot nitrates also convert to NO. Combined with other vasodilators (magnesium, garlic, olive leaf), this is a substantial nitric oxide production stack that could cause excessive vasodilation, headaches, and blood pressure drops.",
+      "title": "Nitric Oxide Stack: Citrulline + Arginine + Beetroot",
+      "supplements": ["pulse-male", "beetroot-blend"],
+      "description": "L-Citrulline from Pulse Male (200 mg total from HCl and Malate forms). L-Arginine from Pulse Male (400 mg total from base and AKG forms). Beetroot nitrates also convert to NO. Combined with other vasodilators (magnesium, olive leaf), this is a notable nitric oxide production stack that could cause vasodilation, headaches, and blood pressure drops.",
       "recommendation": "Monitor blood pressure. Be cautious combining with the multiple BP-lowering agents already in the stack."
     },
     {
@@ -767,10 +742,10 @@
       "id": "int-25",
       "severity": "high",
       "outcome": "Hormones & Reproductive",
-      "title": "Duplicate Saw Palmetto & Nettle from Multiple Products",
-      "supplements": ["saw-palmetto", "snap-prostate", "atlas-x"],
-      "description": "Saw palmetto: standalone 450 mg PLUS Snap Prostate urinary blend (45% fatty acids, from 600 mg blend). Nettle: Atlas X 100 mg PLUS Snap Prostate urinary blend. Both are 5-alpha-reductase inhibitors that block DHT conversion. Double-dosing of DHT blockers can cause sexual side effects, breast tenderness, or mood changes similar to finasteride (a prescription DHT blocker).",
-      "recommendation": "Use ONE source of saw palmetto and nettle, not three products containing them."
+      "title": "Duplicate Saw Palmetto from Two Products",
+      "supplements": ["saw-palmetto", "snap-prostate"],
+      "description": "Saw palmetto: standalone 450 mg PLUS Snap Prostate urinary blend (45% fatty acids, from 600 mg blend). Both are 5-alpha-reductase inhibitors that block DHT conversion. Double-dosing of DHT blockers can cause sexual side effects, breast tenderness, or mood changes similar to finasteride (a prescription DHT blocker).",
+      "recommendation": "Use ONE source of saw palmetto, not two products containing it."
     },
     {
       "id": "int-27",
@@ -812,10 +787,10 @@
       "id": "int-31",
       "severity": "high",
       "outcome": "Hormones & Reproductive",
-      "title": "Shilajit Adds 6th Hormonal Product to the Stack",
-      "supplements": ["shilajit", "atlas-x", "boron", "saw-palmetto", "snap-prostate", "pulse-male"],
-      "description": "The Himalayan Shilajit product contains tribulus terrestris (testosterone booster), mucuna pruriens (dopamine/testosterone), ashwagandha (cortisol/testosterone), and Panax ginseng (hormonal adaptogen). This is the 6th product with testosterone-boosting claims, joining Atlas X, Pulse Male, Snap Prostate, standalone boron, and standalone saw palmetto. The combined hormonal manipulation from this many angles is completely unpredictable.",
-      "recommendation": "Six overlapping hormonal products is excessive. Consolidate to 1-2 products. Monitor testosterone, DHT, estradiol, and prolactin levels."
+      "title": "Shilajit Adds 5th Hormonal Product to the Stack",
+      "supplements": ["shilajit", "boron", "saw-palmetto", "snap-prostate", "pulse-male"],
+      "description": "The Himalayan Shilajit product contains tribulus terrestris (testosterone booster), mucuna pruriens (dopamine/testosterone), ashwagandha (cortisol/testosterone), and Panax ginseng (hormonal adaptogen). This is the 5th product with testosterone-boosting claims, joining Pulse Male, Snap Prostate, standalone boron, and standalone saw palmetto. The combined hormonal manipulation from this many angles is unpredictable.",
+      "recommendation": "Five overlapping hormonal products is excessive. Consolidate to 1-2 products. Monitor testosterone, DHT, estradiol, and prolactin levels."
     },
     {
       "id": "int-32",
