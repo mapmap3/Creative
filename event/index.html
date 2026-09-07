@@ -974,7 +974,12 @@
       fileSha = data.sha;
     } catch (err) {
       console.error('Load error:', err);
-      attendees = [{ id: 1, name: 'Tadas', role: 'Guest of Honor', status: 'confirmed' }];
+      attendees = [
+        { id: 1, name: 'Tadas', role: 'Guest of Honor', status: 'confirmed' },
+        { id: 2, name: 'Mike', role: 'Best Man', status: 'confirmed' },
+        { id: 3, name: 'Eddie', role: 'Groomsman', status: 'pending' },
+        { id: 4, name: 'Tauras', role: 'Groomsman', status: 'pending' },
+      ];
     }
     render();
   }
