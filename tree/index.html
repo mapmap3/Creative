@@ -63,10 +63,10 @@
 
   #tree-wrap {
     position: relative;
-    max-width: 960px;
+    max-width: 1060px;
     width: 100%;
     margin: 1.5rem auto 4rem;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 
   #tree-container {
@@ -95,6 +95,11 @@
     fill: none;
   }
 
+  .connector-line {
+    stroke: #cfc4b7;
+    stroke-width: 2;
+  }
+
   .tree-row {
     position: relative;
     z-index: 2;
@@ -102,20 +107,20 @@
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 0.5rem;
   }
 
   .tree-row + .tree-row {
-    margin-top: 3.5rem;
+    margin-top: 3rem;
   }
 
   .pair-group {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     border-radius: 14px;
-    padding: 0.4rem;
-    margin: 0 0.8rem;
+    padding: 0.35rem;
+    margin: 0 0.5rem;
   }
 
   .pair-group.clickable {
@@ -135,17 +140,17 @@
 
   .pair-link {
     color: #c5a55a;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .card {
     background: #fff;
     border: 2px solid #e5ddd4;
     border-radius: 10px;
-    padding: 0.85rem 1.1rem;
+    padding: 0.65rem 0.85rem;
     text-align: center;
-    min-width: 130px;
-    max-width: 174px;
+    min-width: 108px;
+    max-width: 158px;
     transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
@@ -156,16 +161,14 @@
   .card.focus {
     border-color: #c5a55a;
     box-shadow: 0 4px 16px rgba(197, 165, 90, 0.18);
-    min-width: 150px;
-    max-width: 196px;
-    padding: 1rem 1.3rem;
+    min-width: 135px;
+    max-width: 190px;
+    padding: 0.8rem 1.1rem;
   }
   .card.focus.male { border-left: 4px solid #8ba4c4; border-top: 2px solid #c5a55a; border-right: 2px solid #c5a55a; border-bottom: 2px solid #c5a55a; }
   .card.focus.female { border-left: 4px solid #c49898; border-top: 2px solid #c5a55a; border-right: 2px solid #c5a55a; border-bottom: 2px solid #c5a55a; }
 
-  .card.child-link {
-    cursor: pointer;
-  }
+  .card.child-link { cursor: pointer; }
   .card.child-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
@@ -173,50 +176,34 @@
   }
 
   .card-name {
-    font-size: 0.92rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    line-height: 1.35;
+    line-height: 1.3;
     color: #3a3530;
   }
 
-  .card.focus .card-name {
-    font-size: 1rem;
-  }
+  .card.focus .card-name { font-size: 0.92rem; }
 
   .card-detail {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     color: #a89888;
-    margin-top: 0.25rem;
+    margin-top: 0.2rem;
     font-style: italic;
-  }
-
-  .hint {
-    font-size: 0.7rem;
-    color: #bbb;
-    margin-top: 0.35rem;
-    letter-spacing: 0.04em;
-  }
-
-  .empty-note {
-    font-size: 0.82rem;
-    color: #c4b8aa;
-    font-style: italic;
-    padding: 0.5rem;
   }
 
   @media (max-width: 680px) {
     header h1 { font-size: 1.3rem; }
-    .card { min-width: 105px; max-width: 148px; padding: 0.65rem 0.8rem; }
-    .card.focus { min-width: 120px; max-width: 164px; }
-    .card-name { font-size: 0.82rem; }
-    .card.focus .card-name { font-size: 0.9rem; }
-    .tree-row + .tree-row { margin-top: 2.5rem; }
-    .pair-group { margin: 0 0.3rem; }
-    #tree-wrap { padding: 0 0.75rem; }
+    .card { min-width: 90px; max-width: 138px; padding: 0.5rem 0.65rem; }
+    .card.focus { min-width: 110px; max-width: 155px; }
+    .card-name { font-size: 0.76rem; }
+    .card.focus .card-name { font-size: 0.84rem; }
+    .tree-row + .tree-row { margin-top: 2.2rem; }
+    .pair-group { margin: 0 0.2rem; }
+    #tree-wrap { padding: 0 0.5rem; }
   }
 
   @media (max-width: 440px) {
-    .pair-group { flex-direction: column; gap: 0.35rem; }
+    .pair-group { flex-direction: column; gap: 0.3rem; }
     .pair-link { display: none; }
   }
 </style>
@@ -225,7 +212,7 @@
 
 <header>
   <h1>Family Tree</h1>
-  <p class="subtitle">Panicci &middot; DeLaurentis &middot; Licata</p>
+  <p class="subtitle">Panicci &middot; Abbene &middot; DeLaurentis &middot; Licata</p>
   <div id="nav-bar"></div>
 </header>
 
@@ -243,17 +230,110 @@ const people = {
   lyla:      { id: 'lyla',      name: 'Lyla Ann Panicci',          gender: 'F' },
   michaelSr: { id: 'michaelSr', name: 'Michael Panicci',           gender: 'M' },
   vivian:    { id: 'vivian',    name: 'Vivian Panicci',            gender: 'F', detail: 'née Licata' },
-  thomas:    { id: 'thomas',    name: 'Thomas DeLaurentis',        gender: 'M' },
-  deborah:   { id: 'deborah',   name: 'Deborah DeLaurentis',       gender: 'F' },
   pietro:    { id: 'pietro',    name: 'Pietro Licata',             gender: 'M' },
   angela:    { id: 'angela',    name: 'Angela Licata',             gender: 'F' },
+  thomas:    { id: 'thomas',    name: 'Thomas DeLaurentis',        gender: 'M' },
+  deborah:   { id: 'deborah',   name: 'Deborah DeLaurentis',       gender: 'F', detail: 'née Abbene' },
+
+  leon:      { id: 'leon',      name: 'Leon Abbene',               gender: 'M' },
+  clotilde:  { id: 'clotilde',  name: 'Clotilde Abbene',           gender: 'F' },
+
+  eugene:    { id: 'eugene',    name: 'Eugene Abbene',              gender: 'M' },
+  joanne:    { id: 'joanne',    name: 'Joanne Abbene',              gender: 'F' },
+  rick:      { id: 'rick',      name: 'Rick Abbene',                gender: 'M' },
+  wendy:     { id: 'wendy',     name: 'Wendy Rosen',               gender: 'F' },
+  robert:    { id: 'robert',    name: 'Robert Abbene',              gender: 'M' },
+  annie:     { id: 'annie',     name: 'Annie Abbene',               gender: 'F' },
+  lindaDel:  { id: 'lindaDel',  name: 'Linda Deluca',              gender: 'F', detail: 'née Abbene' },
+  tomDel:    { id: 'tomDel',    name: 'Tom Deluca',                 gender: 'M' },
+  jamesAb:   { id: 'jamesAb',  name: 'James Abbene',               gender: 'M' },
+  anneMarie: { id: 'anneMarie', name: 'Anne Marie Abbene',          gender: 'F' },
+  johnAb:    { id: 'johnAb',   name: 'John Abbene',                gender: 'M' },
+  maryAb:    { id: 'maryAb',   name: 'Mary Abbene',                gender: 'F' },
+
+  don:       { id: 'don',       name: 'Don Abbene',                 gender: 'M' },
+  lindaAb:   { id: 'lindaAb',  name: 'Linda Abbene',               gender: 'F' },
+  liz:       { id: 'liz',      name: 'Liz Holley',                 gender: 'F', detail: 'née Abbene' },
+  jason:     { id: 'jason',    name: 'Jason Holley',                gender: 'M' },
+  mattAbE:   { id: 'mattAbE',  name: 'Matt Abbene',                gender: 'M' },
+  christina: { id: 'christina', name: 'Christina Abbene',           gender: 'F' },
+
+  brianAbR:  { id: 'brianAbR', name: 'Brian Abbene',               gender: 'M' },
+  adam:      { id: 'adam',      name: 'Adam Abbene',                gender: 'M' },
+  chelseaA:  { id: 'chelseaA', name: 'Chelsea Abbene',             gender: 'F' },
+  mikeAbR:   { id: 'mikeAbR',  name: 'Mike Abbene',                gender: 'M' },
+  frank:     { id: 'frank',    name: 'Frank Timko',                gender: 'M' },
+  lauren:    { id: 'lauren',   name: 'Lauren Artus',               gender: 'F', detail: 'née Abbene' },
+  mikeAr:    { id: 'mikeAr',   name: 'Mike Artus',                 gender: 'M' },
+  greg:      { id: 'greg',     name: 'Greg Abbene',                gender: 'M' },
+  brianna:   { id: 'brianna',  name: 'Brianna Abbene',             gender: 'F' },
+
+  danielle:  { id: 'danielle', name: 'Danielle Altomare',          gender: 'F', detail: 'née Deluca' },
+  nickAlt:   { id: 'nickAlt',  name: 'Nick Altomare',              gender: 'M' },
+  thomasDel: { id: 'thomasDel', name: 'Thomas Deluca',             gender: 'M' },
+  chelseaDl: { id: 'chelseaDl', name: 'Chelsea Deluca',            gender: 'F' },
+
+  nickAbJ:   { id: 'nickAbJ',  name: 'Nick Abbene',                gender: 'M' },
+  michele:   { id: 'michele',  name: 'Michele Abbene',             gender: 'F' },
+  allison:   { id: 'allison',  name: 'Allison Abbene',             gender: 'F' },
+  brianTso:  { id: 'brianTso', name: 'Brian Tso',                  gender: 'M' },
+  mattAbJ:   { id: 'mattAbJ',  name: 'Matt Abbene',                gender: 'M' },
+
+  brittany:  { id: 'brittany', name: 'Brittany DeLaurentis',       gender: 'F' },
+  tadas:     { id: 'tadas',    name: 'Tadas Valentukevicius',      gender: 'M' },
+
+  valerie:   { id: 'valerie',  name: 'Valerie Abbene',             gender: 'F' },
+  heather:   { id: 'heather',  name: 'Heather Abbene',             gender: 'F' },
+
+  kiresten:       { id: 'kiresten',       name: 'Kiresten Abbene',          gender: 'F' },
+  dolten:         { id: 'dolten',         name: 'Dolten Abbene',            gender: 'M' },
+  jacobAb:        { id: 'jacobAb',        name: 'Jacob Abbene',             gender: 'M' },
+  ameliaMarie:    { id: 'ameliaMarie',    name: 'Amelia Marie Abbene',      gender: 'F' },
+
+  taylor:  { id: 'taylor',  name: 'Taylor Holley',  gender: 'M' },
+  cuy:     { id: 'cuy',     name: 'Cuy Holley',     gender: 'M' },
+  blake:   { id: 'blake',   name: 'Blake Holley',   gender: 'M' },
+  rylan:   { id: 'rylan',   name: 'Rylan Holley',   gender: 'M' },
+
+  deanLouis:      { id: 'deanLouis',      name: 'Dean Louis Abbene',        gender: 'M' },
+  giannaLisa:     { id: 'giannaLisa',     name: 'Gianna Lisa Abbene',       gender: 'F' },
+  kentAticus:     { id: 'kentAticus',     name: 'Kent Aticus Abbene',       gender: 'M' },
+  hudsonJames:    { id: 'hudsonJames',    name: 'Hudson James Abbene',      gender: 'M' },
+  harrisonJames:  { id: 'harrisonJames',  name: 'Harrison James Abbene',    gender: 'M' },
+  everettRichard: { id: 'everettRichard', name: 'Everett Richard Abbene',   gender: 'M' },
+
+  leoThomas:      { id: 'leoThomas',      name: 'Leo Thomas Altomare',      gender: 'M' },
+  avaRose:        { id: 'avaRose',        name: 'Ava Rose Altomare',        gender: 'F' },
+  brodyJames:     { id: 'brodyJames',     name: 'Brody James Altomare',     gender: 'M' },
+
+  isabellaMarie:  { id: 'isabellaMarie',  name: 'Isabella Marie Deluca',    gender: 'F' },
+  lilianaJane:    { id: 'lilianaJane',    name: 'Liliana Jane Deluca',      gender: 'F' },
 };
 
 const families = [
-  { id: 'f1', partners: ['michael', 'marissa'], children: ['lyla'] },
-  { id: 'f2', partners: ['michaelSr', 'vivian'], children: ['michael'] },
-  { id: 'f3', partners: ['thomas', 'deborah'], children: ['marissa'] },
-  { id: 'f4', partners: ['pietro', 'angela'], children: ['vivian'] },
+  { id: 'f1',  partners: ['michael', 'marissa'],      children: ['lyla'] },
+  { id: 'f2',  partners: ['michaelSr', 'vivian'],     children: ['michael'] },
+  { id: 'f3',  partners: ['thomas', 'deborah'],       children: ['brittany', 'marissa'] },
+  { id: 'f4',  partners: ['pietro', 'angela'],        children: ['vivian'] },
+  { id: 'f5',  partners: ['leon', 'clotilde'],        children: ['eugene', 'rick', 'robert', 'lindaDel', 'jamesAb', 'deborah', 'johnAb'] },
+  { id: 'f6',  partners: ['eugene', 'joanne'],        children: ['don', 'liz', 'mattAbE'] },
+  { id: 'f7',  partners: ['rick', 'wendy'],           children: ['brianAbR', 'adam', 'mikeAbR', 'lauren', 'greg'] },
+  { id: 'f8',  partners: ['robert', 'annie'],         children: [] },
+  { id: 'f9',  partners: ['lindaDel', 'tomDel'],      children: ['danielle', 'thomasDel'] },
+  { id: 'f10', partners: ['jamesAb', 'anneMarie'],    children: ['nickAbJ', 'allison', 'mattAbJ'] },
+  { id: 'f11', partners: ['johnAb', 'maryAb'],        children: ['valerie', 'heather'] },
+  { id: 'f12', partners: ['don', 'lindaAb'],          children: ['kiresten', 'dolten', 'jacobAb', 'ameliaMarie'] },
+  { id: 'f13', partners: ['liz', 'jason'],            children: ['taylor', 'cuy', 'blake', 'rylan'] },
+  { id: 'f14', partners: ['mattAbE', 'christina'],    children: ['deanLouis'] },
+  { id: 'f15', partners: ['adam', 'chelseaA'],        children: ['giannaLisa', 'kentAticus'] },
+  { id: 'f16', partners: ['mikeAbR', 'frank'],        children: ['hudsonJames', 'harrisonJames'] },
+  { id: 'f17', partners: ['lauren', 'mikeAr'],        children: [] },
+  { id: 'f18', partners: ['greg', 'brianna'],         children: ['everettRichard'] },
+  { id: 'f19', partners: ['danielle', 'nickAlt'],     children: ['leoThomas', 'avaRose', 'brodyJames'] },
+  { id: 'f20', partners: ['thomasDel', 'chelseaDl'],  children: ['isabellaMarie', 'lilianaJane'] },
+  { id: 'f21', partners: ['nickAbJ', 'michele'],      children: [] },
+  { id: 'f22', partners: ['allison', 'brianTso'],     children: [] },
+  { id: 'f23', partners: ['brittany', 'tadas'],       children: [] },
 ];
 
 function familyById(fid) { return families.find(f => f.id === fid); }
@@ -262,7 +342,6 @@ function coupleFamilyOf(pid) { return families.find(f => f.partners.includes(pid
 
 let currentFid = 'f1';
 let history = [];
-let firstRender = true;
 
 const container = document.getElementById('tree-container');
 const content   = document.getElementById('tree-content');
@@ -289,7 +368,6 @@ function renderView(fid) {
 
   let html = '';
 
-  /* --- parents row --- */
   const hasParents = p1Fam || p2Fam;
   if (hasParents) {
     html += '<div class="tree-row" id="row-parents">';
@@ -310,7 +388,6 @@ function renderView(fid) {
     html += '</div>';
   }
 
-  /* --- focus row --- */
   html += '<div class="tree-row" id="row-focus">';
   html += '<div class="pair-group">';
   html += cardHTML(p1, true);
@@ -319,7 +396,6 @@ function renderView(fid) {
   html += '</div>';
   html += '</div>';
 
-  /* --- children row --- */
   if (fam.children.length) {
     html += '<div class="tree-row" id="row-children">';
     fam.children.forEach(cid => {
@@ -331,7 +407,6 @@ function renderView(fid) {
 
   content.innerHTML = html;
 
-  /* --- nav bar --- */
   let nav = '';
   if (history.length) nav += '<button class="nav-btn" id="btn-back">← Back</button>';
   if (fid !== 'f1') nav += '<button class="nav-btn" id="btn-home">Home</button>';
@@ -395,12 +470,44 @@ function pos(el) {
   };
 }
 
+function svgLine(svg, x1, y1, x2, y2) {
+  const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  l.setAttribute('x1', x1); l.setAttribute('y1', y1);
+  l.setAttribute('x2', x2); l.setAttribute('y2', y2);
+  l.setAttribute('class', 'connector-line');
+  svg.appendChild(l);
+}
+
 function bezier(svg, x1, y1, x2, y2) {
   const my = (y1 + y2) / 2;
   const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   p.setAttribute('d', `M${x1} ${y1} C${x1} ${my}, ${x2} ${my}, ${x2} ${y2}`);
   p.setAttribute('class', 'connector-path');
   svg.appendChild(p);
+}
+
+function drawChildConnectors(svg, fromX, fromY, childCards) {
+  const positions = Array.from(childCards).map(c => pos(c));
+  if (positions.length === 0) return;
+
+  if (positions.length === 1) {
+    bezier(svg, fromX, fromY, positions[0].cx, positions[0].top);
+    return;
+  }
+
+  const tops = positions.map(p => p.top);
+  const singleRow = (Math.max(...tops) - Math.min(...tops)) < 20;
+
+  if (singleRow) {
+    const barY = fromY + (Math.min(...tops) - fromY) * 0.5;
+    const leftX = Math.min(...positions.map(p => p.cx));
+    const rightX = Math.max(...positions.map(p => p.cx));
+    svgLine(svg, fromX, fromY, fromX, barY);
+    svgLine(svg, leftX, barY, rightX, barY);
+    positions.forEach(p => svgLine(svg, p.cx, barY, p.cx, p.top));
+  } else {
+    positions.forEach(p => bezier(svg, fromX, fromY, p.cx, p.top));
+  }
 }
 
 function drawLines() {
@@ -414,7 +521,6 @@ function drawLines() {
   const focusRow = document.getElementById('row-focus');
   if (!focusRow) return;
 
-  /* parent groups → focus cards */
   document.querySelectorAll('.pair-group.clickable[data-connects]').forEach(group => {
     const targetId = group.dataset.connects;
     const targetCard = focusRow.querySelector(`[data-person="${targetId}"]`);
@@ -424,7 +530,6 @@ function drawLines() {
     bezier(svg, gp.cx, gp.bot, tp.cx, tp.top);
   });
 
-  /* focus couple → children */
   const childrenRow = document.getElementById('row-children');
   if (!childrenRow) return;
   const focusCards = focusRow.querySelectorAll('.card.focus');
@@ -434,10 +539,7 @@ function drawLines() {
   const fromX = (fp1.cx + fp2.cx) / 2;
   const fromY = Math.max(fp1.bot, fp2.bot);
 
-  childrenRow.querySelectorAll('.card').forEach(child => {
-    const cp = pos(child);
-    bezier(svg, fromX, fromY, cp.cx, cp.top);
-  });
+  drawChildConnectors(svg, fromX, fromY, childrenRow.querySelectorAll('.card'));
 }
 
 /* ---------- init ---------- */
