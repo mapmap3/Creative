@@ -13,10 +13,15 @@ const CSV_PATH = 'data/attendees.csv';
 const LYLA_CSV_PATH = 'data/lyla-calendar.csv';
 const BRANCH = process.env.REPO_BRANCH || 'main';
 
+const APP_MODE = process.env.APP_MODE || 'event';
+
 app.use(express.json());
 
 app.get('/', (_req, res) => {
-  res.sendFile(join(__dirname, 'public', 'index.html'));
+  if (APP_MODE === 'calendar') {
+    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
+  }
+  res.sendFile(join(__dirname, 'public', 'event', 'index.html'));
 });
 
 app.use(express.static(join(__dirname, 'public')));
@@ -146,12 +151,11 @@ app.put('/api/lyla-calendar', async (req, res) => {
   }
 });
 
-app.get('/calendar', (_req, res) => {
-  res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
-});
-
 app.get('*', (_req, res) => {
-  res.sendFile(join(__dirname, 'public', 'index.html'));
+  if (APP_MODE === 'calendar') {
+    return res.sendFile(join(__dirname, 'public', 'calendar', 'index.html'));
+  }
+  res.sendFile(join(__dirname, 'public', 'event', 'index.html'));
 });
 
 app.listen(PORT, () => {
