@@ -409,11 +409,11 @@
     {
       "id": "iodine",
       "name": "Iodine",
-      "dose": "300 mg",
-      "doseValue": 300000,
+      "dose": "300 mcg",
+      "doseValue": 300,
       "doseUnit": "mcg",
       "category": "Minerals",
-      "notes": "Extremely high dose. RDA is 150 mcg. UL is 1,100 mcg. This is ~2,000x the RDA. Requires thyroid monitoring."
+      "notes": "About 2x the RDA of 150 mcg and well below the upper tolerable limit of 1,100 mcg."
     },
     {
       "id": "burnslim",
@@ -530,11 +530,11 @@
     },
     {
       "id": "int-03",
-      "severity": "critical",
-      "title": "Extreme Iodine Dose: Thyroid Disruption Risk",
+      "severity": "low",
+      "title": "Iodine Intake: Adequate but Monitor with Multivitamin",
       "supplements": ["iodine", "codeage-multi"],
-      "description": "300 mg (300,000 mcg) of iodine is approximately 2,000 times the RDA (150 mcg) and 273 times the upper tolerable limit (1,100 mcg). This can cause thyroid storm, hypothyroidism (Wolff-Chaikoff effect), or hyperthyroidism (Jod-Basedow phenomenon). The multivitamin adds additional iodine. Kelp/seaweed in other supplements may contribute more.",
-      "recommendation": "This dose is dangerous without close endocrinologist supervision and regular thyroid function testing (TSH, free T3, free T4)."
+      "description": "300 mcg of iodine is about 2x the RDA (150 mcg) and well below the upper tolerable limit (1,100 mcg). The multivitamin adds additional iodine, so combined intake should be monitored to stay below the UL.",
+      "recommendation": "Safe at this dose. Monitor total iodine intake from all supplements combined."
     },
     {
       "id": "int-04",

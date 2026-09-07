@@ -891,7 +891,7 @@ const DATA = {
     { id:"boron", name:"Boron", dose:"25 mg", category:"Minerals", notes:"Slightly above the safe upper limit of 20 mg. Supports bones and hormone levels. Can cause nausea at high doses.", flag:"high" },
     { id:"saw-palmetto", name:"Saw Palmetto", dose:"450 mg", category:"Herbal Extracts", notes:"Supports prostate health by blocking DHT, a hormone linked to prostate growth. Works like a mild version of prescription prostate drugs." },
     { id:"lycopene", name:"Lycopene", dose:"50 mg", category:"Antioxidants", notes:"The red pigment from tomatoes. Protects cells from damage and supports prostate health." },
-    { id:"iodine", name:"Iodine", dose:"300 mg (300,000 mcg)", category:"Minerals", notes:"About 2,000x the daily recommended amount. Can shut down or overactivate the thyroid. Needs blood tests to monitor.", flag:"critical" },
+    { id:"iodine", name:"Iodine", dose:"300 mcg", category:"Minerals", notes:"About 2x the RDA of 150 mcg and well below the upper tolerable limit of 1,100 mcg." },
     { id:"burnslim", name:"BurnSlim Proprietary Blend", dose:"800 mg", category:"Weight Management", notes:"Contains berberine, which lowers blood sugar as strongly as the diabetes drug metformin.",
       subIngredients: ["Olive Leaf Extract (20% oleuropein)","Moringa oleifera Extract","Berberine HCl 9%","Citrus Bioflavonoid 50%","Holy Basil Extract","African Mango Seed Extract","Cayenne Pepper Extract 4:1"] },
     { id:"antimicrobial-blend", name:"Antimicrobial Herbal Blend", dose:"2,070 mg", category:"Immune Support", notes:"Strong infection-fighting and anti-parasite formula. Contains wormwood (hard on the liver), clot-dissolving enzymes, and black pepper that boosts absorption of everything else.", flag:"high",
@@ -929,11 +929,11 @@ const DATA = {
       recommendation:"Requires serum 25(OH)D and calcium levels. This dose should only be used short-term under medical supervision for documented severe deficiency."
     },
     {
-      id:"int-03", severity:"critical", outcome:"Thyroid Function",
-      title:"Extreme Iodine Dose: Thyroid Disruption",
+      id:"int-03", severity:"low", outcome:"Thyroid Function",
+      title:"Iodine Intake: Adequate but Monitor with Multivitamin",
       supplements:["iodine","codeage-multi"],
-      description:"300 mg (300,000 mcg) of iodine is ~2,000 times the RDA (150 mcg) and 273 times the upper tolerable limit (1,100 mcg). This can cause thyroid storm, hypothyroidism (Wolff-Chaikoff effect), or hyperthyroidism (Jod-Basedow phenomenon). The multivitamin adds additional iodine.",
-      recommendation:"Dangerous without close endocrinologist supervision and regular thyroid function testing (TSH, free T3, free T4)."
+      description:"300 mcg of iodine is about 2x the RDA (150 mcg) and well below the upper tolerable limit (1,100 mcg). The multivitamin adds additional iodine, so combined intake should be monitored to stay below the UL.",
+      recommendation:"Safe at this dose. Monitor total iodine intake from all supplements combined."
     },
     {
       id:"int-04", severity:"high", outcome:"Bone & Mineral Balance",
