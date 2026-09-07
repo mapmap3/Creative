@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panicci Family Tree</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+    background: linear-gradient(160deg, #f7f2ec 0%, #efe8df 100%);
+    min-height: 100vh;
+    color: #3a3530;
+    overflow-x: hidden;
+  }
+
+  header {
+    text-align: center;
+    padding: 2.5rem 1rem 0.5rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6b5e52;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    color: #a89888;
+    margin-top: 0.3rem;
+    letter-spacing: 0.06em;
+  }
+
+  #nav-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    min-height: 2rem;
+  }
+
+  .nav-btn {
+    background: none;
+    border: 1px solid #cdc2b6;
+    border-radius: 20px;
+    padding: 0.3rem 1.1rem;
+    font-family: inherit;
+    font-size: 0.82rem;
+    color: #7a6e62;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .nav-btn:hover {
+    background: #e8dfd6;
+    color: #5a4e44;
+    border-color: #b5a899;
+  }
+
+  #tree-wrap {
+    position: relative;
+    max-width: 960px;
+    width: 100%;
+    margin: 1.5rem auto 4rem;
+    padding: 0 1.5rem;
+  }
+
+  #tree-container {
+    position: relative;
+    transition: opacity 0.32s ease, transform 0.32s ease;
+  }
+
+  #tree-container.transitioning {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  #lines-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .connector-path {
+    stroke: #cfc4b7;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .tree-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .tree-row + .tree-row {
+    margin-top: 3.5rem;
+  }
+
+  .pair-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-radius: 14px;
+    padding: 0.4rem;
+    margin: 0 0.8rem;
+  }
+
+  .pair-group.clickable {
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+
+  .pair-group.clickable:hover {
+    background: rgba(197, 165, 90, 0.07);
+    box-shadow: 0 0 0 1px rgba(197, 165, 90, 0.18);
+  }
+
+  .pair-group.clickable:hover .card {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  }
+
+  .pair-link {
+    color: #c5a55a;
+    font-size: 0.85rem;
+  }
+
+  .card {
+    background: #fff;
+    border: 2px solid #e5ddd4;
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+    text-align: center;
+    min-width: 130px;
+    max-width: 174px;
+    transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .card.male { border-left: 4px solid #8ba4c4; }
+  .card.female { border-left: 4px solid #c49898; }
+
+  .card.focus {
+    border-color: #c5a55a;
+    box-shadow: 0 4px 16px rgba(197, 165, 90, 0.18);
+    min-width: 150px;
+    max-width: 196px;
+    padding: 1rem 1.3rem;
+  }
+  .card.focus.male { border-left: 4px solid #8ba4c4; border-top: 2px solid #c5a55a; border-right: 2px solid #c5a55a; border-bottom: 2px solid #c5a55a; }
+  .card.focus.female { border-left: 4px solid #c49898; border-top: 2px solid #c5a55a; border-right: 2px solid #c5a55a; border-bottom: 2px solid #c5a55a; }
+
+  .card.child-link {
+    cursor: pointer;
+  }
+  .card.child-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    border-color: #c5a55a;
+  }
+
+  .card-name {
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #3a3530;
+  }
+
+  .card.focus .card-name {
+    font-size: 1rem;
+  }
+
+  .card-detail {
+    font-size: 0.72rem;
+    color: #a89888;
+    margin-top: 0.25rem;
+    font-style: italic;
+  }
+
+  .hint {
+    font-size: 0.7rem;
+    color: #bbb;
+    margin-top: 0.35rem;
+    letter-spacing: 0.04em;
+  }
+
+  .empty-note {
+    font-size: 0.82rem;
+    color: #c4b8aa;
+    font-style: italic;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 680px) {
+    header h1 { font-size: 1.3rem; }
+    .card { min-width: 105px; max-width: 148px; padding: 0.65rem 0.8rem; }
+    .card.focus { min-width: 120px; max-width: 164px; }
+    .card-name { font-size: 0.82rem; }
+    .card.focus .card-name { font-size: 0.9rem; }
+    .tree-row + .tree-row { margin-top: 2.5rem; }
+    .pair-group { margin: 0 0.3rem; }
+    #tree-wrap { padding: 0 0.75rem; }
+  }
+
+  @media (max-width: 440px) {
+    .pair-group { flex-direction: column; gap: 0.35rem; }
+    .pair-link { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Family Tree</h1>
+  <p class="subtitle">Panicci &middot; DeLaurentis &middot; Licata</p>
+  <div id="nav-bar"></div>
+</header>
+
+<div id="tree-wrap">
+  <div id="tree-container">
+    <svg id="lines-svg"></svg>
+    <div id="tree-content"></div>
+  </div>
+</div>
+
+<script>
+const people = {
+  michael:   { id: 'michael',   name: 'Michael Alexander Panicci', gender: 'M' },
+  marissa:   { id: 'marissa',   name: 'Marissa Ann Panicci',       gender: 'F', detail: 'née DeLaurentis' },
+  lyla:      { id: 'lyla',      name: 'Lyla Ann Panicci',          gender: 'F' },
+  michaelSr: { id: 'michaelSr', name: 'Michael Panicci',           gender: 'M' },
+  vivian:    { id: 'vivian',    name: 'Vivian Panicci',            gender: 'F', detail: 'née Licata' },
+  thomas:    { id: 'thomas',    name: 'Thomas DeLaurentis',        gender: 'M' },
+  deborah:   { id: 'deborah',   name: 'Deborah DeLaurentis',       gender: 'F' },
+  pietro:    { id: 'pietro',    name: 'Pietro Licata',             gender: 'M' },
+  angela:    { id: 'angela',    name: 'Angela Licata',             gender: 'F' },
+};
+
+const families = [
+  { id: 'f1', partners: ['michael', 'marissa'], children: ['lyla'] },
+  { id: 'f2', partners: ['michaelSr', 'vivian'], children: ['michael'] },
+  { id: 'f3', partners: ['thomas', 'deborah'], children: ['marissa'] },
+  { id: 'f4', partners: ['pietro', 'angela'], children: ['vivian'] },
+];
+
+function familyById(fid) { return families.find(f => f.id === fid); }
+function parentFamilyOf(pid) { return families.find(f => f.children.includes(pid)); }
+function coupleFamilyOf(pid) { return families.find(f => f.partners.includes(pid)); }
+
+let currentFid = 'f1';
+let history = [];
+let firstRender = true;
+
+const container = document.getElementById('tree-container');
+const content   = document.getElementById('tree-content');
+const navBar    = document.getElementById('nav-bar');
+
+function cardHTML(person, isFocus, clickFamilyId) {
+  const gc = person.gender === 'M' ? 'male' : 'female';
+  const fc = isFocus ? 'focus' : '';
+  const cc = clickFamilyId ? 'child-link' : '';
+  const da = clickFamilyId ? `data-goto="${clickFamilyId}"` : '';
+  const detail = person.detail ? `<div class="card-detail">${person.detail}</div>` : '';
+  return `<div class="card ${gc} ${fc} ${cc}" data-person="${person.id}" ${da}>${
+    `<div class="card-name">${person.name}</div>${detail}`
+  }</div>`;
+}
+
+function renderView(fid) {
+  const fam = familyById(fid);
+  const [p1id, p2id] = fam.partners;
+  const p1 = people[p1id];
+  const p2 = people[p2id];
+  const p1Fam = parentFamilyOf(p1id);
+  const p2Fam = parentFamilyOf(p2id);
+
+  let html = '';
+
+  /* --- parents row --- */
+  const hasParents = p1Fam || p2Fam;
+  if (hasParents) {
+    html += '<div class="tree-row" id="row-parents">';
+    if (p1Fam) {
+      html += `<div class="pair-group clickable" data-goto="${p1Fam.id}" data-connects="${p1id}">`;
+      html += cardHTML(people[p1Fam.partners[0]], false);
+      html += '<span class="pair-link">&amp;</span>';
+      html += cardHTML(people[p1Fam.partners[1]], false);
+      html += '</div>';
+    }
+    if (p2Fam) {
+      html += `<div class="pair-group clickable" data-goto="${p2Fam.id}" data-connects="${p2id}">`;
+      html += cardHTML(people[p2Fam.partners[0]], false);
+      html += '<span class="pair-link">&amp;</span>';
+      html += cardHTML(people[p2Fam.partners[1]], false);
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+
+  /* --- focus row --- */
+  html += '<div class="tree-row" id="row-focus">';
+  html += '<div class="pair-group">';
+  html += cardHTML(p1, true);
+  html += '<span class="pair-link">&hearts;</span>';
+  html += cardHTML(p2, true);
+  html += '</div>';
+  html += '</div>';
+
+  /* --- children row --- */
+  if (fam.children.length) {
+    html += '<div class="tree-row" id="row-children">';
+    fam.children.forEach(cid => {
+      const cFam = coupleFamilyOf(cid);
+      html += cardHTML(people[cid], false, cFam ? cFam.id : null);
+    });
+    html += '</div>';
+  }
+
+  content.innerHTML = html;
+
+  /* --- nav bar --- */
+  let nav = '';
+  if (history.length) nav += '<button class="nav-btn" id="btn-back">← Back</button>';
+  if (fid !== 'f1') nav += '<button class="nav-btn" id="btn-home">Home</button>';
+  navBar.innerHTML = nav;
+
+  bindEvents();
+}
+
+function bindEvents() {
+  document.querySelectorAll('.pair-group.clickable').forEach(el => {
+    el.addEventListener('click', () => goTo(el.dataset.goto));
+  });
+  document.querySelectorAll('.card.child-link').forEach(el => {
+    el.addEventListener('click', () => goTo(el.dataset.goto));
+  });
+  const back = document.getElementById('btn-back');
+  if (back) back.addEventListener('click', goBack);
+  const home = document.getElementById('btn-home');
+  if (home) home.addEventListener('click', goHome);
+}
+
+function goTo(fid) {
+  history.push(currentFid);
+  currentFid = fid;
+  transition(fid);
+}
+
+function goBack() {
+  if (!history.length) return;
+  currentFid = history.pop();
+  transition(currentFid);
+}
+
+function goHome() {
+  history = [];
+  currentFid = 'f1';
+  transition('f1');
+}
+
+function transition(fid) {
+  container.classList.add('transitioning');
+  setTimeout(() => {
+    renderView(fid);
+    requestAnimationFrame(() => {
+      drawLines();
+      requestAnimationFrame(() => container.classList.remove('transitioning'));
+    });
+  }, 320);
+}
+
+/* ---------- SVG connector lines ---------- */
+
+function pos(el) {
+  const wrap = document.getElementById('tree-wrap');
+  const wr = wrap.getBoundingClientRect();
+  const er = el.getBoundingClientRect();
+  return {
+    cx: er.left - wr.left + er.width / 2,
+    top: er.top - wr.top,
+    bot: er.top - wr.top + er.height,
+  };
+}
+
+function bezier(svg, x1, y1, x2, y2) {
+  const my = (y1 + y2) / 2;
+  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  p.setAttribute('d', `M${x1} ${y1} C${x1} ${my}, ${x2} ${my}, ${x2} ${y2}`);
+  p.setAttribute('class', 'connector-path');
+  svg.appendChild(p);
+}
+
+function drawLines() {
+  const svg = document.getElementById('lines-svg');
+  const wrap = document.getElementById('tree-wrap');
+  const wr = wrap.getBoundingClientRect();
+  svg.setAttribute('width', wr.width);
+  svg.setAttribute('height', wr.height);
+  svg.innerHTML = '';
+
+  const focusRow = document.getElementById('row-focus');
+  if (!focusRow) return;
+
+  /* parent groups → focus cards */
+  document.querySelectorAll('.pair-group.clickable[data-connects]').forEach(group => {
+    const targetId = group.dataset.connects;
+    const targetCard = focusRow.querySelector(`[data-person="${targetId}"]`);
+    if (!targetCard) return;
+    const gp = pos(group);
+    const tp = pos(targetCard);
+    bezier(svg, gp.cx, gp.bot, tp.cx, tp.top);
+  });
+
+  /* focus couple → children */
+  const childrenRow = document.getElementById('row-children');
+  if (!childrenRow) return;
+  const focusCards = focusRow.querySelectorAll('.card.focus');
+  if (focusCards.length < 2) return;
+  const fp1 = pos(focusCards[0]);
+  const fp2 = pos(focusCards[1]);
+  const fromX = (fp1.cx + fp2.cx) / 2;
+  const fromY = Math.max(fp1.bot, fp2.bot);
+
+  childrenRow.querySelectorAll('.card').forEach(child => {
+    const cp = pos(child);
+    bezier(svg, fromX, fromY, cp.cx, cp.top);
+  });
+}
+
+/* ---------- init ---------- */
+
+renderView('f1');
+requestAnimationFrame(() => drawLines());
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(drawLines, 80);
+});
+</script>
+
+</body>
+</html>
