@@ -900,7 +900,8 @@ const DATA = {
     { id:"saffron", name:"Pure Saffron", dose:"89 mg", category:"Herbal Extracts", notes:"Supports mood, reduces anxiety, and may help with appetite control. Can mildly thin blood at high doses." },
     { id:"rhodiola", name:"Rhodiola Rosea", dose:"600 mg", category:"Herbal Extracts", notes:"Adaptogen that fights fatigue and stress. Works on serotonin and dopamine. May interact with antidepressants or blood pressure medications." },
     { id:"tmg", name:"TMG (Trimethylglycine)", dose:"1,500 mg", category:"Amino Acids", notes:"Methyl donor that supports heart health by lowering homocysteine. Works with B12 and folate. Important if taking NMN or NAD since those deplete methyl groups." },
-    { id:"astaxanthin", name:"Astaxanthin", dose:"12 mg", category:"Antioxidants", notes:"Powerful antioxidant from algae — 6,000x stronger than vitamin C. Protects eyes, skin, and joints. Mild blood-thinning effect." }
+    { id:"astaxanthin", name:"Astaxanthin", dose:"12 mg", category:"Antioxidants", notes:"Powerful antioxidant from algae — 6,000x stronger than vitamin C. Protects eyes, skin, and joints. Mild blood-thinning effect." },
+    { id:"tadalafil", name:"Tadalafil (Cialis)", dose:"5 mg", category:"Prescription Medication", notes:"PDE5 inhibitor — relaxes blood vessels by boosting nitric oxide/cGMP signaling. Used for erectile dysfunction and enlarged prostate (BPH). Lowers blood pressure. Metabolized by CYP3A4, so anything that inhibits that enzyme raises tadalafil levels.", flag:"high" }
   ],
   interactions: [
     {
@@ -932,11 +933,11 @@ const DATA = {
       recommendation:"Reduce zinc to 30-50 mg/day total. At minimum, consolidate zinc sources and increase copper."
     },
     {
-      id:"int-06", severity:"high", outcome:"Blood Pressure & Heart",
-      title:"Multiple Blood-Pressure-Lowering Agents",
-      supplements:["potassium","mag-threonate","mag-glycinate","olive-leaf","oleuropein","beetroot-blend","moringa","black-seed-oil"],
-      description:"This stack contains numerous agents that lower blood pressure: magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), beetroot (nitric oxide), moringa (blood-pressure-lowering), and black seed oil (antihypertensive). Taking all of these together may cause excessive blood pressure drops, dizziness, and fainting, especially when standing.",
-      recommendation:"Monitor blood pressure regularly. If already on BP medication, this combination could cause dangerous hypotension."
+      id:"int-06", severity:"critical", outcome:"Blood Pressure & Heart",
+      title:"Tadalafil + Multiple BP-Lowering Agents: Hypotension Risk",
+      supplements:["tadalafil","potassium","mag-threonate","mag-glycinate","olive-leaf","oleuropein","beetroot-blend","moringa","black-seed-oil"],
+      description:"Tadalafil (5 mg) is a vasodilator that lowers blood pressure by boosting nitric oxide/cGMP signaling. This stack ALSO contains: magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), beetroot (nitric oxide — same pathway as tadalafil), moringa (BP-lowering), and black seed oil (antihypertensive). Beetroot is especially concerning because it increases nitric oxide production through the same NO/cGMP pathway that tadalafil amplifies — this is additive vasodilation. Combined, these can cause dangerous drops in blood pressure, dizziness, fainting, and falls.",
+      recommendation:"Physician must know about ALL of these. Tadalafil + beetroot is the most concerning pair (same pathway). Monitor blood pressure sitting AND standing. Watch for dizziness when getting up quickly."
     },
     {
       id:"int-07", severity:"moderate", outcome:"Blood Sugar",
@@ -974,11 +975,11 @@ const DATA = {
       recommendation:"Take iron 2+ hours away from zinc, calcium, magnesium, and green tea. Or take iron with vitamin C to enhance absorption."
     },
     {
-      id:"int-12", severity:"high", outcome:"Drug Metabolism",
-      title:"Piperine/Black Pepper from 3 Sources Amplifies Everything",
-      supplements:["turmeric-blend","beetroot-blend","nad-resveratrol-combo"],
-      description:"Black pepper / piperine appears in THREE products: turmeric blend, beetroot blend, and NMN combo (5 mg). Piperine inhibits CYP3A4 and P-glycoprotein, increasing bioavailability of many compounds by 30-2,000%. This means curcumin, resveratrol, and virtually everything else in this stack may have significantly amplified effects.",
-      recommendation:"The piperine load is turning every other dose in this stack into an effectively higher dose. This is especially concerning for the blood-thinning agents."
+      id:"int-12", severity:"critical", outcome:"Drug Metabolism",
+      title:"Piperine from 3 Sources Raises Tadalafil Levels",
+      supplements:["turmeric-blend","beetroot-blend","nad-resveratrol-combo","tadalafil"],
+      description:"Tadalafil is metabolized by CYP3A4. Piperine from THREE products (turmeric blend, beetroot blend, NMN combo) inhibits CYP3A4, slowing the breakdown of tadalafil and raising its effective blood level. This means the 5 mg dose may act like a higher dose — increasing the risk of headaches, flushing, dangerously low blood pressure, and prolonged erections. Piperine also amplifies curcumin, resveratrol, and virtually everything else in this stack.",
+      recommendation:"The piperine load is effectively raising his tadalafil dose. His prescribing doctor needs to know about the piperine sources. Consider separating tadalafil dosing from piperine-containing supplements by several hours, though piperine's CYP3A4 inhibition can last 6+ hours."
     },
     {
       id:"int-14", severity:"low", outcome:"Blood Pressure & Heart",
@@ -1009,11 +1010,11 @@ const DATA = {
       recommendation:"Good combination for antioxidant support."
     },
     {
-      id:"int-27", severity:"moderate", outcome:"Drug Metabolism",
-      title:"Resveratrol + Curcumin: CYP Enzyme Inhibition Stack",
-      supplements:["nad-resveratrol-combo","turmeric-blend","snap-prostate"],
-      description:"Trans-resveratrol (200 mg from the NMN combo) and curcumin from multiple sources both inhibit CYP enzymes (1A2, 2C9, 2D6, 3A4). Combined with piperine from 4 sources (which also inhibits CYP3A4), this can significantly slow the metabolism of medications and other substances, effectively increasing their half-life and blood levels.",
-      recommendation:"Be aware that medications and other drugs may stay in the system longer due to CYP inhibition from multiple sources."
+      id:"int-27", severity:"high", outcome:"Drug Metabolism",
+      title:"Resveratrol + Curcumin + Piperine All Raise Tadalafil Levels",
+      supplements:["nad-resveratrol-combo","turmeric-blend","snap-prostate","tadalafil"],
+      description:"Trans-resveratrol (200 mg), curcumin (from multiple sources), and piperine (from 4 products) ALL inhibit CYP3A4 — the primary enzyme that breaks down tadalafil. This triple CYP3A4 blockade means tadalafil stays in the blood longer at higher concentrations. Tadalafil already has a 17.5-hour half-life; with CYP3A4 suppressed, it could effectively last much longer and reach higher peak levels.",
+      recommendation:"This is the most pharmacologically significant drug interaction in the stack. His doctor needs to know that multiple CYP3A4 inhibitors are being taken with tadalafil."
     },
     {
       id:"int-28", severity:"low", outcome:"Bone & Mineral Balance",
@@ -1046,9 +1047,9 @@ const DATA = {
     {
       id:"int-32", severity:"high", outcome:"Blood Pressure & Heart",
       title:"Ashwagandha from 2 Sources + Adaptogens Lower BP Further",
-      supplements:["shilajit","sea-moss-gummies","potassium","olive-leaf"],
-      description:"Ashwagandha appears in both the Shilajit product (40 mg) and Sea Moss Gummies. Ashwagandha lowers blood pressure and cortisol. Combined with Panax ginseng (from Shilajit) which also affects BP, plus the existing stack of potassium, olive leaf, beetroot, and magnesium, the hypotension risk keeps growing.",
-      recommendation:"Monitor blood pressure closely. The adaptogens add another BP-lowering mechanism on top of an already-aggressive stack."
+      supplements:["shilajit","sea-moss-gummies","potassium","olive-leaf","tadalafil"],
+      description:"Ashwagandha appears in both the Shilajit product (40 mg) and Sea Moss Gummies. Ashwagandha lowers blood pressure and cortisol. Combined with Panax ginseng (from Shilajit) which also affects BP, plus tadalafil (vasodilator), potassium, olive leaf, beetroot, and magnesium, the hypotension risk is significant. Every additional BP-lowering agent on top of tadalafil increases the chance of dangerous drops.",
+      recommendation:"Monitor blood pressure closely. With tadalafil in the stack, every BP-lowering supplement adds more risk."
     },
     {
       id:"int-33", severity:"high", outcome:"Immune System",
@@ -1105,6 +1106,27 @@ const DATA = {
       supplements:["astaxanthin","nad-resveratrol-combo","krill-oil"],
       description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack already containing krill oil, resveratrol (200 mg), nattokinase, serrapeptase, and curcumin.",
       recommendation:"Individually safe. The antiplatelet contribution is minor compared to the nattokinase/serrapeptase/curcumin load."
+    },
+    {
+      id:"int-41", severity:"critical", outcome:"Blood Pressure & Heart",
+      title:"Tadalafil + Beetroot: Double Nitric Oxide Pathway Activation",
+      supplements:["tadalafil","beetroot-blend"],
+      description:"Tadalafil works by inhibiting PDE5, which preserves cGMP — the molecule that relaxes blood vessels after nitric oxide activates it. Beetroot provides dietary nitrates that convert to nitric oxide. Together, beetroot floods the system with extra NO while tadalafil prevents the signal from being broken down. This is additive vasodilation through the same pathway — like pressing the gas pedal (beetroot) while disabling the brakes (tadalafil). Can cause severe blood pressure drops, headaches, flushing, dizziness, and fainting.",
+      recommendation:"This is the single most dangerous supplement-drug pair in the stack. Separate dosing by several hours at minimum, or eliminate one. Doctor must be aware."
+    },
+    {
+      id:"int-42", severity:"moderate", outcome:"Hormones & Reproductive",
+      title:"Tadalafil + Prostate/Hormonal Stack Overlap",
+      supplements:["tadalafil","snap-prostate","boron","shilajit"],
+      description:"Tadalafil at 5 mg daily is FDA-approved for both ED and BPH (enlarged prostate). Snap Prostate also targets prostate health via saw palmetto, nettle, and beta-sitosterol (DHT blockers). Boron raises free testosterone. Shilajit contains tribulus and mucuna pruriens (testosterone boosters). The combination creates overlapping prostate and hormonal interventions from both pharmaceutical and supplement angles.",
+      recommendation:"Not inherently dangerous, but the prescribing urologist should know about the supplement-based prostate and hormonal support to avoid over-treatment or masking of symptoms."
+    },
+    {
+      id:"int-43", severity:"high", outcome:"Bleeding & Clotting",
+      title:"Tadalafil Adds Mild Antiplatelet Effect to Bleeding Stack",
+      supplements:["tadalafil","krill-oil","spike-tri-support","turmeric-blend"],
+      description:"Tadalafil has a mild antiplatelet effect through the PDE5/cGMP pathway — it reduces platelet aggregation. While minor on its own, this adds yet another antiplatelet mechanism to a stack already containing nattokinase, serrapeptase, bromelain, krill oil, curcumin, resveratrol, and multiple other antiplatelet agents. The compounding of tadalafil's antiplatelet effect with this many other blood thinners further increases hemorrhage risk.",
+      recommendation:"The tadalafil contribution to bleeding risk is small compared to nattokinase/serrapeptase, but the prescribing doctor must know about the full anticoagulant stack."
     }
   ]
 };
