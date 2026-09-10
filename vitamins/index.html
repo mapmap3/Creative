@@ -889,8 +889,6 @@ const DATA = {
     { id:"boron", name:"Boron", dose:"25 mg", category:"Minerals", notes:"Slightly above the safe upper limit of 20 mg. Supports bones and hormone levels. Can cause nausea at high doses.", flag:"high" },
     { id:"lycopene", name:"Lycopene", dose:"50 mg", category:"Antioxidants", notes:"The red pigment from tomatoes. Protects cells from damage and supports prostate health." },
     { id:"iodine", name:"Iodine", dose:"300 mcg", category:"Minerals", notes:"About 2x the RDA of 150 mcg and well below the upper tolerable limit of 1,100 mcg." },
-    { id:"snap-prostate", name:"Snap Prostate Health Blend", dose:"2,000 mg", category:"Hormonal Support", notes:"Prostate support with saw palmetto, mushrooms, turmeric, and green tea. Also adds 11 mg zinc and 0.9 mg copper on top of standalone doses.",
-      subIngredients: ["Vitamin C 27 mg","Magnesium (citrate) 60 mg","Zinc (citrate) 11 mg","Selenium 55 mcg","Copper (bisglycinate) 0.9 mg","Prostate Mushroom Blend 900 mg (Maitake, Reishi)","Urinary Blend 600 mg (Saw Palmetto 45% FA, Nettle Root, Beta Sitosterol)","Antioxidant Blend 500 mg (Turmeric 95% curcuminoids, Green Tea 45% EGCG, Lycopene)"] },
     { id:"sea-moss-gummies", name:"Wild Irish Sea Moss Gummies", dose:"615 mg blend", category:"Whole Food Extracts", notes:"Kitchen-sink gummy with sea moss, apple cider vinegar, turmeric, ashwagandha, black seed, elderberry, and more. Adds another 1,000 IU of Vitamin D on top of the existing mega-dose.", flag:"high",
       subIngredients: ["Vitamin C 90 mg","Vitamin D3 1,000 IU","Irish Sea Moss equiv 6,000 mg","Apple Cider Vinegar","Dandelion Root","Yellow Dock","Elderberry","Manuka Honey MGO 30+","Ginger","Black Seed","Ashwagandha","Turmeric","Bladderwrack","Burdock Root","Black Pepper","Moringa"] },
     { id:"shilajit", name:"Himalayan Natural Shilajit", dose:"3,000 mg (from 300 mg 10:1 extract)", category:"Herbal Extracts", notes:"Ancient mineral resin with fulvic acid. Boosts energy, testosterone, and mineral absorption. This product also packs ashwagandha, ginseng, tribulus, and other hormonal herbs.",
@@ -908,8 +906,8 @@ const DATA = {
     {
       id:"int-01", severity:"critical", outcome:"Bleeding & Clotting",
       title:"Extreme Bleeding Risk: Multiple Anticoagulant & Fibrinolytic Mechanisms",
-      supplements:["krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","snap-prostate","nad-resveratrol-combo","astaxanthin"],
-      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase (100 mg / 360,000 SPU — fibrinolytic), bromelain, krill oil (omega-3s), curcumin from THREE sources, black seed oil, trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is a dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
+      supplements:["krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","nad-resveratrol-combo","astaxanthin"],
+      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase (100 mg / 360,000 SPU — fibrinolytic), bromelain, krill oil (omega-3s), curcumin from TWO sources, black seed oil, trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is a dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
       recommendation:"This combination requires physician review. The stacking of nattokinase + serrapeptase + bromelain + curcumin + resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
@@ -928,9 +926,9 @@ const DATA = {
     },
     {
       id:"int-04", severity:"high", outcome:"Bone & Mineral Balance",
-      title:"Zinc-Copper Imbalance (~119 mg Zinc)",
-      supplements:["zinc","copper","codeage-multi","snap-prostate"],
-      description:"Zinc from all sources: picolinate 100 mg + multi 7.5 mg + Snap Prostate 11 mg = ~119 mg total. This is 3x the upper tolerable limit (40 mg). Total copper is only ~3.65 mg (Thorne 2 mg + multi 0.75 mg + Snap 0.9 mg). The zinc:copper ratio is ~33:1 vs. the ideal 10-15:1. Chronic high zinc causes copper deficiency anemia and neurological damage.",
+      title:"Zinc-Copper Imbalance (~107.5 mg Zinc)",
+      supplements:["zinc","copper","codeage-multi"],
+      description:"Zinc from all sources: picolinate 100 mg + multi 7.5 mg = ~107.5 mg total. This is nearly 3x the upper tolerable limit (40 mg). Total copper is only ~2.75 mg (Thorne 2 mg + multi 0.75 mg). The zinc:copper ratio is ~39:1 vs. the ideal 10-15:1 — even worse without the 0.9 mg copper that was in the discontinued prostate blend. Chronic high zinc causes copper deficiency anemia and neurological damage.",
       recommendation:"Reduce zinc to 30-50 mg/day total. At minimum, consolidate zinc sources and increase copper."
     },
     {
@@ -963,17 +961,17 @@ const DATA = {
     },
     {
       id:"int-10", severity:"high", outcome:"Hormones & Reproductive",
-      title:"Hormonal Stack Interactions (3 Products)",
-      supplements:["boron","snap-prostate","shilajit"],
-      description:"Testosterone/hormonal support from 3 products: Snap Prostate (saw palmetto, nettle, beta-sitosterol — DHT blocking), Himalayan Shilajit (tribulus, mucuna pruriens, ashwagandha, ginseng — testosterone boosting), and standalone boron (25 mg — raises free testosterone). DHT-blocking from Snap Prostate combined with testosterone-boosting from Shilajit creates opposing hormonal pressures. Mucuna pruriens raises dopamine which drives testosterone. Tribulus and ginseng are classic testosterone boosters.",
-      recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol). Three overlapping hormonal products still means higher effective doses than any single label suggests."
+      title:"Hormonal Stack Interactions (2 Products)",
+      supplements:["boron","shilajit"],
+      description:"Testosterone/hormonal support from 2 products: Himalayan Shilajit (tribulus, mucuna pruriens, ashwagandha, ginseng — testosterone boosting) and standalone boron (25 mg — raises free testosterone). Mucuna pruriens raises dopamine which drives testosterone. Tribulus and ginseng are classic testosterone boosters. Boron at this dose significantly increases free testosterone by reducing sex hormone-binding globulin (SHBG).",
+      recommendation:"Monitor hormone levels (total/free testosterone, DHT, estradiol). Two overlapping hormonal products still means higher effective doses than either label suggests."
     },
     {
       id:"int-11", severity:"moderate", outcome:"Bone & Mineral Balance",
-      title:"Iron Absorption Blocked by Zinc, EGCG, and Minerals",
-      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate","snap-prostate"],
-      description:"The Codeage multi contains iron (27.5 mg). Zinc (~119 mg total), calcium, and magnesium all compete with iron for absorption. Green tea EGCG (in Snap Prostate, 45% of 500 mg antioxidant blend) is a potent iron absorption inhibitor. The combined mineral competition plus EGCG chelation may render the iron supplementation almost entirely ineffective.",
-      recommendation:"Take iron 2+ hours away from zinc, calcium, magnesium, and green tea. Or take iron with vitamin C to enhance absorption."
+      title:"Iron Absorption Blocked by High Zinc and Minerals",
+      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate"],
+      description:"The Codeage multi contains iron (27.5 mg). Zinc (~107.5 mg total), calcium, and magnesium all compete with iron for absorption. The massive zinc dose is the primary blocker — zinc and iron share the same intestinal transporter (DMT1), and at 107.5 mg zinc, iron absorption is severely impaired. Magnesium and calcium add further competition.",
+      recommendation:"Take iron 2+ hours away from zinc, calcium, and magnesium. Or take iron with vitamin C to enhance absorption."
     },
     {
       id:"int-12", severity:"critical", outcome:"Drug Metabolism",
@@ -1013,15 +1011,15 @@ const DATA = {
     {
       id:"int-27", severity:"high", outcome:"Drug Metabolism",
       title:"Resveratrol + Curcumin + Piperine All Raise Tadalafil Levels",
-      supplements:["nad-resveratrol-combo","turmeric-blend","snap-prostate","tadalafil"],
-      description:"Trans-resveratrol (200 mg), curcumin (from multiple sources), and piperine (from 4 products) ALL inhibit CYP3A4 — the primary enzyme that breaks down tadalafil. This triple CYP3A4 blockade means tadalafil stays in the blood longer at higher concentrations. Tadalafil already has a 17.5-hour half-life; with CYP3A4 suppressed, it could effectively last much longer and reach higher peak levels.",
+      supplements:["nad-resveratrol-combo","turmeric-blend","tadalafil"],
+      description:"Trans-resveratrol (200 mg), curcumin (from turmeric blend), and piperine (from multiple products) ALL inhibit CYP3A4 — the primary enzyme that breaks down tadalafil. This multi-pathway CYP3A4 blockade means tadalafil stays in the blood longer at higher concentrations. Tadalafil already has a 17.5-hour half-life; with CYP3A4 suppressed, it could effectively last much longer and reach higher peak levels.",
       recommendation:"This is the most pharmacologically significant drug interaction in the stack. His doctor needs to know that multiple CYP3A4 inhibitors are being taken with tadalafil."
     },
     {
       id:"int-28", severity:"low", outcome:"Bone & Mineral Balance",
-      title:"Magnesium from 4 Sources: ~219 mg Elemental",
-      supplements:["mag-threonate","mag-glycinate","codeage-multi","snap-prostate"],
-      description:"Magnesium from 4 sources: L-threonate (~144 mg elemental), glycinate (~50 mg), multi (15 mg), Snap Prostate (60 mg citrate, ~10 mg elemental). Total supplemental elemental Mg ~219 mg, within the 350 mg UL from supplements. Well-distributed across bioavailable forms.",
+      title:"Magnesium from 3 Sources: ~209 mg Elemental",
+      supplements:["mag-threonate","mag-glycinate","codeage-multi"],
+      description:"Magnesium from 3 sources: L-threonate (~144 mg elemental), glycinate (~50 mg), multi (15 mg). Total supplemental elemental Mg ~209 mg, well within the 350 mg UL from supplements. Well-distributed across bioavailable forms.",
       recommendation:"Spread magnesium doses throughout the day. Total is within safe range."
     },
     {
@@ -1037,13 +1035,6 @@ const DATA = {
       supplements:["d3","sea-moss-gummies","codeage-multi"],
       description:"The Sea Moss Gummies add 1,000 IU of Vitamin D3 on top of the existing 100,000 IU standalone dose and ~800 IU from the multivitamin. Total D3 is now over 101,800 IU/day — making an already dangerous overdose even higher.",
       recommendation:"The additional 1,000 IU is trivial next to 100,000 IU, but it shows how supplements keep stacking without awareness of totals."
-    },
-    {
-      id:"int-31", severity:"moderate", outcome:"Hormones & Reproductive",
-      title:"Shilajit's Hormonal Herbs Add to Prostate/Boron Stack",
-      supplements:["shilajit","boron","snap-prostate"],
-      description:"The Himalayan Shilajit product contains tribulus terrestris (testosterone booster), mucuna pruriens (dopamine/testosterone), ashwagandha (cortisol/testosterone), and Panax ginseng (hormonal adaptogen). Combined with Snap Prostate (saw palmetto, nettle — DHT blocking) and boron (25 mg — raises free testosterone), this is still 3 products manipulating hormones from multiple angles.",
-      recommendation:"Monitor testosterone, DHT, and estradiol. The combination is less extreme than before but still overlaps significantly."
     },
     {
       id:"int-32", severity:"high", outcome:"Blood Pressure & Heart",
@@ -1117,10 +1108,10 @@ const DATA = {
     },
     {
       id:"int-42", severity:"moderate", outcome:"Hormones & Reproductive",
-      title:"Tadalafil + Prostate/Hormonal Stack Overlap",
-      supplements:["tadalafil","snap-prostate","boron","shilajit"],
-      description:"Tadalafil at 5 mg daily is FDA-approved for both ED and BPH (enlarged prostate). Snap Prostate also targets prostate health via saw palmetto, nettle, and beta-sitosterol (DHT blockers). Boron raises free testosterone. Shilajit contains tribulus and mucuna pruriens (testosterone boosters). The combination creates overlapping prostate and hormonal interventions from both pharmaceutical and supplement angles.",
-      recommendation:"Not inherently dangerous, but the prescribing urologist should know about the supplement-based prostate and hormonal support to avoid over-treatment or masking of symptoms."
+      title:"Tadalafil + Hormonal Stack Overlap",
+      supplements:["tadalafil","boron","shilajit"],
+      description:"Tadalafil at 5 mg daily is FDA-approved for both ED and BPH (enlarged prostate). Boron (25 mg) raises free testosterone by reducing SHBG. Shilajit contains tribulus and mucuna pruriens (testosterone boosters), ashwagandha, and ginseng. While none of these directly target the prostate the way the discontinued prostate blend did, the hormonal manipulation from boron and shilajit could still affect prostate-related symptoms and testosterone levels that interact with tadalafil's effects.",
+      recommendation:"Not inherently dangerous, but the prescribing urologist should know about the supplement-based hormonal support to avoid masking of symptoms."
     },
     {
       id:"int-43", severity:"high", outcome:"Bleeding & Clotting",
@@ -1132,9 +1123,9 @@ const DATA = {
     {
       id:"int-44", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Zinc Excess Depletes Copper: Threatens Facial Nerve Recovery",
-      supplements:["bells-palsy","zinc","copper","codeage-multi","snap-prostate"],
-      description:"The ~119 mg daily zinc depletes copper over time. Copper deficiency causes demyelination — stripping the protective myelin sheath around nerves. For a facial nerve damaged by Bell's palsy (since December 2024), active copper depletion directly undermines nerve repair. The persistent 'extreme downward pressure' sensation at 21 months post-onset could reflect ongoing nerve dysfunction compounded by copper-dependent myelin damage. The zinc:copper ratio of ~33:1 (vs. ideal 10–15:1) makes this a serious concern for nerve recovery.",
-      recommendation:"Most actionable Bell's palsy concern. Reduce zinc to 30–50 mg/day and ensure adequate copper. Test serum copper and ceruloplasmin levels. Copper deficiency neuropathy is reversible if caught early."
+      supplements:["bells-palsy","zinc","copper","codeage-multi"],
+      description:"The ~107.5 mg daily zinc (picolinate 100 mg + multi 7.5 mg) depletes copper over time. Total copper is only ~2.75 mg (Thorne 2 mg + multi 0.75 mg) — the zinc:copper ratio is ~39:1, even worse than before since the discontinued prostate blend contributed 0.9 mg copper that is now gone. Copper deficiency causes demyelination — stripping the protective myelin sheath around nerves. For a facial nerve damaged by Bell's palsy (since December 2024), active copper depletion directly undermines nerve repair. The persistent 'extreme downward pressure' sensation at 21 months post-onset could reflect ongoing nerve dysfunction compounded by copper-dependent myelin damage.",
+      recommendation:"Most actionable Bell's palsy concern. The zinc:copper ratio worsened with the removal of the prostate blend's copper. Reduce zinc to 30–50 mg/day and increase copper. Test serum copper and ceruloplasmin levels. Copper deficiency neuropathy is reversible if caught early."
     },
     {
       id:"int-45", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
@@ -1446,7 +1437,7 @@ function renderSupplements() {
   const catOrder = [
     'OTC Medications','Fat-Soluble Vitamins','Minerals','B Vitamins','Water-Soluble Vitamins',
     'Omega Fatty Acids','Amino Acids','Antioxidants','Immune Support','Herbal Extracts',
-    'Anti-Inflammatory Blends','Whole Food Extracts','Hormonal Support','Specialty Blends',
+    'Anti-Inflammatory Blends','Whole Food Extracts','Specialty Blends',
     'Multivitamins','Digestive Support','Weight Management','Prescription Medication','Health Conditions'
   ];
 
