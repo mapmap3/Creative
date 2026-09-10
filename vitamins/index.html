@@ -901,7 +901,8 @@ const DATA = {
     { id:"rhodiola", name:"Rhodiola Rosea", dose:"600 mg", category:"Herbal Extracts", notes:"Adaptogen that fights fatigue and stress. Works on serotonin and dopamine. May interact with antidepressants or blood pressure medications." },
     { id:"tmg", name:"TMG (Trimethylglycine)", dose:"1,500 mg", category:"Amino Acids", notes:"Methyl donor that supports heart health by lowering homocysteine. Works with B12 and folate. Important if taking NMN or NAD since those deplete methyl groups." },
     { id:"astaxanthin", name:"Astaxanthin", dose:"12 mg", category:"Antioxidants", notes:"Powerful antioxidant from algae — 6,000x stronger than vitamin C. Protects eyes, skin, and joints. Mild blood-thinning effect." },
-    { id:"tadalafil", name:"Tadalafil (Cialis)", dose:"5 mg", category:"Prescription Medication", notes:"PDE5 inhibitor — relaxes blood vessels by boosting nitric oxide/cGMP signaling. Used for erectile dysfunction and enlarged prostate (BPH). Lowers blood pressure. Metabolized by CYP3A4, so anything that inhibits that enzyme raises tadalafil levels.", flag:"high" }
+    { id:"tadalafil", name:"Tadalafil (Cialis)", dose:"5 mg", category:"Prescription Medication", notes:"PDE5 inhibitor — relaxes blood vessels by boosting nitric oxide/cGMP signaling. Used for erectile dysfunction and enlarged prostate (BPH). Lowers blood pressure. Metabolized by CYP3A4, so anything that inhibits that enzyme raises tadalafil levels.", flag:"high" },
+    { id:"bells-palsy", name:"Bell's Palsy (Facial Nerve Paralysis)", dose:"Since Dec 2024", category:"Health Conditions", notes:"Onset December 2024. As of September 2026 (~21 months), face not notably droopy — just slightly — but extreme downward pressure sensation, like someone pulling downward on face. CN VII nerve paralysis from viral reactivation or inflammation in the bony fallopian canal.", flag:"high" }
   ],
   interactions: [
     {
@@ -1127,6 +1128,62 @@ const DATA = {
       supplements:["tadalafil","krill-oil","spike-tri-support","turmeric-blend"],
       description:"Tadalafil has a mild antiplatelet effect through the PDE5/cGMP pathway — it reduces platelet aggregation. While minor on its own, this adds yet another antiplatelet mechanism to a stack already containing nattokinase, serrapeptase, bromelain, krill oil, curcumin, resveratrol, and multiple other antiplatelet agents. The compounding of tadalafil's antiplatelet effect with this many other blood thinners further increases hemorrhage risk.",
       recommendation:"The tadalafil contribution to bleeding risk is small compared to nattokinase/serrapeptase, but the prescribing doctor must know about the full anticoagulant stack."
+    },
+    {
+      id:"int-44", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"Zinc Excess Depletes Copper: Threatens Facial Nerve Recovery",
+      supplements:["bells-palsy","zinc","copper","codeage-multi","snap-prostate"],
+      description:"The ~119 mg daily zinc depletes copper over time. Copper deficiency causes demyelination — stripping the protective myelin sheath around nerves. For a facial nerve damaged by Bell's palsy (since December 2024), active copper depletion directly undermines nerve repair. The persistent 'extreme downward pressure' sensation at 21 months post-onset could reflect ongoing nerve dysfunction compounded by copper-dependent myelin damage. The zinc:copper ratio of ~33:1 (vs. ideal 10–15:1) makes this a serious concern for nerve recovery.",
+      recommendation:"Most actionable Bell's palsy concern. Reduce zinc to 30–50 mg/day and ensure adequate copper. Test serum copper and ceruloplasmin levels. Copper deficiency neuropathy is reversible if caught early."
+    },
+    {
+      id:"int-45", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"Vitamin D Toxicity: Calcium Dysregulation Worsens Facial Nerve & Muscle Symptoms",
+      supplements:["bells-palsy","d3","sea-moss-gummies","codeage-multi"],
+      description:"At 101,000+ IU/day, vitamin D toxicity causes hypercalcemia, which disrupts neuromuscular function — abnormal nerve conduction, muscle cramping, weakness, and fasciculations. For Bell's palsy with persistent facial pressure at 21 months, hypercalcemia could exacerbate facial muscle contracture (synkinesis) and heighten the sensation of downward pulling. Calcium is the trigger for muscle contraction; excess calcium causes continuous low-grade contraction and muscle hypertonicity on the affected side.",
+      recommendation:"Check serum calcium and 25(OH)D levels urgently. The 'extreme downward pressure' sensation could partly reflect calcium-driven muscle hypertonicity. This is testable and treatable."
+    },
+    {
+      id:"int-46", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"Synergistic: B Vitamins + ALCAR + Magnesium — Nerve Repair Arsenal",
+      supplements:["bells-palsy","b12","b1","b6","b2","alcar","mag-threonate"],
+      description:"The strongest nerve-repair combination in the stack. B12 methylcobalamin (1,000 mcg) is critical for myelin synthesis — the single most important supplement for Bell's palsy recovery. B1 benfotiamine (300 mg) supports nerve energy metabolism. B2 riboflavin (400 mg) supports mitochondrial function in nerve cells. B6 P5P (25 mg) supports neurotransmitter synthesis. ALCAR (1,500 mg) crosses the blood-brain barrier and directly supports nerve regeneration. Magnesium L-threonate crosses the blood-brain barrier and is neuroprotective.",
+      recommendation:"Excellent foundation for nerve recovery. Consider increasing B12 to 5,000 mcg during active nerve healing. Keep total B6 under 100 mg/day (currently ~35 mg — safe). These are the most important supplements to keep taking."
+    },
+    {
+      id:"int-47", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"Anti-Inflammatory Stack May Reduce Residual Facial Nerve Edema",
+      supplements:["bells-palsy","spike-tri-support","turmeric-blend","black-seed-oil","krill-oil","nad-resveratrol-combo"],
+      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling in this confined space compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. Serrapeptase (360,000 SPU) specifically reduces tissue edema. Nattokinase improves microcirculation. Curcumin, thymoquinone (black seed oil), quercetin (50 mg), and omega-3s (krill oil) are all anti-inflammatory. However, the serious bleeding risk (see int-01) from this same group is the tradeoff.",
+      recommendation:"Anti-inflammatory benefit for Bell's palsy is real but comes with extreme bleeding risk. Discuss with physician whether targeted anti-inflammatories (curcumin alone) would be safer than the full stack."
+    },
+    {
+      id:"int-48", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"Immune Stimulants vs Bell's Palsy: Viral Clearance or Autoimmune Harm?",
+      supplements:["bells-palsy","echinacea","elderberry","l-lysine","vitamin-c","black-seed-oil","sea-moss-gummies"],
+      description:"Bell's palsy is most commonly triggered by viral reactivation — HSV-1 or VZV reactivating in the geniculate ganglion. L-lysine (3,000 mg) specifically inhibits HSV replication by competing with arginine. Vitamin C and elderberry support general immune defense. However, Bell's palsy may also involve autoimmune-mediated nerve damage. Echinacea (1,300 mg) is specifically cautioned in autoimmune conditions. If autoimmune inflammation contributes to the persistent symptoms at 21 months, echinacea could be actively worsening recovery.",
+      recommendation:"L-lysine is clearly beneficial if viral etiology is suspected. Echinacea is the risk — consider discontinuing given the prolonged course. An immunologist can test for autoimmune markers."
+    },
+    {
+      id:"int-49", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"Vasodilators May Improve Facial Nerve Blood Supply",
+      supplements:["bells-palsy","tadalafil","beetroot-blend","olive-leaf","mag-threonate","mag-glycinate","moringa"],
+      description:"Bell's palsy involves ischemia (reduced blood flow) of the facial nerve within the bony fallopian canal. Improving blood supply could aid recovery even at 21 months — nerve regeneration is slow (~1 mm/day). Tadalafil and beetroot increase blood flow through NO/cGMP vasodilation. Magnesium is a vasodilator. Olive leaf has ACE-inhibitor-like effects. This vasodilator stack could improve microcirculation to the damaged nerve. However, these same agents create dangerous hypotension risk (see int-06, int-41).",
+      recommendation:"Theoretical benefit for nerve blood supply, but hypotension risk is the limiting factor. PDE5 inhibitors are being studied for neuroprotection — discuss with neurologist."
+    },
+    {
+      id:"int-50", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"Synergistic: NMN + Glutathione + Antioxidants Protect Recovering Nerve Cells",
+      supplements:["bells-palsy","nad-resveratrol-combo","glutathione","vitamin-c","astaxanthin","tmg"],
+      description:"Damaged nerve cells generate excess reactive oxygen species (ROS) during recovery. This combination provides multi-layer protection: glutathione (master intracellular antioxidant — 500 mg), vitamin C (recycles glutathione — 500 mg), astaxanthin (crosses blood-brain barrier, 6,000x more potent than vitamin C — 12 mg), NMN (boosts NAD+ for nerve cell energy and DNA repair — 1,000 mg), and TMG (supports methylation critical for myelin synthesis — 1,500 mg).",
+      recommendation:"Strong foundation for nerve recovery. Astaxanthin's ability to cross the blood-brain barrier makes it especially valuable. TMG's methylation support is critical for myelin repair."
+    },
+    {
+      id:"int-51", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"Ashwagandha + Rhodiola Lower Cortisol: May Counteract Anti-Inflammatory Needs",
+      supplements:["bells-palsy","shilajit","sea-moss-gummies","rhodiola"],
+      description:"Bell's palsy is treated with corticosteroids to reduce nerve inflammation. Ashwagandha (from Shilajit 40 mg and Sea Moss Gummies) and rhodiola (600 mg) lower cortisol — the body's natural anti-inflammatory steroid. At 21 months with persistent symptoms, the facial nerve may still have residual inflammation within the bony fallopian canal. Lowering cortisol could reduce the body's own anti-inflammatory response, potentially allowing more nerve swelling and worsening the pressure sensation.",
+      recommendation:"If still experiencing active symptoms, discuss adaptogens with physician. Cortisol-lowering may work against recovery if residual nerve inflammation is present."
     }
   ]
 };
@@ -1154,6 +1211,7 @@ let currentSearch = '';
 let currentViewMode = 'severity';
 
 const OUTCOME_ORDER = [
+  { key:"Facial Nerve (Bell's Palsy)", icon:"🧿" },
   { key:"Bleeding & Clotting", icon:"🩸" },
   { key:"Blood Pressure & Heart", icon:"❤️" },
   { key:"Blood Sugar", icon:"📉" },
@@ -1386,7 +1444,7 @@ function renderSupplements() {
   });
 
   const catOrder = [
-    'OTC Medications','Fat-Soluble Vitamins','Minerals','B Vitamins','Water-Soluble Vitamins',
+    'Health Conditions','Prescription Medication','OTC Medications','Fat-Soluble Vitamins','Minerals','B Vitamins','Water-Soluble Vitamins',
     'Omega Fatty Acids','Amino Acids','Antioxidants','Immune Support','Herbal Extracts',
     'Anti-Inflammatory Blends','Whole Food Extracts','Hormonal Support','Specialty Blends',
     'Multivitamins','Digestive Support','Weight Management'
