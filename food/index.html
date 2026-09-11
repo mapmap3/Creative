@@ -1,0 +1,219 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food & Drink Tracker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --ground: #F4F2EC;
+  --surface: #FFFFFF;
+  --border: #DDD9D0;
+  --border-light: #EAE7E0;
+  --text: #2C2A26;
+  --text-secondary: #6B6760;
+  --text-tertiary: #9B968D;
+  --heading: #2B3A4E;
+  --accent: #4A7FA5;
+  --pill-bg: #EDEAE4;
+  --pill-text: #4A4740;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --font-display: 'Newsreader', 'Georgia', serif;
+  --font-body: 'Work Sans', 'Helvetica Neue', sans-serif;
+  --radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #1C1D21;
+    --surface: #26272C;
+    --border: #3A3B42;
+    --border-light: #333439;
+    --text: #E2DFD8;
+    --text-secondary: #9B978F;
+    --text-tertiary: #706C65;
+    --heading: #C5D4E6;
+    --accent: #7AB3D4;
+    --pill-bg: #33343A;
+    --pill-text: #B5B0A8;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15);
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #1C1D21;
+  --surface: #26272C;
+  --border: #3A3B42;
+  --border-light: #333439;
+  --text: #E2DFD8;
+  --text-secondary: #9B978F;
+  --text-tertiary: #706C65;
+  --heading: #C5D4E6;
+  --accent: #7AB3D4;
+  --pill-bg: #33343A;
+  --pill-text: #B5B0A8;
+  --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--ground);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: var(--font-display);
+  color: var(--heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.section-total {
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--pill-bg);
+  color: var(--pill-text);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.item:last-child { border-bottom: none; }
+
+.item-name {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.item-detail {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: right;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.item-note {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 480px) {
+  body { padding: 1.25rem 1rem; }
+  h1 { font-size: 1.4rem; }
+}
+</style>
+
+<div class="container">
+  <h1>Food & Drink Intake</h1>
+  <p class="date">September 11, 2026</p>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Drinks</span>
+      <span class="section-total">64 oz</span>
+    </div>
+    <div class="item">
+      <span class="item-name">Hot coffee</span>
+      <span class="item-detail">8 oz</span>
+    </div>
+    <div class="item">
+      <div>
+        <span class="item-name">Cold brew #1</span>
+        <div class="item-note">277mg caffeine</div>
+      </div>
+      <span class="item-detail">10 oz</span>
+    </div>
+    <div class="item">
+      <div>
+        <span class="item-name">Cold brew #2</span>
+        <div class="item-note">277mg caffeine</div>
+      </div>
+      <span class="item-detail">10 oz</span>
+    </div>
+    <div class="item">
+      <span class="item-name">Ryl tea</span>
+      <span class="item-detail">16 oz</span>
+    </div>
+    <div class="item">
+      <span class="item-name">Water</span>
+      <span class="item-detail">8 oz</span>
+    </div>
+    <div class="item">
+      <span class="item-name">Zevia cream soda</span>
+      <span class="item-detail">12 oz</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Food</span>
+      <span class="section-total">~1,415 cal</span>
+    </div>
+    <div class="item">
+      <span class="item-name">Dunkin Bacon Egg Cheese Wake-Up Wrap</span>
+      <span class="item-detail">360 cal</span>
+    </div>
+    <div class="item">
+      <div>
+        <span class="item-name">Redefine southwest quesadilla</span>
+        <div class="item-note">1/4 piece</div>
+      </div>
+      <span class="item-detail">170 cal</span>
+    </div>
+    <div class="item">
+      <span class="item-name">Chicken, broccoli, mashed potatoes</span>
+      <span class="item-detail">580 cal</span>
+    </div>
+    <div class="item">
+      <span class="item-name">Banana</span>
+      <span class="item-detail">105 cal</span>
+    </div>
+    <div class="item">
+      <span class="item-name">French cruller donut</span>
+      <span class="item-detail">200 cal</span>
+    </div>
+  </div>
+</div>
