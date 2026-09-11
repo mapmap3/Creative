@@ -882,7 +882,6 @@ const DATA = {
     { id:"alcar", name:"Acetyl L-Carnitine", dose:"1,500 mg", category:"Amino Acids", notes:"Helps cells produce energy. Supports brain function and mental clarity." },
     { id:"moringa", name:"Organic Moringa", dose:"1,000 mg", category:"Whole Food Extracts", notes:"Nutrient-dense plant. Can lower blood sugar and blood pressure — be careful if levels are already normal." },
     { id:"glutathione", name:"Liposomal Glutathione", dose:"500 mg", category:"Antioxidants", notes:"The body's main detox and cell-protection molecule. This form is wrapped in fat for better absorption." },
-    { id:"turmeric-blend", name:"Turmeric + Bee Propolis + Ginger + Pepper + MCT + Vit C", dose:"1,270 mg", category:"Anti-Inflammatory Blends", notes:"Reduces joint pain and inflammation. The black pepper makes the turmeric absorb up to 20x better." },
     { id:"potassium", name:"Potassium", dose:"1,020 mg", category:"Minerals", notes:"Essential for heart rhythm and muscle function. You need 2,600–3,400 mg/day total from food and supplements." },
     { id:"eye-formula", name:"Advanced Eye Formula 14-in-1", dose:"490 mg", category:"Specialty Blends", notes:"Eye health blend — likely contains lutein and zeaxanthin to protect against age-related vision loss." },
     { id:"boron", name:"Boron", dose:"25 mg", category:"Minerals", notes:"Slightly above the safe upper limit of 20 mg. Supports bones and hormone levels. Can cause nausea at high doses.", flag:"high" },
@@ -904,9 +903,9 @@ const DATA = {
     {
       id:"int-01", severity:"critical", outcome:"Bleeding & Clotting",
       title:"Extreme Bleeding Risk: Multiple Anticoagulant & Fibrinolytic Mechanisms",
-      supplements:["krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","nad-resveratrol-combo","astaxanthin"],
-      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (200 mg — fibrinolytic, halved from prior formulation), bromelain (200 mg — fibrinolytic/anti-inflammatory), krill oil (omega-3s), curcumin from TWO sources (turmeric blend + spike turmeric 175 mg), EGCG from green tea extract (150 mg — mild antiplatelet), black seed oil + black sativa extract (2,500 mg total from 2 products), trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). Serrapeptase removed from updated Athelas formulation, but EGCG, extra curcumin, and extra black seed keep this at critical risk.",
-      recommendation:"This combination requires physician review. The stacking of nattokinase + bromelain + curcumin (2 sources) + EGCG + resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
+      supplements:["krill-oil","spike-tri-support","black-seed-oil","nad-resveratrol-combo","astaxanthin"],
+      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (200 mg — fibrinolytic, halved from prior formulation), bromelain (200 mg — fibrinolytic/anti-inflammatory), krill oil (omega-3s), curcumin (from spike turmeric 175 mg), EGCG from green tea extract (150 mg — mild antiplatelet), black seed oil + black sativa extract (2,500 mg total from 2 products), trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). Serrapeptase removed from updated Athelas formulation, but EGCG and extra black seed keep this at critical risk.",
+      recommendation:"This combination requires physician review. The stacking of nattokinase + bromelain + curcumin + EGCG + resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
       id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
@@ -972,11 +971,11 @@ const DATA = {
       recommendation:"Take iron 2+ hours away from zinc, calcium, magnesium, and EGCG-containing supplements. Or take iron with vitamin C to enhance absorption."
     },
     {
-      id:"int-12", severity:"high", outcome:"Drug Metabolism",
-      title:"Piperine from 2 Sources Raises Tadalafil Levels",
-      supplements:["turmeric-blend","nad-resveratrol-combo","tadalafil"],
-      description:"Tadalafil is metabolized by CYP3A4. Piperine from TWO products (turmeric blend and NMN combo 5 mg) inhibits CYP3A4, slowing the breakdown of tadalafil and raising its effective blood level. The beetroot blend (a former 3rd piperine source) has been removed. The 5 mg tadalafil dose may still act like a higher dose — increasing the risk of headaches, flushing, low blood pressure, and prolonged erections. Piperine also amplifies curcumin, resveratrol, and other compounds in this stack.",
-      recommendation:"The piperine load is reduced with beetroot removal but still significant. His prescribing doctor needs to know about the piperine sources. Consider separating tadalafil dosing from piperine-containing supplements by several hours."
+      id:"int-12", severity:"moderate", outcome:"Drug Metabolism",
+      title:"Piperine Raises Tadalafil Levels",
+      supplements:["nad-resveratrol-combo","tadalafil"],
+      description:"Tadalafil is metabolized by CYP3A4. Piperine (5 mg from the NMN combo) inhibits CYP3A4, slowing the breakdown of tadalafil and raising its effective blood level. The turmeric blend (a former 2nd piperine source) and beetroot blend (a former 3rd) have both been removed, reducing the piperine load to a single 5 mg source. The 5 mg tadalafil dose may still act like a slightly higher dose. Piperine also amplifies curcumin, resveratrol, and other compounds in this stack.",
+      recommendation:"Piperine load is now just 5 mg from one source — reduced risk but still relevant. His prescribing doctor should know. Consider separating tadalafil dosing from the NMN combo by several hours."
     },
     {
       id:"int-14", severity:"low", outcome:"Blood Pressure & Heart",
@@ -1009,8 +1008,8 @@ const DATA = {
     {
       id:"int-27", severity:"high", outcome:"Drug Metabolism",
       title:"Resveratrol + Curcumin + Piperine All Raise Tadalafil Levels",
-      supplements:["nad-resveratrol-combo","turmeric-blend","tadalafil"],
-      description:"Trans-resveratrol (200 mg), curcumin (from turmeric blend), and piperine (from multiple products) ALL inhibit CYP3A4 — the primary enzyme that breaks down tadalafil. This multi-pathway CYP3A4 blockade means tadalafil stays in the blood longer at higher concentrations. Tadalafil already has a 17.5-hour half-life; with CYP3A4 suppressed, it could effectively last much longer and reach higher peak levels.",
+      supplements:["nad-resveratrol-combo","spike-tri-support","tadalafil"],
+      description:"Trans-resveratrol (200 mg), curcumin (from spike turmeric 175 mg), and piperine (5 mg from NMN combo) ALL inhibit CYP3A4 — the primary enzyme that breaks down tadalafil. This multi-pathway CYP3A4 blockade means tadalafil stays in the blood longer at higher concentrations. Tadalafil already has a 17.5-hour half-life; with CYP3A4 suppressed, it could effectively last much longer and reach higher peak levels.",
       recommendation:"This is the most pharmacologically significant drug interaction in the stack. His doctor needs to know that multiple CYP3A4 inhibitors are being taken with tadalafil."
     },
     {
@@ -1024,7 +1023,7 @@ const DATA = {
       id:"int-29", severity:"moderate", outcome:"Bleeding & Clotting",
       title:"Trans Resveratrol 200 mg Adds to Antiplatelet Load",
       supplements:["nad-resveratrol-combo","krill-oil","spike-tri-support"],
-      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with nattokinase (200 mg), bromelain (200 mg), EGCG (from green tea extract 150 mg), krill oil, and curcumin (from 2 sources), it adds another antiplatelet mechanism to an already-loaded anticoagulant stack.",
+      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with nattokinase (200 mg), bromelain (200 mg), EGCG (from green tea extract 150 mg), krill oil, and curcumin (from spike turmeric 175 mg), it adds another antiplatelet mechanism to an already-loaded anticoagulant stack.",
       recommendation:"The 200 mg resveratrol dose still contributes antiplatelet activity to a stack that already has serious bleeding risk from nattokinase + bromelain + curcumin + EGCG."
     },
     {
@@ -1073,7 +1072,7 @@ const DATA = {
       id:"int-40", severity:"low", outcome:"Bleeding & Clotting",
       title:"Astaxanthin + Quercetin: Minor Antiplatelet Addition",
       supplements:["astaxanthin","nad-resveratrol-combo","krill-oil"],
-      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack already containing krill oil, resveratrol (200 mg), nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), and curcumin (from 2 sources).",
+      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack already containing krill oil, resveratrol (200 mg), nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), and curcumin (from spike turmeric 175 mg).",
       recommendation:"Individually safe. The antiplatelet contribution is minor compared to the nattokinase/bromelain/curcumin/EGCG load."
     },
     {
@@ -1086,8 +1085,8 @@ const DATA = {
     {
       id:"int-43", severity:"high", outcome:"Bleeding & Clotting",
       title:"Tadalafil Adds Mild Antiplatelet Effect to Bleeding Stack",
-      supplements:["tadalafil","krill-oil","spike-tri-support","turmeric-blend"],
-      description:"Tadalafil has a mild antiplatelet effect through the PDE5/cGMP pathway — it reduces platelet aggregation. While minor on its own, this adds yet another antiplatelet mechanism to a stack already containing nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), krill oil, curcumin (from 2 sources), resveratrol, and other antiplatelet agents. The compounding of tadalafil's antiplatelet effect with this many blood thinners increases hemorrhage risk.",
+      supplements:["tadalafil","krill-oil","spike-tri-support"],
+      description:"Tadalafil has a mild antiplatelet effect through the PDE5/cGMP pathway — it reduces platelet aggregation. While minor on its own, this adds yet another antiplatelet mechanism to a stack already containing nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), krill oil, curcumin (from spike turmeric 175 mg), resveratrol, and other antiplatelet agents. The compounding of tadalafil's antiplatelet effect with this many blood thinners increases hemorrhage risk.",
       recommendation:"The tadalafil contribution to bleeding risk is small compared to nattokinase/bromelain, but the prescribing doctor must know about the full anticoagulant stack."
     },
     {
@@ -1114,8 +1113,8 @@ const DATA = {
     {
       id:"int-47", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Anti-Inflammatory Stack May Reduce Residual Facial Nerve Edema",
-      supplements:["bells-palsy","spike-tri-support","turmeric-blend","black-seed-oil","krill-oil","nad-resveratrol-combo"],
-      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. Bromelain (200 mg) reduces tissue edema by breaking down inflammatory proteins (replacing the serrapeptase role from the old formulation). Nattokinase (200 mg) improves microcirculation. Curcumin from TWO sources (turmeric blend + spike turmeric 175 mg), EGCG (green tea extract 150 mg), thymoquinone (black seed oil + black sativa extract 500 mg), quercetin (50 mg), and omega-3s (krill oil) are all anti-inflammatory. However, the serious bleeding risk (see int-01) from this same group is the tradeoff.",
+      supplements:["bells-palsy","spike-tri-support","black-seed-oil","krill-oil","nad-resveratrol-combo"],
+      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. Bromelain (200 mg) reduces tissue edema by breaking down inflammatory proteins (replacing the serrapeptase role from the old formulation). Nattokinase (200 mg) improves microcirculation. Curcumin from spike turmeric (175 mg), EGCG (green tea extract 150 mg), thymoquinone (black seed oil + black sativa extract 500 mg), quercetin (50 mg), and omega-3s (krill oil) are all anti-inflammatory. However, the serious bleeding risk (see int-01) from this same group is the tradeoff.",
       recommendation:"Anti-inflammatory benefit for Bell's palsy is real but comes with bleeding risk. Bromelain partially fills the serrapeptase edema-reduction role. Discuss with physician whether targeted anti-inflammatories (curcumin alone) would be safer than the full stack."
     },
     {
