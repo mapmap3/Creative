@@ -18,6 +18,11 @@
   --font-display: 'Newsreader', 'Georgia', serif;
   --font-body: 'Work Sans', 'Helvetica Neue', sans-serif;
   --radius: 6px;
+  --track: #E1E0D9;
+  --meter-fill: #2a78d6;
+  --macro-protein: #2a78d6;
+  --macro-carbs: #eb6834;
+  --macro-fat: #1baf7a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,6 +39,11 @@
     --pill-bg: #33343A;
     --pill-text: #B5B0A8;
     --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15);
+    --track: #2C2C2A;
+    --meter-fill: #3987e5;
+    --macro-protein: #3987e5;
+    --macro-carbs: #d95926;
+    --macro-fat: #199e70;
   }
 }
 :root[data-theme="dark"] {
@@ -49,6 +59,11 @@
   --pill-bg: #33343A;
   --pill-text: #B5B0A8;
   --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15);
+  --track: #2C2C2A;
+  --meter-fill: #3987e5;
+  --macro-protein: #3987e5;
+  --macro-carbs: #d95926;
+  --macro-fat: #199e70;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,10 +76,7 @@ body {
   padding: 2rem 1rem;
 }
 
-.container {
-  max-width: 640px;
-  margin: 0 auto;
-}
+.container { max-width: 640px; margin: 0 auto; }
 
 h1 {
   font-family: var(--font-display);
@@ -78,6 +90,68 @@ h1 {
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
+}
+
+.donuts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.donut-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+}
+
+.donut-card svg { display: block; margin: 0 auto 0.4rem; }
+
+.donut-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.15rem;
+}
+
+.donut-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.donut-sub {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.macro-legend {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.macro-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.macro-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .section {
@@ -122,10 +196,7 @@ h1 {
 }
 .item:last-child { border-bottom: none; }
 
-.item-name {
-  font-size: 0.95rem;
-  color: var(--text);
-}
+.item-name { font-size: 0.95rem; color: var(--text); }
 
 .item-detail {
   font-size: 0.85rem;
@@ -135,20 +206,79 @@ h1 {
   margin-left: 1rem;
 }
 
-.item-note {
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
-}
+.item-note { font-size: 0.8rem; color: var(--text-tertiary); }
 
 @media (max-width: 480px) {
   body { padding: 1.25rem 1rem; }
   h1 { font-size: 1.4rem; }
+  .donuts { grid-template-columns: repeat(2, 1fr); }
+  .donut-value { font-size: 1rem; }
 }
 </style>
 
 <div class="container">
   <h1>Food & Drink Intake</h1>
   <p class="date">September 11, 2026</p>
+
+  <div class="donuts">
+    <div class="donut-card">
+      <svg width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--track)" stroke-width="8"/>
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--meter-fill)" stroke-width="8"
+          stroke-linecap="round" stroke-dasharray="201.06" stroke-dashoffset="72.4"
+          transform="rotate(-90 40 40)"/>
+      </svg>
+      <div class="donut-label">Water</div>
+      <div class="donut-value">64 oz</div>
+      <div class="donut-sub">of 100 oz</div>
+    </div>
+
+    <div class="donut-card">
+      <svg width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--track)" stroke-width="8"/>
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--meter-fill)" stroke-width="8"
+          stroke-linecap="round" stroke-dasharray="201.06" stroke-dashoffset="59.5"
+          transform="rotate(-90 40 40)"/>
+      </svg>
+      <div class="donut-label">Calories</div>
+      <div class="donut-value">1,415</div>
+      <div class="donut-sub">of 2,000</div>
+    </div>
+
+    <div class="donut-card">
+      <svg width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--track)" stroke-width="8"/>
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--macro-protein)" stroke-width="8"
+          stroke-dasharray="80.42 120.64" stroke-dashoffset="0"
+          transform="rotate(-90 40 40)"/>
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--macro-carbs)" stroke-width="8"
+          stroke-dasharray="72.38 128.68" stroke-dashoffset="-82.42"
+          transform="rotate(-90 40 40)"/>
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--macro-fat)" stroke-width="8"
+          stroke-dasharray="42.22 158.84" stroke-dashoffset="-156.8"
+          transform="rotate(-90 40 40)"/>
+      </svg>
+      <div class="donut-label">Macros</div>
+      <div class="donut-value">1,415 cal</div>
+      <div class="macro-legend">
+        <span class="macro-legend-item"><span class="macro-dot" style="background:var(--macro-protein)"></span>P 80g</span>
+        <span class="macro-legend-item"><span class="macro-dot" style="background:var(--macro-carbs)"></span>C 145g</span>
+        <span class="macro-legend-item"><span class="macro-dot" style="background:var(--macro-fat)"></span>F 55g</span>
+      </div>
+    </div>
+
+    <div class="donut-card">
+      <svg width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--track)" stroke-width="8"/>
+        <circle cx="40" cy="40" r="32" fill="none" stroke="var(--meter-fill)" stroke-width="8"
+          stroke-linecap="round" stroke-dasharray="201.06" stroke-dashoffset="0"
+          transform="rotate(-90 40 40)"/>
+      </svg>
+      <div class="donut-label">Caffeine</div>
+      <div class="donut-value">554 mg</div>
+      <div class="donut-sub">of 400 mg</div>
+    </div>
+  </div>
 
   <div class="section">
     <div class="section-header">
