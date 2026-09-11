@@ -888,8 +888,6 @@ const DATA = {
     { id:"boron", name:"Boron", dose:"25 mg", category:"Minerals", notes:"Slightly above the safe upper limit of 20 mg. Supports bones and hormone levels. Can cause nausea at high doses.", flag:"high" },
     { id:"lycopene", name:"Lycopene", dose:"50 mg", category:"Antioxidants", notes:"The red pigment from tomatoes. Protects cells from damage and supports prostate health." },
     { id:"iodine", name:"Iodine", dose:"300 mcg", category:"Minerals", notes:"About 2x the RDA of 150 mcg and well below the upper tolerable limit of 1,100 mcg." },
-    { id:"sea-moss-gummies", name:"Wild Irish Sea Moss Gummies", dose:"615 mg blend", category:"Whole Food Extracts", notes:"Kitchen-sink gummy with sea moss, apple cider vinegar, turmeric, ashwagandha, black seed, elderberry, and more. Adds another 1,000 IU of Vitamin D on top of the existing mega-dose.", flag:"high",
-      subIngredients: ["Vitamin C 90 mg","Vitamin D3 1,000 IU","Irish Sea Moss equiv 6,000 mg","Apple Cider Vinegar","Dandelion Root","Yellow Dock","Elderberry","Manuka Honey MGO 30+","Ginger","Black Seed","Ashwagandha","Turmeric","Bladderwrack","Burdock Root","Black Pepper","Moringa"] },
     { id:"shilajit", name:"Himalayan Natural Shilajit", dose:"3,000 mg (from 300 mg 10:1 extract)", category:"Herbal Extracts", notes:"Ancient mineral resin with fulvic acid. Boosts energy, testosterone, and mineral absorption. This product also packs ashwagandha, ginseng, tribulus, and other hormonal herbs.",
       subIngredients: ["Shilajit 300 mg (10:1 extract, equiv 3,000 mg)","Ashwagandha 40 mg","Ginger 10 mg","Black Musli (Curculigo orchioides) 6 mg","Tribulus terrestris (Gokshura) 6 mg","Mucuna pruriens (Kaunch) 4 mg","Panax Ginseng 4 mg","Anacyclus pyrethrum (Akarkara) 4 mg"] },
     { id:"nad-resveratrol-combo", name:"NMN / Trans Resveratrol / Apigenin / Quercetin", dose:"1,305 mg total", category:"Antioxidants", notes:"Anti-aging combo. NMN 1,000 mg is a precursor to NAD+ and supports cellular energy. Trans-resveratrol 200 mg is an antiplatelet/antioxidant. Apigenin 50 mg supports sleep and NAD+ recycling. Quercetin 50 mg boosts absorption and fights inflammation. Black pepper 5 mg enhances bioavailability.", flag:"high",
@@ -907,8 +905,8 @@ const DATA = {
       id:"int-01", severity:"critical", outcome:"Bleeding & Clotting",
       title:"Extreme Bleeding Risk: Multiple Anticoagulant & Fibrinolytic Mechanisms",
       supplements:["krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","nad-resveratrol-combo","astaxanthin"],
-      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (200 mg — fibrinolytic, halved from prior formulation), bromelain (200 mg — fibrinolytic/anti-inflammatory), krill oil (omega-3s), curcumin from THREE sources (turmeric blend + spike turmeric 175 mg + sea moss gummies), EGCG from green tea extract (150 mg — mild antiplatelet), black seed oil + black sativa extract (2,500 mg total from 2 products), trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). Serrapeptase removed from updated Athelas formulation, but EGCG, extra curcumin, and extra black seed keep this at critical risk.",
-      recommendation:"This combination requires physician review. The stacking of nattokinase + bromelain + curcumin (3 sources) + EGCG + resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
+      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (200 mg — fibrinolytic, halved from prior formulation), bromelain (200 mg — fibrinolytic/anti-inflammatory), krill oil (omega-3s), curcumin from TWO sources (turmeric blend + spike turmeric 175 mg), EGCG from green tea extract (150 mg — mild antiplatelet), black seed oil + black sativa extract (2,500 mg total from 2 products), trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). Serrapeptase removed from updated Athelas formulation, but EGCG, extra curcumin, and extra black seed keep this at critical risk.",
+      recommendation:"This combination requires physician review. The stacking of nattokinase + bromelain + curcumin (2 sources) + EGCG + resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
       id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
@@ -1026,42 +1024,21 @@ const DATA = {
       id:"int-29", severity:"moderate", outcome:"Bleeding & Clotting",
       title:"Trans Resveratrol 200 mg Adds to Antiplatelet Load",
       supplements:["nad-resveratrol-combo","krill-oil","spike-tri-support"],
-      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with nattokinase (200 mg), bromelain (200 mg), EGCG (from green tea extract 150 mg), krill oil, and curcumin (from 3 sources), it adds another antiplatelet mechanism to an already-loaded anticoagulant stack.",
+      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with nattokinase (200 mg), bromelain (200 mg), EGCG (from green tea extract 150 mg), krill oil, and curcumin (from 2 sources), it adds another antiplatelet mechanism to an already-loaded anticoagulant stack.",
       recommendation:"The 200 mg resveratrol dose still contributes antiplatelet activity to a stack that already has serious bleeding risk from nattokinase + bromelain + curcumin + EGCG."
     },
     {
-      id:"int-30", severity:"high", outcome:"Bone & Mineral Balance",
-      title:"Vitamin D Now 101,000+ IU from Two Sources",
-      supplements:["d3","sea-moss-gummies","codeage-multi"],
-      description:"The Sea Moss Gummies add 1,000 IU of Vitamin D3 on top of the existing 100,000 IU standalone dose and ~800 IU from the multivitamin. Total D3 is now over 101,800 IU/day — making an already dangerous overdose even higher.",
-      recommendation:"The additional 1,000 IU is trivial next to 100,000 IU, but it shows how supplements keep stacking without awareness of totals."
-    },
-    {
       id:"int-32", severity:"high", outcome:"Blood Pressure & Heart",
-      title:"Ashwagandha from 2 Sources + Adaptogens Lower BP Further",
-      supplements:["shilajit","sea-moss-gummies","potassium","olive-leaf","tadalafil"],
-      description:"Ashwagandha appears in both the Shilajit product (40 mg) and Sea Moss Gummies. Ashwagandha lowers blood pressure and cortisol. Combined with Panax ginseng (from Shilajit) which also affects BP, plus tadalafil (vasodilator), potassium, olive leaf, and magnesium, the hypotension risk is significant. Every additional BP-lowering agent on top of tadalafil increases the chance of dangerous drops.",
+      title:"Shilajit Adaptogens + BP-Lowering Agents: Hypotension Risk",
+      supplements:["shilajit","potassium","olive-leaf","tadalafil"],
+      description:"The Shilajit product contains ashwagandha (40 mg) and Panax ginseng — both lower blood pressure and cortisol. Combined with tadalafil (vasodilator), potassium, olive leaf, and magnesium, the hypotension risk is significant. Every additional BP-lowering agent on top of tadalafil increases the chance of dangerous drops.",
       recommendation:"Monitor blood pressure closely. With tadalafil in the stack, every BP-lowering supplement adds more risk."
     },
     {
-      id:"int-33", severity:"high", outcome:"Immune System",
-      title:"Sea Moss Gummies Add More Immune Stimulants",
-      supplements:["sea-moss-gummies","elderberry","echinacea","black-seed-oil"],
-      description:"The Sea Moss Gummies contain elderberry, black seed, turmeric, and moringa — all of which already appear as standalone supplements. This adds ANOTHER source of elderberry (now from 2 products), black seed (now from 2 products), turmeric (now from 3+ products), and moringa (now from 3+ products). The total immune stimulation load continues to climb.",
-      recommendation:"Serious redundancy. The gummies duplicate multiple ingredients already taken at much higher standalone doses."
-    },
-    {
-      id:"int-34", severity:"high", outcome:"Drug Metabolism",
-      title:"Sea Moss Gummies Add 3rd Source of Black Pepper",
-      supplements:["sea-moss-gummies","turmeric-blend","nad-resveratrol-combo"],
-      description:"The Sea Moss Gummies contain black pepper, making it the 3rd product with piperine (joining turmeric blend and NMN combo 5 mg). The beetroot blend (a former 4th piperine source) has been removed. Each source still amplifies absorption of everything else in the stack by inhibiting CYP3A4 and P-glycoprotein. The cumulative piperine dose makes effective doses of curcumin, resveratrol, and other compounds higher than the labels suggest.",
-      recommendation:"Three sources of piperine still means supplements in this stack have amplified absorption. This compounds every other interaction."
-    },
-    {
       id:"int-35", severity:"low", outcome:"Blood Sugar",
-      title:"Shilajit + Sea Moss: Mild Glucose-Lowering Overlap",
-      supplements:["shilajit","sea-moss-gummies","moringa"],
-      description:"Shilajit lowers blood sugar mildly through fulvic acid. Sea moss gummies add turmeric, moringa, and ACV — all with mild glucose-lowering effects. Combined with standalone moringa (1,000 mg), these create a modest glucose-lowering background effect.",
+      title:"Shilajit + Moringa: Mild Glucose-Lowering Overlap",
+      supplements:["shilajit","moringa"],
+      description:"Shilajit lowers blood sugar mildly through fulvic acid. Combined with standalone moringa (1,000 mg), which also has glucose-lowering effects, these create a modest glucose-lowering background effect.",
       recommendation:"Low risk without dedicated blood sugar supplements. Monitor glucose if diabetic or on medication."
     },
     {
@@ -1096,7 +1073,7 @@ const DATA = {
       id:"int-40", severity:"low", outcome:"Bleeding & Clotting",
       title:"Astaxanthin + Quercetin: Minor Antiplatelet Addition",
       supplements:["astaxanthin","nad-resveratrol-combo","krill-oil"],
-      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack already containing krill oil, resveratrol (200 mg), nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), and curcumin (from 3 sources).",
+      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack already containing krill oil, resveratrol (200 mg), nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), and curcumin (from 2 sources).",
       recommendation:"Individually safe. The antiplatelet contribution is minor compared to the nattokinase/bromelain/curcumin/EGCG load."
     },
     {
@@ -1110,7 +1087,7 @@ const DATA = {
       id:"int-43", severity:"high", outcome:"Bleeding & Clotting",
       title:"Tadalafil Adds Mild Antiplatelet Effect to Bleeding Stack",
       supplements:["tadalafil","krill-oil","spike-tri-support","turmeric-blend"],
-      description:"Tadalafil has a mild antiplatelet effect through the PDE5/cGMP pathway — it reduces platelet aggregation. While minor on its own, this adds yet another antiplatelet mechanism to a stack already containing nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), krill oil, curcumin (from 3 sources), resveratrol, and other antiplatelet agents. The compounding of tadalafil's antiplatelet effect with this many blood thinners increases hemorrhage risk.",
+      description:"Tadalafil has a mild antiplatelet effect through the PDE5/cGMP pathway — it reduces platelet aggregation. While minor on its own, this adds yet another antiplatelet mechanism to a stack already containing nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), krill oil, curcumin (from 2 sources), resveratrol, and other antiplatelet agents. The compounding of tadalafil's antiplatelet effect with this many blood thinners increases hemorrhage risk.",
       recommendation:"The tadalafil contribution to bleeding risk is small compared to nattokinase/bromelain, but the prescribing doctor must know about the full anticoagulant stack."
     },
     {
@@ -1123,8 +1100,8 @@ const DATA = {
     {
       id:"int-45", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Vitamin D Toxicity: Calcium Dysregulation Worsens Facial Nerve & Muscle Symptoms",
-      supplements:["bells-palsy","d3","sea-moss-gummies","codeage-multi"],
-      description:"At 101,000+ IU/day, vitamin D toxicity causes hypercalcemia, which disrupts neuromuscular function — abnormal nerve conduction, muscle cramping, weakness, and fasciculations. For Bell's palsy with persistent facial pressure at 21 months, hypercalcemia could exacerbate facial muscle contracture (synkinesis) and heighten the sensation of downward pulling. Calcium is the trigger for muscle contraction; excess calcium causes continuous low-grade contraction and muscle hypertonicity on the affected side.",
+      supplements:["bells-palsy","d3","codeage-multi"],
+      description:"At 100,800 IU/day (D3 100,000 IU + multivitamin 800 IU), vitamin D toxicity causes hypercalcemia, which disrupts neuromuscular function — abnormal nerve conduction, muscle cramping, weakness, and fasciculations. For Bell's palsy with persistent facial pressure at 21 months, hypercalcemia could exacerbate facial muscle contracture (synkinesis) and heighten the sensation of downward pulling. Calcium is the trigger for muscle contraction; excess calcium causes continuous low-grade contraction and muscle hypertonicity on the affected side.",
       recommendation:"Check serum calcium and 25(OH)D levels urgently. The 'extreme downward pressure' sensation could partly reflect calcium-driven muscle hypertonicity. This is testable and treatable."
     },
     {
@@ -1138,13 +1115,13 @@ const DATA = {
       id:"int-47", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Anti-Inflammatory Stack May Reduce Residual Facial Nerve Edema",
       supplements:["bells-palsy","spike-tri-support","turmeric-blend","black-seed-oil","krill-oil","nad-resveratrol-combo"],
-      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. Bromelain (200 mg) reduces tissue edema by breaking down inflammatory proteins (replacing the serrapeptase role from the old formulation). Nattokinase (200 mg) improves microcirculation. Curcumin from THREE sources (turmeric blend + spike turmeric 175 mg + sea moss gummies), EGCG (green tea extract 150 mg), thymoquinone (black seed oil + black sativa extract 500 mg), quercetin (50 mg), and omega-3s (krill oil) are all anti-inflammatory. However, the serious bleeding risk (see int-01) from this same group is the tradeoff.",
+      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. Bromelain (200 mg) reduces tissue edema by breaking down inflammatory proteins (replacing the serrapeptase role from the old formulation). Nattokinase (200 mg) improves microcirculation. Curcumin from TWO sources (turmeric blend + spike turmeric 175 mg), EGCG (green tea extract 150 mg), thymoquinone (black seed oil + black sativa extract 500 mg), quercetin (50 mg), and omega-3s (krill oil) are all anti-inflammatory. However, the serious bleeding risk (see int-01) from this same group is the tradeoff.",
       recommendation:"Anti-inflammatory benefit for Bell's palsy is real but comes with bleeding risk. Bromelain partially fills the serrapeptase edema-reduction role. Discuss with physician whether targeted anti-inflammatories (curcumin alone) would be safer than the full stack."
     },
     {
       id:"int-48", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Immune Stimulants vs Bell's Palsy: Viral Clearance or Autoimmune Harm?",
-      supplements:["bells-palsy","echinacea","elderberry","l-lysine","vitamin-c","black-seed-oil","sea-moss-gummies"],
+      supplements:["bells-palsy","echinacea","elderberry","l-lysine","vitamin-c","black-seed-oil"],
       description:"Bell's palsy is most commonly triggered by viral reactivation — HSV-1 or VZV reactivating in the geniculate ganglion. L-lysine (3,000 mg) specifically inhibits HSV replication by competing with arginine. Vitamin C and elderberry support general immune defense. However, Bell's palsy may also involve autoimmune-mediated nerve damage. Echinacea (1,300 mg) is specifically cautioned in autoimmune conditions. If autoimmune inflammation contributes to the persistent symptoms at 21 months, echinacea could be actively worsening recovery.",
       recommendation:"L-lysine is clearly beneficial if viral etiology is suspected. Echinacea is the risk — consider discontinuing given the prolonged course. An immunologist can test for autoimmune markers."
     },
@@ -1165,8 +1142,8 @@ const DATA = {
     {
       id:"int-51", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Ashwagandha + Rhodiola Lower Cortisol: May Counteract Anti-Inflammatory Needs",
-      supplements:["bells-palsy","shilajit","sea-moss-gummies","rhodiola"],
-      description:"Bell's palsy is treated with corticosteroids to reduce nerve inflammation. Ashwagandha (from Shilajit 40 mg and Sea Moss Gummies) and rhodiola (600 mg) lower cortisol — the body's natural anti-inflammatory steroid. At 21 months with persistent symptoms, the facial nerve may still have residual inflammation within the bony fallopian canal. Lowering cortisol could reduce the body's own anti-inflammatory response, potentially allowing more nerve swelling and worsening the pressure sensation.",
+      supplements:["bells-palsy","shilajit","rhodiola"],
+      description:"Bell's palsy is treated with corticosteroids to reduce nerve inflammation. Ashwagandha (from Shilajit 40 mg) and rhodiola (600 mg) lower cortisol — the body's natural anti-inflammatory steroid. At 21 months with persistent symptoms, the facial nerve may still have residual inflammation within the bony fallopian canal. Lowering cortisol could reduce the body's own anti-inflammatory response, potentially allowing more nerve swelling and worsening the pressure sensation.",
       recommendation:"If still experiencing active symptoms, discuss adaptogens with physician. Cortisol-lowering may work against recovery if residual nerve inflammation is present."
     }
   ]
