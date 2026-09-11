@@ -421,12 +421,12 @@
     },
     {
       "id": "int-02",
-      "severity": "critical",
+      "severity": "high",
       "outcome": "Bone & Mineral Balance",
-      "title": "Vitamin D3 Toxicity Risk at 100,000 IU/day",
+      "title": "Vitamin D3 at 100,000 IU/day: Requires Lab Monitoring",
       "supplements": ["d3", "k2", "codeage-multi"],
-      "description": "100,000 IU daily of D3 is far above the upper tolerable intake of 4,000 IU/day and even above the weekly bolus doses (50,000 IU/week) used therapeutically. This can cause hypercalcemia — dangerously high calcium levels leading to kidney stones, arterial calcification, nausea, confusion, and cardiac arrhythmias. While K2 helps direct calcium away from arteries, it cannot fully compensate for this level of D3. The multivitamin adds another ~800 IU.",
-      "recommendation": "Require serum 25(OH)D and calcium levels. This dose should only be used short-term under medical supervision for documented severe deficiency."
+      "description": "100,000 IU daily of D3 is 25x the upper tolerable intake of 4,000 IU/day, though that UL is considered overly conservative by many D3 researchers (Vieth, Holick). Toxicity correlates with sustained serum 25(OH)D above 150 ng/mL, not a fixed dose. The high-dose K2 (MK-7, 8,500 mcg) activates matrix Gla protein and osteocalcin, directing D3-mobilized calcium to bones and away from arteries — biologically plausible protection, though not proven in controlled trials at this D3 level. The Coimbra Protocol uses 40,000–200,000 IU/day in autoimmune patients with documented safety across 319 patients and 6,100+ lab measurements over 3.5 years, but requires strict low-calcium diet, 2.5L+ daily water, and regular bloodwork. The multivitamin adds another ~800 IU.",
+      "recommendation": "Not automatically dangerous — supervised high-dose D3 protocols exist — but requires serum 25(OH)D and calcium monitoring. Without confirmed lab oversight, this dose carries real risk of hypercalcemia. K2 helps but is not a proven safeguard at this level."
     },
     {
       "id": "int-03",
