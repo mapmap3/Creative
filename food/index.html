@@ -154,6 +154,43 @@ h1 {
   flex-shrink: 0;
 }
 
+.extras {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.extra-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.6rem 0.75rem;
+  text-align: center;
+}
+
+.extra-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.1rem;
+}
+
+.extra-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.extra-sub {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+}
+
 .section {
   background: var(--surface);
   border: 1px solid var(--border-light);
@@ -277,6 +314,24 @@ h1 {
       <div class="donut-label">Caffeine</div>
       <div class="donut-value">554 mg</div>
       <div class="donut-sub">of 400 mg</div>
+    </div>
+  </div>
+
+  <div class="extras">
+    <div class="extra-card">
+      <div class="extra-label">Fiber</div>
+      <div class="extra-value">12g</div>
+      <div class="extra-sub">of 30g</div>
+    </div>
+    <div class="extra-card">
+      <div class="extra-label">Sodium</div>
+      <div class="extra-value">1,850 mg</div>
+      <div class="extra-sub">of 2,300 mg</div>
+    </div>
+    <div class="extra-card">
+      <div class="extra-label">Sugar</div>
+      <div class="extra-value">42g</div>
+      <div class="extra-sub">of 36g</div>
     </div>
   </div>
 
