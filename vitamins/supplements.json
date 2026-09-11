@@ -68,11 +68,11 @@
     {
       "id": "zinc",
       "name": "Zinc Picolinate",
-      "dose": "100 mg",
-      "doseValue": 100,
+      "dose": "50 mg",
+      "doseValue": 50,
       "doseUnit": "mg",
       "category": "Minerals",
-      "notes": "Very high dose — RDA is 11 mg. Upper tolerable limit is 40 mg/day."
+      "notes": "Above the upper tolerable limit of 40 mg/day. RDA is 11 mg. Still requires copper balancing."
     },
     {
       "id": "krill-oil",
@@ -249,24 +249,6 @@
       "notes": "Probiotic organisms and digestive enzymes."
     },
     {
-      "id": "olive-leaf",
-      "name": "Olive Leaf Extract",
-      "dose": "680 mg",
-      "doseValue": 680,
-      "doseUnit": "mg",
-      "category": "Herbal Extracts",
-      "notes": "Contains oleuropein. Antimicrobial and blood-pressure-lowering."
-    },
-    {
-      "id": "oleuropein",
-      "name": "Oleuropein (from Olive Leaf)",
-      "dose": "50 mg",
-      "doseValue": 50,
-      "doseUnit": "mg",
-      "category": "Herbal Extracts",
-      "notes": "Active compound from olive leaf. Additional standalone dose on top of olive leaf extract."
-    },
-    {
       "id": "spike-tri-support",
       "name": "Athelas Spike Protein Tri Support",
       "dose": "~1,450 mg",
@@ -349,15 +331,6 @@
       "notes": "Likely contains lutein, zeaxanthin, bilberry, astaxanthin, and other eye-health nutrients."
     },
     {
-      "id": "boron",
-      "name": "Boron",
-      "dose": "25 mg",
-      "doseValue": 25,
-      "doseUnit": "mg",
-      "category": "Minerals",
-      "notes": "Very high dose. UL is 20 mg/day for adults. Supports bone and hormone metabolism."
-    },
-    {
       "id": "lycopene",
       "name": "Lycopene",
       "dose": "50 mg",
@@ -374,25 +347,6 @@
       "doseUnit": "mcg",
       "category": "Minerals",
       "notes": "About 2x the RDA of 150 mcg and well below the upper tolerable limit of 1,100 mcg."
-    },
-    {
-      "id": "shilajit",
-      "name": "Himalayan Natural Shilajit",
-      "dose": "3,000 mg (from 300 mg 10:1 extract)",
-      "doseValue": 3000,
-      "doseUnit": "mg",
-      "category": "Herbal Extracts",
-      "notes": "Ancient mineral resin with fulvic acid. Boosts energy, testosterone, and mineral absorption. This product also packs ashwagandha, ginseng, tribulus, and other hormonal herbs.",
-      "subIngredients": [
-        "Shilajit 300 mg (10:1 extract, equiv 3,000 mg)",
-        "Ashwagandha 40 mg",
-        "Ginger 10 mg",
-        "Black Musli (Curculigo orchioides) 6 mg",
-        "Tribulus terrestris (Gokshura) 6 mg",
-        "Mucuna pruriens (Kaunch) 4 mg",
-        "Panax Ginseng 4 mg",
-        "Anacyclus pyrethrum (Akarkara) 4 mg"
-      ]
     },
     {
       "id": "nad-resveratrol-combo",
@@ -504,12 +458,12 @@
     },
     {
       "id": "int-04",
-      "severity": "high",
+      "severity": "moderate",
       "outcome": "Bone & Mineral Balance",
-      "title": "Zinc-Copper Imbalance (~107.5 mg Zinc)",
+      "title": "Zinc-Copper Imbalance (~57.5 mg Zinc)",
       "supplements": ["zinc", "copper", "codeage-multi"],
-      "description": "Zinc from all sources: picolinate 100 mg + multi 7.5 mg = ~107.5 mg total. This is nearly 3x the upper tolerable limit (40 mg). Total copper is only ~2.75 mg (Thorne 2 mg + multi 0.75 mg). The zinc:copper ratio is ~39:1 vs. the ideal 10-15:1 — even worse without the 0.9 mg copper that was in the discontinued prostate blend. Chronic high zinc causes copper deficiency anemia and neurological damage.",
-      "recommendation": "Reduce zinc to 30-50 mg/day total. At minimum, consolidate zinc sources and increase copper."
+      "description": "Zinc from all sources: picolinate 50 mg + multi 7.5 mg = ~57.5 mg total. Still above the upper tolerable limit (40 mg) but much improved from the prior 107.5 mg. Total copper is ~2.75 mg (Thorne 2 mg + multi 0.75 mg). The zinc:copper ratio is ~21:1 vs. the ideal 10-15:1. Still slightly high but trending in the right direction. Chronic high zinc can cause copper deficiency anemia and neurological damage.",
+      "recommendation": "Now at 57.5 mg total — closer to the 30-50 mg target. Consider reducing further or increasing copper to improve the zinc:copper ratio."
     },
 
 
@@ -518,8 +472,8 @@
       "severity": "high",
       "outcome": "Blood Pressure & Heart",
       "title": "Tadalafil + Multiple BP-Lowering Agents: Hypotension Risk",
-      "supplements": ["tadalafil", "potassium", "mag-threonate", "mag-glycinate", "olive-leaf", "oleuropein", "moringa", "black-seed-oil"],
-      "description": "Tadalafil (5 mg) is a vasodilator that lowers blood pressure by boosting nitric oxide/cGMP signaling. This stack ALSO contains: magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), moringa (BP-lowering), and black seed oil (antihypertensive). The most dangerous pair — beetroot (same NO/cGMP pathway as tadalafil) — has been removed, significantly reducing the additive vasodilation risk. However, the remaining agents still create meaningful hypotension risk when combined with tadalafil.",
+      "supplements": ["tadalafil", "potassium", "mag-threonate", "mag-glycinate", "moringa", "black-seed-oil"],
+      "description": "Tadalafil (5 mg) is a vasodilator that lowers blood pressure by boosting nitric oxide/cGMP signaling. This stack ALSO contains: magnesium (vasodilator), potassium (counteracts sodium), moringa (BP-lowering), and black seed oil (antihypertensive). The most dangerous pairs — beetroot (same NO/cGMP pathway) and olive leaf/oleuropein (ACE-inhibitor-like) — have been removed, reducing the additive vasodilation risk. However, the remaining agents still create meaningful hypotension risk when combined with tadalafil.",
       "recommendation": "Physician must know about ALL of these. The removal of beetroot reduces the most dangerous overlap, but monitor blood pressure sitting AND standing. Watch for dizziness when getting up quickly."
     },
     {
@@ -532,15 +486,6 @@
       "recommendation": "Low risk without the dedicated blood sugar formula and berberine. Monitor if diabetic or on glucose-lowering medication."
     },
     {
-      "id": "int-08",
-      "severity": "high",
-      "outcome": "Bone & Mineral Balance",
-      "title": "Boron Above Upper Tolerable Limit",
-      "supplements": ["boron", "codeage-multi"],
-      "description": "25 mg of boron exceeds the UL of 20 mg/day. The multivitamin adds another 1.2 mg. Total ~26.2 mg. While boron supports testosterone and bone metabolism, excess can cause nausea, vomiting, diarrhea, and at very high doses, reproductive toxicity.",
-      "recommendation": "Reduce to 3-10 mg/day unless directed by a physician."
-    },
-    {
       "id": "int-09",
       "severity": "moderate",
       "outcome": "Immune System",
@@ -550,21 +495,12 @@
       "recommendation": "If there is any autoimmune history, consult an immunologist before continuing this combination."
     },
     {
-      "id": "int-10",
-      "severity": "high",
-      "outcome": "Hormones & Reproductive",
-      "title": "Hormonal Stack Interactions (2 Products)",
-      "supplements": ["boron", "shilajit"],
-      "description": "Testosterone/hormonal support from 2 products: Himalayan Shilajit (tribulus, mucuna pruriens, ashwagandha, ginseng — testosterone boosting) and standalone boron (25 mg — raises free testosterone). Mucuna pruriens raises dopamine which drives testosterone. Tribulus and ginseng are classic testosterone boosters. Boron at this dose significantly increases free testosterone by reducing sex hormone-binding globulin (SHBG).",
-      "recommendation": "Monitor hormone levels (total/free testosterone, DHT, estradiol). Two overlapping hormonal products still means higher effective doses than either label suggests."
-    },
-    {
       "id": "int-11",
       "severity": "moderate",
       "outcome": "Bone & Mineral Balance",
       "title": "Iron Absorption Blocked by High Zinc, Minerals, and EGCG",
       "supplements": ["codeage-multi", "zinc", "mag-threonate", "mag-glycinate", "spike-tri-support"],
-      "description": "The Codeage multi contains iron (27.5 mg). Zinc (~107.5 mg total), calcium, and magnesium all compete with iron for absorption. The massive zinc dose is the primary blocker — zinc and iron share the same intestinal transporter (DMT1), and at 107.5 mg zinc, iron absorption is severely impaired. Magnesium and calcium add further competition. Additionally, green tea extract (EGCG, 150 mg in the Spike Tri Support) chelates iron and further reduces absorption.",
+      "description": "The Codeage multi contains iron (27.5 mg). Zinc (~57.5 mg total), calcium, and magnesium all compete with iron for absorption. The zinc dose is still a blocker — zinc and iron share the same intestinal transporter (DMT1), and at 57.5 mg zinc, iron absorption is still impaired. Magnesium and calcium add further competition. Additionally, green tea extract (EGCG, 150 mg in the Spike Tri Support) chelates iron and further reduces absorption.",
       "recommendation": "Take iron 2+ hours away from zinc, calcium, magnesium, and EGCG-containing supplements. Or take iron with vitamin C to enhance absorption."
     },
     {
@@ -577,21 +513,12 @@
       "recommendation": "Piperine load is now just 5 mg from one source — reduced risk but still relevant. His prescribing doctor should know. Consider separating tadalafil dosing from the NMN combo by several hours."
     },
     {
-      "id": "int-14",
-      "severity": "low",
-      "outcome": "Blood Pressure & Heart",
-      "title": "Overlapping Olive Leaf Sources",
-      "supplements": ["olive-leaf", "oleuropein"],
-      "description": "Olive leaf extract appears as standalone (680 mg) and as concentrated oleuropein (50 mg). Both target the same pathway — oleuropein is just the active compound in olive leaf. Combined dose is moderate but redundant.",
-      "recommendation": "Consider using one or the other rather than both."
-    },
-    {
       "id": "int-19",
       "severity": "low",
       "outcome": "Bone & Mineral Balance",
-      "title": "Synergistic: D3 + K2 + Magnesium + Boron",
-      "supplements": ["d3", "k2", "mag-threonate", "mag-glycinate", "boron"],
-      "description": "This is a well-designed synergistic combination. K2 directs D3-mobilized calcium to bones and away from arteries. Magnesium is required for D3 metabolism (converts D3 to active 1,25-dihydroxy form). Boron reduces urinary calcium and magnesium loss. However, the D3 dose itself is the concern — the support stack is good.",
+      "title": "Synergistic: D3 + K2 + Magnesium",
+      "supplements": ["d3", "k2", "mag-threonate", "mag-glycinate"],
+      "description": "This is a well-designed synergistic combination. K2 directs D3-mobilized calcium to bones and away from arteries. Magnesium is required for D3 metabolism (converts D3 to active 1,25-dihydroxy form). However, the D3 dose itself is the concern — the support stack is good.",
       "recommendation": "Good combination — just address the D3 dose."
     },
     {
@@ -640,24 +567,6 @@
       "recommendation": "The 200 mg resveratrol dose still contributes antiplatelet activity to a stack that already has serious bleeding risk from nattokinase + bromelain + curcumin + EGCG."
     },
     {
-      "id": "int-32",
-      "severity": "high",
-      "outcome": "Blood Pressure & Heart",
-      "title": "Shilajit Adaptogens + BP-Lowering Agents: Hypotension Risk",
-      "supplements": ["shilajit", "potassium", "olive-leaf", "tadalafil"],
-      "description": "The Shilajit product contains ashwagandha (40 mg) and Panax ginseng — both lower blood pressure and cortisol. Combined with tadalafil (vasodilator), potassium, olive leaf, and magnesium, the hypotension risk is significant. Every additional BP-lowering agent on top of tadalafil increases the chance of dangerous drops.",
-      "recommendation": "Monitor blood pressure closely. With tadalafil in the stack, every BP-lowering supplement adds more risk."
-    },
-    {
-      "id": "int-35",
-      "severity": "low",
-      "outcome": "Blood Sugar",
-      "title": "Shilajit + Moringa: Mild Glucose-Lowering Overlap",
-      "supplements": ["shilajit", "moringa"],
-      "description": "Shilajit lowers blood sugar mildly through fulvic acid. Combined with standalone moringa (1,000 mg), which also has glucose-lowering effects, these create a modest glucose-lowering background effect.",
-      "recommendation": "Low risk without dedicated blood sugar supplements. Monitor glucose if diabetic or on medication."
-    },
-    {
       "id": "int-36",
       "severity": "low",
       "outcome": "Blood Pressure & Heart",
@@ -703,15 +612,6 @@
       "recommendation": "Individually safe. The antiplatelet contribution is minor compared to the nattokinase/bromelain/curcumin/EGCG load."
     },
     {
-      "id": "int-42",
-      "severity": "moderate",
-      "outcome": "Hormones & Reproductive",
-      "title": "Tadalafil + Hormonal Stack Overlap",
-      "supplements": ["tadalafil", "boron", "shilajit"],
-      "description": "Tadalafil at 5 mg daily is FDA-approved for both ED and BPH (enlarged prostate). Boron (25 mg) raises free testosterone by reducing SHBG. Shilajit contains tribulus and mucuna pruriens (testosterone boosters), ashwagandha, and ginseng. While none of these directly target the prostate the way the discontinued prostate blend did, the hormonal manipulation from boron and shilajit could still affect prostate-related symptoms and testosterone levels that interact with tadalafil's effects.",
-      "recommendation": "Not inherently dangerous, but the prescribing urologist should know about the supplement-based hormonal support to avoid masking of symptoms."
-    },
-    {
       "id": "int-43",
       "severity": "high",
       "outcome": "Bleeding & Clotting",
@@ -722,12 +622,12 @@
     },
     {
       "id": "int-44",
-      "severity": "high",
+      "severity": "moderate",
       "outcome": "Facial Nerve (Bell's Palsy)",
-      "title": "Zinc Excess Depletes Copper: Threatens Facial Nerve Recovery",
+      "title": "Zinc-Copper Ratio Still Elevated: Monitor for Facial Nerve Recovery",
       "supplements": ["bells-palsy", "zinc", "copper", "codeage-multi"],
-      "description": "The ~107.5 mg daily zinc (picolinate 100 mg + multi 7.5 mg) depletes copper over time. Total copper is only ~2.75 mg (Thorne 2 mg + multi 0.75 mg) — the zinc:copper ratio is ~39:1, even worse than before since the discontinued prostate blend contributed 0.9 mg copper that is now gone. Copper deficiency causes demyelination — the stripping of the protective myelin sheath around nerves. For a facial nerve damaged by Bell's palsy (since December 2024), active copper depletion directly undermines nerve repair. The persistent 'extreme downward pressure' sensation at 21 months post-onset could reflect ongoing nerve dysfunction compounded by copper-dependent myelin damage.",
-      "recommendation": "This is the most actionable Bell's palsy concern. The zinc:copper ratio worsened with the removal of the prostate blend's copper. Reduce zinc to 30–50 mg/day and increase copper. Test serum copper and ceruloplasmin levels. Copper deficiency neuropathy is reversible if caught early."
+      "description": "The ~57.5 mg daily zinc (picolinate 50 mg + multi 7.5 mg) still depletes copper over time, though the reduction from 107.5 mg is a major improvement. Total copper is ~2.75 mg (Thorne 2 mg + multi 0.75 mg) — the zinc:copper ratio is ~21:1 vs. the ideal 10-15:1. Copper deficiency causes demyelination — the stripping of the protective myelin sheath around nerves. For a facial nerve damaged by Bell's palsy (since December 2024), copper depletion undermines nerve repair.",
+      "recommendation": "Zinc reduction to 50 mg is a positive step. The zinc:copper ratio (~21:1) is still above ideal (10-15:1). Consider increasing copper or further reducing zinc. Test serum copper and ceruloplasmin levels."
     },
     {
       "id": "int-45",
@@ -770,8 +670,8 @@
       "severity": "low",
       "outcome": "Facial Nerve (Bell's Palsy)",
       "title": "Vasodilators May Improve Facial Nerve Blood Supply",
-      "supplements": ["bells-palsy", "tadalafil", "olive-leaf", "mag-threonate", "mag-glycinate", "moringa"],
-      "description": "Bell's palsy involves ischemia (reduced blood flow) of the facial nerve compressed within the bony fallopian canal. Improving blood supply could aid recovery even at 21 months — nerve regeneration is slow (1 mm/day). Tadalafil (PDE5 inhibitor) increases blood flow through nitric oxide/cGMP vasodilation. Magnesium is a vasodilator. Olive leaf has ACE-inhibitor-like effects. Moringa lowers blood pressure. The removal of beetroot — which was the most dangerous vasodilator to combine with tadalafil (same NO/cGMP pathway) — significantly reduces the hypotension risk while maintaining other vasodilators that may benefit facial nerve microcirculation.",
+      "supplements": ["bells-palsy", "tadalafil", "mag-threonate", "mag-glycinate", "moringa"],
+      "description": "Bell's palsy involves ischemia (reduced blood flow) of the facial nerve compressed within the bony fallopian canal. Improving blood supply could aid recovery even at 21 months — nerve regeneration is slow (1 mm/day). Tadalafil (PDE5 inhibitor) increases blood flow through nitric oxide/cGMP vasodilation. Magnesium is a vasodilator. Moringa lowers blood pressure. The removal of beetroot and olive leaf — which had the most dangerous overlaps with tadalafil — significantly reduces the hypotension risk while maintaining vasodilators that may benefit facial nerve microcirculation.",
       "recommendation": "With beetroot removed, the hypotension risk from this vasodilator stack is reduced. Tadalafil's PDE5 inhibition may benefit nerve blood supply — PDE5 inhibitors are being studied for neuroprotection. Discuss with neurologist."
     },
     {
@@ -782,15 +682,6 @@
       "supplements": ["bells-palsy", "nad-resveratrol-combo", "glutathione", "vitamin-c", "astaxanthin", "tmg"],
       "description": "Damaged nerve cells generate excess reactive oxygen species (ROS) during recovery, which can further damage the nerve if unchecked. This antioxidant combination provides multi-layer protection: glutathione (master intracellular antioxidant — 500 mg liposomal), vitamin C (recycles glutathione, extracellular protection — 500 mg), astaxanthin (crosses blood-brain barrier, 6,000x more potent than vitamin C — 12 mg), NMN (boosts NAD+ for nerve cell energy and DNA repair — 1,000 mg), and TMG (supports methylation critical for myelin synthesis — 1,500 mg). For a facial nerve recovering from Bell's palsy, oxidative damage is a key barrier to regeneration.",
       "recommendation": "Strong foundation for nerve recovery. Astaxanthin's ability to cross the blood-brain barrier makes it especially valuable for facial nerve protection. TMG's methylation support is critical for myelin repair."
-    },
-    {
-      "id": "int-51",
-      "severity": "moderate",
-      "outcome": "Facial Nerve (Bell's Palsy)",
-      "title": "Ashwagandha + Rhodiola Lower Cortisol: May Counteract Anti-Inflammatory Needs",
-      "supplements": ["bells-palsy", "shilajit", "rhodiola"],
-      "description": "Bell's palsy is standardly treated with corticosteroids (prednisone) to reduce facial nerve inflammation. Ashwagandha (from Shilajit 40 mg) and rhodiola (600 mg) are adaptogens that lower cortisol levels — the body's natural anti-inflammatory steroid. At 21 months post-onset with persistent symptoms (downward pressure sensation), the facial nerve may still have residual inflammation within the bony fallopian canal. Lowering cortisol could reduce the body's own anti-inflammatory response, potentially allowing more nerve swelling and worsening the pressure sensation. Serotonergic effects from rhodiola and saffron (see int-37) could also affect nerve signaling during regeneration.",
-      "recommendation": "If still experiencing active Bell's palsy symptoms, discuss adaptogens with physician. The cortisol-lowering effect may work against recovery if residual nerve inflammation is present. Consider temporarily reducing rhodiola."
     }
   ]
 }
