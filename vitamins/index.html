@@ -867,7 +867,7 @@ const DATA = {
     { id:"copper", name:"Thorne Copper Bisglycinate", dose:"2 mg", category:"Minerals", notes:"Needed to balance out the high zinc intake. About 2x the daily recommended amount." },
     { id:"b1", name:"Vitamin B1 (Benfotiamine)", dose:"300 mg", category:"B Vitamins", notes:"A form of B1 the body absorbs more easily. Supports nerve health and energy." },
     { id:"b6", name:"Vitamin B6 (P5P)", dose:"25 mg", category:"B Vitamins", notes:"Active form the body can use right away. Safe at this dose but very high long-term use can cause nerve tingling." },
-    { id:"b12", name:"Vitamin B12 (Methylcobalamin)", dose:"1,000 mcg", category:"B Vitamins", notes:"Active form for energy, brain function, and nerve health. Excess is safely flushed out." },
+    { id:"b12", name:"Vitamin B12 (Methylcobalamin)", dose:"5,000 mcg", category:"B Vitamins", notes:"Active form at therapeutic high dose for nerve repair. Critical for Bell's palsy recovery and myelin synthesis." },
     { id:"aged-garlic", name:"Aged Garlic Extract (Elcare)", dose:"15 mg", category:"Herbal Extracts", notes:"Very low dose. Minimal blood-thinning or blood-pressure effects at this level." },
     { id:"oregano-oil", name:"Oil of Oregano (Resilia)", dose:"30 mg", category:"Herbal Extracts", notes:"Low dose. Contains carvacrol and thymol. Mild antimicrobial support at this level." },
     { id:"vitamin-c", name:"Raw Vitamin C", dose:"500 mg", category:"Water-Soluble Vitamins", notes:"Made from whole foods. Supports immunity and helps absorb iron." },
@@ -875,8 +875,8 @@ const DATA = {
     { id:"probiotic-enzyme", name:"Raw Probiotic + Enzyme Blend", dose:"60 mg", category:"Digestive Support", notes:"Good bacteria for gut health plus enzymes to help break down food." },
     { id:"olive-leaf", name:"Olive Leaf Extract", dose:"680 mg", category:"Herbal Extracts", notes:"Fights infections and lowers blood pressure. The active compound is oleuropein." },
     { id:"oleuropein", name:"Oleuropein", dose:"50 mg", category:"Herbal Extracts", notes:"The active ingredient from olive leaf, taken as an extra standalone dose on top of the extract above." },
-    { id:"spike-tri-support", name:"Spike Protein Tri Support", dose:"800 mg", category:"Specialty Blends", notes:"Strong clot-dissolving enzymes (nattokinase + serrapeptase). Also thins the blood significantly.", flag:"high",
-      subIngredients: ["Serrapeptase 100 mg (360,000 SPU)","Nattokinase 400 mg (12,000 FU)","Natural Enzyme Harmony Blend 100 mg (Papain, Curcumin, Bromelain, Rutin, Amla)","Essential Elements Synergy Blend 100 mg (Vit C, Mg, B6, Ca)","Inulin 100 mg"] },
+    { id:"spike-tri-support", name:"Athelas Spike Protein Tri Support", dose:"~1,450 mg", category:"Specialty Blends", notes:"Multi-ingredient blend. Nattokinase 200 mg (fibrinolytic), bromelain 200 mg, black sativa 500 mg, turmeric 175 mg, green tea extract 150 mg (EGCG), Irish sea moss 175 mg, dandelion 50 mg, selenium 75 mcg. NO serrapeptase.", flag:"high",
+      subIngredients: ["Black Sativa Extract 500 mg","Nattokinase 200 mg","Bromelain 200 mg","Irish Sea Moss 175 mg","Turmeric 175 mg","Green Tea Extract (EGCG) 150 mg","Dandelion Extract 50 mg","Selenium 75 mcg"] },
     { id:"l-lysine", name:"L-Lysine", dose:"3,000 mg", category:"Amino Acids", notes:"Amino acid that supports the immune system and helps build collagen for skin and joints." },
     { id:"black-seed-oil", name:"Black Seed Oil", dose:"2,000 mg", category:"Herbal Extracts", notes:"Reduces inflammation and supports the immune system. Also has mild blood-thinning and blood-sugar-lowering effects." },
     { id:"alcar", name:"Acetyl L-Carnitine", dose:"1,500 mg", category:"Amino Acids", notes:"Helps cells produce energy. Supports brain function and mental clarity." },
@@ -884,7 +884,6 @@ const DATA = {
     { id:"glutathione", name:"Liposomal Glutathione", dose:"500 mg", category:"Antioxidants", notes:"The body's main detox and cell-protection molecule. This form is wrapped in fat for better absorption." },
     { id:"turmeric-blend", name:"Turmeric + Bee Propolis + Ginger + Pepper + MCT + Vit C", dose:"1,270 mg", category:"Anti-Inflammatory Blends", notes:"Reduces joint pain and inflammation. The black pepper makes the turmeric absorb up to 20x better." },
     { id:"potassium", name:"Potassium", dose:"1,020 mg", category:"Minerals", notes:"Essential for heart rhythm and muscle function. You need 2,600–3,400 mg/day total from food and supplements." },
-    { id:"beetroot-blend", name:"Organic Beetroot + MCT + Pepper", dose:"905 mg", category:"Whole Food Extracts", notes:"Helps open blood vessels and improve circulation. Can lower blood pressure." },
     { id:"eye-formula", name:"Advanced Eye Formula 14-in-1", dose:"490 mg", category:"Specialty Blends", notes:"Eye health blend — likely contains lutein and zeaxanthin to protect against age-related vision loss." },
     { id:"boron", name:"Boron", dose:"25 mg", category:"Minerals", notes:"Slightly above the safe upper limit of 20 mg. Supports bones and hormone levels. Can cause nausea at high doses.", flag:"high" },
     { id:"lycopene", name:"Lycopene", dose:"50 mg", category:"Antioxidants", notes:"The red pigment from tomatoes. Protects cells from damage and supports prostate health." },
@@ -897,6 +896,7 @@ const DATA = {
       subIngredients: ["NMN 1,000 mg","Trans Resveratrol 200 mg","Apigenin 50 mg","Quercetin 50 mg","Black Pepper 5 mg"] },
     { id:"saffron", name:"Pure Saffron", dose:"89 mg", category:"Herbal Extracts", notes:"Supports mood, reduces anxiety, and may help with appetite control. Can mildly thin blood at high doses." },
     { id:"rhodiola", name:"Rhodiola Rosea", dose:"600 mg", category:"Herbal Extracts", notes:"Adaptogen that fights fatigue and stress. Works on serotonin and dopamine. May interact with antidepressants or blood pressure medications." },
+    { id:"lions-mane", name:"Lion's Mane Mushroom", dose:"1,000 mg", category:"Herbal Extracts", notes:"Medicinal mushroom that stimulates nerve growth factor (NGF). Supports nerve regeneration and brain health. Especially valuable for Bell's palsy recovery." },
     { id:"tmg", name:"TMG (Trimethylglycine)", dose:"1,500 mg", category:"Amino Acids", notes:"Methyl donor that supports heart health by lowering homocysteine. Works with B12 and folate. Important if taking NMN or NAD since those deplete methyl groups." },
     { id:"astaxanthin", name:"Astaxanthin", dose:"12 mg", category:"Antioxidants", notes:"Powerful antioxidant from algae — 6,000x stronger than vitamin C. Protects eyes, skin, and joints. Mild blood-thinning effect." },
     { id:"tadalafil", name:"Tadalafil (Cialis)", dose:"5 mg", category:"Prescription Medication", notes:"PDE5 inhibitor — relaxes blood vessels by boosting nitric oxide/cGMP signaling. Used for erectile dysfunction and enlarged prostate (BPH). Lowers blood pressure. Metabolized by CYP3A4, so anything that inhibits that enzyme raises tadalafil levels.", flag:"high" },
@@ -907,8 +907,8 @@ const DATA = {
       id:"int-01", severity:"critical", outcome:"Bleeding & Clotting",
       title:"Extreme Bleeding Risk: Multiple Anticoagulant & Fibrinolytic Mechanisms",
       supplements:["krill-oil","spike-tri-support","turmeric-blend","black-seed-oil","nad-resveratrol-combo","astaxanthin"],
-      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (400 mg / 12,000 FU — fibrinolytic), serrapeptase (100 mg / 360,000 SPU — fibrinolytic), bromelain, krill oil (omega-3s), curcumin from TWO sources, black seed oil, trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). This is a dangerous compounding of anticoagulant/fibrinolytic mechanisms.",
-      recommendation:"This combination requires physician review. The stacking of nattokinase + serrapeptase + bromelain + curcumin + resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
+      description:"This stack layers multiple blood-thinning mechanisms: nattokinase (200 mg — fibrinolytic, halved from prior formulation), bromelain (200 mg — fibrinolytic/anti-inflammatory), krill oil (omega-3s), curcumin from THREE sources (turmeric blend + spike turmeric 175 mg + sea moss gummies), EGCG from green tea extract (150 mg — mild antiplatelet), black seed oil + black sativa extract (2,500 mg total from 2 products), trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). Serrapeptase removed from updated Athelas formulation, but EGCG, extra curcumin, and extra black seed keep this at critical risk.",
+      recommendation:"This combination requires physician review. The stacking of nattokinase + bromelain + curcumin (3 sources) + EGCG + resveratrol creates serious hemorrhage risk. Physician must review before any surgery."
     },
     {
       id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
@@ -932,11 +932,11 @@ const DATA = {
       recommendation:"Reduce zinc to 30-50 mg/day total. At minimum, consolidate zinc sources and increase copper."
     },
     {
-      id:"int-06", severity:"critical", outcome:"Blood Pressure & Heart",
+      id:"int-06", severity:"high", outcome:"Blood Pressure & Heart",
       title:"Tadalafil + Multiple BP-Lowering Agents: Hypotension Risk",
-      supplements:["tadalafil","potassium","mag-threonate","mag-glycinate","olive-leaf","oleuropein","beetroot-blend","moringa","black-seed-oil"],
-      description:"Tadalafil (5 mg) is a vasodilator that lowers blood pressure by boosting nitric oxide/cGMP signaling. This stack ALSO contains: magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), beetroot (nitric oxide — same pathway as tadalafil), moringa (BP-lowering), and black seed oil (antihypertensive). Beetroot is especially concerning because it increases nitric oxide production through the same NO/cGMP pathway that tadalafil amplifies — this is additive vasodilation. Combined, these can cause dangerous drops in blood pressure, dizziness, fainting, and falls.",
-      recommendation:"Physician must know about ALL of these. Tadalafil + beetroot is the most concerning pair (same pathway). Monitor blood pressure sitting AND standing. Watch for dizziness when getting up quickly."
+      supplements:["tadalafil","potassium","mag-threonate","mag-glycinate","olive-leaf","oleuropein","moringa","black-seed-oil"],
+      description:"Tadalafil (5 mg) is a vasodilator that lowers blood pressure by boosting nitric oxide/cGMP signaling. This stack ALSO contains: magnesium (vasodilator), potassium (counteracts sodium), olive leaf/oleuropein (ACE-inhibitor-like), moringa (BP-lowering), and black seed oil (antihypertensive). The most dangerous pair — beetroot (same NO/cGMP pathway as tadalafil) — has been removed, significantly reducing additive vasodilation risk. However, the remaining agents still create meaningful hypotension risk when combined with tadalafil.",
+      recommendation:"Physician must know about ALL of these. The removal of beetroot reduces the most dangerous overlap, but monitor blood pressure sitting AND standing. Watch for dizziness when getting up quickly."
     },
     {
       id:"int-07", severity:"moderate", outcome:"Blood Sugar",
@@ -968,17 +968,17 @@ const DATA = {
     },
     {
       id:"int-11", severity:"moderate", outcome:"Bone & Mineral Balance",
-      title:"Iron Absorption Blocked by High Zinc and Minerals",
-      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate"],
-      description:"The Codeage multi contains iron (27.5 mg). Zinc (~107.5 mg total), calcium, and magnesium all compete with iron for absorption. The massive zinc dose is the primary blocker — zinc and iron share the same intestinal transporter (DMT1), and at 107.5 mg zinc, iron absorption is severely impaired. Magnesium and calcium add further competition.",
-      recommendation:"Take iron 2+ hours away from zinc, calcium, and magnesium. Or take iron with vitamin C to enhance absorption."
+      title:"Iron Absorption Blocked by High Zinc, Minerals, and EGCG",
+      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate","spike-tri-support"],
+      description:"The Codeage multi contains iron (27.5 mg). Zinc (~107.5 mg total), calcium, and magnesium all compete with iron for absorption. The massive zinc dose is the primary blocker — zinc and iron share the same intestinal transporter (DMT1), and at 107.5 mg zinc, iron absorption is severely impaired. Magnesium and calcium add further competition. Additionally, green tea extract (EGCG, 150 mg in the Spike Tri Support) chelates iron and further reduces absorption.",
+      recommendation:"Take iron 2+ hours away from zinc, calcium, magnesium, and EGCG-containing supplements. Or take iron with vitamin C to enhance absorption."
     },
     {
-      id:"int-12", severity:"critical", outcome:"Drug Metabolism",
-      title:"Piperine from 3 Sources Raises Tadalafil Levels",
-      supplements:["turmeric-blend","beetroot-blend","nad-resveratrol-combo","tadalafil"],
-      description:"Tadalafil is metabolized by CYP3A4. Piperine from THREE products (turmeric blend, beetroot blend, NMN combo) inhibits CYP3A4, slowing the breakdown of tadalafil and raising its effective blood level. This means the 5 mg dose may act like a higher dose — increasing the risk of headaches, flushing, dangerously low blood pressure, and prolonged erections. Piperine also amplifies curcumin, resveratrol, and virtually everything else in this stack.",
-      recommendation:"The piperine load is effectively raising his tadalafil dose. His prescribing doctor needs to know about the piperine sources. Consider separating tadalafil dosing from piperine-containing supplements by several hours, though piperine's CYP3A4 inhibition can last 6+ hours."
+      id:"int-12", severity:"high", outcome:"Drug Metabolism",
+      title:"Piperine from 2 Sources Raises Tadalafil Levels",
+      supplements:["turmeric-blend","nad-resveratrol-combo","tadalafil"],
+      description:"Tadalafil is metabolized by CYP3A4. Piperine from TWO products (turmeric blend and NMN combo 5 mg) inhibits CYP3A4, slowing the breakdown of tadalafil and raising its effective blood level. The beetroot blend (a former 3rd piperine source) has been removed. The 5 mg tadalafil dose may still act like a higher dose — increasing the risk of headaches, flushing, low blood pressure, and prolonged erections. Piperine also amplifies curcumin, resveratrol, and other compounds in this stack.",
+      recommendation:"The piperine load is reduced with beetroot removal but still significant. His prescribing doctor needs to know about the piperine sources. Consider separating tadalafil dosing from piperine-containing supplements by several hours."
     },
     {
       id:"int-14", severity:"low", outcome:"Blood Pressure & Heart",
@@ -1026,8 +1026,8 @@ const DATA = {
       id:"int-29", severity:"moderate", outcome:"Bleeding & Clotting",
       title:"Trans Resveratrol 200 mg Adds to Antiplatelet Load",
       supplements:["nad-resveratrol-combo","krill-oil","spike-tri-support"],
-      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with nattokinase, serrapeptase, krill oil, and curcumin, it adds another antiplatelet mechanism to an already-loaded anticoagulant stack.",
-      recommendation:"The 200 mg resveratrol dose is lower than the 600 mg originally recorded, but still contributes antiplatelet activity to a stack that already has serious bleeding risk."
+      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with nattokinase (200 mg), bromelain (200 mg), EGCG (from green tea extract 150 mg), krill oil, and curcumin (from 3 sources), it adds another antiplatelet mechanism to an already-loaded anticoagulant stack.",
+      recommendation:"The 200 mg resveratrol dose still contributes antiplatelet activity to a stack that already has serious bleeding risk from nattokinase + bromelain + curcumin + EGCG."
     },
     {
       id:"int-30", severity:"high", outcome:"Bone & Mineral Balance",
@@ -1040,7 +1040,7 @@ const DATA = {
       id:"int-32", severity:"high", outcome:"Blood Pressure & Heart",
       title:"Ashwagandha from 2 Sources + Adaptogens Lower BP Further",
       supplements:["shilajit","sea-moss-gummies","potassium","olive-leaf","tadalafil"],
-      description:"Ashwagandha appears in both the Shilajit product (40 mg) and Sea Moss Gummies. Ashwagandha lowers blood pressure and cortisol. Combined with Panax ginseng (from Shilajit) which also affects BP, plus tadalafil (vasodilator), potassium, olive leaf, beetroot, and magnesium, the hypotension risk is significant. Every additional BP-lowering agent on top of tadalafil increases the chance of dangerous drops.",
+      description:"Ashwagandha appears in both the Shilajit product (40 mg) and Sea Moss Gummies. Ashwagandha lowers blood pressure and cortisol. Combined with Panax ginseng (from Shilajit) which also affects BP, plus tadalafil (vasodilator), potassium, olive leaf, and magnesium, the hypotension risk is significant. Every additional BP-lowering agent on top of tadalafil increases the chance of dangerous drops.",
       recommendation:"Monitor blood pressure closely. With tadalafil in the stack, every BP-lowering supplement adds more risk."
     },
     {
@@ -1052,10 +1052,10 @@ const DATA = {
     },
     {
       id:"int-34", severity:"high", outcome:"Drug Metabolism",
-      title:"Sea Moss Gummies Add 4th Source of Black Pepper",
-      supplements:["sea-moss-gummies","turmeric-blend","beetroot-blend","nad-resveratrol-combo"],
-      description:"The Sea Moss Gummies contain black pepper, making it the 4th product with piperine (joining turmeric blend, beetroot blend, and NMN combo 5 mg). Each source amplifies absorption of everything else in the stack by inhibiting CYP3A4 and P-glycoprotein. The cumulative piperine dose makes effective doses of curcumin, resveratrol, and other compounds significantly higher than the labels suggest.",
-      recommendation:"Four sources of piperine means every other supplement in this stack has amplified, unpredictable absorption. This compounds every other interaction."
+      title:"Sea Moss Gummies Add 3rd Source of Black Pepper",
+      supplements:["sea-moss-gummies","turmeric-blend","nad-resveratrol-combo"],
+      description:"The Sea Moss Gummies contain black pepper, making it the 3rd product with piperine (joining turmeric blend and NMN combo 5 mg). The beetroot blend (a former 4th piperine source) has been removed. Each source still amplifies absorption of everything else in the stack by inhibiting CYP3A4 and P-glycoprotein. The cumulative piperine dose makes effective doses of curcumin, resveratrol, and other compounds higher than the labels suggest.",
+      recommendation:"Three sources of piperine still means supplements in this stack have amplified absorption. This compounds every other interaction."
     },
     {
       id:"int-35", severity:"low", outcome:"Blood Sugar",
@@ -1082,8 +1082,8 @@ const DATA = {
       id:"int-38", severity:"low", outcome:"Nervous System",
       title:"Synergistic: TMG + B12 + Folate Methylation Support",
       supplements:["tmg","b12","codeage-multi"],
-      description:"TMG (trimethylglycine) donates methyl groups to convert homocysteine to methionine. B12 and folate (from the multi) support the same pathway via a different route. Together they provide comprehensive methylation support — important for DNA repair, detox, and cardiovascular health. TMG also helps compensate for methyl group depletion from NAD/NMN supplementation.",
-      recommendation:"Good synergy, especially alongside the NAD supplement. The TMG dose is appropriate."
+      description:"TMG (trimethylglycine) donates methyl groups to convert homocysteine to methionine. B12 (5,000 mcg) and folate (from the multi) support the same pathway via a different route. Together they provide comprehensive methylation support — important for DNA repair, detox, cardiovascular health, and myelin synthesis for Bell's palsy nerve repair. TMG also helps compensate for methyl group depletion from NAD/NMN supplementation. The increased B12 dose makes this methylation support even more robust.",
+      recommendation:"Excellent synergy, especially alongside the NAD supplement and for nerve repair. The TMG dose is appropriate for the high B12."
     },
     {
       id:"int-39", severity:"low", outcome:"Immune System",
@@ -1096,15 +1096,8 @@ const DATA = {
       id:"int-40", severity:"low", outcome:"Bleeding & Clotting",
       title:"Astaxanthin + Quercetin: Minor Antiplatelet Addition",
       supplements:["astaxanthin","nad-resveratrol-combo","krill-oil"],
-      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack already containing krill oil, resveratrol (200 mg), nattokinase, serrapeptase, and curcumin.",
-      recommendation:"Individually safe. The antiplatelet contribution is minor compared to the nattokinase/serrapeptase/curcumin load."
-    },
-    {
-      id:"int-41", severity:"critical", outcome:"Blood Pressure & Heart",
-      title:"Tadalafil + Beetroot: Double Nitric Oxide Pathway Activation",
-      supplements:["tadalafil","beetroot-blend"],
-      description:"Tadalafil works by inhibiting PDE5, which preserves cGMP — the molecule that relaxes blood vessels after nitric oxide activates it. Beetroot provides dietary nitrates that convert to nitric oxide. Together, beetroot floods the system with extra NO while tadalafil prevents the signal from being broken down. This is additive vasodilation through the same pathway — like pressing the gas pedal (beetroot) while disabling the brakes (tadalafil). Can cause severe blood pressure drops, headaches, flushing, dizziness, and fainting.",
-      recommendation:"This is the single most dangerous supplement-drug pair in the stack. Separate dosing by several hours at minimum, or eliminate one. Doctor must be aware."
+      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack already containing krill oil, resveratrol (200 mg), nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), and curcumin (from 3 sources).",
+      recommendation:"Individually safe. The antiplatelet contribution is minor compared to the nattokinase/bromelain/curcumin/EGCG load."
     },
     {
       id:"int-42", severity:"moderate", outcome:"Hormones & Reproductive",
@@ -1117,8 +1110,8 @@ const DATA = {
       id:"int-43", severity:"high", outcome:"Bleeding & Clotting",
       title:"Tadalafil Adds Mild Antiplatelet Effect to Bleeding Stack",
       supplements:["tadalafil","krill-oil","spike-tri-support","turmeric-blend"],
-      description:"Tadalafil has a mild antiplatelet effect through the PDE5/cGMP pathway — it reduces platelet aggregation. While minor on its own, this adds yet another antiplatelet mechanism to a stack already containing nattokinase, serrapeptase, bromelain, krill oil, curcumin, resveratrol, and multiple other antiplatelet agents. The compounding of tadalafil's antiplatelet effect with this many other blood thinners further increases hemorrhage risk.",
-      recommendation:"The tadalafil contribution to bleeding risk is small compared to nattokinase/serrapeptase, but the prescribing doctor must know about the full anticoagulant stack."
+      description:"Tadalafil has a mild antiplatelet effect through the PDE5/cGMP pathway — it reduces platelet aggregation. While minor on its own, this adds yet another antiplatelet mechanism to a stack already containing nattokinase (200 mg), bromelain (200 mg), EGCG (150 mg), krill oil, curcumin (from 3 sources), resveratrol, and other antiplatelet agents. The compounding of tadalafil's antiplatelet effect with this many blood thinners increases hemorrhage risk.",
+      recommendation:"The tadalafil contribution to bleeding risk is small compared to nattokinase/bromelain, but the prescribing doctor must know about the full anticoagulant stack."
     },
     {
       id:"int-44", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
@@ -1136,17 +1129,17 @@ const DATA = {
     },
     {
       id:"int-46", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
-      title:"Synergistic: B Vitamins + ALCAR + Magnesium — Nerve Repair Arsenal",
-      supplements:["bells-palsy","b12","b1","b6","b2","alcar","mag-threonate"],
-      description:"The strongest nerve-repair combination in the stack. B12 methylcobalamin (1,000 mcg) is critical for myelin synthesis — the single most important supplement for Bell's palsy recovery. B1 benfotiamine (300 mg) supports nerve energy metabolism. B2 riboflavin (400 mg) supports mitochondrial function in nerve cells. B6 P5P (25 mg) supports neurotransmitter synthesis. ALCAR (1,500 mg) crosses the blood-brain barrier and directly supports nerve regeneration. Magnesium L-threonate crosses the blood-brain barrier and is neuroprotective.",
-      recommendation:"Excellent foundation for nerve recovery. Consider increasing B12 to 5,000 mcg during active nerve healing. Keep total B6 under 100 mg/day (currently ~35 mg — safe). These are the most important supplements to keep taking."
+      title:"Synergistic: B Vitamins + Lion's Mane + ALCAR + Magnesium — Nerve Repair Arsenal",
+      supplements:["bells-palsy","b12","b1","b6","b2","alcar","mag-threonate","lions-mane"],
+      description:"The strongest nerve-repair combination in the stack. B12 methylcobalamin (5,000 mcg — increased to therapeutic dose) is critical for myelin synthesis — the single most important supplement for Bell's palsy recovery. Lion's Mane (1,000 mg) stimulates nerve growth factor (NGF) — directly promotes nerve regeneration and remyelination, making it one of the most targeted supplements for Bell's palsy. B1 benfotiamine (300 mg) supports nerve energy metabolism. B2 riboflavin (400 mg) supports mitochondrial function in nerve cells. B6 P5P (25 mg) supports neurotransmitter synthesis. ALCAR (1,500 mg) crosses the blood-brain barrier and supports nerve regeneration. Magnesium L-threonate crosses the blood-brain barrier and is neuroprotective.",
+      recommendation:"Excellent foundation for nerve recovery. B12 is now at therapeutic 5,000 mcg — good for active nerve healing. Lion's Mane is the most targeted NGF stimulator available. Keep total B6 under 100 mg/day (currently ~35 mg — safe). These are the most important supplements to keep taking."
     },
     {
       id:"int-47", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Anti-Inflammatory Stack May Reduce Residual Facial Nerve Edema",
       supplements:["bells-palsy","spike-tri-support","turmeric-blend","black-seed-oil","krill-oil","nad-resveratrol-combo"],
-      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling in this confined space compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. Serrapeptase (360,000 SPU) specifically reduces tissue edema. Nattokinase improves microcirculation. Curcumin, thymoquinone (black seed oil), quercetin (50 mg), and omega-3s (krill oil) are all anti-inflammatory. However, the serious bleeding risk (see int-01) from this same group is the tradeoff.",
-      recommendation:"Anti-inflammatory benefit for Bell's palsy is real but comes with extreme bleeding risk. Discuss with physician whether targeted anti-inflammatories (curcumin alone) would be safer than the full stack."
+      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. Bromelain (200 mg) reduces tissue edema by breaking down inflammatory proteins (replacing the serrapeptase role from the old formulation). Nattokinase (200 mg) improves microcirculation. Curcumin from THREE sources (turmeric blend + spike turmeric 175 mg + sea moss gummies), EGCG (green tea extract 150 mg), thymoquinone (black seed oil + black sativa extract 500 mg), quercetin (50 mg), and omega-3s (krill oil) are all anti-inflammatory. However, the serious bleeding risk (see int-01) from this same group is the tradeoff.",
+      recommendation:"Anti-inflammatory benefit for Bell's palsy is real but comes with bleeding risk. Bromelain partially fills the serrapeptase edema-reduction role. Discuss with physician whether targeted anti-inflammatories (curcumin alone) would be safer than the full stack."
     },
     {
       id:"int-48", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
@@ -1156,11 +1149,11 @@ const DATA = {
       recommendation:"L-lysine is clearly beneficial if viral etiology is suspected. Echinacea is the risk — consider discontinuing given the prolonged course. An immunologist can test for autoimmune markers."
     },
     {
-      id:"int-49", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
+      id:"int-49", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Vasodilators May Improve Facial Nerve Blood Supply",
-      supplements:["bells-palsy","tadalafil","beetroot-blend","olive-leaf","mag-threonate","mag-glycinate","moringa"],
-      description:"Bell's palsy involves ischemia (reduced blood flow) of the facial nerve within the bony fallopian canal. Improving blood supply could aid recovery even at 21 months — nerve regeneration is slow (~1 mm/day). Tadalafil and beetroot increase blood flow through NO/cGMP vasodilation. Magnesium is a vasodilator. Olive leaf has ACE-inhibitor-like effects. This vasodilator stack could improve microcirculation to the damaged nerve. However, these same agents create dangerous hypotension risk (see int-06, int-41).",
-      recommendation:"Theoretical benefit for nerve blood supply, but hypotension risk is the limiting factor. PDE5 inhibitors are being studied for neuroprotection — discuss with neurologist."
+      supplements:["bells-palsy","tadalafil","olive-leaf","mag-threonate","mag-glycinate","moringa"],
+      description:"Bell's palsy involves ischemia (reduced blood flow) of the facial nerve within the bony fallopian canal. Improving blood supply could aid recovery even at 21 months — nerve regeneration is slow (~1 mm/day). Tadalafil (PDE5 inhibitor) increases blood flow through NO/cGMP vasodilation. Magnesium is a vasodilator. Olive leaf has ACE-inhibitor-like effects. Moringa lowers blood pressure. The removal of beetroot — which was the most dangerous vasodilator to combine with tadalafil (same NO/cGMP pathway) — significantly reduces hypotension risk while maintaining other vasodilators that may benefit facial nerve microcirculation.",
+      recommendation:"With beetroot removed, the hypotension risk from this vasodilator stack is reduced. Tadalafil's PDE5 inhibition may benefit nerve blood supply — PDE5 inhibitors are being studied for neuroprotection. Discuss with neurologist."
     },
     {
       id:"int-50", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
