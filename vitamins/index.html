@@ -889,22 +889,23 @@ const DATA = {
     { id:"lions-mane", name:"Lion's Mane Mushroom", dose:"1,000 mg", category:"Herbal Extracts", notes:"Medicinal mushroom that stimulates nerve growth factor (NGF). Supports nerve regeneration and brain health. Especially valuable for Bell's palsy recovery." },
     { id:"tmg", name:"TMG (Trimethylglycine)", dose:"1,500 mg", category:"Amino Acids", notes:"Methyl donor that supports heart health by lowering homocysteine. Works with B12 and folate. Important if taking NMN or NAD since those deplete methyl groups." },
     { id:"astaxanthin", name:"Astaxanthin", dose:"12 mg", category:"Antioxidants", notes:"Powerful antioxidant from algae — 6,000x stronger than vitamin C. Protects eyes, skin, and joints. Mild blood-thinning effect." },
-    { id:"tadalafil", name:"Tadalafil (Cialis)", dose:"5 mg", category:"Prescription Medication", notes:"PDE5 inhibitor — relaxes blood vessels by boosting nitric oxide/cGMP signaling. Used for erectile dysfunction and enlarged prostate (BPH). Lowers blood pressure. Metabolized by CYP3A4, so anything that inhibits that enzyme raises tadalafil levels.", flag:"high" },
+    { id:"protaflo", name:"Protaflo (Enclave BioActives)", dose:"2 capsules", category:"Specialty Blends", notes:"Prostate health formula with zinc, selenium, pumpkin seed, turmeric (95% curcuminoids), beta-sitosterol, nettle, black walnut hull, probiotics, lycopene, BioPerine, and vitamins D3 and K2.",
+      subIngredients: ["Vitamin D3 (Cholecalciferol) 50 mcg / 2,000 IU","Zinc (Zinc Picolinate) 15 mg","Selenium (L-Selenomethionine) 200 mcg","Pumpkin Seed 320 mg","Turmeric Root Extract (95% Curcuminoids) 200 mg","Beta Sitosterol Complex (40%) 130 mg","Black Walnut Hull Powder 100 mg","Nettle Leaf 100 mg","5-Strain Probiotic Blend (6B CFU) 50 mg","Lycopene 15 mg","Black Pepper Extract (BioPerine, 95% Piperine) 5 mg","Vitamin K2 (MK-7) 100 mcg"] },
     { id:"bells-palsy", name:"Bell's Palsy (Facial Nerve Paralysis)", dose:"Since Dec 2024", category:"Health Conditions", notes:"Onset December 2024. As of September 2026 (~21 months), face not notably droopy — just slightly — but extreme downward pressure sensation, like someone pulling downward on face. CN VII nerve paralysis from viral reactivation or inflammation in the bony fallopian canal.", flag:"high" }
   ],
   interactions: [
     {
       id:"int-01", severity:"high", outcome:"Bleeding & Clotting",
       title:"Multiple Antiplatelet Agents: Bleeding Risk",
-      supplements:["krill-oil","black-seed-oil","nad-resveratrol-combo","astaxanthin"],
-      description:"This stack layers multiple blood-thinning mechanisms: krill oil (omega-3s), black seed oil (2,000 mg — antihypertensive/antiplatelet), trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), and astaxanthin (mild antiplatelet). The removal of the Athelas Spike Tri Support eliminates the most dangerous agents — nattokinase (fibrinolytic), bromelain (fibrinolytic), curcumin, and EGCG — significantly reducing hemorrhage risk. However, the remaining antiplatelet stack is still meaningful, especially before surgery.",
-      recommendation:"Significantly safer without the fibrinolytic agents (nattokinase/bromelain). Physician should still know about the antiplatelet stack before any surgery or dental procedures."
+      supplements:["krill-oil","black-seed-oil","nad-resveratrol-combo","astaxanthin","protaflo"],
+      description:"This stack layers multiple blood-thinning mechanisms: krill oil (omega-3s), black seed oil (2,000 mg — antihypertensive/antiplatelet), trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), astaxanthin (mild antiplatelet), and curcumin (200 mg from Protaflo — antiplatelet and anti-coagulant). Curcumin re-enters the stack via Protaflo after the Spike Tri Support was removed. While the fibrinolytic agents (nattokinase, bromelain) are still absent, curcumin at 200 mg with BioPerine (which boosts curcumin absorption by up to 2,000%) is a meaningful antiplatelet addition.",
+      recommendation:"Curcumin is back in the stack via Protaflo, with BioPerine enhancing its absorption. Physician should know about the full antiplatelet stack before any surgery or dental procedures."
     },
     {
       id:"int-02", severity:"high", outcome:"Bone & Mineral Balance",
-      title:"Vitamin D3 at 100,000 IU/day: Requires Lab Monitoring",
-      supplements:["d3","k2","codeage-multi"],
-      description:"100,000 IU daily of D3 is 25x the upper tolerable intake of 4,000 IU/day, though that UL is considered overly conservative by many D3 researchers (Vieth, Holick). Toxicity correlates with sustained serum 25(OH)D above 150 ng/mL, not a fixed dose. The high-dose K2 (MK-7, 8,500 mcg) activates matrix Gla protein and osteocalcin, directing D3-mobilized calcium to bones and away from arteries — biologically plausible protection, though not proven in controlled trials at this D3 level. The Coimbra Protocol uses 40,000–200,000 IU/day in autoimmune patients with documented safety across 319 patients and 6,100+ lab measurements over 3.5 years, but requires strict low-calcium diet, 2.5L+ daily water, and regular bloodwork. The multivitamin adds another ~800 IU.",
+      title:"Vitamin D3 at ~102,800 IU/day: Requires Lab Monitoring",
+      supplements:["d3","k2","codeage-multi","protaflo"],
+      description:"Total D3 from all sources: standalone 100,000 IU + multivitamin ~800 IU + Protaflo 2,000 IU = ~102,800 IU/day. This is 25x the upper tolerable intake of 4,000 IU/day, though that UL is considered overly conservative by many D3 researchers (Vieth, Holick). Toxicity correlates with sustained serum 25(OH)D above 150 ng/mL, not a fixed dose. Total K2 (MK-7) is now ~8,680 mcg (standalone 8,500 + multi 80 + Protaflo 100 mcg), which activates matrix Gla protein and osteocalcin, directing D3-mobilized calcium to bones and away from arteries — biologically plausible protection, though not proven in controlled trials at this D3 level. The Coimbra Protocol uses 40,000–200,000 IU/day in autoimmune patients with documented safety across 319 patients and 6,100+ lab measurements over 3.5 years, but requires strict low-calcium diet, 2.5L+ daily water, and regular bloodwork.",
       recommendation:"Not automatically dangerous — supervised high-dose D3 protocols exist — but requires serum 25(OH)D and calcium monitoring. Without confirmed lab oversight, this dose carries real risk of hypercalcemia. K2 helps but is not a proven safeguard at this level."
     },
     {
@@ -915,18 +916,18 @@ const DATA = {
       recommendation:"Safe at this dose. Monitor total iodine intake from all supplements combined."
     },
     {
-      id:"int-04", severity:"moderate", outcome:"Bone & Mineral Balance",
-      title:"Zinc-Copper Imbalance (~57.5 mg Zinc)",
-      supplements:["zinc","copper","codeage-multi"],
-      description:"Zinc from all sources: picolinate 50 mg + multi 7.5 mg = ~57.5 mg total. This still exceeds the upper tolerable limit (40 mg). Total copper is only ~2.75 mg (Thorne 2 mg + multi 0.75 mg). The zinc:copper ratio is ~21:1 vs. the ideal 10-15:1. Chronic high zinc causes copper deficiency anemia and neurological damage.",
-      recommendation:"Consider further reducing zinc to 30 mg/day total. At minimum, increase copper to improve the zinc:copper ratio."
+      id:"int-04", severity:"high", outcome:"Bone & Mineral Balance",
+      title:"Zinc-Copper Imbalance (~72.5 mg Zinc)",
+      supplements:["zinc","copper","codeage-multi","protaflo"],
+      description:"Zinc from all sources: picolinate 50 mg + multi 7.5 mg + Protaflo 15 mg = ~72.5 mg total. This is nearly 2x the upper tolerable limit (40 mg) and back up from the 57.5 mg after the prior zinc reduction. The Protaflo prostate formula adds 15 mg zinc picolinate. Total copper is still only ~2.75 mg (Thorne 2 mg + multi 0.75 mg). The zinc:copper ratio is now ~26:1 vs. the ideal 10-15:1. Chronic high zinc causes copper deficiency anemia and neurological damage.",
+      recommendation:"Zinc is back up to 72.5 mg due to Protaflo. Consider dropping the standalone zinc picolinate to 25 mg (or eliminating it since Protaflo and multi provide 22.5 mg), or increasing copper to 4 mg to improve the ratio."
     },
     {
-      id:"int-06", severity:"high", outcome:"Blood Pressure & Heart",
-      title:"Tadalafil + Multiple BP-Lowering Agents: Hypotension Risk",
-      supplements:["tadalafil","potassium","mag-threonate","mag-glycinate","moringa","black-seed-oil"],
-      description:"Tadalafil (5 mg) is a vasodilator that lowers blood pressure by boosting nitric oxide/cGMP signaling. This stack ALSO contains: magnesium (vasodilator), potassium (counteracts sodium), moringa (BP-lowering), and black seed oil (antihypertensive). Olive leaf/oleuropein (ACE-inhibitor-like) and beetroot (same NO/cGMP pathway as tadalafil) have both been removed, reducing additive vasodilation risk. However, the remaining agents still create meaningful hypotension risk when combined with tadalafil.",
-      recommendation:"Physician must know about ALL of these. The removal of beetroot and olive leaf reduces the most dangerous overlaps, but monitor blood pressure sitting AND standing. Watch for dizziness when getting up quickly."
+      id:"int-06", severity:"moderate", outcome:"Blood Pressure & Heart",
+      title:"Multiple Natural BP-Lowering Agents",
+      supplements:["potassium","mag-threonate","mag-glycinate","moringa","black-seed-oil"],
+      description:"Several supplements in this stack lower blood pressure through different mechanisms: magnesium (vasodilator, ~209 mg elemental), potassium (1,020 mg — counteracts sodium), moringa (BP-lowering), and black seed oil (2,000 mg — antihypertensive). With tadalafil removed from the stack, the strongest vasodilator is gone. These natural agents are individually mild but together create a meaningful BP-lowering combination, especially when fasting or dehydrated.",
+      recommendation:"Much safer without tadalafil. Still worth monitoring blood pressure, especially when combining moringa and black seed oil. Watch for dizziness when getting up quickly."
     },
     {
       id:"int-07", severity:"moderate", outcome:"Blood Sugar",
@@ -945,16 +946,9 @@ const DATA = {
     {
       id:"int-11", severity:"moderate", outcome:"Bone & Mineral Balance",
       title:"Iron Absorption Blocked by High Zinc and Minerals",
-      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate"],
-      description:"The Codeage multi contains iron (27.5 mg). Zinc (~57.5 mg total), calcium, and magnesium all compete with iron for absorption. High zinc is the primary blocker — zinc and iron share the same intestinal transporter (DMT1), and at 57.5 mg zinc, iron absorption is still impaired. Magnesium and calcium add further competition. The removal of the Spike Tri Support eliminates the EGCG (green tea extract) that was also chelating iron.",
-      recommendation:"Take iron 2+ hours away from zinc, calcium, and magnesium. Or take iron with vitamin C to enhance absorption."
-    },
-    {
-      id:"int-12", severity:"moderate", outcome:"Drug Metabolism",
-      title:"Piperine Raises Tadalafil Levels",
-      supplements:["nad-resveratrol-combo","tadalafil"],
-      description:"Tadalafil is metabolized by CYP3A4. Piperine (5 mg from the NMN combo) inhibits CYP3A4, slowing the breakdown of tadalafil and raising its effective blood level. The turmeric blend (a former 2nd piperine source) and beetroot blend (a former 3rd) have both been removed, reducing the piperine load to a single 5 mg source. The 5 mg tadalafil dose may still act like a slightly higher dose. Piperine also amplifies resveratrol and other compounds in this stack.",
-      recommendation:"Piperine load is now just 5 mg from one source — reduced risk but still relevant. His prescribing doctor should know. Consider separating tadalafil dosing from the NMN combo by several hours."
+      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate","protaflo"],
+      description:"The Codeage multi contains iron (27.5 mg). Zinc (~72.5 mg total from 3 sources), calcium, and magnesium all compete with iron for absorption. High zinc is the primary blocker — zinc and iron share the same intestinal transporter (DMT1), and at 72.5 mg zinc, iron absorption is significantly impaired. Protaflo's curcumin (200 mg with BioPerine) also chelates iron, similar to the EGCG that was removed with the Spike Tri Support. Magnesium and calcium add further competition.",
+      recommendation:"Take iron 2+ hours away from zinc, calcium, magnesium, and the Protaflo supplement. Or take iron with vitamin C to enhance absorption."
     },
     {
       id:"int-19", severity:"low", outcome:"Bone & Mineral Balance",
@@ -978,13 +972,6 @@ const DATA = {
       recommendation:"Good combination for antioxidant support."
     },
     {
-      id:"int-27", severity:"moderate", outcome:"Drug Metabolism",
-      title:"Resveratrol + Piperine Raise Tadalafil Levels",
-      supplements:["nad-resveratrol-combo","tadalafil"],
-      description:"Trans-resveratrol (200 mg) and piperine (5 mg) from the NMN combo both inhibit CYP3A4 — the primary enzyme that breaks down tadalafil. Curcumin (from the removed Spike Tri Support) was a third CYP3A4 inhibitor, so risk is reduced. Tadalafil already has a 17.5-hour half-life; with CYP3A4 partially suppressed by resveratrol and piperine, it could still last longer at modestly higher levels.",
-      recommendation:"Risk reduced with the removal of curcumin. His doctor should still know that resveratrol and piperine are being taken with tadalafil."
-    },
-    {
       id:"int-28", severity:"low", outcome:"Bone & Mineral Balance",
       title:"Magnesium from 3 Sources: ~209 mg Elemental",
       supplements:["mag-threonate","mag-glycinate","codeage-multi"],
@@ -994,9 +981,9 @@ const DATA = {
     {
       id:"int-29", severity:"low", outcome:"Bleeding & Clotting",
       title:"Trans Resveratrol 200 mg Adds to Antiplatelet Load",
-      supplements:["nad-resveratrol-combo","krill-oil"],
-      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with krill oil (omega-3s), it adds another antiplatelet mechanism. The removal of the Spike Tri Support (nattokinase, bromelain, curcumin, EGCG) significantly reduces the overall antiplatelet load that resveratrol was compounding.",
-      recommendation:"Much lower risk without the fibrinolytic agents. Resveratrol + krill oil is a mild antiplatelet combination. Mention to physician before surgery."
+      supplements:["nad-resveratrol-combo","krill-oil","protaflo"],
+      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with krill oil (omega-3s), it adds another antiplatelet mechanism. Curcumin (200 mg from Protaflo with BioPerine) has re-entered the stack as an antiplatelet agent, though the fibrinolytic agents (nattokinase, bromelain) are still absent.",
+      recommendation:"The antiplatelet load has increased slightly with Protaflo's curcumin. Mention to physician before surgery."
     },
     {
       id:"int-36", severity:"low", outcome:"Blood Pressure & Heart",
@@ -1030,28 +1017,21 @@ const DATA = {
       id:"int-40", severity:"low", outcome:"Bleeding & Clotting",
       title:"Astaxanthin + Quercetin: Minor Antiplatelet Addition",
       supplements:["astaxanthin","nad-resveratrol-combo","krill-oil"],
-      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack that also contains krill oil and resveratrol (200 mg). With the Spike Tri Support removed (nattokinase, bromelain, curcumin, EGCG), the overall antiplatelet load is much lower.",
-      recommendation:"Low risk. These are mild antiplatelet agents on a now-reduced antiplatelet stack."
+      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack that also includes krill oil, resveratrol (200 mg), and curcumin (200 mg from Protaflo). These minor agents compound the antiplatelet load tracked in int-01.",
+      recommendation:"Low risk individually. These are mild antiplatelet agents that compound the curcumin and resveratrol in int-01."
     },
     {
-      id:"int-43", severity:"low", outcome:"Bleeding & Clotting",
-      title:"Tadalafil + Krill Oil: Mild Antiplatelet Overlap",
-      supplements:["tadalafil","krill-oil"],
-      description:"Tadalafil has a mild antiplatelet effect through the PDE5/cGMP pathway — it reduces platelet aggregation. Combined with krill oil (omega-3s), there is a mild additive antiplatelet effect. The removal of the Spike Tri Support (nattokinase, bromelain, curcumin, EGCG) dramatically reduces the bleeding risk that made this interaction concerning.",
-      recommendation:"Low risk now. Tadalafil + krill oil is a mild combination. Mention to prescribing doctor as routine disclosure."
-    },
-    {
-      id:"int-44", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
-      title:"Zinc-Copper Ratio Still Elevated: Monitor for Facial Nerve Recovery",
-      supplements:["bells-palsy","zinc","copper","codeage-multi"],
-      description:"The ~57.5 mg daily zinc (picolinate 50 mg + multi 7.5 mg) still exceeds the UL (40 mg) and depletes copper over time. Total copper is only ~2.75 mg (Thorne 2 mg + multi 0.75 mg) — the zinc:copper ratio is ~21:1 vs. the ideal 10-15:1. Copper deficiency causes demyelination — stripping the protective myelin sheath around nerves. For a facial nerve damaged by Bell's palsy (since December 2024), copper depletion undermines nerve repair. The persistent 'extreme downward pressure' sensation at 21 months post-onset could reflect ongoing nerve dysfunction compounded by copper-dependent myelin damage.",
-      recommendation:"Zinc reduction to 50 mg improves but doesn't resolve the imbalance. Consider further reducing to 30 mg/day and increasing copper. Test serum copper and ceruloplasmin levels. Copper deficiency neuropathy is reversible if caught early."
+      id:"int-44", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"Zinc-Copper Ratio Worsened (~72.5 mg Zinc): Demyelination Risk",
+      supplements:["bells-palsy","zinc","copper","codeage-multi","protaflo"],
+      description:"Total zinc is back up to ~72.5 mg/day (picolinate 50 mg + multi 7.5 mg + Protaflo 15 mg) — nearly 2x the UL of 40 mg. Total copper is only ~2.75 mg (Thorne 2 mg + multi 0.75 mg), giving a zinc:copper ratio of ~26:1 vs. the ideal 10-15:1. Copper deficiency causes demyelination — stripping the protective myelin sheath around nerves. For a facial nerve damaged by Bell's palsy (since December 2024), copper depletion actively undermines nerve repair and could contribute to the persistent 'extreme downward pressure' sensation at 21 months.",
+      recommendation:"Zinc has worsened with Protaflo. Consider dropping the standalone zinc picolinate entirely — the multi (7.5 mg) and Protaflo (15 mg) already provide 22.5 mg, which is closer to the RDA of 11 mg. At minimum, increase copper to 4+ mg. Test serum copper and ceruloplasmin levels urgently."
     },
     {
       id:"int-45", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Vitamin D Toxicity: Calcium Dysregulation Worsens Facial Nerve & Muscle Symptoms",
-      supplements:["bells-palsy","d3","codeage-multi"],
-      description:"At 100,800 IU/day (D3 100,000 IU + multivitamin 800 IU), vitamin D toxicity causes hypercalcemia, which disrupts neuromuscular function — abnormal nerve conduction, muscle cramping, weakness, and fasciculations. For Bell's palsy with persistent facial pressure at 21 months, hypercalcemia could exacerbate facial muscle contracture (synkinesis) and heighten the sensation of downward pulling. Calcium is the trigger for muscle contraction; excess calcium causes continuous low-grade contraction and muscle hypertonicity on the affected side.",
+      supplements:["bells-palsy","d3","codeage-multi","protaflo"],
+      description:"At ~102,800 IU/day (D3 100,000 IU + multivitamin ~800 IU + Protaflo 2,000 IU), vitamin D toxicity causes hypercalcemia, which disrupts neuromuscular function — abnormal nerve conduction, muscle cramping, weakness, and fasciculations. For Bell's palsy with persistent facial pressure at 21 months, hypercalcemia could exacerbate facial muscle contracture (synkinesis) and heighten the sensation of downward pulling. Calcium is the trigger for muscle contraction; excess calcium causes continuous low-grade contraction and muscle hypertonicity on the affected side.",
       recommendation:"Check serum calcium and 25(OH)D levels urgently. The 'extreme downward pressure' sensation could partly reflect calcium-driven muscle hypertonicity. This is testable and treatable."
     },
     {
@@ -1064,9 +1044,9 @@ const DATA = {
     {
       id:"int-47", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Anti-Inflammatory Agents May Reduce Residual Facial Nerve Edema",
-      supplements:["bells-palsy","black-seed-oil","krill-oil","nad-resveratrol-combo"],
-      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. The remaining anti-inflammatory agents are: thymoquinone (black seed oil 2,000 mg), omega-3s (krill oil), quercetin (50 mg from NMN combo), and trans-resveratrol (200 mg). The removal of the Spike Tri Support eliminates bromelain, nattokinase, curcumin, and EGCG — the strongest anti-inflammatory and edema-reducing agents — weakening this stack's anti-inflammatory potency but also eliminating the serious bleeding risk tradeoff.",
-      recommendation:"The remaining anti-inflammatory stack is milder but safer. Black seed oil and omega-3s provide gentle anti-inflammatory support. Discuss with physician whether to add a targeted anti-inflammatory (standalone curcumin or bromelain) if edema reduction is still needed."
+      supplements:["bells-palsy","black-seed-oil","krill-oil","nad-resveratrol-combo","protaflo"],
+      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. The anti-inflammatory agents include: thymoquinone (black seed oil 2,000 mg), omega-3s (krill oil), quercetin (50 mg from NMN combo), trans-resveratrol (200 mg), and curcumin (200 mg from Protaflo with BioPerine for enhanced absorption). Curcumin is one of the strongest natural anti-inflammatory agents — its return via Protaflo significantly strengthens this stack's anti-inflammatory potency for nerve edema reduction.",
+      recommendation:"Protaflo's curcumin + BioPerine restores meaningful anti-inflammatory support. This is a positive addition for facial nerve edema. The fibrinolytic agents (nattokinase, bromelain) are still absent, keeping the bleeding risk tradeoff favorable."
     },
     {
       id:"int-48", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
@@ -1077,10 +1057,10 @@ const DATA = {
     },
     {
       id:"int-49", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
-      title:"Vasodilators May Improve Facial Nerve Blood Supply",
-      supplements:["bells-palsy","tadalafil","mag-threonate","mag-glycinate","moringa"],
-      description:"Bell's palsy involves ischemia (reduced blood flow) of the facial nerve within the bony fallopian canal. Improving blood supply could aid recovery even at 21 months — nerve regeneration is slow (~1 mm/day). Tadalafil (PDE5 inhibitor) increases blood flow through NO/cGMP vasodilation. Magnesium is a vasodilator. Moringa lowers blood pressure. Olive leaf (ACE-inhibitor-like) and beetroot (same NO/cGMP pathway as tadalafil) have both been removed, reducing hypotension risk while maintaining other vasodilators that may benefit facial nerve microcirculation.",
-      recommendation:"With beetroot and olive leaf removed, the hypotension risk from this vasodilator stack is reduced. Tadalafil's PDE5 inhibition may benefit nerve blood supply — PDE5 inhibitors are being studied for neuroprotection. Discuss with neurologist."
+      title:"Mild Vasodilators May Support Facial Nerve Blood Supply",
+      supplements:["bells-palsy","mag-threonate","mag-glycinate","moringa"],
+      description:"Bell's palsy involves ischemia (reduced blood flow) of the facial nerve compressed within the bony fallopian canal. Improving blood supply could aid recovery even at 21 months — nerve regeneration is slow (~1 mm/day). Magnesium is a vasodilator (~209 mg elemental from 3 sources), and moringa (1,000 mg) lowers blood pressure. With tadalafil removed from the stack, the remaining vasodilation effect is mild but still present.",
+      recommendation:"Mild vasodilation from magnesium and moringa. Without tadalafil, the hypotension risk is minimal and the nerve blood supply benefit is modest."
     },
     {
       id:"int-50", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
@@ -1088,6 +1068,20 @@ const DATA = {
       supplements:["bells-palsy","nad-resveratrol-combo","glutathione","vitamin-c","astaxanthin","tmg"],
       description:"Damaged nerve cells generate excess reactive oxygen species (ROS) during recovery. This combination provides multi-layer protection: glutathione (master intracellular antioxidant — 500 mg), vitamin C (recycles glutathione — 500 mg), astaxanthin (crosses blood-brain barrier, 6,000x more potent than vitamin C — 12 mg), NMN (boosts NAD+ for nerve cell energy and DNA repair — 1,000 mg), and TMG (supports methylation critical for myelin synthesis — 1,500 mg).",
       recommendation:"Strong foundation for nerve recovery. Astaxanthin's ability to cross the blood-brain barrier makes it especially valuable. TMG's methylation support is critical for myelin repair."
+    },
+    {
+      id:"int-51", severity:"low", outcome:"Bone & Mineral Balance",
+      title:"Selenium from 2 Sources: 275 mcg Total",
+      supplements:["codeage-multi","protaflo"],
+      description:"Selenium from 2 sources: multivitamin 75 mcg + Protaflo 200 mcg = 275 mcg total. The upper tolerable limit is 400 mcg/day, and this intake is at 69% of the UL. Selenium is essential for thyroid function and antioxidant defense but chronic excess causes selenosis (hair loss, brittle nails, GI distress, neurological symptoms). Both sources use L-selenomethionine, the most bioavailable form.",
+      recommendation:"275 mcg is safe but getting closer to the UL. Avoid additional selenium-rich foods in high quantities (Brazil nuts are extremely high — one nut can contain 70-90 mcg). Monitor for selenosis symptoms if dose increases."
+    },
+    {
+      id:"int-52", severity:"low", outcome:"Drug Metabolism",
+      title:"BioPerine/Piperine from 2 Sources: 10 mg Total",
+      supplements:["nad-resveratrol-combo","protaflo"],
+      description:"Piperine (BioPerine) is now at 10 mg total from 2 sources: NMN combo (5 mg) and Protaflo (5 mg). Piperine inhibits CYP3A4 and other drug-metabolizing enzymes, slowing the clearance of many compounds. This doubles the previous piperine load. The main practical effect: curcumin absorption increases up to 2,000% with piperine (a designed feature of Protaflo), and resveratrol absorption also increases significantly. With tadalafil removed, there is no prescription medication in the stack for piperine to dangerously amplify.",
+      recommendation:"No prescription drug interaction concern now that tadalafil is removed. The enhanced absorption of curcumin and resveratrol is generally positive. If any new prescription medication is added, inform the physician about the 10 mg piperine load — it affects the metabolism of many drugs."
     }
   ]
 };
@@ -1350,7 +1344,7 @@ function renderSupplements() {
     'OTC Medications','Fat-Soluble Vitamins','Minerals','B Vitamins','Water-Soluble Vitamins',
     'Omega Fatty Acids','Amino Acids','Antioxidants','Immune Support','Herbal Extracts',
     'Anti-Inflammatory Blends','Whole Food Extracts','Specialty Blends',
-    'Multivitamins','Digestive Support','Weight Management','Prescription Medication','Health Conditions'
+    'Multivitamins','Digestive Support','Weight Management','Health Conditions'
   ];
 
   const sortedCats = Object.keys(categories).sort((a,b) => {
