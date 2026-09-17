@@ -575,6 +575,38 @@
     padding: 0;
     margin-bottom: 12px;
   }
+
+  .tracking-summary {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .summary-item {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+  }
+
+  .record-event-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1.5px solid #e8e5e0;
+    background: #faf9f7;
+    font-size: 15px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-top: 8px;
+  }
+
+  .record-event-btn:hover {
+    border-color: #c4b8db;
+    background: #f8f6fb;
+    color: #5a4d7a;
+  }
 </style>
 </head>
 <body>
@@ -872,8 +904,13 @@ function render() {
 }
 
 // Day detail modal
-function openDayModal(day) {
+async function openDayModal(day) {
   selectedDate = day;
+
+  if (activeSitter) {
+    await toggleDate(day);
+  }
+
   const key = dateKey(day);
   const dateSitters = getSittersForDate(day);
   const dayName = DAY_NAMES[day.getDay()];
@@ -882,25 +919,58 @@ function openDayModal(day) {
   const diaperCount = getTrackingForDate(key, 'diaper').length;
   const napCount = getTrackingForDate(key, 'nap').length;
   const bottleCount = getTrackingForDate(key, 'bottle').length;
+  const totalCount = diaperCount + napCount + bottleCount;
 
   let html = `<div class="modal-handle"></div>`;
   html += `<div class="modal-title">${dayName}, ${monthName} ${day.getDate()}</div>`;
   html += `<div class="modal-subtitle">${isToday(day) ? 'Today' : key}</div>`;
 
   // Sitter tags
-  html += `<div class="modal-sitters">`;
-  dateSitters.forEach(s => {
-    html += `<span class="sitter-tag" style="background:${sitterColor(s)}">${s}</span>`;
-  });
-  if (activeSitter) {
-    const isOn = dateSitters.includes(activeSitter);
-    html += `<button class="modal-sitter-toggle ${isOn ? 'active' : ''}" id="sitterToggle">`;
-    html += isOn ? `${activeSitter} ✓` : `+ ${activeSitter}`;
-    html += `</button>`;
+  if (dateSitters.length > 0) {
+    html += `<div class="modal-sitters">`;
+    dateSitters.forEach(s => {
+      html += `<span class="sitter-tag" style="background:${sitterColor(s)}">${s}</span>`;
+    });
+    html += `</div>`;
   }
-  html += `</div>`;
 
-  // Category buttons
+  // Tracking summary
+  if (totalCount > 0) {
+    html += `<div class="tracking-summary">`;
+    if (diaperCount) html += `<span class="summary-item diaper">🧷 ${diaperCount}</span>`;
+    if (napCount) html += `<span class="summary-item nap">😴 ${napCount}</span>`;
+    if (bottleCount) html += `<span class="summary-item bottle">🍼 ${bottleCount}</span>`;
+    html += `</div>`;
+  }
+
+  // Record Event button
+  html += `<button class="record-event-btn" id="recordEventBtn">Record Event</button>`;
+
+  const container = document.getElementById('dayModalContent');
+  container.innerHTML = html;
+
+  document.getElementById('recordEventBtn').addEventListener('click', () => {
+    closeDayModal();
+    openCategoryPicker();
+  });
+
+  document.getElementById('dayModal').classList.add('open');
+}
+
+function openCategoryPicker() {
+  const day = selectedDate;
+  const key = dateKey(day);
+  const diaperCount = getTrackingForDate(key, 'diaper').length;
+  const napCount = getTrackingForDate(key, 'nap').length;
+  const bottleCount = getTrackingForDate(key, 'bottle').length;
+  const dayName = DAY_NAMES[day.getDay()];
+  const monthName = MONTH_NAMES[day.getMonth()];
+
+  let html = `<div class="modal-handle"></div>`;
+  html += `<button class="back-btn" id="catBack">← Back</button>`;
+  html += `<div class="modal-title">Record Event</div>`;
+  html += `<div class="modal-subtitle">${dayName}, ${monthName} ${day.getDate()}</div>`;
+
   html += `<div class="category-buttons">`;
   html += `<button class="cat-btn" data-type="diaper">
     <span class="cat-icon">🧷</span>
@@ -919,22 +989,22 @@ function openDayModal(day) {
   </button>`;
   html += `</div>`;
 
-  const container = document.getElementById('dayModalContent');
+  const container = document.getElementById('trackModalContent');
   container.innerHTML = html;
 
   container.querySelectorAll('.cat-btn').forEach(btn => {
-    btn.addEventListener('click', () => openTrackModal(btn.dataset.type));
+    btn.addEventListener('click', () => {
+      closeTrackModal();
+      openTrackModal(btn.dataset.type);
+    });
   });
 
-  const toggle = container.querySelector('#sitterToggle');
-  if (toggle) {
-    toggle.addEventListener('click', async () => {
-      await toggleDate(day);
-      openDayModal(day);
-    });
-  }
+  document.getElementById('catBack').addEventListener('click', () => {
+    closeTrackModal();
+    openDayModal(day);
+  });
 
-  document.getElementById('dayModal').classList.add('open');
+  document.getElementById('trackModal').classList.add('open');
 }
 
 function closeDayModal() {
@@ -1072,7 +1142,7 @@ function openTrackModal(type) {
 
   document.getElementById('trackBack').addEventListener('click', () => {
     closeTrackModal();
-    openDayModal(selectedDate || day);
+    openCategoryPicker();
   });
 
   // Keep selectedDate for back navigation
