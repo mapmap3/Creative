@@ -590,22 +590,41 @@
 
   .record-event-btn {
     width: 100%;
+    max-width: 500px;
     padding: 14px;
     border-radius: 12px;
-    border: 1.5px solid #e8e5e0;
-    background: #faf9f7;
+    border: 1.5px solid #d4d0cb;
+    background: #fff;
     font-size: 15px;
     font-weight: 600;
     color: #555;
     cursor: pointer;
     transition: all 0.15s;
-    margin-top: 8px;
+    margin: 0 auto 40px;
+    display: block;
   }
 
   .record-event-btn:hover {
     border-color: #c4b8db;
     background: #f8f6fb;
     color: #5a4d7a;
+  }
+
+  .record-event-btn .record-date {
+    font-weight: 400;
+    color: #999;
+    font-size: 13px;
+    margin-left: 6px;
+  }
+
+  .day-cell.selected-date {
+    border-color: #7c6f9c !important;
+    background: #f8f6fb !important;
+  }
+
+  .day-cell.selected-date .day-number {
+    color: #7c6f9c;
+    font-weight: 700;
   }
 </style>
 </head>
@@ -642,9 +661,9 @@
   <div id="nextWeekdays" class="weekday-row week-faded"></div>
 </div>
 
-<div class="modal-overlay" id="dayModal">
-  <div class="modal-sheet" id="dayModalContent"></div>
-</div>
+<button class="record-event-btn" id="recordEventBtn" style="padding:14px 20px;">
+  Record Event <span class="record-date" id="recordDateLabel"></span>
+</button>
 
 <div class="modal-overlay" id="trackModal">
   <div class="modal-sheet" id="trackModalContent"></div>
@@ -833,8 +852,12 @@ function buildDayCell(day, isActive) {
     cell.appendChild(dots);
   }
 
+  if (selectedDate && dateKey(day) === dateKey(selectedDate)) {
+    cell.classList.add('selected-date');
+  }
+
   if (isActive) {
-    cell.addEventListener('click', () => openDayModal(day));
+    cell.addEventListener('click', () => selectDate(day));
   }
 
   return cell;
@@ -903,61 +926,30 @@ function render() {
   renderWeekdayRow(document.getElementById('nextWeekdays'), nextMonday, false, nextMonday);
 }
 
-// Day detail modal
-async function openDayModal(day) {
+async function selectDate(day) {
   selectedDate = day;
 
   if (activeSitter) {
     await toggleDate(day);
   }
 
-  const key = dateKey(day);
-  const dateSitters = getSittersForDate(day);
-  const dayName = DAY_NAMES[day.getDay()];
-  const monthName = MONTH_NAMES[day.getMonth()];
+  render();
+  updateRecordButton();
+}
 
-  const diaperCount = getTrackingForDate(key, 'diaper').length;
-  const napCount = getTrackingForDate(key, 'nap').length;
-  const bottleCount = getTrackingForDate(key, 'bottle').length;
-  const totalCount = diaperCount + napCount + bottleCount;
-
-  let html = `<div class="modal-handle"></div>`;
-  html += `<div class="modal-title">${dayName}, ${monthName} ${day.getDate()}</div>`;
-  html += `<div class="modal-subtitle">${isToday(day) ? 'Today' : key}</div>`;
-
-  // Sitter tags
-  if (dateSitters.length > 0) {
-    html += `<div class="modal-sitters">`;
-    dateSitters.forEach(s => {
-      html += `<span class="sitter-tag" style="background:${sitterColor(s)}">${s}</span>`;
-    });
-    html += `</div>`;
+function updateRecordButton() {
+  const label = document.getElementById('recordDateLabel');
+  if (selectedDate) {
+    const d = selectedDate;
+    label.textContent = `— ${MONTH_NAMES[d.getMonth()]} ${d.getDate()}`;
+  } else {
+    label.textContent = '';
   }
-
-  // Tracking summary
-  if (totalCount > 0) {
-    html += `<div class="tracking-summary">`;
-    if (diaperCount) html += `<span class="summary-item diaper">🧷 ${diaperCount}</span>`;
-    if (napCount) html += `<span class="summary-item nap">😴 ${napCount}</span>`;
-    if (bottleCount) html += `<span class="summary-item bottle">🍼 ${bottleCount}</span>`;
-    html += `</div>`;
-  }
-
-  // Record Event button
-  html += `<button class="record-event-btn" id="recordEventBtn">Record Event</button>`;
-
-  const container = document.getElementById('dayModalContent');
-  container.innerHTML = html;
-
-  document.getElementById('recordEventBtn').addEventListener('click', () => {
-    closeDayModal();
-    openCategoryPicker();
-  });
-
-  document.getElementById('dayModal').classList.add('open');
 }
 
 function openCategoryPicker() {
+  const day = selectedDate || new Date();
+  if (!selectedDate) selectedDate = day;
   const day = selectedDate;
   const key = dateKey(day);
   const diaperCount = getTrackingForDate(key, 'diaper').length;
@@ -1001,20 +993,14 @@ function openCategoryPicker() {
 
   document.getElementById('catBack').addEventListener('click', () => {
     closeTrackModal();
-    openDayModal(day);
   });
 
   document.getElementById('trackModal').classList.add('open');
 }
 
-function closeDayModal() {
-  document.getElementById('dayModal').classList.remove('open');
-  selectedDate = null;
-}
 
 // Tracking modals
 function openTrackModal(type) {
-  closeDayModal();
   const key = dateKey(selectedDate || new Date());
   const day = selectedDate || new Date();
   const entries = getTrackingForDate(key, type);
@@ -1263,11 +1249,12 @@ function setStatus(msg, cls) {
 }
 
 // Modal close on overlay click
-document.getElementById('dayModal').addEventListener('click', (e) => {
-  if (e.target === e.currentTarget) closeDayModal();
-});
 document.getElementById('trackModal').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) { closeTrackModal(); render(); }
+});
+
+document.getElementById('recordEventBtn').addEventListener('click', () => {
+  openCategoryPicker();
 });
 
 document.getElementById('weekSelect').addEventListener('change', render);
