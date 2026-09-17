@@ -135,6 +135,7 @@
     transition: all 0.15s ease;
     border: 1.5px solid transparent;
     background: #fff;
+    cursor: pointer;
   }
 
   .weekend-row .day-cell {
@@ -145,9 +146,7 @@
     gap: 8px;
   }
 
-  .weekend-row .day-cell .day-number {
-    margin-bottom: 0;
-  }
+  .weekend-row .day-cell .day-number { margin-bottom: 0; }
 
   .weekend-row .day-cell .sitter-names {
     flex-direction: row;
@@ -170,6 +169,22 @@
     width: 100%;
   }
 
+  .day-cell .tracking-dots {
+    display: flex;
+    gap: 3px;
+    margin-top: 3px;
+  }
+
+  .tracking-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .tracking-dot.diaper { background: #e8a33c; }
+  .tracking-dot.nap { background: #5ba3cf; }
+  .tracking-dot.bottle { background: #6abf8a; }
+
   .sitter-tag {
     font-size: 9px;
     font-weight: 600;
@@ -189,13 +204,16 @@
     cursor: pointer;
   }
 
-  .week-faded .day-cell:hover {
-    opacity: 0.55;
-  }
+  .week-faded .day-cell:hover { opacity: 0.55; }
 
   .week-active .day-cell {
     background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .week-active .day-cell:hover {
+    border-color: #c4b8db;
+    transform: scale(1.03);
   }
 
   .week-active .day-cell.today {
@@ -211,15 +229,6 @@
   .weekend-row.week-active .day-cell {
     background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-  }
-
-  .sitter-mode .week-active .day-cell {
-    cursor: pointer;
-  }
-
-  .sitter-mode .week-active .day-cell:hover {
-    border-color: #c4b8db;
-    transform: scale(1.03);
   }
 
   .sitter-mode .week-active .day-cell.selected-by-me {
@@ -260,6 +269,312 @@
 
   .sitter-mode .sitter-label { display: block; }
 
+  /* Modal overlay */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 100;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal-sheet {
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 20px 20px 32px;
+    animation: slideUp 0.25s ease-out;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  .modal-handle {
+    width: 36px;
+    height: 4px;
+    background: #d4d0cb;
+    border-radius: 2px;
+    margin: 0 auto 16px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #1a1a1a;
+  }
+
+  .modal-subtitle {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 16px;
+  }
+
+  .modal-sitters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .modal-sitters .sitter-tag {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+
+  .modal-sitter-toggle {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px dashed #c4b8db;
+    color: #7c6f9c;
+    background: none;
+  }
+
+  .modal-sitter-toggle.active {
+    border-style: solid;
+    background: #ede8f5;
+    border-color: #7c6f9c;
+  }
+
+  /* Category buttons */
+  .category-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .cat-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 8px;
+    border-radius: 14px;
+    border: 1.5px solid #e8e5e0;
+    background: #faf9f7;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .cat-btn:hover {
+    border-color: #c4b8db;
+    background: #f8f6fb;
+  }
+
+  .cat-btn .cat-icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .cat-btn .cat-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+  }
+
+  .cat-btn .cat-count {
+    font-size: 11px;
+    color: #aaa;
+    font-weight: 500;
+  }
+
+  /* Tracking modal */
+  .track-entries {
+    margin-bottom: 16px;
+  }
+
+  .track-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0eeeb;
+  }
+
+  .track-entry-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .track-entry-icon {
+    font-size: 18px;
+  }
+
+  .track-entry-detail {
+    font-size: 14px;
+    color: #2d2d2d;
+  }
+
+  .track-entry-time {
+    font-size: 13px;
+    color: #888;
+  }
+
+  .track-entry-delete {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+  }
+
+  .track-entry-delete:hover { color: #c0392b; }
+
+  .track-empty {
+    text-align: center;
+    padding: 20px;
+    color: #bbb;
+    font-size: 14px;
+  }
+
+  /* Add new form */
+  .add-form-section {
+    background: #faf9f7;
+    border-radius: 14px;
+    padding: 16px;
+    border: 1.5px solid #e8e5e0;
+  }
+
+  .add-form-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 12px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
+  .form-label {
+    font-size: 13px;
+    color: #666;
+    min-width: 40px;
+  }
+
+  .toggle-group {
+    display: flex;
+    gap: 8px;
+  }
+
+  .toggle-btn {
+    padding: 8px 18px;
+    border-radius: 10px;
+    border: 1.5px solid #d4d0cb;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: #555;
+  }
+
+  .toggle-btn.active {
+    background: #ede8f5;
+    border-color: #7c6f9c;
+    color: #5a4d7a;
+    font-weight: 600;
+  }
+
+  .toggle-btn:hover:not(.active) {
+    border-color: #c4b8db;
+  }
+
+  .time-input {
+    padding: 8px 12px;
+    border: 1.5px solid #d4d0cb;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #fff;
+    color: #2d2d2d;
+    width: 110px;
+  }
+
+  .time-input:focus {
+    outline: none;
+    border-color: #7c6f9c;
+  }
+
+  .oz-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .oz-btn {
+    width: 40px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1.5px solid #d4d0cb;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.15s;
+  }
+
+  .oz-btn.active {
+    background: #e1f5e8;
+    border-color: #6abf8a;
+    color: #3a8a5a;
+  }
+
+  .oz-btn:hover:not(.active) {
+    border-color: #6abf8a;
+  }
+
+  .save-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #7c6f9c;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: opacity 0.15s;
+  }
+
+  .save-btn:hover { opacity: 0.9; }
+  .save-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: #7c6f9c;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 12px;
+  }
 </style>
 </head>
 <body>
@@ -295,6 +610,13 @@
   <div id="nextWeekdays" class="weekday-row week-faded"></div>
 </div>
 
+<div class="modal-overlay" id="dayModal">
+  <div class="modal-sheet" id="dayModalContent"></div>
+</div>
+
+<div class="modal-overlay" id="trackModal">
+  <div class="modal-sheet" id="trackModalContent"></div>
+</div>
 
 <script>
 const COLOR_POOL = [
@@ -304,6 +626,7 @@ const COLOR_POOL = [
 ];
 const MONTH_NAMES = ['January','February','March','April','May','June',
   'July','August','September','October','November','December'];
+const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const DEFAULT_SITTERS = ['Nonna', 'Grandma', 'Gigi', 'Grandpa'];
 
 let sitters = [];
@@ -311,6 +634,10 @@ let bookings = {};
 let fileSha = null;
 let activeSitter = '';
 let saving = false;
+
+let trackingEntries = [];
+let trackingSha = null;
+let selectedDate = null;
 
 function loadSitters() {
   sitters = [...DEFAULT_SITTERS];
@@ -355,6 +682,22 @@ function formatWeekLabel(monday) {
 function isToday(d) {
   const now = new Date();
   return dateKey(d) === dateKey(now);
+}
+
+function roundedTimeNow() {
+  const now = new Date();
+  const mins = Math.round(now.getMinutes() / 15) * 15;
+  now.setMinutes(mins, 0, 0);
+  const h = String(now.getHours()).padStart(2, '0');
+  const m = String(now.getMinutes()).padStart(2, '0');
+  return `${h}:${m}`;
+}
+
+function formatTime12(t) {
+  const [h, m] = t.split(':').map(Number);
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
+  return `${h12}:${String(m).padStart(2, '0')} ${ampm}`;
 }
 
 function navigateToWeek(monday) {
@@ -416,6 +759,10 @@ function getSittersForDate(d) {
   return bookings[key] || [];
 }
 
+function getTrackingForDate(key, type) {
+  return trackingEntries.filter(e => e.date === key && e.type === type);
+}
+
 function buildDayCell(day, isActive) {
   const cell = document.createElement('div');
   cell.className = 'day-cell';
@@ -441,8 +788,21 @@ function buildDayCell(day, isActive) {
   });
   cell.appendChild(namesContainer);
 
-  if (isActive && activeSitter) {
-    cell.addEventListener('click', () => toggleDate(day));
+  const key = dateKey(day);
+  const hasDiaper = getTrackingForDate(key, 'diaper').length > 0;
+  const hasNap = getTrackingForDate(key, 'nap').length > 0;
+  const hasBottle = getTrackingForDate(key, 'bottle').length > 0;
+  if (hasDiaper || hasNap || hasBottle) {
+    const dots = document.createElement('div');
+    dots.className = 'tracking-dots';
+    if (hasDiaper) { const d = document.createElement('div'); d.className = 'tracking-dot diaper'; dots.appendChild(d); }
+    if (hasNap) { const d = document.createElement('div'); d.className = 'tracking-dot nap'; dots.appendChild(d); }
+    if (hasBottle) { const d = document.createElement('div'); d.className = 'tracking-dot bottle'; dots.appendChild(d); }
+    cell.appendChild(dots);
+  }
+
+  if (isActive) {
+    cell.addEventListener('click', () => openDayModal(day));
   }
 
   return cell;
@@ -509,6 +869,220 @@ function render() {
   renderWeekdayRow(document.getElementById('currentWeekdays'), monday, true, null);
   renderWeekendRow(document.getElementById('currentWeekend'), monday, true);
   renderWeekdayRow(document.getElementById('nextWeekdays'), nextMonday, false, nextMonday);
+}
+
+// Day detail modal
+function openDayModal(day) {
+  selectedDate = day;
+  const key = dateKey(day);
+  const dateSitters = getSittersForDate(day);
+  const dayName = DAY_NAMES[day.getDay()];
+  const monthName = MONTH_NAMES[day.getMonth()];
+
+  const diaperCount = getTrackingForDate(key, 'diaper').length;
+  const napCount = getTrackingForDate(key, 'nap').length;
+  const bottleCount = getTrackingForDate(key, 'bottle').length;
+
+  let html = `<div class="modal-handle"></div>`;
+  html += `<div class="modal-title">${dayName}, ${monthName} ${day.getDate()}</div>`;
+  html += `<div class="modal-subtitle">${isToday(day) ? 'Today' : key}</div>`;
+
+  // Sitter tags
+  html += `<div class="modal-sitters">`;
+  dateSitters.forEach(s => {
+    html += `<span class="sitter-tag" style="background:${sitterColor(s)}">${s}</span>`;
+  });
+  if (activeSitter) {
+    const isOn = dateSitters.includes(activeSitter);
+    html += `<button class="modal-sitter-toggle ${isOn ? 'active' : ''}" id="sitterToggle">`;
+    html += isOn ? `${activeSitter} ✓` : `+ ${activeSitter}`;
+    html += `</button>`;
+  }
+  html += `</div>`;
+
+  // Category buttons
+  html += `<div class="category-buttons">`;
+  html += `<button class="cat-btn" data-type="diaper">
+    <span class="cat-icon">🧷</span>
+    <span class="cat-label">Diaper</span>
+    <span class="cat-count">${diaperCount || ''}</span>
+  </button>`;
+  html += `<button class="cat-btn" data-type="nap">
+    <span class="cat-icon">😴</span>
+    <span class="cat-label">Nap</span>
+    <span class="cat-count">${napCount || ''}</span>
+  </button>`;
+  html += `<button class="cat-btn" data-type="bottle">
+    <span class="cat-icon">🍼</span>
+    <span class="cat-label">Bottle</span>
+    <span class="cat-count">${bottleCount || ''}</span>
+  </button>`;
+  html += `</div>`;
+
+  const container = document.getElementById('dayModalContent');
+  container.innerHTML = html;
+
+  container.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => openTrackModal(btn.dataset.type));
+  });
+
+  const toggle = container.querySelector('#sitterToggle');
+  if (toggle) {
+    toggle.addEventListener('click', async () => {
+      await toggleDate(day);
+      openDayModal(day);
+    });
+  }
+
+  document.getElementById('dayModal').classList.add('open');
+}
+
+function closeDayModal() {
+  document.getElementById('dayModal').classList.remove('open');
+  selectedDate = null;
+}
+
+// Tracking modals
+function openTrackModal(type) {
+  closeDayModal();
+  const key = dateKey(selectedDate || new Date());
+  const day = selectedDate || new Date();
+  const entries = getTrackingForDate(key, type);
+
+  const labels = { diaper: 'Diaper', nap: 'Nap', bottle: 'Bottle' };
+  const icons = { diaper: '🧷', nap: '😴', bottle: '🍼' };
+
+  let html = `<div class="modal-handle"></div>`;
+  html += `<button class="back-btn" id="trackBack">← Back</button>`;
+  html += `<div class="modal-title">${icons[type]} ${labels[type]} Log</div>`;
+  html += `<div class="modal-subtitle">${MONTH_NAMES[day.getMonth()]} ${day.getDate()}</div>`;
+
+  // Existing entries
+  html += `<div class="track-entries">`;
+  if (entries.length === 0) {
+    html += `<div class="track-empty">No entries yet</div>`;
+  } else {
+    entries.forEach((e, i) => {
+      let detail = '';
+      if (type === 'diaper') detail = e.subtype === 'poo' ? '💩 Poo' : '💧 Pee';
+      else if (type === 'bottle') detail = `${e.subtype} oz`;
+      else detail = 'Nap';
+
+      html += `<div class="track-entry">
+        <div class="track-entry-info">
+          <span class="track-entry-detail">${detail}</span>
+          <span class="track-entry-time">${formatTime12(e.time)}</span>
+        </div>
+        <button class="track-entry-delete" data-idx="${i}">×</button>
+      </div>`;
+    });
+  }
+  html += `</div>`;
+
+  // Add new form
+  html += `<div class="add-form-section">`;
+  html += `<div class="add-form-title">Add New</div>`;
+
+  if (type === 'diaper') {
+    html += `<div class="form-row">
+      <div class="toggle-group">
+        <button class="toggle-btn" data-val="poo">💩 Poo</button>
+        <button class="toggle-btn" data-val="pee">💧 Pee</button>
+      </div>
+    </div>`;
+  }
+
+  if (type === 'bottle') {
+    html += `<div class="form-row"><span class="form-label">Oz</span>
+      <div class="oz-group">`;
+    for (let oz = 1; oz <= 8; oz++) {
+      html += `<button class="oz-btn" data-oz="${oz}">${oz}</button>`;
+    }
+    html += `</div></div>`;
+  }
+
+  html += `<div class="form-row">
+    <span class="form-label">Time</span>
+    <input type="time" class="time-input" id="trackTime" value="${roundedTimeNow()}">
+  </div>`;
+
+  html += `<button class="save-btn" id="trackSave" disabled>Add</button>`;
+  html += `</div>`;
+
+  const container = document.getElementById('trackModalContent');
+  container.innerHTML = html;
+
+  // Wire up interactions
+  let selectedSubtype = null;
+
+  if (type === 'diaper') {
+    container.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        container.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedSubtype = btn.dataset.val;
+        document.getElementById('trackSave').disabled = false;
+      });
+    });
+  } else if (type === 'bottle') {
+    container.querySelectorAll('.oz-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        container.querySelectorAll('.oz-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedSubtype = btn.dataset.oz;
+        document.getElementById('trackSave').disabled = false;
+      });
+    });
+  } else {
+    document.getElementById('trackSave').disabled = false;
+  }
+
+  document.getElementById('trackSave').addEventListener('click', async () => {
+    const time = document.getElementById('trackTime').value;
+    if (!time) return;
+    if (type === 'diaper' && !selectedSubtype) return;
+    if (type === 'bottle' && !selectedSubtype) return;
+
+    trackingEntries.push({
+      date: key,
+      type,
+      subtype: selectedSubtype || '',
+      time
+    });
+
+    await saveTracking();
+    openTrackModal(type);
+    render();
+  });
+
+  container.querySelectorAll('.track-entry-delete').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const entryIdx = parseInt(btn.dataset.idx);
+      const dateEntries = getTrackingForDate(key, type);
+      const toRemove = dateEntries[entryIdx];
+      const globalIdx = trackingEntries.indexOf(toRemove);
+      if (globalIdx >= 0) {
+        trackingEntries.splice(globalIdx, 1);
+        await saveTracking();
+        openTrackModal(type);
+        render();
+      }
+    });
+  });
+
+  document.getElementById('trackBack').addEventListener('click', () => {
+    closeTrackModal();
+    openDayModal(selectedDate || day);
+  });
+
+  // Keep selectedDate for back navigation
+  if (!selectedDate) selectedDate = day;
+
+  document.getElementById('trackModal').classList.add('open');
+}
+
+function closeTrackModal() {
+  document.getElementById('trackModal').classList.remove('open');
 }
 
 async function toggleDate(day) {
@@ -579,11 +1153,52 @@ async function saveBookings() {
   saving = false;
 }
 
+async function loadTracking() {
+  try {
+    const res = await fetch('/api/lyla-tracking');
+    if (!res.ok) throw new Error('Failed to load tracking');
+    const data = await res.json();
+    trackingEntries = data.entries || [];
+    trackingSha = data.sha;
+  } catch (e) {
+    trackingEntries = [];
+    trackingSha = null;
+    console.error(e);
+  }
+}
+
+async function saveTracking() {
+  try {
+    const sorted = [...trackingEntries].sort((a, b) =>
+      a.date.localeCompare(b.date) || a.type.localeCompare(b.type) || a.time.localeCompare(b.time)
+    );
+    const res = await fetch('/api/lyla-tracking', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ entries: sorted, sha: trackingSha }),
+    });
+    if (!res.ok) throw new Error('Save failed');
+    const data = await res.json();
+    trackingSha = data.sha;
+    trackingEntries = sorted;
+  } catch (e) {
+    console.error('Tracking save error:', e);
+  }
+}
+
 function setStatus(msg, cls) {
   const el = document.getElementById('status');
   el.textContent = msg;
   el.className = 'status-bar' + (cls ? ' ' + cls : '');
 }
+
+// Modal close on overlay click
+document.getElementById('dayModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeDayModal();
+});
+document.getElementById('trackModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) { closeTrackModal(); render(); }
+});
 
 document.getElementById('weekSelect').addEventListener('change', render);
 document.getElementById('sitterSelect').addEventListener('change', (e) => {
@@ -595,6 +1210,7 @@ loadSitters();
 populateWeekDropdown();
 rebuildSitterDropdown();
 loadBookings();
+loadTracking();
 </script>
 
 </body>

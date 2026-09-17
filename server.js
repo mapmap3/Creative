@@ -11,6 +11,7 @@ const REPO_OWNER = process.env.REPO_OWNER || 'mapmap3';
 const REPO_NAME = process.env.REPO_NAME || 'Creative';
 const CSV_PATH = 'data/attendees.csv';
 const LYLA_CSV_PATH = 'data/lyla-calendar.csv';
+const TRACKING_CSV_PATH = 'data/lyla-tracking.csv';
 const BRANCH = process.env.REPO_BRANCH || 'main';
 
 const APP_MODE = process.env.APP_MODE || 'event';
@@ -149,6 +150,60 @@ app.put('/api/lyla-calendar', async (req, res) => {
       return res.status(409).json({ error: 'Conflict — someone else updated. Please refresh.' });
     }
     res.status(500).json({ error: 'Failed to save calendar' });
+  }
+});
+
+// Lyla tracking API
+function csvToTracking(csv) {
+  const lines = csv.trim().split('\n');
+  return lines.slice(1).filter(l => l.trim()).map(line => {
+    const [date, type, subtype, time] = line.split(',').map(s => s.trim());
+    return { date, type, subtype, time };
+  });
+}
+
+function trackingToCsv(entries) {
+  const header = 'date,type,subtype,time';
+  const rows = entries.map(e => `${e.date},${e.type},${e.subtype || ''},${e.time}`);
+  return header + '\n' + rows.join('\n') + '\n';
+}
+
+app.get('/api/lyla-tracking', async (_req, res) => {
+  try {
+    const data = await githubRequest(`/contents/${TRACKING_CSV_PATH}?ref=${BRANCH}`);
+    const csv = Buffer.from(data.content, 'base64').toString('utf-8');
+    const entries = csvToTracking(csv);
+    res.json({ entries, sha: data.sha });
+  } catch (err) {
+    console.error('GET /api/lyla-tracking error:', err.message);
+    res.status(500).json({ error: 'Failed to load tracking' });
+  }
+});
+
+app.put('/api/lyla-tracking', async (req, res) => {
+  try {
+    const { entries, sha } = req.body;
+    if (!entries || !sha) {
+      return res.status(400).json({ error: 'entries and sha required' });
+    }
+    const csv = trackingToCsv(entries);
+    const content = Buffer.from(csv).toString('base64');
+    const data = await githubRequest(`/contents/${TRACKING_CSV_PATH}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        message: 'Update Lyla tracking',
+        content,
+        sha,
+        branch: BRANCH,
+      }),
+    });
+    res.json({ sha: data.content.sha });
+  } catch (err) {
+    console.error('PUT /api/lyla-tracking error:', err.message);
+    if (err.message.includes('409')) {
+      return res.status(409).json({ error: 'Conflict — someone else updated. Please refresh.' });
+    }
+    res.status(500).json({ error: 'Failed to save tracking' });
   }
 });
 
