@@ -948,8 +948,7 @@ function updateRecordButton() {
 }
 
 function openCategoryPicker() {
-  const day = selectedDate || new Date();
-  if (!selectedDate) selectedDate = day;
+  if (!selectedDate) selectedDate = new Date();
   const day = selectedDate;
   const key = dateKey(day);
   const diaperCount = getTrackingForDate(key, 'diaper').length;
