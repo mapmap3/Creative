@@ -892,7 +892,8 @@ const DATA = {
     { id:"protaflo", name:"Protaflo (Enclave BioActives)", dose:"2 capsules", category:"Specialty Blends", notes:"Prostate health formula with zinc, selenium, pumpkin seed, turmeric (95% curcuminoids), beta-sitosterol, nettle, black walnut hull, probiotics, lycopene, BioPerine, and vitamins D3 and K2.",
       subIngredients: ["Vitamin D3 (Cholecalciferol) 50 mcg / 2,000 IU","Zinc (Zinc Picolinate) 15 mg","Selenium (L-Selenomethionine) 200 mcg","Pumpkin Seed 320 mg","Turmeric Root Extract (95% Curcuminoids) 200 mg","Beta Sitosterol Complex (40%) 130 mg","Black Walnut Hull Powder 100 mg","Nettle Leaf 100 mg","5-Strain Probiotic Blend (6B CFU) 50 mg","Lycopene 15 mg","Black Pepper Extract (BioPerine, 95% Piperine) 5 mg","Vitamin K2 (MK-7) 100 mcg"] },
     { id:"bells-palsy", name:"Bell's Palsy (Facial Nerve Paralysis)", dose:"Since Dec 2024", category:"Health Conditions", notes:"Onset December 2024. As of September 2026 (~21 months), face not notably droopy — just slightly — but extreme downward pressure sensation, like someone pulling downward on face. CN VII nerve paralysis from viral reactivation or inflammation in the bony fallopian canal.", flag:"high" },
-    { id:"high-crp", name:"Elevated CRP (C-Reactive Protein)", dose:"74.8 mg/L", category:"Health Conditions", notes:"Lab confirmed 9/15/2026: CRP 74.8 (ref <8.0), ESR 56 (ref ≤30). Calcium 11.3 (HIGH) confirms D3-induced hypercalcemia driving the inflammation. eGFR 53 (LOW) = Stage 3a kidney disease. WBC normal (9.7) — not infection-driven. D3 dose reduction is the primary fix.", flag:"critical" }
+    { id:"high-crp", name:"Elevated CRP (C-Reactive Protein)", dose:"74.8 mg/L", category:"Health Conditions", notes:"Lab confirmed 9/15/2026: CRP 74.8 (ref <8.0), ESR 56 (ref ≤30). Calcium 11.3 (HIGH) confirms D3-induced hypercalcemia driving the inflammation. eGFR 53 (LOW) = Stage 3a kidney disease. WBC normal (9.7) — not infection-driven. D3 dose reduction is the primary fix.", flag:"critical" },
+    { id:"ankylosing-spondylitis", name:"Ankylosing Spondylitis (AS)", dose:"Diagnosed", category:"Health Conditions", notes:"Autoimmune inflammatory disease attacking the spine and sacroiliac joints. Currently treating with high-dose D3 (Coimbra Protocol). Protocol REQUIRES: strict low-calcium diet (NO dairy/pizza), 2.5L+ water daily, regular bloodwork, Coimbra-trained physician. Current labs show these safeguards are not in place. Find a doctor at CoimbraProtocol.com.", flag:"critical" }
   ],
   interactions: [
     {
@@ -906,8 +907,8 @@ const DATA = {
       id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
       title:"CONFIRMED: D3 at ~102,800 IU Causing Hypercalcemia & Kidney Damage",
       supplements:["d3","k2","codeage-multi","protaflo"],
-      description:"LAB CONFIRMED 9/15/2026: Calcium 11.3 (HIGH, ref 8.6-10.4), eGFR 53 (LOW — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). D3 at 102,800 IU/day is causing hypercalcemia DESPITE ~9,280 mcg K2. The hypercalcemia is causing: (1) kidney damage via calcium deposits, (2) inflammation via NLRP3 inflammasome → CRP 74.8, (3) neuromuscular dysfunction worsening Bell's palsy.",
-      recommendation:"D3 DOSE MUST BE REDUCED. Hypercalcemia and kidney damage confirmed. Discuss with physician — reduce to 10,000-20,000 IU/day while monitoring calcium and eGFR. Continue K2. Recheck in 4-6 weeks."
+      description:"LAB CONFIRMED 9/15/2026: Calcium 11.3 (HIGH), eGFR 53 (LOW — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). The high-dose D3 is intentional — a Coimbra Protocol approach for treating ankylosing spondylitis (AS). The protocol is real but REQUIRES: strict low-calcium diet (no dairy, no pizza), 2.5L+ water daily, regular bloodwork, and Coimbra physician supervision. Current labs prove these safeguards are not in place — any Coimbra physician would immediately reduce D3 or enforce strict dietary restrictions.",
+      recommendation:"D3 MUST BE REDUCED OR PROTOCOL PROPERLY SUPERVISED. Two paths: (1) Find a Coimbra-trained physician (CoimbraProtocol.com) to manage the protocol safely, or (2) reduce to 10,000-20,000 IU/day until supervised. Either way: ELIMINATE dietary calcium immediately (no dairy, no pizza), drink 2.5L+ water daily. Recheck calcium, eGFR, 25(OH)D in 4-6 weeks. Continue K2."
     },
     {
       id:"int-03", severity:"moderate", outcome:"Thyroid Function",
@@ -938,11 +939,11 @@ const DATA = {
       recommendation:"Low risk without the dedicated blood sugar formula and berberine. Monitor if diabetic or on glucose-lowering medication."
     },
     {
-      id:"int-09", severity:"moderate", outcome:"Immune System",
-      title:"Immune Stimulation from Multiple Sources",
-      supplements:["elderberry","echinacea","black-seed-oil","l-lysine","vitamin-c"],
-      description:"Several immune-stimulating compounds in the stack: elderberry and echinacea are immune activators, black seed oil is an immune modulator, L-lysine and vitamin C support immune function. For someone with autoimmune conditions, this level of immune stimulation could trigger or worsen flares. Echinacea is specifically cautioned in autoimmune disease.",
-      recommendation:"If there is any autoimmune history, consult an immunologist before continuing this combination."
+      id:"int-09", severity:"high", outcome:"Immune System",
+      title:"DANGEROUS: Immune Stimulation with Confirmed Autoimmune Disease (AS)",
+      supplements:["elderberry","echinacea","black-seed-oil","l-lysine","vitamin-c","ankylosing-spondylitis"],
+      description:"With confirmed ankylosing spondylitis (AS), this immune-stimulating stack is actively dangerous. Echinacea (1,300 mg) and elderberry stimulate the very immune system attacking his spine and joints. Echinacea increases TNF-alpha and IL-1 — the cytokines driving AS disease activity and CRP of 74.8. L-lysine (3,000 mg) is safe with autoimmune conditions. Black seed oil's immune-modulating (not stimulating) action may benefit AS.",
+      recommendation:"DISCONTINUE ECHINACEA IMMEDIATELY — contraindicated in autoimmune disease. Elderberry should also be stopped or reviewed. L-lysine and vitamin C are safe. Black seed oil's modulating action may actually benefit AS."
     },
     {
       id:"int-11", severity:"moderate", outcome:"Bone & Mineral Balance",
@@ -1050,11 +1051,11 @@ const DATA = {
       recommendation:"Protaflo's curcumin + BioPerine restores meaningful anti-inflammatory support. This is a positive addition for facial nerve edema. The fibrinolytic agents (nattokinase, bromelain) are still absent, keeping the bleeding risk tradeoff favorable."
     },
     {
-      id:"int-48", severity:"moderate", outcome:"Facial Nerve (Bell's Palsy)",
-      title:"Immune Stimulants vs Bell's Palsy: Viral Clearance or Autoimmune Harm?",
-      supplements:["bells-palsy","echinacea","elderberry","l-lysine","vitamin-c","black-seed-oil"],
-      description:"Bell's palsy is most commonly triggered by viral reactivation — HSV-1 or VZV reactivating in the geniculate ganglion. L-lysine (3,000 mg) specifically inhibits HSV replication by competing with arginine. Vitamin C and elderberry support general immune defense. However, Bell's palsy may also involve autoimmune-mediated nerve damage. Echinacea (1,300 mg) is specifically cautioned in autoimmune conditions. If autoimmune inflammation contributes to the persistent symptoms at 21 months, echinacea could be actively worsening recovery.",
-      recommendation:"L-lysine is clearly beneficial if viral etiology is suspected. Echinacea is the risk — consider discontinuing given the prolonged course. An immunologist can test for autoimmune markers."
+      id:"int-48", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
+      title:"CONFIRMED AUTOIMMUNE (AS): Echinacea Likely Worsening Bell's Palsy",
+      supplements:["bells-palsy","echinacea","elderberry","l-lysine","vitamin-c","black-seed-oil","ankylosing-spondylitis"],
+      description:"With confirmed ankylosing spondylitis — a proven autoimmune disease — Bell's palsy may involve autoimmune nerve damage. AS proves his immune system attacks his own tissues. Echinacea (1,300 mg) is stimulating this autoimmune process, potentially preventing facial nerve healing at 21 months. L-lysine (3,000 mg) remains beneficial for HSV without stimulating autoimmunity. The combination of AS and persistent Bell's palsy suggests a broader autoimmune phenotype.",
+      recommendation:"DISCONTINUE ECHINACEA — with confirmed autoimmune disease, immune stimulation is likely preventing Bell's palsy recovery. L-lysine is safe. An immunologist should evaluate whether AS and Bell's palsy share an autoimmune mechanism."
     },
     {
       id:"int-49", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
@@ -1102,8 +1103,8 @@ const DATA = {
       id:"int-55", severity:"critical", outcome:"Systemic Inflammation (CRP)",
       title:"CONFIRMED: D3 → High Calcium → High CRP → Persistent Bell's Palsy (The Chain)",
       supplements:["high-crp","bells-palsy","d3"],
-      description:"Labs confirmed the full chain: D3 at 102,800 IU → calcium 11.3 (HIGH) → NLRP3 inflammasome → CRP 74.8 → ongoing inflammation compressing facial nerve at 21 months. Normal WBC (9.7) confirms this is NOT infection-driven. ESR 56 confirms chronic inflammation. The persistent Bell's palsy is being actively maintained by supplement-driven inflammation.",
-      recommendation:"The path to recovery is clear: reduce D3 → calcium normalizes → CRP drops → facial nerve inflammation resolves → symptoms improve. Discuss D3 dose reduction with physician immediately."
+      description:"Labs confirmed the chain: D3 at 102,800 IU → calcium 11.3 (HIGH) → NLRP3 inflammasome → CRP 74.8 → ongoing inflammation at 21 months. HOWEVER, ankylosing spondylitis (AS) is ALSO driving CRP — AS is autoimmune inflammation that produces elevated CRP independently. The CRP of 74.8 likely reflects BOTH sources: D3-induced hypercalcemia AND AS disease activity. The persistent Bell's palsy is maintained by inflammation from TWO sources — supplement-driven (fixable) and autoimmune (requires AS treatment).",
+      recommendation:"Reducing D3 should significantly lower CRP but may not normalize it — AS itself drives inflammation. Address BOTH sources: (1) reduce D3 or properly implement Coimbra Protocol dietary restrictions, (2) work with a rheumatologist or Coimbra physician to manage AS."
     },
     {
       id:"int-56", severity:"critical", outcome:"Systemic Inflammation (CRP)",
@@ -1139,6 +1140,41 @@ const DATA = {
       supplements:["d3","codeage-multi","protaflo","potassium","mag-threonate","mag-glycinate"],
       description:"LAB CONFIRMED 9/15/2026: eGFR 53 (LOW), BUN 26 (HIGH), Creatinine 1.16 (HIGH) = Stage 3a CKD. Caused by calcium 11.3 (D3-induced hypercalcemia) depositing in kidney tubules. With reduced kidney function: potassium (1,020 mg) needs monitoring (serum K 4.5 — ok for now but kidneys can't clear excess), magnesium (~209 mg) clearance is slower. Stage 3a is REVERSIBLE if D3 is reduced and calcium normalizes quickly.",
       recommendation:"D3 reduction URGENT — not just for CRP/Bell's palsy but to prevent permanent kidney damage. Monitor potassium and magnesium. Recheck eGFR, BUN, creatinine in 4-6 weeks. If eGFR continues to decline, nephrology referral needed."
+    },
+    {
+      id:"int-61", severity:"critical", outcome:"Autoimmune (Ankylosing Spondylitis)",
+      title:"Coimbra Protocol for AS: High-Dose D3 Requires Strict Dietary Compliance",
+      supplements:["ankylosing-spondylitis","d3","k2"],
+      description:"The 102,800 IU D3 is an intentional Coimbra Protocol approach for AS — a legitimate protocol using massive D3 to suppress autoimmune activity. However, it REQUIRES: (1) strict low-calcium diet — no dairy, no pizza, no calcium-fortified foods (a 2-slice pizza delivers 400-750 mg calcium — the entire day's allowance), (2) 2.5L+ water daily, (3) bloodwork every 3-6 months, (4) Coimbra-trained physician. Current labs prove these safeguards are not in place.",
+      recommendation:"The D3 isn't wrong for AS — but it's being done unsafely. IMMEDIATE: eliminate ALL dietary calcium, drink 2.5L+ water daily, find a Coimbra physician (CoimbraProtocol.com). Until supervised, consider reducing to 40,000-50,000 IU/day with proper dietary compliance. Recheck calcium, eGFR, PTH, 25(OH)D in 4-6 weeks."
+    },
+    {
+      id:"int-62", severity:"critical", outcome:"Autoimmune (Ankylosing Spondylitis)",
+      title:"CONTRAINDICATED: Echinacea Fueling Autoimmune Attack on Spine",
+      supplements:["ankylosing-spondylitis","echinacea","elderberry"],
+      description:"Echinacea is CONTRAINDICATED in autoimmune diseases. With confirmed AS, echinacea (1,300 mg) stimulates the immune system attacking his spine and joints. It increases TNF-alpha, IL-1, and IL-6 — the exact cytokines driving AS disease activity. Taking echinacea while using high-dose D3 to suppress immunity is working against the treatment. Elderberry also activates immune pathways but is less directly stimulatory.",
+      recommendation:"STOP ECHINACEA IMMEDIATELY. It directly opposes the Coimbra Protocol goal (immune suppression) and fuels the autoimmune attack on the spine. Elderberry should also be discontinued until reviewed by an immunologist. Every day on echinacea with AS is a day the immune system is pushed to attack harder."
+    },
+    {
+      id:"int-63", severity:"critical", outcome:"Autoimmune (Ankylosing Spondylitis)",
+      title:"AS Drives CRP Independently — D3 Reduction Alone May Not Normalize It",
+      supplements:["ankylosing-spondylitis","high-crp","d3"],
+      description:"CRP of 74.8 has TWO drivers: (1) D3-induced hypercalcemia activating NLRP3 inflammasome (fixable), and (2) AS autoimmune inflammation (requires disease management). CRP of 20-80+ is common during active AS flares. Even after D3 reduction and calcium normalization, CRP may remain elevated if AS is flaring. The Coimbra Protocol aims to address AS by suppressing immunity with D3, but at the current unsupervised dose, it's causing MORE inflammation through hypercalcemia than preventing through immune suppression.",
+      recommendation:"Address CRP with TWO-PRONGED approach: (1) fix D3/calcium to eliminate hypercalcemia-driven inflammation, (2) properly manage AS — either supervised Coimbra Protocol or conventional treatment (TNF inhibitors are highly effective for AS). Track CRP at each draw to see which component is improving."
+    },
+    {
+      id:"int-64", severity:"low", outcome:"Autoimmune (Ankylosing Spondylitis)",
+      title:"Synergistic: Anti-Inflammatory Stack Therapeutic for AS Spinal Inflammation",
+      supplements:["ankylosing-spondylitis","protaflo","black-seed-oil","krill-oil","nad-resveratrol-combo"],
+      description:"Anti-inflammatory supplements are especially important for AS. Curcumin (200 mg from Protaflo + BioPerine) is studied for AS — reduces TNF-alpha and CRP. Omega-3s (krill oil) reduce IL-6. Thymoquinone (black seed oil) inhibits NF-κB, a central AS inflammation driver. Resveratrol and quercetin provide additional NF-κB inhibition. These attack the autoimmune inflammatory cascade and complement any AS treatment approach.",
+      recommendation:"Among the most important supplements to KEEP for AS. Curcumin with BioPerine is the standout. This stack works alongside (not against) any treatment — the opposite of what echinacea does."
+    },
+    {
+      id:"int-65", severity:"high", outcome:"Autoimmune (Ankylosing Spondylitis)",
+      title:"AS + Bell's Palsy: Autoimmune Crossover — Two Targets, One Immune System",
+      supplements:["ankylosing-spondylitis","bells-palsy"],
+      description:"AS proves the immune system attacks his own tissues. Bell's palsy persisting at 21 months may involve autoimmune nerve damage. AS patients have higher rates of cranial nerve involvement. The same inflammatory cytokines (TNF-alpha, IL-6) that attack spinal joints can damage peripheral nerves. The combination suggests a broader autoimmune phenotype with multiple tissue targets — making immune stimulation (echinacea) even more dangerous.",
+      recommendation:"An immunologist should evaluate whether AS and Bell's palsy share an autoimmune mechanism. If linked, treating AS (Coimbra Protocol or biologics) may also help Bell's palsy resolve. The nerve repair stack (B12, lion's mane, ALCAR, benfotiamine) remains critical regardless."
     }
   ]
 };
@@ -1166,6 +1202,7 @@ let currentSearch = '';
 let currentViewMode = 'severity';
 
 const OUTCOME_ORDER = [
+  { key:"Autoimmune (Ankylosing Spondylitis)", icon:"🦴" },
   { key:"Facial Nerve (Bell's Palsy)", icon:"🧿" },
   { key:"Systemic Inflammation (CRP)", icon:"🔬" },
   { key:"Bleeding & Clotting", icon:"🩸" },
