@@ -14,11 +14,11 @@
     {
       "id": "k2",
       "name": "Vitamin K2 (MK-7)",
-      "dose": "8,500 mcg",
-      "doseValue": 8500,
+      "dose": "9,100 mcg",
+      "doseValue": 9100,
       "doseUnit": "mcg",
       "category": "Fat-Soluble Vitamins",
-      "notes": "Very high dose. Often paired with high-dose D3 to direct calcium to bones."
+      "notes": "Very high dose. Often paired with high-dose D3 to direct calcium to bones. Lab-confirmed hypercalcemia (calcium 11.3) at prior 8,500 mcg dose shows K2 alone cannot prevent D3-induced calcium excess."
     },
     {
       "id": "mag-threonate",
@@ -448,7 +448,7 @@
       "outcome": "Bone & Mineral Balance",
       "title": "CONFIRMED: D3 at ~102,800 IU Causing Hypercalcemia & Kidney Damage",
       "supplements": ["d3", "k2", "codeage-multi", "protaflo"],
-      "description": "LAB CONFIRMED 9/15/2026: Calcium 11.3 mg/dL (HIGH, ref 8.6-10.4), eGFR 53 (LOW, ref ≥60 — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). Total D3 ~102,800 IU/day is causing hypercalcemia DESPITE 8,680 mcg K2. The K2 is not enough to prevent calcium buildup at this D3 level. The hypercalcemia is now causing a cascade: (1) kidney damage (eGFR 53 = Stage 3a CKD — calcium deposits damaging renal tubules), (2) inflammation via NLRP3 inflammasome activation (contributing to CRP 74.8), (3) neuromuscular dysfunction (likely worsening Bell's palsy 'downward pressure' sensation through muscle hypertonicity). The Coimbra Protocol requires strict low-calcium diet, 2.5L+ daily water, and regular bloodwork — without that dietary support, this dose is causing measurable organ damage.",
+      "description": "LAB CONFIRMED 9/15/2026: Calcium 11.3 mg/dL (HIGH, ref 8.6-10.4), eGFR 53 (LOW, ref ≥60 — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). Total D3 ~102,800 IU/day is causing hypercalcemia DESPITE ~9,280 mcg K2. The K2 is not enough to prevent calcium buildup at this D3 level. The hypercalcemia is now causing a cascade: (1) kidney damage (eGFR 53 = Stage 3a CKD — calcium deposits damaging renal tubules), (2) inflammation via NLRP3 inflammasome activation (contributing to CRP 74.8), (3) neuromuscular dysfunction (likely worsening Bell's palsy 'downward pressure' sensation through muscle hypertonicity). The Coimbra Protocol requires strict low-calcium diet, 2.5L+ daily water, and regular bloodwork — without that dietary support, this dose is causing measurable organ damage.",
       "recommendation": "THE D3 DOSE MUST BE REDUCED. Hypercalcemia and kidney damage are confirmed by lab. Discuss with physician immediately — a supervised reduction to 10,000-20,000 IU/day while monitoring calcium and eGFR is reasonable. The kidneys need to recover (eGFR 53 is reversible if caught early). Continue K2 at current dose during the taper. Recheck calcium, eGFR, and 25(OH)D in 4-6 weeks after dose reduction."
     },
     {
@@ -711,7 +711,7 @@
       "outcome": "Systemic Inflammation (CRP)",
       "title": "CONFIRMED: D3-Induced Hypercalcemia (11.3) Driving CRP of 74.8",
       "supplements": ["high-crp", "d3", "codeage-multi", "protaflo"],
-      "description": "LAB CONFIRMED 9/15/2026: Calcium 11.3 mg/dL (HIGH). The question of whether D3 was helping or hurting inflammation is now answered — it is HURTING. At 102,800 IU/day, the D3 has pushed calcium above the safe range despite 8,680 mcg K2. High calcium activates the NLRP3 inflammasome, which drives IL-1β production, which triggers CRP production in the liver. This is likely a major contributor to the CRP of 74.8. The normal WBC (9.7) argues against infection as the primary cause of the elevated CRP, making the hypercalcemia-driven inflammatory pathway even more likely as the main driver. Reducing D3 should lower calcium → reduce NLRP3 activation → lower IL-1β → lower CRP.",
+      "description": "LAB CONFIRMED 9/15/2026: Calcium 11.3 mg/dL (HIGH). The question of whether D3 was helping or hurting inflammation is now answered — it is HURTING. At 102,800 IU/day, the D3 has pushed calcium above the safe range despite ~9,280 mcg K2. High calcium activates the NLRP3 inflammasome, which drives IL-1β production, which triggers CRP production in the liver. This is likely a major contributor to the CRP of 74.8. The normal WBC (9.7) argues against infection as the primary cause of the elevated CRP, making the hypercalcemia-driven inflammatory pathway even more likely as the main driver. Reducing D3 should lower calcium → reduce NLRP3 activation → lower IL-1β → lower CRP.",
       "recommendation": "D3 dose reduction is now the single most impactful change for lowering CRP. The inflammation is being driven by the supplements themselves, not (primarily) by infection. Reducing D3 to 10,000-20,000 IU/day should normalize calcium within weeks, which should substantially lower CRP. Recheck calcium, CRP, and eGFR in 4-6 weeks to confirm the cascade is reversing."
     },
     {

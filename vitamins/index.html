@@ -849,7 +849,7 @@ h1 {
 const DATA = {
   supplements: [
     { id:"d3", name:"Vitamin D3 (Cholecalciferol)", dose:"100,000 IU", category:"Fat-Soluble Vitamins", notes:"25x higher than a typical weekly prescription dose. Can cause dangerously high calcium levels.", flag:"critical" },
-    { id:"k2", name:"Vitamin K2 (MK-7)", dose:"8,500 mcg", category:"Fat-Soluble Vitamins", notes:"Very high dose. Helps send calcium to bones instead of arteries. Works with D3." },
+    { id:"k2", name:"Vitamin K2 (MK-7)", dose:"9,100 mcg", category:"Fat-Soluble Vitamins", notes:"Very high dose. Helps send calcium to bones instead of arteries. Works with D3. Lab-confirmed hypercalcemia at prior 8,500 mcg shows K2 alone cannot prevent D3-induced calcium excess." },
     { id:"mag-threonate", name:"Magnesium L-Threonate", dose:"2,000 mg", category:"Minerals", notes:"A form of magnesium that crosses into the brain. Good for sleep and focus." },
     { id:"mag-glycinate", name:"Magnesium Glycinate", dose:"350 mg", category:"Minerals", notes:"Easy on the stomach. Helps with relaxation and muscle cramps." },
     { id:"pumpkin-seed", name:"Organic Pumpkin Seed", dose:"600 mg", category:"Whole Food Extracts", notes:"Natural source of zinc and magnesium. Supports prostate health." },
@@ -906,7 +906,7 @@ const DATA = {
       id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
       title:"CONFIRMED: D3 at ~102,800 IU Causing Hypercalcemia & Kidney Damage",
       supplements:["d3","k2","codeage-multi","protaflo"],
-      description:"LAB CONFIRMED 9/15/2026: Calcium 11.3 (HIGH, ref 8.6-10.4), eGFR 53 (LOW — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). D3 at 102,800 IU/day is causing hypercalcemia DESPITE 8,680 mcg K2. The hypercalcemia is causing: (1) kidney damage via calcium deposits, (2) inflammation via NLRP3 inflammasome → CRP 74.8, (3) neuromuscular dysfunction worsening Bell's palsy.",
+      description:"LAB CONFIRMED 9/15/2026: Calcium 11.3 (HIGH, ref 8.6-10.4), eGFR 53 (LOW — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). D3 at 102,800 IU/day is causing hypercalcemia DESPITE ~9,280 mcg K2. The hypercalcemia is causing: (1) kidney damage via calcium deposits, (2) inflammation via NLRP3 inflammasome → CRP 74.8, (3) neuromuscular dysfunction worsening Bell's palsy.",
       recommendation:"D3 DOSE MUST BE REDUCED. Hypercalcemia and kidney damage confirmed. Discuss with physician — reduce to 10,000-20,000 IU/day while monitoring calcium and eGFR. Continue K2. Recheck in 4-6 weeks."
     },
     {
@@ -1109,7 +1109,7 @@ const DATA = {
       id:"int-56", severity:"critical", outcome:"Systemic Inflammation (CRP)",
       title:"CONFIRMED: D3-Induced Hypercalcemia (11.3) Driving CRP of 74.8",
       supplements:["high-crp","d3","codeage-multi","protaflo"],
-      description:"LAB CONFIRMED: Calcium 11.3 (HIGH). D3 at 102,800 IU/day has pushed calcium above safe range despite 8,680 mcg K2. High calcium activates NLRP3 inflammasome → IL-1β → CRP 74.8. Normal WBC (9.7) confirms this is NOT infection — the inflammation is being driven by the supplements themselves. Reducing D3 should lower calcium → lower CRP.",
+      description:"LAB CONFIRMED: Calcium 11.3 (HIGH). D3 at 102,800 IU/day has pushed calcium above safe range despite ~9,280 mcg K2. High calcium activates NLRP3 inflammasome → IL-1β → CRP 74.8. Normal WBC (9.7) confirms this is NOT infection — the inflammation is being driven by the supplements themselves. Reducing D3 should lower calcium → lower CRP.",
       recommendation:"D3 reduction is the single most impactful change for lowering CRP. Reduce to 10,000-20,000 IU/day. Calcium should normalize within weeks, CRP should follow. Recheck calcium, CRP, eGFR in 4-6 weeks."
     },
     {
