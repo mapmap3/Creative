@@ -865,7 +865,7 @@ const DATA = {
     { id:"elderberry", name:"Black Elderberry 10:1 Extract", dose:"500 mg", category:"Immune Support", notes:"Concentrated elderberry (equals about 5,000 mg of whole berries). Boosts immune defenses against colds and flu." },
     { id:"echinacea", name:"Echinacea", dose:"1,300 mg", category:"Immune Support", notes:"Revs up the immune system. Should be avoided if you have an autoimmune condition." },
     { id:"copper", name:"Thorne Copper Bisglycinate", dose:"2 mg", category:"Minerals", notes:"Needed to balance out the high zinc intake. About 2x the daily recommended amount." },
-    { id:"b1", name:"Vitamin B1 (Benfotiamine)", dose:"300 mg", category:"B Vitamins", notes:"A form of B1 the body absorbs more easily. Supports nerve health and energy." },
+    { id:"b1", name:"Vitamin B1 (Benfotiamine)", dose:"600 mg", category:"B Vitamins", notes:"A form of B1 the body absorbs more easily. High dose for nerve support and energy." },
     { id:"b6", name:"Vitamin B6 (P5P)", dose:"25 mg", category:"B Vitamins", notes:"Active form the body can use right away. Safe at this dose but very high long-term use can cause nerve tingling." },
     { id:"b12", name:"Vitamin B12 (Methylcobalamin)", dose:"5,000 mcg", category:"B Vitamins", notes:"Active form at therapeutic high dose for nerve repair. Critical for Bell's palsy recovery and myelin synthesis." },
     { id:"aged-garlic", name:"Aged Garlic Extract (Elcare)", dose:"15 mg", category:"Herbal Extracts", notes:"Very low dose. Minimal blood-thinning or blood-pressure effects at this level." },
@@ -881,7 +881,7 @@ const DATA = {
     { id:"potassium", name:"Potassium", dose:"1,020 mg", category:"Minerals", notes:"Essential for heart rhythm and muscle function. You need 2,600–3,400 mg/day total from food and supplements." },
     { id:"eye-formula", name:"Advanced Eye Formula 14-in-1", dose:"490 mg", category:"Specialty Blends", notes:"Eye health blend — likely contains lutein and zeaxanthin to protect against age-related vision loss." },
     { id:"lycopene", name:"Lycopene", dose:"50 mg", category:"Antioxidants", notes:"The red pigment from tomatoes. Protects cells from damage and supports prostate health." },
-    { id:"iodine", name:"Iodine", dose:"300 mcg", category:"Minerals", notes:"About 2x the RDA of 150 mcg and well below the upper tolerable limit of 1,100 mcg." },
+    { id:"iodine", name:"Iodine", dose:"600 mcg", category:"Minerals", notes:"About 4x the RDA of 150 mcg but still below the upper tolerable limit of 1,100 mcg." },
     { id:"nad-resveratrol-combo", name:"NMN / Trans Resveratrol / Apigenin / Quercetin", dose:"1,305 mg total", category:"Antioxidants", notes:"Anti-aging combo. NMN 1,000 mg is a precursor to NAD+ and supports cellular energy. Trans-resveratrol 200 mg is an antiplatelet/antioxidant. Apigenin 50 mg supports sleep and NAD+ recycling. Quercetin 50 mg boosts absorption and fights inflammation. Black pepper 5 mg enhances bioavailability.", flag:"high",
       subIngredients: ["NMN 1,000 mg","Trans Resveratrol 200 mg","Apigenin 50 mg","Quercetin 50 mg","Black Pepper 5 mg"] },
     { id:"saffron", name:"Pure Saffron", dose:"89 mg", category:"Herbal Extracts", notes:"Supports mood, reduces anxiety, and may help with appetite control. Can mildly thin blood at high doses." },
@@ -891,7 +891,8 @@ const DATA = {
     { id:"astaxanthin", name:"Astaxanthin", dose:"12 mg", category:"Antioxidants", notes:"Powerful antioxidant from algae — 6,000x stronger than vitamin C. Protects eyes, skin, and joints. Mild blood-thinning effect." },
     { id:"protaflo", name:"Protaflo (Enclave BioActives)", dose:"2 capsules", category:"Specialty Blends", notes:"Prostate health formula with zinc, selenium, pumpkin seed, turmeric (95% curcuminoids), beta-sitosterol, nettle, black walnut hull, probiotics, lycopene, BioPerine, and vitamins D3 and K2.",
       subIngredients: ["Vitamin D3 (Cholecalciferol) 50 mcg / 2,000 IU","Zinc (Zinc Picolinate) 15 mg","Selenium (L-Selenomethionine) 200 mcg","Pumpkin Seed 320 mg","Turmeric Root Extract (95% Curcuminoids) 200 mg","Beta Sitosterol Complex (40%) 130 mg","Black Walnut Hull Powder 100 mg","Nettle Leaf 100 mg","5-Strain Probiotic Blend (6B CFU) 50 mg","Lycopene 15 mg","Black Pepper Extract (BioPerine, 95% Piperine) 5 mg","Vitamin K2 (MK-7) 100 mcg"] },
-    { id:"bells-palsy", name:"Bell's Palsy (Facial Nerve Paralysis)", dose:"Since Dec 2024", category:"Health Conditions", notes:"Onset December 2024. As of September 2026 (~21 months), face not notably droopy — just slightly — but extreme downward pressure sensation, like someone pulling downward on face. CN VII nerve paralysis from viral reactivation or inflammation in the bony fallopian canal.", flag:"high" }
+    { id:"bells-palsy", name:"Bell's Palsy (Facial Nerve Paralysis)", dose:"Since Dec 2024", category:"Health Conditions", notes:"Onset December 2024. As of September 2026 (~21 months), face not notably droopy — just slightly — but extreme downward pressure sensation, like someone pulling downward on face. CN VII nerve paralysis from viral reactivation or inflammation in the bony fallopian canal.", flag:"high" },
+    { id:"high-crp", name:"Elevated CRP (C-Reactive Protein)", dose:"~75 mg/L", category:"Health Conditions", notes:"CRP at ~75 mg/L is extremely elevated — normal is <3 mg/L, and >10 indicates significant inflammation. Severe active inflammation from infection, autoimmune disease, or chronic inflammatory condition. May explain persistent Bell's palsy symptoms.", flag:"critical" }
   ],
   interactions: [
     {
@@ -909,11 +910,11 @@ const DATA = {
       recommendation:"Not automatically dangerous — supervised high-dose D3 protocols exist — but requires serum 25(OH)D and calcium monitoring. Without confirmed lab oversight, this dose carries real risk of hypercalcemia. K2 helps but is not a proven safeguard at this level."
     },
     {
-      id:"int-03", severity:"low", outcome:"Thyroid Function",
-      title:"Iodine Intake: Adequate but Monitor with Multivitamin",
+      id:"int-03", severity:"moderate", outcome:"Thyroid Function",
+      title:"Iodine Intake at 600 mcg: ~4x RDA, Monitor Thyroid",
       supplements:["iodine","codeage-multi"],
-      description:"300 mcg of iodine is about 2x the RDA (150 mcg) and well below the upper tolerable limit (1,100 mcg). The multivitamin adds additional iodine, so combined intake should be monitored to stay below the UL.",
-      recommendation:"Safe at this dose. Monitor total iodine intake from all supplements combined."
+      description:"600 mcg of iodine is about 4x the RDA (150 mcg), still below the upper tolerable limit (1,100 mcg) but meaningful. At this dose, thyroid disruption is possible — both Hashimoto's and Graves' can be triggered by iodine above 500 mcg. The Wolff-Chaikoff effect (transient hypothyroidism from iodine excess) is a concern.",
+      recommendation:"Still below the UL but warrants thyroid monitoring (TSH, free T4). Watch for fatigue, weight changes, or heart rate changes."
     },
     {
       id:"int-04", severity:"high", outcome:"Bone & Mineral Balance",
@@ -1038,8 +1039,8 @@ const DATA = {
       id:"int-46", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Synergistic: B Vitamins + Lion's Mane + ALCAR + Magnesium — Nerve Repair Arsenal",
       supplements:["bells-palsy","b12","b1","b6","b2","alcar","mag-threonate","lions-mane"],
-      description:"The strongest nerve-repair combination in the stack. B12 methylcobalamin (5,000 mcg — increased to therapeutic dose) is critical for myelin synthesis — the single most important supplement for Bell's palsy recovery. Lion's Mane (1,000 mg) stimulates nerve growth factor (NGF) — directly promotes nerve regeneration and remyelination, making it one of the most targeted supplements for Bell's palsy. B1 benfotiamine (300 mg) supports nerve energy metabolism. B2 riboflavin (400 mg) supports mitochondrial function in nerve cells. B6 P5P (25 mg) supports neurotransmitter synthesis. ALCAR (1,500 mg) crosses the blood-brain barrier and supports nerve regeneration. Magnesium L-threonate crosses the blood-brain barrier and is neuroprotective.",
-      recommendation:"Excellent foundation for nerve recovery. B12 is now at therapeutic 5,000 mcg — good for active nerve healing. Lion's Mane is the most targeted NGF stimulator available. Keep total B6 under 100 mg/day (currently ~35 mg — safe). These are the most important supplements to keep taking."
+      description:"The strongest nerve-repair combination in the stack. B12 methylcobalamin (5,000 mcg) is critical for myelin synthesis. Lion's Mane (1,000 mg) stimulates nerve growth factor (NGF). B1 benfotiamine (600 mg) supports nerve energy metabolism — doubled dose strengthens nerve support significantly. B2 riboflavin (400 mg) supports mitochondrial function in nerve cells. B6 P5P (25 mg) supports neurotransmitter synthesis. ALCAR (1,500 mg) crosses the blood-brain barrier. Magnesium L-threonate is neuroprotective.",
+      recommendation:"Excellent foundation for nerve recovery. B1 doubled to 600 mg — strong nerve energy support. B12 at therapeutic 5,000 mcg. Lion's Mane is the most targeted NGF stimulator. Keep B6 under 100 mg/day (~35 mg — safe). Most important supplements to keep."
     },
     {
       id:"int-47", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
@@ -1082,6 +1083,55 @@ const DATA = {
       supplements:["nad-resveratrol-combo","protaflo"],
       description:"Piperine (BioPerine) is now at 10 mg total from 2 sources: NMN combo (5 mg) and Protaflo (5 mg). Piperine inhibits CYP3A4 and other drug-metabolizing enzymes, slowing the clearance of many compounds. This doubles the previous piperine load. The main practical effect: curcumin absorption increases up to 2,000% with piperine (a designed feature of Protaflo), and resveratrol absorption also increases significantly. With tadalafil removed, there is no prescription medication in the stack for piperine to dangerously amplify.",
       recommendation:"No prescription drug interaction concern now that tadalafil is removed. The enhanced absorption of curcumin and resveratrol is generally positive. If any new prescription medication is added, inform the physician about the 10 mg piperine load — it affects the metabolism of many drugs."
+    },
+    {
+      id:"int-53", severity:"high", outcome:"Systemic Inflammation (CRP)",
+      title:"Anti-Inflammatory Stack May Help Lower CRP from 75 mg/L",
+      supplements:["high-crp","protaflo","black-seed-oil","krill-oil","nad-resveratrol-combo"],
+      description:"CRP at ~75 mg/L indicates severe systemic inflammation (normal <3). This stack contains evidence-based CRP-lowering agents: curcumin (200 mg from Protaflo + BioPerine), thymoquinone (black seed oil 2,000 mg), omega-3s (krill oil 2,000 mg), resveratrol (200 mg), quercetin (50 mg). Together these attack inflammation through NF-κB inhibition, COX-2 reduction, cytokine suppression, and SIRT1 activation.",
+      recommendation:"These anti-inflammatory supplements are critically important given CRP at 75. However, supplements alone are unlikely to normalize CRP this high — the underlying cause must be identified. Get comprehensive bloodwork: ESR, ANA, RF, CBC with differential, procalcitonin."
+    },
+    {
+      id:"int-54", severity:"high", outcome:"Systemic Inflammation (CRP)",
+      title:"Immune Stimulants with CRP at 75: Potentially Dangerous",
+      supplements:["high-crp","echinacea","elderberry"],
+      description:"With CRP at ~75, the immune system is already massively activated. Echinacea (1,300 mg) increases cytokine production including IL-6 — the cytokine that drives CRP production. Elderberry (500 mg, 10:1 = 5,000 mg equivalent) also activates immune pathways. If the CRP reflects autoimmune inflammation, these immune stimulants are like throwing gasoline on a fire.",
+      recommendation:"STRONGLY consider discontinuing echinacea immediately. The immune system needs modulation, not stimulation. An immunologist should determine whether inflammation is autoimmune before continuing."
+    },
+    {
+      id:"int-55", severity:"high", outcome:"Systemic Inflammation (CRP)",
+      title:"CRP at 75 May Explain Persistent Bell's Palsy at 21 Months",
+      supplements:["high-crp","bells-palsy"],
+      description:"Possibly the most important connection in the stack. CRP at ~75 is 25x the threshold for significant inflammation. Bell's palsy results from inflammation compressing the facial nerve. Most cases resolve in 3-6 months when inflammation subsides. At 21 months with persistent symptoms, CRP of 75 suggests the inflammation NEVER resolved — or a chronic process maintains nerve compression. This changes the picture: not a recovery problem but active, ongoing inflammatory assault on the facial nerve.",
+      recommendation:"URGENT: Request MRI of temporal bone/facial nerve with gadolinium contrast to look for active inflammation. Treating the underlying CRP elevation may be the key to resolving the Bell's palsy."
+    },
+    {
+      id:"int-56", severity:"high", outcome:"Systemic Inflammation (CRP)",
+      title:"Vitamin D3 at 102,800 IU: Dual-Edged Sword for Inflammation",
+      supplements:["high-crp","d3","codeage-multi","protaflo"],
+      description:"D3 at therapeutic doses reduces inflammatory cytokines (TNF-α, IL-6, IL-1β) and increases anti-inflammatory IL-10. But at ~102,800 IU/day, D3 toxicity causing hypercalcemia is itself pro-inflammatory — calcium activates the NLRP3 inflammasome, driving IL-1β and CRP. Paradox: D3 could be simultaneously anti-inflammatory (via VDR signaling) and pro-inflammatory (via calcium dysregulation).",
+      recommendation:"Check serum calcium AND ionized calcium immediately. If elevated, D3 may be driving CRP via NLRP3 inflammasome and contributing to both high CRP and persistent Bell's palsy."
+    },
+    {
+      id:"int-57", severity:"low", outcome:"Systemic Inflammation (CRP)",
+      title:"Synergistic: Antioxidant Defense Against Inflammatory Oxidative Damage",
+      supplements:["high-crp","glutathione","vitamin-c","astaxanthin"],
+      description:"CRP at 75 means massive oxidative stress. Glutathione (500 mg liposomal) neutralizes ROS intracellularly, vitamin C (500 mg) provides extracellular protection and recycles glutathione, astaxanthin (12 mg) crosses the blood-brain barrier and protects cell membranes. These won't lower CRP directly but protect tissues from collateral damage of chronic inflammation.",
+      recommendation:"Important protective role. Especially valuable for protecting the recovering facial nerve from oxidative damage. Keep in the stack."
+    },
+    {
+      id:"int-58", severity:"high", outcome:"Systemic Inflammation (CRP)",
+      title:"Zinc-Copper Imbalance May Be Driving CRP Higher",
+      supplements:["high-crp","zinc","copper","codeage-multi","protaflo"],
+      description:"Copper is essential for ceruloplasmin — a major anti-inflammatory protein and ferroxidase. At 72.5 mg zinc / 2.75 mg copper (26:1 ratio), copper depletion causes: (1) low ceruloplasmin = reduced anti-inflammatory capacity, (2) uncontrolled iron-driven oxidative stress, (3) neutropenia triggering compensatory inflammatory signaling. The zinc-copper imbalance could be actively contributing to the CRP of 75.",
+      recommendation:"Test serum copper AND ceruloplasmin urgently. Consider immediately reducing standalone zinc (multi + Protaflo provide 22.5 mg) and increasing copper to 4-6 mg. This is one of the most actionable items in the stack."
+    },
+    {
+      id:"int-59", severity:"low", outcome:"Systemic Inflammation (CRP)",
+      title:"Synergistic: Methylation Support Lowers Homocysteine-Driven Inflammation",
+      supplements:["high-crp","tmg","b12","codeage-multi"],
+      description:"Elevated homocysteine independently drives inflammation and raises CRP. TMG (1,500 mg) converts homocysteine to methionine via BHMT. B12 (5,000 mcg) and folate (from multi) support the parallel MTHFR pathway. While unlikely to be the primary cause of CRP at 75, homocysteine could be a contributing factor — especially with NMN (1,000 mg) depleting methyl groups.",
+      recommendation:"Check homocysteine levels in the inflammatory workup. This methylation support provides modest CRP benefit and appropriately compensates for NMN methyl depletion."
     }
   ]
 };
@@ -1110,6 +1160,7 @@ let currentViewMode = 'severity';
 
 const OUTCOME_ORDER = [
   { key:"Facial Nerve (Bell's Palsy)", icon:"🧿" },
+  { key:"Systemic Inflammation (CRP)", icon:"🔬" },
   { key:"Bleeding & Clotting", icon:"🩸" },
   { key:"Blood Pressure & Heart", icon:"❤️" },
   { key:"Blood Sugar", icon:"📉" },

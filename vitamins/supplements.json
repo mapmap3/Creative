@@ -1,6 +1,6 @@
 {
   "subject": "Dad's Supplement Stack",
-  "lastUpdated": "2026-09-12",
+  "lastUpdated": "2026-09-26",
   "supplements": [
     {
       "id": "d3",
@@ -179,11 +179,11 @@
     {
       "id": "b1",
       "name": "Vitamin B1 (Benfotiamine)",
-      "dose": "300 mg",
-      "doseValue": 300,
+      "dose": "600 mg",
+      "doseValue": 600,
       "doseUnit": "mg",
       "category": "B Vitamins",
-      "notes": "Fat-soluble form of thiamine with better bioavailability."
+      "notes": "Fat-soluble form of thiamine with better bioavailability. High dose for nerve support."
     },
     {
       "id": "b6",
@@ -323,11 +323,11 @@
     {
       "id": "iodine",
       "name": "Iodine",
-      "dose": "300 mcg",
-      "doseValue": 300,
+      "dose": "600 mcg",
+      "doseValue": 600,
       "doseUnit": "mcg",
       "category": "Minerals",
-      "notes": "About 2x the RDA of 150 mcg and well below the upper tolerable limit of 1,100 mcg."
+      "notes": "About 4x the RDA of 150 mcg but still below the upper tolerable limit of 1,100 mcg."
     },
     {
       "id": "nad-resveratrol-combo",
@@ -421,6 +421,15 @@
       "doseUnit": "condition",
       "category": "Health Conditions",
       "notes": "Onset December 2024. As of September 2026 (~21 months), face is not notably droopy — just slightly — but there is an extreme downward pressure sensation, like someone pulling downward on the face. Bell's palsy is acute peripheral facial nerve (CN VII) paralysis, usually caused by viral reactivation (HSV-1 or VZV) and/or inflammation compressing the nerve within the bony fallopian canal of the temporal bone."
+    },
+    {
+      "id": "high-crp",
+      "name": "Elevated CRP (C-Reactive Protein)",
+      "dose": "~75 mg/L",
+      "doseValue": 75,
+      "doseUnit": "mg/L",
+      "category": "Health Conditions",
+      "notes": "CRP at ~75 mg/L is extremely elevated — normal is <3 mg/L, and >10 mg/L indicates significant systemic inflammation. This level suggests severe active inflammation from infection, autoimmune disease, tissue damage, or chronic inflammatory condition. CRP is produced by the liver in response to IL-6 and other inflammatory cytokines. This finding may explain persistent Bell's palsy symptoms and contextualizes the entire supplement stack."
     }
   ],
   "interactions": [
@@ -444,12 +453,12 @@
     },
     {
       "id": "int-03",
-      "severity": "low",
+      "severity": "moderate",
       "outcome": "Thyroid Function",
-      "title": "Iodine Intake: Adequate but Monitor with Multivitamin",
+      "title": "Iodine Intake at 600 mcg: ~4x RDA, Monitor Thyroid",
       "supplements": ["iodine", "codeage-multi"],
-      "description": "300 mcg of iodine is about 2x the RDA (150 mcg) and well below the upper tolerable limit (1,100 mcg). The multivitamin adds additional iodine, so combined intake should be monitored to stay below the UL.",
-      "recommendation": "Safe at this dose. Monitor total iodine intake from all supplements combined."
+      "description": "600 mcg of iodine is about 4x the RDA (150 mcg), still below the upper tolerable limit (1,100 mcg) but getting meaningful. The multivitamin adds ~15 mg (likely listed as 15 mcg based on label) of additional iodine. At this dose, there is a real risk of thyroid disruption in people with underlying thyroid conditions — both hypothyroidism (Hashimoto's) and hyperthyroidism (Graves') can be triggered or worsened by iodine supplementation above 500 mcg. The Wolff-Chaikoff effect (transient hypothyroidism from iodine excess) is a concern at this level.",
+      "recommendation": "Still below the UL but warrants thyroid function monitoring (TSH, free T4). Watch for symptoms of thyroid dysfunction: fatigue, weight changes, temperature sensitivity, or heart rate changes. If thyroid issues exist, this dose may be too high."
     },
     {
       "id": "int-04",
@@ -612,8 +621,8 @@
       "outcome": "Facial Nerve (Bell's Palsy)",
       "title": "Synergistic: B Vitamins + Lion's Mane + ALCAR + Magnesium — Nerve Repair Arsenal",
       "supplements": ["bells-palsy", "b12", "b1", "b6", "b2", "alcar", "mag-threonate", "lions-mane"],
-      "description": "This is the strongest nerve-repair combination in the stack. B12 methylcobalamin (5,000 mcg — increased to therapeutic dose) is critical for myelin synthesis and nerve regeneration — the single most important supplement for Bell's palsy recovery. Lion's Mane (1,000 mg) stimulates nerve growth factor (NGF) — directly promotes nerve regeneration and remyelination, making it one of the most targeted supplements for Bell's palsy. B1 benfotiamine (300 mg) supports nerve energy metabolism and reduces neuroinflammation. B2 riboflavin (400 mg) supports mitochondrial function in nerve cells. B6 P5P (25 mg) supports neurotransmitter synthesis needed for nerve signaling. ALCAR (1,500 mg) crosses the blood-brain barrier and directly supports nerve regeneration and mitochondrial function in nerve cells. Magnesium L-threonate crosses the blood-brain barrier and is neuroprotective. For Bell's palsy recovery at 21 months, this combination actively supports facial nerve regeneration.",
-      "recommendation": "Excellent foundation for nerve recovery. B12 is now at therapeutic 5,000 mcg — good for active nerve healing. Lion's Mane is the most targeted NGF stimulator available. Keep total B6 under 100 mg/day (currently ~35 mg total including multi — safe). These are the most important supplements to keep taking."
+      "description": "This is the strongest nerve-repair combination in the stack. B12 methylcobalamin (5,000 mcg — increased to therapeutic dose) is critical for myelin synthesis and nerve regeneration — the single most important supplement for Bell's palsy recovery. Lion's Mane (1,000 mg) stimulates nerve growth factor (NGF) — directly promotes nerve regeneration and remyelination, making it one of the most targeted supplements for Bell's palsy. B1 benfotiamine (600 mg) supports nerve energy metabolism and reduces neuroinflammation — the doubled dose strengthens this nerve support significantly. B2 riboflavin (400 mg) supports mitochondrial function in nerve cells. B6 P5P (25 mg) supports neurotransmitter synthesis needed for nerve signaling. ALCAR (1,500 mg) crosses the blood-brain barrier and directly supports nerve regeneration and mitochondrial function in nerve cells. Magnesium L-threonate crosses the blood-brain barrier and is neuroprotective. For Bell's palsy recovery at 21 months, this combination actively supports facial nerve regeneration.",
+      "recommendation": "Excellent foundation for nerve recovery. B12 is now at therapeutic 5,000 mcg — good for active nerve healing. B1 benfotiamine doubled to 600 mg — strong support for nerve energy metabolism. Lion's Mane is the most targeted NGF stimulator available. Keep total B6 under 100 mg/day (currently ~35 mg total including multi — safe). These are the most important supplements to keep taking."
     },
     {
       "id": "int-47",
@@ -668,6 +677,69 @@
       "supplements": ["nad-resveratrol-combo", "protaflo"],
       "description": "Piperine (BioPerine) is now at 10 mg total from 2 sources: NMN combo (5 mg) and Protaflo (5 mg). Piperine inhibits CYP3A4 and other drug-metabolizing enzymes, slowing the clearance of many compounds. This doubles the previous piperine load. The main practical effect: curcumin absorption increases up to 2,000% with piperine (a designed feature of Protaflo), and resveratrol absorption also increases significantly. With tadalafil removed, there is no prescription medication in the stack for piperine to dangerously amplify.",
       "recommendation": "No prescription drug interaction concern now that tadalafil is removed. The enhanced absorption of curcumin and resveratrol is generally positive. If any new prescription medication is added, inform the physician about the 10 mg piperine load — it affects the metabolism of many drugs."
+    },
+    {
+      "id": "int-53",
+      "severity": "high",
+      "outcome": "Systemic Inflammation (CRP)",
+      "title": "Anti-Inflammatory Stack May Help Lower CRP from 75 mg/L",
+      "supplements": ["high-crp", "protaflo", "black-seed-oil", "krill-oil", "nad-resveratrol-combo"],
+      "description": "CRP at ~75 mg/L indicates severe systemic inflammation (normal <3 mg/L). This stack contains several evidence-based CRP-lowering agents: curcumin (200 mg from Protaflo with BioPerine enhancing absorption up to 2,000%) — meta-analyses show curcumin significantly reduces CRP; thymoquinone (black seed oil 2,000 mg) — clinical trials show CRP reduction; omega-3 fatty acids (krill oil 2,000 mg) — strong evidence for lowering CRP, especially EPA; trans-resveratrol (200 mg) — anti-inflammatory via SIRT1 activation and NF-κB inhibition; quercetin (50 mg) — inhibits inflammatory cytokine production. Together these attack inflammation through multiple pathways: NF-κB inhibition, COX-2 reduction, cytokine suppression, and SIRT1 activation. This is the most important therapeutic combination in the stack given the CRP level.",
+      "recommendation": "These anti-inflammatory supplements are critically important given CRP at 75. Curcumin + BioPerine is the strongest agent here. However, supplements alone are unlikely to normalize a CRP this high — the underlying cause (infection, autoimmune, etc.) must be identified and treated. Get comprehensive bloodwork including ESR, ANA, RF, CBC with differential, and procalcitonin to differentiate infectious vs. autoimmune causes."
+    },
+    {
+      "id": "int-54",
+      "severity": "high",
+      "outcome": "Systemic Inflammation (CRP)",
+      "title": "Immune Stimulants with CRP at 75: Potentially Dangerous",
+      "supplements": ["high-crp", "echinacea", "elderberry"],
+      "description": "With CRP at ~75 mg/L, the immune system is already massively activated — inflammation is the immune system's output. Echinacea (1,300 mg) is a potent immune stimulant that increases cytokine production, including IL-6 — the very cytokine that drives CRP production in the liver. Elderberry (500 mg, 10:1 extract = 5,000 mg equivalent) also activates immune pathways. If the elevated CRP reflects autoimmune inflammation (which overlaps with the Bell's palsy presentation), these immune stimulants are actively worsening the condition. Even if the CRP is from infection, overstimulating an already hyperactivated immune system risks cytokine storm-like escalation. The combination of immune stimulants and a CRP of 75 is like throwing gasoline on a fire.",
+      "recommendation": "STRONGLY consider discontinuing echinacea immediately given CRP at 75. Elderberry is less concerning (more antiviral than immunostimulatory) but should also be evaluated. The immune system does not need stimulation — it needs modulation. An immunologist should determine whether the inflammation is autoimmune before continuing any immune-activating supplements."
+    },
+    {
+      "id": "int-55",
+      "severity": "high",
+      "outcome": "Systemic Inflammation (CRP)",
+      "title": "CRP at 75 May Explain Persistent Bell's Palsy at 21 Months",
+      "supplements": ["high-crp", "bells-palsy"],
+      "description": "This is potentially the most important connection in the entire stack. CRP at ~75 mg/L indicates severe systemic inflammation — 25x the threshold for 'significant' inflammation. Bell's palsy results from inflammation compressing the facial nerve within the narrow bony fallopian canal. Most Bell's palsy resolves in 3-6 months when the inflammation subsides. At 21 months with persistent symptoms (extreme downward pressure sensation), the CRP of 75 suggests the inflammation NEVER resolved — or a chronic inflammatory process is maintaining nerve compression. The 'extreme downward pressure' sensation is consistent with ongoing inflammatory edema around the facial nerve. This changes the clinical picture entirely: this may not be a recovery problem but an active, ongoing inflammatory assault on the facial nerve.",
+      "recommendation": "This connection is urgent. The persistent Bell's palsy symptoms at 21 months likely reflect ongoing inflammation, not just slow nerve healing. Request an MRI of the temporal bone/facial nerve with gadolinium contrast to look for active inflammation along the nerve path. Treating the underlying cause of the CRP elevation may be the key to finally resolving the Bell's palsy."
+    },
+    {
+      "id": "int-56",
+      "severity": "high",
+      "outcome": "Systemic Inflammation (CRP)",
+      "title": "Vitamin D3 at 102,800 IU: Dual-Edged Sword for Inflammation",
+      "supplements": ["high-crp", "d3", "codeage-multi", "protaflo"],
+      "description": "Vitamin D3 has a complex relationship with CRP and inflammation. At therapeutic doses (2,000-10,000 IU), D3 is immunomodulatory — it reduces inflammatory cytokines (TNF-α, IL-6, IL-1β) and increases anti-inflammatory IL-10, which should lower CRP. The Coimbra Protocol uses high-dose D3 specifically for autoimmune conditions. HOWEVER, at ~102,800 IU/day, D3 toxicity causing hypercalcemia is itself pro-inflammatory — calcium activates the NLRP3 inflammasome, a key driver of IL-1β production and CRP elevation. This creates a paradox: the D3 could be simultaneously anti-inflammatory (via vitamin D receptor signaling) and pro-inflammatory (via calcium dysregulation). If serum calcium is elevated, the D3 dose may be CONTRIBUTING to the CRP of 75.",
+      "recommendation": "Check serum calcium AND ionized calcium immediately. If calcium is elevated, the extreme D3 dose may be actively driving inflammation via the NLRP3 inflammasome pathway and contributing to both the high CRP and the persistent Bell's palsy. This is testable — if calcium is normal, D3's immunomodulatory benefit likely outweighs risk."
+    },
+    {
+      "id": "int-57",
+      "severity": "low",
+      "outcome": "Systemic Inflammation (CRP)",
+      "title": "Synergistic: Antioxidant Defense Against Inflammatory Oxidative Damage",
+      "supplements": ["high-crp", "glutathione", "vitamin-c", "astaxanthin"],
+      "description": "CRP at 75 mg/L means massive oxidative stress — inflammation generates reactive oxygen species (ROS) that damage tissues, proteins, and DNA. This antioxidant combination provides multi-layer protection: glutathione (500 mg liposomal — the body's master intracellular antioxidant, directly neutralizes ROS), vitamin C (500 mg — extracellular antioxidant, recycles glutathione back to active form), and astaxanthin (12 mg — crosses the blood-brain barrier, 6,000x more potent than vitamin C, protects cell membranes). With CRP this high, oxidative damage is ongoing and cumulative. These antioxidants won't lower CRP directly, but they protect tissues from the collateral damage of chronic inflammation.",
+      "recommendation": "Important protective role given the extreme inflammation. These antioxidants are especially valuable for protecting the recovering facial nerve from oxidative damage caused by the systemic inflammation. Keep these in the stack."
+    },
+    {
+      "id": "int-58",
+      "severity": "high",
+      "outcome": "Systemic Inflammation (CRP)",
+      "title": "Zinc-Copper Imbalance May Be Driving CRP Higher",
+      "supplements": ["high-crp", "zinc", "copper", "codeage-multi", "protaflo"],
+      "description": "Copper is essential for ceruloplasmin — a major anti-inflammatory and antioxidant protein that also acts as a ferroxidase (prevents iron from generating inflammatory free radicals). With total zinc at ~72.5 mg and copper at only ~2.75 mg (ratio 26:1 vs ideal 10-15:1), copper depletion is likely. Low ceruloplasmin from copper deficiency means: (1) reduced anti-inflammatory capacity, (2) uncontrolled iron-mediated oxidative stress, and (3) impaired antioxidant defense — all of which RAISE CRP. Additionally, copper deficiency causes neutropenia (low white blood cell count), which paradoxically triggers compensatory inflammatory signaling. The zinc-copper imbalance could be a significant contributor to the CRP of 75, not just a bystander.",
+      "recommendation": "Test serum copper AND ceruloplasmin levels urgently. If copper is depleted, the zinc-copper imbalance may be actively driving the extreme CRP elevation. Consider immediately reducing standalone zinc (the multi + Protaflo already provide 22.5 mg) and increasing copper supplementation to 4-6 mg to restore the ratio. This is one of the most actionable items in the stack."
+    },
+    {
+      "id": "int-59",
+      "severity": "low",
+      "outcome": "Systemic Inflammation (CRP)",
+      "title": "Synergistic: Methylation Support Lowers Homocysteine-Driven Inflammation",
+      "supplements": ["high-crp", "tmg", "b12", "codeage-multi"],
+      "description": "Elevated homocysteine is an independent driver of inflammation and raises CRP. TMG (1,500 mg) donates methyl groups to convert homocysteine to methionine via BHMT pathway. B12 methylcobalamin (5,000 mcg) and folate (from multi) support the parallel MTHFR pathway. Together they provide comprehensive homocysteine-lowering support. While homocysteine is unlikely to be the primary cause of a CRP this high, it could be a contributing factor — especially relevant given the NMN (1,000 mg) in the stack, which depletes methyl groups and can raise homocysteine if not balanced by TMG. This methylation support helps keep one inflammatory pathway in check.",
+      "recommendation": "Check homocysteine levels as part of the inflammatory workup. This methylation trio is well-designed and provides modest CRP benefit. The TMG dose appropriately compensates for methyl depletion from NMN supplementation."
     }
   ]
 }
