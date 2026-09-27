@@ -592,7 +592,7 @@
     },
     {
       "id": "int-53",
-      "severity": "high",
+      "severity": "low",
       "outcome": "Systemic Inflammation (CRP)",
       "title": "Anti-Inflammatory Stack May Help Lower CRP from 75 mg/L",
       "supplements": ["high-crp", "protaflo", "black-seed-oil", "krill-oil"],
