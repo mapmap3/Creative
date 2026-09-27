@@ -855,15 +855,12 @@ const DATA = {
     { id:"pumpkin-seed", name:"Organic Pumpkin Seed", dose:"600 mg", category:"Whole Food Extracts", notes:"Natural source of zinc and magnesium. Supports prostate health." },
     { id:"broccoli", name:"Organic Broccoli", dose:"100 mg", category:"Whole Food Extracts", notes:"Contains cancer-fighting compounds found in cruciferous vegetables." },
     { id:"kale", name:"Organic Kale", dose:"100 mg", category:"Whole Food Extracts", notes:"Rich in vitamin K, good for eye health and general nutrition." },
-    { id:"zinc", name:"Zinc Picolinate", dose:"50 mg", category:"Minerals", notes:"Above the upper tolerable limit of 40 mg/day. RDA is 11 mg. Still requires copper balancing." },
     { id:"krill-oil", name:"Krill Oil", dose:"2,000 mg", category:"Omega Fatty Acids", notes:"Omega-3 fatty acids for heart and brain. Better absorbed than regular fish oil. Mild blood-thinning effect." },
     { id:"b2", name:"Vitamin B2 (Riboflavin)", dose:"400 mg", category:"B Vitamins", notes:"High dose sometimes used for migraine prevention. Excess is safely flushed out in urine." },
     { id:"b3", name:"Vitamin B3 (Niacinamide)", dose:"500 mg", category:"B Vitamins", notes:"Supports energy and skin health. This form doesn't cause the hot flushing that regular niacin does." },
     { id:"codeage-multi", name:"Codeage Men's Fermented Multivitamin", dose:"2 capsules", category:"Multivitamins", notes:"All-in-one daily multi covering most vitamins and minerals, plus gut-friendly probiotics.",
       subIngredients: ["Vitamin A 450 mcg","Vitamin C 45 mg","Vitamin D3 800 IU","Vitamin E 16 mg","Thiamin 0.75 mg","Riboflavin 0.75 mg","Niacin","B6 (P5P) 10 mg","Folate 340 mcg DFE","B12 3 mcg","Biotin 30 mcg","Choline 150 mg","Iron 27.5 mg","Iodine 15 mg","Magnesium 15 mg","Zinc 7.5 mg","Selenium 75 mcg","Copper 0.75 mg","Boron 1.2 mg","Chromium 40 mcg","CoQ10 25 mg","K2 (MK-7) 80 mcg","Probiotics 1B CFU","Omega-3 27.5 mg","Men's Vitality Blend","Digestive Enzymes"] },
     { id:"beef-organs", name:"Grassfed Beef Organs", dose:"3,000 mg", category:"Whole Food Extracts", notes:"Freeze-dried liver, heart, and kidney. Natural source of B12, iron, and CoQ10 from real food." },
-    { id:"elderberry", name:"Black Elderberry 10:1 Extract", dose:"500 mg", category:"Immune Support", notes:"Concentrated elderberry (equals about 5,000 mg of whole berries). Boosts immune defenses against colds and flu." },
-    { id:"echinacea", name:"Echinacea", dose:"1,300 mg", category:"Immune Support", notes:"Revs up the immune system. Should be avoided if you have an autoimmune condition." },
     { id:"copper", name:"Thorne Copper Bisglycinate", dose:"2 mg", category:"Minerals", notes:"Needed to balance out the high zinc intake. About 2x the daily recommended amount." },
     { id:"b1", name:"Vitamin B1 (Benfotiamine)", dose:"600 mg", category:"B Vitamins", notes:"A form of B1 the body absorbs more easily. High dose for nerve support and energy." },
     { id:"b6", name:"Vitamin B6 (P5P)", dose:"25 mg", category:"B Vitamins", notes:"Active form the body can use right away. Safe at this dose but very high long-term use can cause nerve tingling." },
@@ -874,7 +871,7 @@ const DATA = {
     { id:"fruit-veg-blend", name:"Raw Organic Fruit & Veg Blend", dose:"720 mg", category:"Whole Food Extracts", notes:"Mix of fruit and vegetable nutrients to fill gaps in the diet." },
     { id:"probiotic-enzyme", name:"Raw Probiotic + Enzyme Blend", dose:"60 mg", category:"Digestive Support", notes:"Good bacteria for gut health plus enzymes to help break down food." },
     { id:"l-lysine", name:"L-Lysine", dose:"3,000 mg", category:"Amino Acids", notes:"Amino acid that supports the immune system and helps build collagen for skin and joints." },
-    { id:"black-seed-oil", name:"Black Seed Oil", dose:"2,000 mg", category:"Herbal Extracts", notes:"Reduces inflammation and supports the immune system. Also has mild blood-thinning and blood-sugar-lowering effects." },
+    { id:"black-seed-oil", name:"Black Seed Oil", dose:"1,000 mg", category:"Herbal Extracts", notes:"Reduces inflammation and supports the immune system. Reduced from 2,000 mg. Also has mild blood-thinning and blood-sugar-lowering effects." },
     { id:"alcar", name:"Acetyl L-Carnitine", dose:"1,500 mg", category:"Amino Acids", notes:"Helps cells produce energy. Supports brain function and mental clarity." },
     { id:"moringa", name:"Organic Moringa", dose:"1,000 mg", category:"Whole Food Extracts", notes:"Nutrient-dense plant. Can lower blood sugar and blood pressure — be careful if levels are already normal." },
     { id:"glutathione", name:"Liposomal Glutathione", dose:"500 mg", category:"Antioxidants", notes:"The body's main detox and cell-protection molecule. This form is wrapped in fat for better absorption." },
@@ -882,33 +879,31 @@ const DATA = {
     { id:"eye-formula", name:"Advanced Eye Formula 14-in-1", dose:"490 mg", category:"Specialty Blends", notes:"Eye health blend — likely contains lutein and zeaxanthin to protect against age-related vision loss." },
     { id:"lycopene", name:"Lycopene", dose:"50 mg", category:"Antioxidants", notes:"The red pigment from tomatoes. Protects cells from damage and supports prostate health." },
     { id:"iodine", name:"Iodine", dose:"600 mcg", category:"Minerals", notes:"About 4x the RDA of 150 mcg but still below the upper tolerable limit of 1,100 mcg." },
-    { id:"nad-resveratrol-combo", name:"NMN / Trans Resveratrol / Apigenin / Quercetin", dose:"1,305 mg total", category:"Antioxidants", notes:"Anti-aging combo. NMN 1,000 mg is a precursor to NAD+ and supports cellular energy. Trans-resveratrol 200 mg is an antiplatelet/antioxidant. Apigenin 50 mg supports sleep and NAD+ recycling. Quercetin 50 mg boosts absorption and fights inflammation. Black pepper 5 mg enhances bioavailability.", flag:"high",
-      subIngredients: ["NMN 1,000 mg","Trans Resveratrol 200 mg","Apigenin 50 mg","Quercetin 50 mg","Black Pepper 5 mg"] },
     { id:"saffron", name:"Pure Saffron", dose:"89 mg", category:"Herbal Extracts", notes:"Supports mood, reduces anxiety, and may help with appetite control. Can mildly thin blood at high doses." },
     { id:"rhodiola", name:"Rhodiola Rosea", dose:"600 mg", category:"Herbal Extracts", notes:"Adaptogen that fights fatigue and stress. Works on serotonin and dopamine. May interact with antidepressants or blood pressure medications." },
     { id:"lions-mane", name:"Lion's Mane Mushroom", dose:"1,000 mg", category:"Herbal Extracts", notes:"Medicinal mushroom that stimulates nerve growth factor (NGF). Supports nerve regeneration and brain health. Especially valuable for Bell's palsy recovery." },
-    { id:"tmg", name:"TMG (Trimethylglycine)", dose:"1,500 mg", category:"Amino Acids", notes:"Methyl donor that supports heart health by lowering homocysteine. Works with B12 and folate. Important if taking NMN or NAD since those deplete methyl groups." },
+    { id:"tmg", name:"TMG (Trimethylglycine)", dose:"1,500 mg", category:"Amino Acids", notes:"Methyl donor that supports heart health by lowering homocysteine. Works with B12 and folate for comprehensive methylation support." },
     { id:"astaxanthin", name:"Astaxanthin", dose:"12 mg", category:"Antioxidants", notes:"Powerful antioxidant from algae — 6,000x stronger than vitamin C. Protects eyes, skin, and joints. Mild blood-thinning effect." },
     { id:"protaflo", name:"Protaflo (Enclave BioActives)", dose:"2 capsules", category:"Specialty Blends", notes:"Prostate health formula with zinc, selenium, pumpkin seed, turmeric (95% curcuminoids), beta-sitosterol, nettle, black walnut hull, probiotics, lycopene, BioPerine, and vitamins D3 and K2.",
       subIngredients: ["Vitamin D3 (Cholecalciferol) 50 mcg / 2,000 IU","Zinc (Zinc Picolinate) 15 mg","Selenium (L-Selenomethionine) 200 mcg","Pumpkin Seed 320 mg","Turmeric Root Extract (95% Curcuminoids) 200 mg","Beta Sitosterol Complex (40%) 130 mg","Black Walnut Hull Powder 100 mg","Nettle Leaf 100 mg","5-Strain Probiotic Blend (6B CFU) 50 mg","Lycopene 15 mg","Black Pepper Extract (BioPerine, 95% Piperine) 5 mg","Vitamin K2 (MK-7) 100 mcg"] },
     { id:"bells-palsy", name:"Bell's Palsy (Facial Nerve Paralysis)", dose:"Since Dec 2024", category:"Health Conditions", notes:"Onset December 2024. As of September 2026 (~21 months), face not notably droopy — just slightly — but extreme downward pressure sensation, like someone pulling downward on face. CN VII nerve paralysis from viral reactivation or inflammation in the bony fallopian canal.", flag:"high" },
     { id:"high-crp", name:"Elevated CRP (C-Reactive Protein)", dose:"74.8 mg/L", category:"Health Conditions", notes:"Lab confirmed 9/15/2026: CRP 74.8 (ref <8.0), ESR 56 (ref ≤30). Calcium 11.3 (HIGH) confirms D3-induced hypercalcemia driving the inflammation. eGFR 53 (LOW) = Stage 3a kidney disease. WBC normal (9.7) — not infection-driven. D3 dose reduction is the primary fix.", flag:"critical" },
-    { id:"ankylosing-spondylitis", name:"Ankylosing Spondylitis (AS)", dose:"Diagnosed", category:"Health Conditions", notes:"Autoimmune inflammatory disease attacking the spine and sacroiliac joints. Currently treating with high-dose D3 (Coimbra Protocol). Protocol REQUIRES: strict low-calcium diet (NO dairy/pizza), 2.5L+ water daily, regular bloodwork, Coimbra-trained physician. Current labs show these safeguards are not in place. Find a doctor at CoimbraProtocol.com.", flag:"critical" }
+    { id:"ankylosing-spondylitis", name:"Ankylosing Spondylitis (AS)", dose:"Diagnosed", category:"Health Conditions", notes:"Autoimmune inflammatory disease attacking the spine and sacroiliac joints. Currently treating with high-dose D3 (Coimbra Protocol) under physician supervision. Protocol REQUIRES: strict low-calcium diet (dairy-free), 2.5L+ water daily, regular bloodwork, Coimbra-trained physician. Protocol compliance is now in place. Labs at prior dose (9/15/2026) showed calcium 11.3 (HIGH), eGFR 53 — D3 has been reduced and dietary compliance established. Awaiting follow-up labs.", flag:"critical" }
   ],
   interactions: [
     {
-      id:"int-01", severity:"high", outcome:"Bleeding & Clotting",
+      id:"int-01", severity:"moderate", outcome:"Bleeding & Clotting",
       title:"Multiple Antiplatelet Agents: Bleeding Risk",
-      supplements:["krill-oil","black-seed-oil","nad-resveratrol-combo","astaxanthin","protaflo"],
-      description:"This stack layers multiple blood-thinning mechanisms: krill oil (omega-3s), black seed oil (2,000 mg — antihypertensive/antiplatelet), trans-resveratrol (200 mg — antiplatelet), quercetin (50 mg — antiplatelet), astaxanthin (mild antiplatelet), and curcumin (200 mg from Protaflo — antiplatelet and anti-coagulant). Curcumin re-enters the stack via Protaflo after the Spike Tri Support was removed. While the fibrinolytic agents (nattokinase, bromelain) are still absent, curcumin at 200 mg with BioPerine (which boosts curcumin absorption by up to 2,000%) is a meaningful antiplatelet addition.",
-      recommendation:"Curcumin is back in the stack via Protaflo, with BioPerine enhancing its absorption. Physician should know about the full antiplatelet stack before any surgery or dental procedures."
+      supplements:["krill-oil","black-seed-oil","astaxanthin","protaflo"],
+      description:"This stack layers blood-thinning mechanisms: krill oil (omega-3s), black seed oil (1,000 mg — antihypertensive/antiplatelet), astaxanthin (mild antiplatelet), and curcumin (200 mg from Protaflo — antiplatelet and anti-coagulant with BioPerine boosting absorption up to 2,000%). With the NMN combo removed (resveratrol and quercetin no longer in the stack) and black seed oil halved, the antiplatelet load is reduced but still meaningful.",
+      recommendation:"Antiplatelet load is lower with NMN combo removed and black seed oil reduced. Coimbra physician should know about the full antiplatelet stack before any surgery or dental procedures."
     },
     {
       id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
       title:"D3 Reduced to ~42,800 IU: Monitoring Hypercalcemia & Kidney Recovery",
       supplements:["d3","k2","codeage-multi","protaflo"],
-      description:"LAB CONFIRMED 9/15/2026 (at prior dose of ~102,800 IU/day): Calcium 11.3 (HIGH), eGFR 53 (LOW — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). D3 has been REDUCED to ~42,800 IU/day (40,000 standalone). The high-dose D3 is a Coimbra Protocol approach for AS. The protocol REQUIRES: strict low-calcium diet (no dairy, no pizza), 2.5L+ water daily, regular bloodwork, and Coimbra physician supervision. Labs at the prior dose proved these safeguards were not in place.",
-      recommendation:"D3 HAS BEEN REDUCED from ~102,800 to ~42,800 IU/day. Critical next steps: ELIMINATE dietary calcium (no dairy, no pizza), drink 2.5L+ water daily, find a Coimbra physician (CoimbraProtocol.com). Recheck calcium, eGFR, 25(OH)D in 4-6 weeks. Continue K2."
+      description:"LAB CONFIRMED 9/15/2026 (at prior dose of ~102,800 IU/day): Calcium 11.3 mg/dL (HIGH, ref 8.6-10.4), eGFR 53 (LOW, ref ≥60 — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). D3 has since been REDUCED to ~42,800 IU/day (40,000 standalone + 2,800 from multi/Protaflo) with K2 reduced to ~6,580 mcg. Now under Coimbra physician supervision with dairy-free diet and 2.5L+ water daily in place. The protocol requirements are being met: (1) strict low-calcium diet (dairy-free), (2) 2.5+ liters of water daily, (3) regular bloodwork, (4) Coimbra physician supervision. Awaiting follow-up labs to confirm the dose reduction and dietary compliance are resolving the hypercalcemia and kidney damage.",
+      recommendation:"Protocol compliance is now in place. Recheck calcium, eGFR, and 25(OH)D in 4-6 weeks to confirm the dose reduction and dietary compliance are working. If calcium normalizes and eGFR improves, the current dose may be appropriate long-term under physician guidance. Continue K2 at current dose."
     },
     {
       id:"int-03", severity:"moderate", outcome:"Thyroid Function",
@@ -918,17 +913,10 @@ const DATA = {
       recommendation:"Still below the UL but warrants thyroid monitoring (TSH, free T4). Watch for fatigue, weight changes, or heart rate changes."
     },
     {
-      id:"int-04", severity:"high", outcome:"Bone & Mineral Balance",
-      title:"Zinc-Copper Imbalance (~72.5 mg Zinc)",
-      supplements:["zinc","copper","codeage-multi","protaflo"],
-      description:"Zinc from all sources: picolinate 50 mg + multi 7.5 mg + Protaflo 15 mg = ~72.5 mg total. This is nearly 2x the upper tolerable limit (40 mg) and back up from the 57.5 mg after the prior zinc reduction. The Protaflo prostate formula adds 15 mg zinc picolinate. Total copper is still only ~2.75 mg (Thorne 2 mg + multi 0.75 mg). The zinc:copper ratio is now ~26:1 vs. the ideal 10-15:1. Chronic high zinc causes copper deficiency anemia and neurological damage.",
-      recommendation:"Zinc is back up to 72.5 mg due to Protaflo. Consider dropping the standalone zinc picolinate to 25 mg (or eliminating it since Protaflo and multi provide 22.5 mg), or increasing copper to 4 mg to improve the ratio."
-    },
-    {
       id:"int-06", severity:"moderate", outcome:"Blood Pressure & Heart",
       title:"Multiple Natural BP-Lowering Agents",
       supplements:["potassium","mag-threonate","mag-glycinate","moringa","black-seed-oil"],
-      description:"Several supplements in this stack lower blood pressure through different mechanisms: magnesium (vasodilator, ~209 mg elemental), potassium (1,020 mg — counteracts sodium), moringa (BP-lowering), and black seed oil (2,000 mg — antihypertensive). With tadalafil removed from the stack, the strongest vasodilator is gone. These natural agents are individually mild but together create a meaningful BP-lowering combination, especially when fasting or dehydrated.",
+      description:"Several supplements in this stack lower blood pressure through different mechanisms: magnesium (vasodilator, ~209 mg elemental), potassium (1,020 mg — counteracts sodium), moringa (BP-lowering), and black seed oil (1,000 mg — antihypertensive). These natural agents are individually mild but together create a meaningful BP-lowering combination, especially when fasting or dehydrated.",
       recommendation:"Much safer without tadalafil. Still worth monitoring blood pressure, especially when combining moringa and black seed oil. Watch for dizziness when getting up quickly."
     },
     {
@@ -939,18 +927,11 @@ const DATA = {
       recommendation:"Low risk without the dedicated blood sugar formula and berberine. Monitor if diabetic or on glucose-lowering medication."
     },
     {
-      id:"int-09", severity:"high", outcome:"Immune System",
-      title:"DANGEROUS: Immune Stimulation with Confirmed Autoimmune Disease (AS)",
-      supplements:["elderberry","echinacea","black-seed-oil","l-lysine","vitamin-c","ankylosing-spondylitis"],
-      description:"With confirmed ankylosing spondylitis (AS), this immune-stimulating stack is actively dangerous. Echinacea (1,300 mg) and elderberry stimulate the very immune system attacking his spine and joints. Echinacea increases TNF-alpha and IL-1 — the cytokines driving AS disease activity and CRP of 74.8. L-lysine (3,000 mg) is safe with autoimmune conditions. Black seed oil's immune-modulating (not stimulating) action may benefit AS.",
-      recommendation:"DISCONTINUE ECHINACEA IMMEDIATELY — contraindicated in autoimmune disease. Elderberry should also be stopped or reviewed. L-lysine and vitamin C are safe. Black seed oil's modulating action may actually benefit AS."
-    },
-    {
-      id:"int-11", severity:"moderate", outcome:"Bone & Mineral Balance",
-      title:"Iron Absorption Blocked by High Zinc and Minerals",
-      supplements:["codeage-multi","zinc","mag-threonate","mag-glycinate","protaflo"],
-      description:"The Codeage multi contains iron (27.5 mg). Zinc (~72.5 mg total from 3 sources), calcium, and magnesium all compete with iron for absorption. High zinc is the primary blocker — zinc and iron share the same intestinal transporter (DMT1), and at 72.5 mg zinc, iron absorption is significantly impaired. Protaflo's curcumin (200 mg with BioPerine) also chelates iron, similar to the EGCG that was removed with the Spike Tri Support. Magnesium and calcium add further competition.",
-      recommendation:"Take iron 2+ hours away from zinc, calcium, magnesium, and the Protaflo supplement. Or take iron with vitamin C to enhance absorption."
+      id:"int-11", severity:"low", outcome:"Bone & Mineral Balance",
+      title:"Iron Absorption Competed by Minerals",
+      supplements:["codeage-multi","mag-threonate","mag-glycinate","protaflo"],
+      description:"The Codeage multi contains iron (27.5 mg). Zinc (~22.5 mg total from multi 7.5 mg + Protaflo 15 mg), calcium, and magnesium all compete with iron for absorption. Protaflo's curcumin (200 mg with BioPerine) also chelates iron. Magnesium and calcium add further competition. With standalone zinc removed, zinc competition is reduced but still present.",
+      recommendation:"Take iron 2+ hours away from zinc-containing supplements (multi, Protaflo), calcium, and magnesium. Or take iron with vitamin C to enhance absorption."
     },
     {
       id:"int-19", severity:"low", outcome:"Bone & Mineral Balance",
@@ -981,13 +962,6 @@ const DATA = {
       recommendation:"Spread magnesium doses throughout the day. Total is within safe range."
     },
     {
-      id:"int-29", severity:"low", outcome:"Bleeding & Clotting",
-      title:"Trans Resveratrol 200 mg Adds to Antiplatelet Load",
-      supplements:["nad-resveratrol-combo","krill-oil","protaflo"],
-      description:"The NMN combo contains 200 mg of trans-resveratrol — a mild antiplatelet agent at this dose. Combined with krill oil (omega-3s), it adds another antiplatelet mechanism. Curcumin (200 mg from Protaflo with BioPerine) has re-entered the stack as an antiplatelet agent, though the fibrinolytic agents (nattokinase, bromelain) are still absent.",
-      recommendation:"The antiplatelet load has increased slightly with Protaflo's curcumin. Mention to physician before surgery."
-    },
-    {
       id:"int-36", severity:"low", outcome:"Blood Pressure & Heart",
       title:"CoQ10 from 2 Sources: ~25 mg Supplemental",
       supplements:["codeage-multi","beef-organs"],
@@ -1005,8 +979,8 @@ const DATA = {
       id:"int-38", severity:"low", outcome:"Nervous System",
       title:"Synergistic: TMG + B12 + Folate Methylation Support",
       supplements:["tmg","b12","codeage-multi"],
-      description:"TMG (trimethylglycine) donates methyl groups to convert homocysteine to methionine. B12 (5,000 mcg) and folate (from the multi) support the same pathway via a different route. Together they provide comprehensive methylation support — important for DNA repair, detox, cardiovascular health, and myelin synthesis for Bell's palsy nerve repair. TMG also helps compensate for methyl group depletion from NAD/NMN supplementation. The increased B12 dose makes this methylation support even more robust.",
-      recommendation:"Excellent synergy, especially alongside the NAD supplement and for nerve repair. The TMG dose is appropriate for the high B12."
+      description:"TMG (trimethylglycine) donates methyl groups to convert homocysteine to methionine. B12 (5,000 mcg) and folate (from the multi) support the same pathway via a different route. Together they provide comprehensive methylation support — important for DNA repair, detox, cardiovascular health, and myelin synthesis for Bell's palsy nerve repair. The increased B12 dose makes this methylation support robust.",
+      recommendation:"Excellent synergy, especially for nerve repair. The TMG dose is appropriate for the high B12."
     },
     {
       id:"int-39", severity:"low", outcome:"Immune System",
@@ -1014,20 +988,6 @@ const DATA = {
       supplements:["astaxanthin","glutathione","vitamin-c"],
       description:"Astaxanthin is one of the most potent antioxidants found in nature, working in both water- and fat-soluble environments. Combined with glutathione (the body's master antioxidant) and vitamin C (which recycles glutathione), this trio provides excellent multi-layer antioxidant protection.",
       recommendation:"Strong antioxidant combination. Astaxanthin at 12 mg is a well-studied, safe dose."
-    },
-    {
-      id:"int-40", severity:"low", outcome:"Bleeding & Clotting",
-      title:"Astaxanthin + Quercetin: Minor Antiplatelet Addition",
-      supplements:["astaxanthin","nad-resveratrol-combo","krill-oil"],
-      description:"Astaxanthin has mild antiplatelet effects. Quercetin (50 mg in the NMN combo) also mildly inhibits platelet aggregation. While individually minor, they add to a stack that also includes krill oil, resveratrol (200 mg), and curcumin (200 mg from Protaflo). These minor agents compound the antiplatelet load tracked in int-01.",
-      recommendation:"Low risk individually. These are mild antiplatelet agents that compound the curcumin and resveratrol in int-01."
-    },
-    {
-      id:"int-44", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
-      title:"Zinc-Copper Ratio Worsened (~72.5 mg Zinc): Demyelination Risk",
-      supplements:["bells-palsy","zinc","copper","codeage-multi","protaflo"],
-      description:"Total zinc is back up to ~72.5 mg/day (picolinate 50 mg + multi 7.5 mg + Protaflo 15 mg) — nearly 2x the UL of 40 mg. Total copper is only ~2.75 mg (Thorne 2 mg + multi 0.75 mg), giving a zinc:copper ratio of ~26:1 vs. the ideal 10-15:1. Copper deficiency causes demyelination — stripping the protective myelin sheath around nerves. For a facial nerve damaged by Bell's palsy (since December 2024), copper depletion actively undermines nerve repair and could contribute to the persistent 'extreme downward pressure' sensation at 21 months.",
-      recommendation:"Zinc has worsened with Protaflo. Consider dropping the standalone zinc picolinate entirely — the multi (7.5 mg) and Protaflo (15 mg) already provide 22.5 mg, which is closer to the RDA of 11 mg. At minimum, increase copper to 4+ mg. Test serum copper and ceruloplasmin levels urgently."
     },
     {
       id:"int-45", severity:"critical", outcome:"Facial Nerve (Bell's Palsy)",
@@ -1046,16 +1006,9 @@ const DATA = {
     {
       id:"int-47", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
       title:"Anti-Inflammatory Agents May Reduce Residual Facial Nerve Edema",
-      supplements:["bells-palsy","black-seed-oil","krill-oil","nad-resveratrol-combo","protaflo"],
-      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. The anti-inflammatory agents include: thymoquinone (black seed oil 2,000 mg), omega-3s (krill oil), quercetin (50 mg from NMN combo), trans-resveratrol (200 mg), and curcumin (200 mg from Protaflo with BioPerine for enhanced absorption). Curcumin is one of the strongest natural anti-inflammatory agents — its return via Protaflo significantly strengthens this stack's anti-inflammatory potency for nerve edema reduction.",
-      recommendation:"Protaflo's curcumin + BioPerine restores meaningful anti-inflammatory support. This is a positive addition for facial nerve edema. The fibrinolytic agents (nattokinase, bromelain) are still absent, keeping the bleeding risk tradeoff favorable."
-    },
-    {
-      id:"int-48", severity:"high", outcome:"Facial Nerve (Bell's Palsy)",
-      title:"CONFIRMED AUTOIMMUNE (AS): Echinacea Likely Worsening Bell's Palsy",
-      supplements:["bells-palsy","echinacea","elderberry","l-lysine","vitamin-c","black-seed-oil","ankylosing-spondylitis"],
-      description:"With confirmed ankylosing spondylitis — a proven autoimmune disease — Bell's palsy may involve autoimmune nerve damage. AS proves his immune system attacks his own tissues. Echinacea (1,300 mg) is stimulating this autoimmune process, potentially preventing facial nerve healing at 21 months. L-lysine (3,000 mg) remains beneficial for HSV without stimulating autoimmunity. The combination of AS and persistent Bell's palsy suggests a broader autoimmune phenotype.",
-      recommendation:"DISCONTINUE ECHINACEA — with confirmed autoimmune disease, immune stimulation is likely preventing Bell's palsy recovery. L-lysine is safe. An immunologist should evaluate whether AS and Bell's palsy share an autoimmune mechanism."
+      supplements:["bells-palsy","black-seed-oil","krill-oil","protaflo"],
+      description:"The facial nerve runs through the narrow fallopian canal in the temporal bone. Any swelling compresses the nerve. The persistent 'extreme downward pressure' at 21 months suggests residual inflammation or nerve edema. The anti-inflammatory agents include: thymoquinone (black seed oil 1,000 mg), omega-3s (krill oil), and curcumin (200 mg from Protaflo with BioPerine for enhanced absorption). Curcumin is one of the strongest natural anti-inflammatory agents for nerve edema reduction.",
+      recommendation:"Protaflo's curcumin + BioPerine provides meaningful anti-inflammatory support for facial nerve edema. Black seed oil's thymoquinone adds NF-kB inhibition."
     },
     {
       id:"int-49", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
@@ -1066,10 +1019,10 @@ const DATA = {
     },
     {
       id:"int-50", severity:"low", outcome:"Facial Nerve (Bell's Palsy)",
-      title:"Synergistic: NMN + Glutathione + Antioxidants Protect Recovering Nerve Cells",
-      supplements:["bells-palsy","nad-resveratrol-combo","glutathione","vitamin-c","astaxanthin","tmg"],
-      description:"Damaged nerve cells generate excess reactive oxygen species (ROS) during recovery. This combination provides multi-layer protection: glutathione (master intracellular antioxidant — 500 mg), vitamin C (recycles glutathione — 500 mg), astaxanthin (crosses blood-brain barrier, 6,000x more potent than vitamin C — 12 mg), NMN (boosts NAD+ for nerve cell energy and DNA repair — 1,000 mg), and TMG (supports methylation critical for myelin synthesis — 1,500 mg).",
-      recommendation:"Strong foundation for nerve recovery. Astaxanthin's ability to cross the blood-brain barrier makes it especially valuable. TMG's methylation support is critical for myelin repair."
+      title:"Synergistic: Glutathione + Antioxidants Protect Recovering Nerve Cells",
+      supplements:["bells-palsy","glutathione","vitamin-c","astaxanthin","tmg"],
+      description:"Damaged nerve cells generate excess reactive oxygen species (ROS) during recovery, which can further damage the nerve if unchecked. This antioxidant combination provides multi-layer protection: glutathione (master intracellular antioxidant — 500 mg liposomal), vitamin C (recycles glutathione, extracellular protection — 500 mg), astaxanthin (crosses blood-brain barrier, 6,000x more potent than vitamin C — 12 mg), and TMG (supports methylation critical for myelin synthesis — 1,500 mg). For a facial nerve recovering from Bell's palsy, oxidative damage is a key barrier to regeneration.",
+      recommendation:"Strong foundation for nerve recovery. Astaxanthin's ability to cross the blood-brain barrier makes it especially valuable for facial nerve protection. TMG's methylation support is critical for myelin repair."
     },
     {
       id:"int-51", severity:"low", outcome:"Bone & Mineral Balance",
@@ -1080,24 +1033,17 @@ const DATA = {
     },
     {
       id:"int-52", severity:"low", outcome:"Drug Metabolism",
-      title:"BioPerine/Piperine from 2 Sources: 10 mg Total",
-      supplements:["nad-resveratrol-combo","protaflo"],
-      description:"Piperine (BioPerine) is now at 10 mg total from 2 sources: NMN combo (5 mg) and Protaflo (5 mg). Piperine inhibits CYP3A4 and other drug-metabolizing enzymes, slowing the clearance of many compounds. This doubles the previous piperine load. The main practical effect: curcumin absorption increases up to 2,000% with piperine (a designed feature of Protaflo), and resveratrol absorption also increases significantly. With tadalafil removed, there is no prescription medication in the stack for piperine to dangerously amplify.",
-      recommendation:"No prescription drug interaction concern now that tadalafil is removed. The enhanced absorption of curcumin and resveratrol is generally positive. If any new prescription medication is added, inform the physician about the 10 mg piperine load — it affects the metabolism of many drugs."
+      title:"BioPerine/Piperine: 5 mg from Protaflo",
+      supplements:["protaflo"],
+      description:"Piperine (BioPerine) at 5 mg from Protaflo inhibits CYP3A4 and other drug-metabolizing enzymes, slowing the clearance of many compounds. The main practical effect: curcumin absorption increases up to 2,000% with piperine (a designed feature of Protaflo). With the NMN combo removed, piperine load is halved from the previous 10 mg.",
+      recommendation:"Piperine load is lower with only Protaflo as a source. If any prescription medication is added, inform the Coimbra physician about the 5 mg piperine — it affects the metabolism of many drugs."
     },
     {
       id:"int-53", severity:"high", outcome:"Systemic Inflammation (CRP)",
       title:"Anti-Inflammatory Stack May Help Lower CRP from 75 mg/L",
-      supplements:["high-crp","protaflo","black-seed-oil","krill-oil","nad-resveratrol-combo"],
-      description:"CRP at ~75 mg/L indicates severe systemic inflammation (normal <3). This stack contains evidence-based CRP-lowering agents: curcumin (200 mg from Protaflo + BioPerine), thymoquinone (black seed oil 2,000 mg), omega-3s (krill oil 2,000 mg), resveratrol (200 mg), quercetin (50 mg). Together these attack inflammation through NF-κB inhibition, COX-2 reduction, cytokine suppression, and SIRT1 activation.",
-      recommendation:"These anti-inflammatory supplements are critically important given CRP at 75. However, supplements alone are unlikely to normalize CRP this high — the underlying cause must be identified. Get comprehensive bloodwork: ESR, ANA, RF, CBC with differential, procalcitonin."
-    },
-    {
-      id:"int-54", severity:"high", outcome:"Systemic Inflammation (CRP)",
-      title:"Immune Stimulants with CRP at 75: Potentially Dangerous",
-      supplements:["high-crp","echinacea","elderberry"],
-      description:"With CRP at ~75, the immune system is already massively activated. Echinacea (1,300 mg) increases cytokine production including IL-6 — the cytokine that drives CRP production. Elderberry (500 mg, 10:1 = 5,000 mg equivalent) also activates immune pathways. If the CRP reflects autoimmune inflammation, these immune stimulants are like throwing gasoline on a fire.",
-      recommendation:"STRONGLY consider discontinuing echinacea immediately. The immune system needs modulation, not stimulation. An immunologist should determine whether inflammation is autoimmune before continuing."
+      supplements:["high-crp","protaflo","black-seed-oil","krill-oil"],
+      description:"CRP at ~75 mg/L indicates severe systemic inflammation (normal <3 mg/L). This stack contains evidence-based CRP-lowering agents: curcumin (200 mg from Protaflo with BioPerine enhancing absorption up to 2,000%) — meta-analyses show curcumin significantly reduces CRP; thymoquinone (black seed oil 1,000 mg) — clinical trials show CRP reduction; omega-3 fatty acids (krill oil 2,000 mg) — strong evidence for lowering CRP, especially EPA. Together these attack inflammation through NF-κB inhibition, COX-2 reduction, and cytokine suppression. With D3 reduced and dietary compliance in place, the CRP should begin dropping from both the supplement anti-inflammatory action and reduced hypercalcemia-driven inflammation.",
+      recommendation:"These anti-inflammatory supplements are critically important given CRP at 75. Curcumin + BioPerine is the strongest agent here. The D3 reduction and dietary calcium elimination should address the hypercalcemia-driven CRP component. The Coimbra Protocol D3 at proper dose with compliance should help address the AS-driven component. Recheck CRP in 4-6 weeks."
     },
     {
       id:"int-55", severity:"critical", outcome:"Systemic Inflammation (CRP)",
@@ -1121,18 +1067,11 @@ const DATA = {
       recommendation:"Important protective role. Especially valuable for protecting the recovering facial nerve from oxidative damage. Keep in the stack."
     },
     {
-      id:"int-58", severity:"high", outcome:"Systemic Inflammation (CRP)",
-      title:"Zinc-Copper Imbalance May Be Driving CRP Higher",
-      supplements:["high-crp","zinc","copper","codeage-multi","protaflo"],
-      description:"Copper is essential for ceruloplasmin — a major anti-inflammatory protein and ferroxidase. At 72.5 mg zinc / 2.75 mg copper (26:1 ratio), copper depletion causes: (1) low ceruloplasmin = reduced anti-inflammatory capacity, (2) uncontrolled iron-driven oxidative stress, (3) neutropenia triggering compensatory inflammatory signaling. The zinc-copper imbalance could be actively contributing to the CRP of 75.",
-      recommendation:"Test serum copper AND ceruloplasmin urgently. Consider immediately reducing standalone zinc (multi + Protaflo provide 22.5 mg) and increasing copper to 4-6 mg. This is one of the most actionable items in the stack."
-    },
-    {
       id:"int-59", severity:"low", outcome:"Systemic Inflammation (CRP)",
       title:"Synergistic: Methylation Support Lowers Homocysteine-Driven Inflammation",
       supplements:["high-crp","tmg","b12","codeage-multi"],
-      description:"Elevated homocysteine independently drives inflammation and raises CRP. TMG (1,500 mg) converts homocysteine to methionine via BHMT. B12 (5,000 mcg) and folate (from multi) support the parallel MTHFR pathway. While unlikely to be the primary cause of CRP at 75, homocysteine could be a contributing factor — especially with NMN (1,000 mg) depleting methyl groups.",
-      recommendation:"Check homocysteine levels in the inflammatory workup. This methylation support provides modest CRP benefit and appropriately compensates for NMN methyl depletion."
+      description:"Elevated homocysteine is an independent driver of inflammation and raises CRP. TMG (1,500 mg) donates methyl groups to convert homocysteine to methionine via BHMT pathway. B12 methylcobalamin (5,000 mcg) and folate (from multi) support the parallel MTHFR pathway. Together they provide comprehensive homocysteine-lowering support. While homocysteine is unlikely to be the primary cause of a CRP this high, it could be a contributing factor. This methylation support helps keep one inflammatory pathway in check.",
+      recommendation:"Check homocysteine levels as part of the inflammatory workup. This methylation trio is well-designed and provides modest CRP benefit."
     },
     {
       id:"int-60", severity:"critical", outcome:"Liver & Kidney",
@@ -1145,36 +1084,29 @@ const DATA = {
       id:"int-61", severity:"critical", outcome:"Autoimmune (Ankylosing Spondylitis)",
       title:"Coimbra Protocol for AS: High-Dose D3 Requires Strict Dietary Compliance",
       supplements:["ankylosing-spondylitis","d3","k2"],
-      description:"The ~42,800 IU D3 (40,000 standalone) is an intentional Coimbra Protocol approach for AS — reduced from ~102,800 IU to address lab-confirmed hypercalcemia and kidney damage. The protocol REQUIRES: (1) strict low-calcium diet — no dairy, no pizza, no calcium-fortified foods (a 2-slice pizza delivers 400-750 mg calcium — the entire day's allowance), (2) 2.5L+ water daily, (3) bloodwork every 3-6 months, (4) Coimbra-trained physician. Labs at the prior dose proved these safeguards were not in place.",
-      recommendation:"D3 has been reduced to ~42,800 IU/day (40,000 standalone) — a safer Coimbra starting point. CRITICAL: eliminate ALL dietary calcium, drink 2.5L+ water daily, find a Coimbra physician (CoimbraProtocol.com). Dietary restrictions are NON-NEGOTIABLE at any Coimbra dose. Recheck calcium, eGFR, PTH, 25(OH)D in 4-6 weeks."
-    },
-    {
-      id:"int-62", severity:"critical", outcome:"Autoimmune (Ankylosing Spondylitis)",
-      title:"CONTRAINDICATED: Echinacea Fueling Autoimmune Attack on Spine",
-      supplements:["ankylosing-spondylitis","echinacea","elderberry"],
-      description:"Echinacea is CONTRAINDICATED in autoimmune diseases. With confirmed AS, echinacea (1,300 mg) stimulates the immune system attacking his spine and joints. It increases TNF-alpha, IL-1, and IL-6 — the exact cytokines driving AS disease activity. Taking echinacea while using high-dose D3 to suppress immunity is working against the treatment. Elderberry also activates immune pathways but is less directly stimulatory.",
-      recommendation:"STOP ECHINACEA IMMEDIATELY. It directly opposes the Coimbra Protocol goal (immune suppression) and fuels the autoimmune attack on the spine. Elderberry should also be discontinued until reviewed by an immunologist. Every day on echinacea with AS is a day the immune system is pushed to attack harder."
+      description:"The ~42,800 IU D3 (40,000 standalone) is an intentional Coimbra Protocol approach for ankylosing spondylitis — a legitimate medical protocol that uses 40,000-200,000 IU D3 to suppress autoimmune activity. D3 was reduced from ~102,800 IU to address lab-confirmed hypercalcemia and kidney damage. The protocol requirements are now being met: (1) dairy-free diet eliminating primary calcium sources, (2) 2.5+ liters of water daily to flush calcium through the kidneys, (3) Coimbra-trained physician supervision with regular bloodwork. Labs at the prior dose (calcium 11.3, eGFR 53) prompted these corrective steps. Awaiting follow-up labs to confirm improvement.",
+      recommendation:"Protocol compliance is now in place with dairy-free diet, high water intake, and Coimbra physician supervision. The dose reduction from ~102,800 to ~42,800 IU/day combined with proper dietary compliance should allow calcium to normalize and kidneys to recover. Recheck calcium, eGFR, PTH, and 25(OH)D in 4-6 weeks. The Coimbra physician will adjust the dose based on lab results — the current 40,000 IU standalone may be increased if labs improve with proper compliance."
     },
     {
       id:"int-63", severity:"critical", outcome:"Autoimmune (Ankylosing Spondylitis)",
       title:"AS Drives CRP Independently — D3 Reduction Alone May Not Normalize It",
       supplements:["ankylosing-spondylitis","high-crp","d3"],
-      description:"CRP of 74.8 has TWO drivers: (1) D3-induced hypercalcemia activating NLRP3 inflammasome (fixable), and (2) AS autoimmune inflammation (requires disease management). CRP of 20-80+ is common during active AS flares. Even after D3 reduction and calcium normalization, CRP may remain elevated if AS is flaring. The Coimbra Protocol aims to address AS by suppressing immunity with D3, but at the current unsupervised dose, it's causing MORE inflammation through hypercalcemia than preventing through immune suppression.",
-      recommendation:"Address CRP with TWO-PRONGED approach: (1) fix D3/calcium to eliminate hypercalcemia-driven inflammation, (2) properly manage AS — either supervised Coimbra Protocol or conventional treatment (TNF inhibitors are highly effective for AS). Track CRP at each draw to see which component is improving."
+      description:"The CRP of 74.8 has TWO drivers: (1) D3-induced hypercalcemia activating the NLRP3 inflammasome (fixable by reducing D3/fixing diet), and (2) ankylosing spondylitis autoimmune inflammation (requires disease management). CRP levels of 20-80+ mg/L are common during active AS flares — the AS alone could account for much of the elevation. This means even after D3 is reduced and calcium normalizes, the CRP may remain elevated if AS is in an active flare. The high CRP in turn drives: persistent Bell's palsy (nerve inflammation), kidney stress (inflammatory load on already-damaged kidneys), and general tissue damage. The Coimbra Protocol aims to address the AS component by suppressing autoimmune activity with D3, but at the current unsupervised dose, it's causing MORE inflammation through hypercalcemia than it's preventing through immune suppression.",
+      recommendation:"Both prongs are now being addressed: (1) D3 reduced and dairy-free diet + high water in place to resolve hypercalcemia-driven inflammation, (2) Coimbra Protocol under physician supervision to manage AS disease activity. Track CRP at each lab draw to see which component is improving. If CRP remains high after calcium normalizes, the AS is the remaining driver and the Coimbra physician may adjust the D3 dose upward with verified dietary compliance."
     },
     {
       id:"int-64", severity:"low", outcome:"Autoimmune (Ankylosing Spondylitis)",
       title:"Synergistic: Anti-Inflammatory Stack Therapeutic for AS Spinal Inflammation",
-      supplements:["ankylosing-spondylitis","protaflo","black-seed-oil","krill-oil","nad-resveratrol-combo"],
-      description:"Anti-inflammatory supplements are especially important for AS. Curcumin (200 mg from Protaflo + BioPerine) is studied for AS — reduces TNF-alpha and CRP. Omega-3s (krill oil) reduce IL-6. Thymoquinone (black seed oil) inhibits NF-κB, a central AS inflammation driver. Resveratrol and quercetin provide additional NF-κB inhibition. These attack the autoimmune inflammatory cascade and complement any AS treatment approach.",
-      recommendation:"Among the most important supplements to KEEP for AS. Curcumin with BioPerine is the standout. This stack works alongside (not against) any treatment — the opposite of what echinacea does."
+      supplements:["ankylosing-spondylitis","protaflo","black-seed-oil","krill-oil"],
+      description:"The anti-inflammatory supplements in this stack are especially important for ankylosing spondylitis. Curcumin (200 mg from Protaflo + BioPerine for enhanced absorption) is one of the most studied natural anti-inflammatories for AS — clinical trials show it reduces TNF-alpha and CRP in AS patients. Omega-3s (krill oil 2,000 mg) reduce IL-6 and CRP. Thymoquinone (black seed oil 1,000 mg) inhibits NF-κB, a central driver of AS inflammation. Together these attack the autoimmune inflammatory cascade through multiple pathways. With echinacea and elderberry removed, the stack is no longer working against itself — all remaining supplements suppress rather than stimulate inflammation, complementing the Coimbra Protocol.",
+      recommendation:"These are among the most important supplements to KEEP in the stack for AS. Curcumin with BioPerine is the standout. The anti-inflammatory stack works alongside the Coimbra Protocol approach — suppressing inflammation while D3 modulates autoimmune activity."
     },
     {
       id:"int-65", severity:"high", outcome:"Autoimmune (Ankylosing Spondylitis)",
       title:"AS + Bell's Palsy: Autoimmune Crossover — Two Targets, One Immune System",
       supplements:["ankylosing-spondylitis","bells-palsy"],
-      description:"AS proves the immune system attacks his own tissues. Bell's palsy persisting at 21 months may involve autoimmune nerve damage. AS patients have higher rates of cranial nerve involvement. The same inflammatory cytokines (TNF-alpha, IL-6) that attack spinal joints can damage peripheral nerves. The combination suggests a broader autoimmune phenotype with multiple tissue targets — making immune stimulation (echinacea) even more dangerous.",
-      recommendation:"An immunologist should evaluate whether AS and Bell's palsy share an autoimmune mechanism. If linked, treating AS (Coimbra Protocol or biologics) may also help Bell's palsy resolve. The nerve repair stack (B12, lion's mane, ALCAR, benfotiamine) remains critical regardless."
+      description:"Ankylosing spondylitis proves his immune system attacks his own tissues. The persistence of Bell's palsy at 21 months — far beyond the typical 3-6 month recovery — now has an additional explanation beyond hypercalcemia. Autoimmune inflammation from AS may be contributing to facial nerve damage through several mechanisms: (1) systemic autoimmune inflammation affecting multiple nerve targets (AS patients have higher rates of cranial nerve involvement), (2) the same inflammatory cytokines (TNF-alpha, IL-6) that attack spinal joints also damage peripheral nerves, (3) the immune system primed to attack self-tissue may target the facial nerve within the fallopian canal. The combination of AS and persistent Bell's palsy suggests a broader autoimmune phenotype — one in which the immune system has multiple tissue targets. This makes immune STIMULATION even more dangerous and immune MODULATION even more important.",
+      recommendation:"An immunologist or neurologist should evaluate whether AS and Bell's palsy share an autoimmune mechanism — this could fundamentally change treatment for both. The Coimbra Protocol now under physician supervision may help both conditions if they share an autoimmune mechanism. The nerve repair stack (B12, lion's mane, ALCAR, benfotiamine) remains critical regardless of cause."
     }
   ]
 };
