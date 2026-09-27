@@ -673,7 +673,7 @@
     },
     {
       "id": "int-65",
-      "severity": "high",
+      "severity": "physician",
       "outcome": "Autoimmune (Ankylosing Spondylitis)",
       "title": "AS + Bell's Palsy: Autoimmune Crossover — Two Targets, One Immune System",
       "supplements": ["ankylosing-spondylitis", "bells-palsy"],
