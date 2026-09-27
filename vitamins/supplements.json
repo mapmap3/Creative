@@ -1,24 +1,24 @@
 {
   "subject": "Dad's Supplement Stack",
-  "lastUpdated": "2026-09-26",
+  "lastUpdated": "2026-09-27",
   "supplements": [
     {
       "id": "d3",
       "name": "Vitamin D3 (Cholecalciferol)",
-      "dose": "100,000 IU",
-      "doseValue": 100000,
+      "dose": "40,000 IU",
+      "doseValue": 40000,
       "doseUnit": "IU",
       "category": "Fat-Soluble Vitamins",
-      "notes": "Extremely high dose — typical upper limit is 4,000 IU/day. Requires medical supervision."
+      "notes": "Coimbra Protocol therapeutic dose for ankylosing spondylitis — reduced from 100,000 IU to address lab-confirmed hypercalcemia (calcium 11.3) and kidney damage (eGFR 53). Requires strict low-calcium diet, 2.5L+ water daily, and Coimbra physician supervision. Recheck labs in 4-6 weeks."
     },
     {
       "id": "k2",
       "name": "Vitamin K2 (MK-7)",
-      "dose": "9,100 mcg",
-      "doseValue": 9100,
+      "dose": "6,400 mcg",
+      "doseValue": 6400,
       "doseUnit": "mcg",
       "category": "Fat-Soluble Vitamins",
-      "notes": "Very high dose. Often paired with high-dose D3 to direct calcium to bones. Lab-confirmed hypercalcemia (calcium 11.3) at prior 8,500 mcg dose shows K2 alone cannot prevent D3-induced calcium excess."
+      "notes": "Paired with high-dose D3 to direct calcium to bones and protect arteries. Reduced from 9,100 mcg alongside D3 dose reduction. K2 alone cannot prevent D3-induced calcium excess without strict dietary calcium restriction."
     },
     {
       "id": "mag-threonate",
@@ -455,10 +455,10 @@
       "id": "int-02",
       "severity": "critical",
       "outcome": "Bone & Mineral Balance",
-      "title": "CONFIRMED: D3 at ~102,800 IU Causing Hypercalcemia & Kidney Damage",
+      "title": "D3 Reduced to ~42,800 IU: Monitoring Hypercalcemia & Kidney Recovery",
       "supplements": ["d3", "k2", "codeage-multi", "protaflo"],
-      "description": "LAB CONFIRMED 9/15/2026: Calcium 11.3 mg/dL (HIGH, ref 8.6-10.4), eGFR 53 (LOW, ref ≥60 — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). Total D3 ~102,800 IU/day is causing hypercalcemia DESPITE ~9,280 mcg K2. The high-dose D3 is intentional — a Coimbra Protocol approach for treating ankylosing spondylitis (AS). The Coimbra Protocol is a real medical protocol that uses 40,000-200,000 IU D3 to suppress autoimmune activity, BUT it strictly requires: (1) zero/very low calcium diet — no dairy, no pizza, no calcium-fortified foods, (2) 2.5+ liters of water daily to flush calcium, (3) bloodwork every 3-6 months, (4) Coimbra-trained physician supervision. The current labs prove these supporting measures are not in place. Any Coimbra physician would see calcium 11.3 and eGFR 53 and immediately reduce the D3 dose or enforce strict dietary calcium restriction.",
-      "recommendation": "THE D3 DOSE MUST BE REDUCED OR THE PROTOCOL PROPERLY SUPERVISED. The Coimbra approach for AS has merit, but without the required dietary restrictions and medical supervision, the current dose is causing organ damage. Two paths forward: (1) Find a Coimbra-trained physician (CoimbraProtocol.com) who can properly manage the protocol with strict dietary calcium restriction, or (2) reduce to 10,000-20,000 IU/day until a specialist is found. Either way: ELIMINATE dietary calcium immediately (no dairy, no pizza), drink 2.5L+ water daily, and recheck calcium, eGFR, and 25(OH)D in 4-6 weeks. Continue K2 at current dose."
+      "description": "LAB CONFIRMED 9/15/2026 (at prior dose of ~102,800 IU/day): Calcium 11.3 mg/dL (HIGH, ref 8.6-10.4), eGFR 53 (LOW, ref ≥60 — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). D3 has since been REDUCED to ~42,800 IU/day (40,000 standalone + 2,800 from multi/Protaflo) with K2 reduced to ~6,580 mcg. The high-dose D3 is intentional — a Coimbra Protocol approach for treating ankylosing spondylitis (AS). The Coimbra Protocol uses 40,000-200,000 IU D3 to suppress autoimmune activity, BUT strictly requires: (1) zero/very low calcium diet — no dairy, no pizza, no calcium-fortified foods, (2) 2.5+ liters of water daily to flush calcium, (3) bloodwork every 3-6 months, (4) Coimbra-trained physician supervision. Labs at the prior dose proved these supporting measures were not in place.",
+      "recommendation": "D3 HAS BEEN REDUCED from ~102,800 to ~42,800 IU/day. Critical next steps: (1) ELIMINATE dietary calcium immediately (no dairy, no pizza, no calcium-fortified foods), (2) drink 2.5L+ water daily, (3) find a Coimbra-trained physician (CoimbraProtocol.com) to properly supervise the protocol, (4) recheck calcium, eGFR, and 25(OH)D in 4-6 weeks to confirm the reduction is working. Continue K2 at current dose."
     },
     {
       "id": "int-03",
@@ -621,8 +621,8 @@
       "outcome": "Facial Nerve (Bell's Palsy)",
       "title": "CONFIRMED: Hypercalcemia (11.3) Worsening Bell's Palsy Symptoms",
       "supplements": ["bells-palsy", "d3", "codeage-multi", "protaflo"],
-      "description": "LAB CONFIRMED 9/15/2026: Calcium 11.3 mg/dL (HIGH). The 'extreme downward pressure' sensation at 21 months now has a likely explanation. Calcium is the trigger for muscle contraction — at 11.3 mg/dL, excess calcium causes continuous low-grade contraction and muscle hypertonicity in ALL muscles, but the damaged facial nerve side is most vulnerable. The facial nerve (CN VII) controls the muscles of facial expression — calcium dysregulation at the neuromuscular junction on the affected side directly produces abnormal muscle tone, contracture (synkinesis), and the 'pulling downward' sensation. Additionally, the high calcium is driving systemic inflammation (CRP 74.8) which maintains nerve compression within the bony fallopian canal. The D3 at 102,800 IU/day is causing a triple hit on the facial nerve: (1) hypercalcemia-driven muscle dysfunction, (2) inflammation-driven nerve compression, (3) kidney damage (eGFR 53) reducing the body's ability to clear inflammatory waste products.",
-      "recommendation": "REDUCING D3 IS THE SINGLE MOST IMPORTANT CHANGE FOR BELL'S PALSY RECOVERY. The hypercalcemia is confirmed and is likely the primary driver of persistent symptoms. As calcium normalizes, expect: less facial pressure, reduced muscle hypertonicity, lower CRP (less nerve inflammation), and improved kidney function. This is the most treatable cause of the persistent symptoms."
+      "description": "LAB CONFIRMED 9/15/2026 (at prior dose of ~102,800 IU/day): Calcium 11.3 mg/dL (HIGH). D3 has since been reduced to ~42,800 IU/day. The 'extreme downward pressure' sensation at 21 months now has a likely explanation. Calcium is the trigger for muscle contraction — at 11.3 mg/dL, excess calcium causes continuous low-grade contraction and muscle hypertonicity in ALL muscles, but the damaged facial nerve side is most vulnerable. The facial nerve (CN VII) controls the muscles of facial expression — calcium dysregulation at the neuromuscular junction directly produces abnormal muscle tone, contracture (synkinesis), and the 'pulling downward' sensation. Additionally, high calcium drives systemic inflammation (CRP 74.8) maintaining nerve compression within the bony fallopian canal. At the prior dose, D3 was causing a triple hit: (1) hypercalcemia-driven muscle dysfunction, (2) inflammation-driven nerve compression, (3) kidney damage (eGFR 53) reducing waste clearance.",
+      "recommendation": "D3 HAS BEEN REDUCED from ~102,800 to ~42,800 IU/day. As calcium normalizes, expect: less facial pressure, reduced muscle hypertonicity, lower CRP (less nerve inflammation), and improved kidney function. Strict dietary calcium restriction and 2.5L+ water daily are essential for the dose reduction to work. This is the most treatable cause of the persistent symptoms."
     },
     {
       "id": "int-46",
@@ -711,7 +711,7 @@
       "outcome": "Systemic Inflammation (CRP)",
       "title": "CONFIRMED: D3 → High Calcium → High CRP → Persistent Bell's Palsy (The Chain)",
       "supplements": ["high-crp", "bells-palsy", "d3"],
-      "description": "Labs confirmed the chain: D3 at 102,800 IU/day → calcium 11.3 (HIGH) → NLRP3 inflammasome activation → CRP 74.8 → ongoing inflammation compressing the facial nerve at 21 months. HOWEVER, ankylosing spondylitis (AS) is ALSO driving CRP independently — AS is an autoimmune inflammatory disease that produces elevated CRP and ESR as part of its disease activity. The CRP of 74.8 likely reflects BOTH sources: D3-induced hypercalcemia AND AS autoimmune inflammation. The persistent Bell's palsy is being actively maintained by inflammation from TWO sources — supplement-driven (fixable by reducing D3) and autoimmune (requires AS treatment). Normal WBC (9.7) rules out infection. ESR at 56 confirms chronic inflammation. Most Bell's palsy resolves in 3-6 months — this one hasn't because inflammation from both D3 and AS hasn't been controlled.",
+      "description": "Labs confirmed the chain: D3 at ~102,800 IU/day (since reduced to ~42,800) → calcium 11.3 (HIGH) → NLRP3 inflammasome activation → CRP 74.8 → ongoing inflammation compressing the facial nerve at 21 months. HOWEVER, ankylosing spondylitis (AS) is ALSO driving CRP independently — AS is an autoimmune inflammatory disease that produces elevated CRP and ESR as part of its disease activity. The CRP of 74.8 likely reflects BOTH sources: D3-induced hypercalcemia AND AS autoimmune inflammation. The persistent Bell's palsy is being actively maintained by inflammation from TWO sources — supplement-driven (fixable by reducing D3) and autoimmune (requires AS treatment). Normal WBC (9.7) rules out infection. ESR at 56 confirms chronic inflammation. Most Bell's palsy resolves in 3-6 months — this one hasn't because inflammation from both D3 and AS hasn't been controlled.",
       "recommendation": "Reducing D3 should significantly lower CRP, but may not normalize it completely because AS itself drives inflammation. The path forward requires addressing BOTH sources: (1) reduce D3 or properly implement Coimbra Protocol with dietary restrictions to fix hypercalcemia, (2) work with a rheumatologist or Coimbra physician to manage AS disease activity. MRI with gadolinium can confirm active nerve inflammation."
     },
     {
@@ -720,8 +720,8 @@
       "outcome": "Systemic Inflammation (CRP)",
       "title": "CONFIRMED: D3-Induced Hypercalcemia (11.3) Driving CRP of 74.8",
       "supplements": ["high-crp", "d3", "codeage-multi", "protaflo"],
-      "description": "LAB CONFIRMED 9/15/2026: Calcium 11.3 mg/dL (HIGH). The question of whether D3 was helping or hurting inflammation is now answered — it is HURTING. At 102,800 IU/day, the D3 has pushed calcium above the safe range despite ~9,280 mcg K2. High calcium activates the NLRP3 inflammasome, which drives IL-1β production, which triggers CRP production in the liver. This is likely a major contributor to the CRP of 74.8. The normal WBC (9.7) argues against infection as the primary cause of the elevated CRP, making the hypercalcemia-driven inflammatory pathway even more likely as the main driver. Reducing D3 should lower calcium → reduce NLRP3 activation → lower IL-1β → lower CRP.",
-      "recommendation": "D3 dose reduction is now the single most impactful change for lowering CRP. The inflammation is being driven by the supplements themselves, not (primarily) by infection. Reducing D3 to 10,000-20,000 IU/day should normalize calcium within weeks, which should substantially lower CRP. Recheck calcium, CRP, and eGFR in 4-6 weeks to confirm the cascade is reversing."
+      "description": "LAB CONFIRMED 9/15/2026 (at prior dose of ~102,800 IU/day): Calcium 11.3 mg/dL (HIGH). D3 has since been reduced to ~42,800 IU/day. At the prior dose, D3 pushed calcium above the safe range despite ~6,580 mcg K2. High calcium activates the NLRP3 inflammasome, which drives IL-1β production, which triggers CRP production in the liver. This was likely a major contributor to the CRP of 74.8. The normal WBC (9.7) argues against infection, making the hypercalcemia-driven inflammatory pathway the main driver. The dose reduction should lower calcium → reduce NLRP3 activation → lower IL-1β → lower CRP.",
+      "recommendation": "D3 has been reduced from ~102,800 to ~42,800 IU/day. This is the single most impactful change for lowering CRP. Calcium should begin normalizing within weeks. Recheck calcium, CRP, and eGFR in 4-6 weeks to confirm the cascade is reversing. Strict dietary calcium restriction is essential for the dose reduction to work."
     },
     {
       "id": "int-57",
@@ -756,8 +756,8 @@
       "outcome": "Liver & Kidney",
       "title": "CONFIRMED: Stage 3a Kidney Disease (eGFR 53) from Hypercalcemia",
       "supplements": ["d3", "codeage-multi", "protaflo", "potassium", "mag-threonate", "mag-glycinate"],
-      "description": "LAB CONFIRMED 9/15/2026: eGFR 53 (LOW, ref ≥60), BUN 26 (HIGH, ref 7-25), Creatinine 1.16 (HIGH, ref 0.50-1.05). This is Stage 3a chronic kidney disease. The most likely cause is hypercalcemia (calcium 11.3) from D3 at 102,800 IU/day — excess calcium deposits in renal tubules (nephrocalcinosis), causing progressive kidney damage. With reduced kidney function, several supplements in the stack need attention: potassium (1,020 mg — serum K is 4.5, normal for now, but damaged kidneys struggle to excrete potassium and levels can rise); magnesium (~209 mg elemental — kidneys excrete excess magnesium, reduced clearance increases risk of hypermagnesemia); all kidney-cleared supplements have slower clearance at eGFR 53. The kidney damage is likely REVERSIBLE if D3 is reduced and calcium normalizes — Stage 3a caught early has a good prognosis.",
-      "recommendation": "D3 dose reduction is URGENT — not just for CRP and Bell's palsy but to prevent further kidney damage. Monitor potassium and magnesium levels since kidney clearance is reduced. Stage 3a is reversible if calcium normalizes quickly. Recheck eGFR, BUN, creatinine, and calcium in 4-6 weeks after D3 reduction. If eGFR continues to decline, nephrology referral is needed."
+      "description": "LAB CONFIRMED 9/15/2026 (at prior dose of ~102,800 IU/day): eGFR 53 (LOW, ref ≥60), BUN 26 (HIGH, ref 7-25), Creatinine 1.16 (HIGH, ref 0.50-1.05). This is Stage 3a chronic kidney disease. The most likely cause is hypercalcemia (calcium 11.3) from the prior D3 dose — excess calcium deposits in renal tubules (nephrocalcinosis). D3 has since been reduced to ~42,800 IU/day. With reduced kidney function, several supplements need attention: potassium (1,020 mg — serum K is 4.5, normal for now, but damaged kidneys struggle to excrete potassium); magnesium (~209 mg elemental — reduced clearance increases risk of hypermagnesemia). The kidney damage is likely REVERSIBLE if calcium normalizes with the reduced dose — Stage 3a caught early has a good prognosis.",
+      "recommendation": "D3 has been reduced from ~102,800 to ~42,800 IU/day. Monitor potassium and magnesium levels since kidney clearance is reduced. Stage 3a is reversible if calcium normalizes quickly. Recheck eGFR, BUN, creatinine, and calcium in 4-6 weeks to confirm kidney recovery. Strict dietary calcium restriction and 2.5L+ water daily are essential. If eGFR continues to decline, nephrology referral is needed."
     },
     {
       "id": "int-61",
@@ -765,8 +765,8 @@
       "outcome": "Autoimmune (Ankylosing Spondylitis)",
       "title": "Coimbra Protocol for AS: High-Dose D3 Requires Strict Dietary Compliance",
       "supplements": ["ankylosing-spondylitis", "d3", "k2"],
-      "description": "The 102,800 IU D3 is an intentional Coimbra Protocol approach for ankylosing spondylitis — a legitimate medical protocol that uses massive D3 doses (40,000-200,000 IU) to suppress autoimmune activity. There IS evidence it helps AS patients. However, the protocol has non-negotiable requirements that appear unmet: (1) STRICT low-calcium diet — absolutely no dairy (cheese, milk, yogurt), no pizza, no calcium-fortified foods. A single 2-slice pizza serving delivers 400-750 mg calcium — enough to blow through the entire day's allowance. (2) 2.5+ liters of water daily to flush calcium through the kidneys. (3) Regular bloodwork every 3-6 months monitoring calcium, PTH, 25(OH)D, and creatinine. (4) Supervision by a Coimbra-trained physician who adjusts the dose based on labs. The current labs (calcium 11.3, eGFR 53) prove these safeguards are not in place. A Coimbra physician would NEVER accept these lab values — they would immediately reduce D3 or enforce stricter dietary restrictions.",
-      "recommendation": "The D3 isn't wrong IN PRINCIPLE for AS — the Coimbra Protocol has helped many AS patients. But it is being done unsafely. IMMEDIATE steps: (1) Eliminate ALL dietary calcium — no dairy, no pizza, no calcium-fortified foods or drinks. (2) Drink 2.5+ liters of water daily. (3) Find a Coimbra-trained physician (CoimbraProtocol.com directory, or Coimbra Protocol Facebook groups for patient-maintained doctor lists). (4) Until a physician is found, consider reducing D3 to 40,000-50,000 IU/day as a safer starting point with proper dietary compliance. (5) Recheck calcium, eGFR, PTH, and 25(OH)D in 4-6 weeks."
+      "description": "The ~42,800 IU D3 (40,000 standalone) is an intentional Coimbra Protocol approach for ankylosing spondylitis — a legitimate medical protocol that uses 40,000-200,000 IU D3 to suppress autoimmune activity. D3 was reduced from ~102,800 IU to address lab-confirmed hypercalcemia and kidney damage. The protocol has non-negotiable requirements: (1) STRICT low-calcium diet — absolutely no dairy (cheese, milk, yogurt), no pizza, no calcium-fortified foods. A single 2-slice pizza serving delivers 400-750 mg calcium — enough to blow through the entire day's allowance. (2) 2.5+ liters of water daily to flush calcium through the kidneys. (3) Regular bloodwork every 3-6 months monitoring calcium, PTH, 25(OH)D, and creatinine. (4) Supervision by a Coimbra-trained physician who adjusts the dose based on labs. Labs at the prior dose (calcium 11.3, eGFR 53) showed these safeguards were not in place — a Coimbra physician would have immediately acted on those values.",
+      "recommendation": "D3 has been reduced to ~42,800 IU/day (40,000 standalone) — a safer Coimbra starting point. CRITICAL next steps: (1) Eliminate ALL dietary calcium — no dairy, no pizza, no calcium-fortified foods or drinks. (2) Drink 2.5+ liters of water daily. (3) Find a Coimbra-trained physician (CoimbraProtocol.com directory, or Coimbra Protocol Facebook groups for patient-maintained doctor lists). (4) Recheck calcium, eGFR, PTH, and 25(OH)D in 4-6 weeks to confirm the dose reduction is working. The dietary restrictions are NON-NEGOTIABLE at any Coimbra dose."
     },
     {
       "id": "int-62",
