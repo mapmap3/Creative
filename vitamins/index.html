@@ -26,6 +26,9 @@
   --low: #2D7A52;
   --low-bg: #F0F9F4;
   --low-border: #A8D5BC;
+  --physician: #3574A5;
+  --physician-bg: #EFF5FA;
+  --physician-border: #A8C8E0;
   --pill-bg: #EDEAE4;
   --pill-text: #4A4740;
   --category-bg: #E8E5DE;
@@ -62,6 +65,9 @@
     --low: #4DB87A;
     --low-bg: #1A2E22;
     --low-border: #2A5C3E;
+    --physician: #5EAADB;
+    --physician-bg: #1C2832;
+    --physician-border: #2E4A62;
     --pill-bg: #35363C;
     --pill-text: #C5C2BA;
     --category-bg: #32333A;
@@ -94,6 +100,9 @@
   --low: #4DB87A;
   --low-bg: #1A2E22;
   --low-border: #2A5C3E;
+  --physician: #5EAADB;
+  --physician-bg: #1C2832;
+  --physician-border: #2E4A62;
   --pill-bg: #35363C;
   --pill-text: #C5C2BA;
   --category-bg: #32333A;
@@ -166,6 +175,7 @@ h1 {
 }
 
 .severity-count.critical { background: var(--critical-bg); color: var(--critical); border: 1px solid var(--critical-border); }
+.severity-count.physician { background: var(--physician-bg); color: var(--physician); border: 1px solid var(--physician-border); }
 .severity-count.high { background: var(--high-bg); color: var(--high); border: 1px solid var(--high-border); }
 .severity-count.moderate { background: var(--moderate-bg); color: var(--moderate); border: 1px solid var(--moderate-border); }
 .severity-count.low { background: var(--low-bg); color: var(--low); border: 1px solid var(--low-border); }
@@ -178,6 +188,7 @@ h1 {
 }
 
 .critical .severity-dot { background: var(--critical); }
+.physician .severity-dot { background: var(--physician); }
 .high .severity-dot { background: var(--high); }
 .moderate .severity-dot { background: var(--moderate); }
 .low .severity-dot { background: var(--low); }
@@ -306,6 +317,7 @@ h1 {
 }
 
 .stripe.critical { background: var(--critical); }
+.stripe.physician { background: var(--physician); }
 .stripe.high { background: var(--high); }
 .stripe.moderate { background: var(--moderate); }
 .stripe.low { background: var(--low); }
@@ -341,6 +353,7 @@ h1 {
 }
 
 .severity-badge.critical { background: var(--critical-bg); color: var(--critical); }
+.severity-badge.physician { background: var(--physician-bg); color: var(--physician); }
 .severity-badge.high { background: var(--high-bg); color: var(--high); }
 .severity-badge.moderate { background: var(--moderate-bg); color: var(--moderate); }
 .severity-badge.low { background: var(--low-bg); color: var(--low); }
@@ -433,6 +446,7 @@ h1 {
 }
 
 .severity-section-label.critical { color: var(--critical); }
+.severity-section-label.physician { color: var(--physician); }
 .severity-section-label.high { color: var(--high); }
 .severity-section-label.moderate { color: var(--moderate); }
 .severity-section-label.low { color: var(--low); }
@@ -848,7 +862,7 @@ h1 {
 <script>
 const DATA = {
   supplements: [
-    { id:"d3", name:"Vitamin D3 (Cholecalciferol)", dose:"40,000 IU", category:"Fat-Soluble Vitamins", notes:"Coimbra Protocol dose for ankylosing spondylitis — reduced from 100,000 IU to address hypercalcemia and kidney damage. Requires strict low-calcium diet, 2.5L+ water, and Coimbra physician.", flag:"critical" },
+    { id:"d3", name:"Vitamin D3 (Cholecalciferol)", dose:"40,000 IU", category:"Fat-Soluble Vitamins", notes:"Coimbra Protocol dose for ankylosing spondylitis — under physician supervision. Reduced from 100,000 IU; now with dairy-free diet, 2.5L+ water, and regular lab monitoring in place.", flag:"physician" },
     { id:"k2", name:"Vitamin K2 (MK-7)", dose:"6,400 mcg", category:"Fat-Soluble Vitamins", notes:"Paired with D3 to direct calcium to bones and protect arteries. Reduced from 9,100 mcg alongside D3 reduction. K2 alone cannot prevent calcium excess without dietary calcium restriction." },
     { id:"mag-threonate", name:"Magnesium L-Threonate", dose:"2,000 mg", category:"Minerals", notes:"A form of magnesium that crosses into the brain. Good for sleep and focus." },
     { id:"mag-glycinate", name:"Magnesium Glycinate", dose:"350 mg", category:"Minerals", notes:"Easy on the stomach. Helps with relaxation and muscle cramps." },
@@ -899,7 +913,7 @@ const DATA = {
       recommendation:"Antiplatelet load is lower with NMN combo removed and black seed oil reduced. Coimbra physician should know about the full antiplatelet stack before any surgery or dental procedures."
     },
     {
-      id:"int-02", severity:"critical", outcome:"Bone & Mineral Balance",
+      id:"int-02", severity:"physician", outcome:"Bone & Mineral Balance",
       title:"D3 Reduced to ~42,800 IU: Monitoring Hypercalcemia & Kidney Recovery",
       supplements:["d3","k2","codeage-multi","protaflo"],
       description:"LAB CONFIRMED 9/15/2026 (at prior dose of ~102,800 IU/day): Calcium 11.3 mg/dL (HIGH, ref 8.6-10.4), eGFR 53 (LOW, ref ≥60 — Stage 3a kidney disease), BUN 26 (HIGH), Creatinine 1.16 (HIGH). D3 has since been REDUCED to ~42,800 IU/day (40,000 standalone + 2,800 from multi/Protaflo) with K2 reduced to ~6,580 mcg. Now under Coimbra physician supervision with dairy-free diet and 2.5L+ water daily in place. The protocol requirements are being met: (1) strict low-calcium diet (dairy-free), (2) 2.5+ liters of water daily, (3) regular bloodwork, (4) Coimbra physician supervision. Awaiting follow-up labs to confirm the dose reduction and dietary compliance are resolving the hypercalcemia and kidney damage.",
@@ -990,7 +1004,7 @@ const DATA = {
       recommendation:"Strong antioxidant combination. Astaxanthin at 12 mg is a well-studied, safe dose."
     },
     {
-      id:"int-45", severity:"critical", outcome:"Facial Nerve (Bell's Palsy)",
+      id:"int-45", severity:"physician", outcome:"Facial Nerve (Bell's Palsy)",
       title:"CONFIRMED: Hypercalcemia (11.3) Worsening Bell's Palsy Symptoms",
       supplements:["bells-palsy","d3","codeage-multi","protaflo"],
       description:"LAB CONFIRMED: Calcium 11.3 (HIGH). The 'extreme downward pressure' now has an explanation. Excess calcium causes continuous muscle contraction — the damaged facial nerve side is most vulnerable. The D3 is causing a triple hit: (1) calcium-driven muscle dysfunction, (2) inflammation-driven nerve compression (CRP 74.8), (3) kidney damage (eGFR 53) reducing waste clearance.",
@@ -1046,14 +1060,14 @@ const DATA = {
       recommendation:"These anti-inflammatory supplements are critically important given CRP at 75. Curcumin + BioPerine is the strongest agent here. The D3 reduction and dietary calcium elimination should address the hypercalcemia-driven CRP component. The Coimbra Protocol D3 at proper dose with compliance should help address the AS-driven component. Recheck CRP in 4-6 weeks."
     },
     {
-      id:"int-55", severity:"critical", outcome:"Systemic Inflammation (CRP)",
+      id:"int-55", severity:"physician", outcome:"Systemic Inflammation (CRP)",
       title:"CONFIRMED: D3 → High Calcium → High CRP → Persistent Bell's Palsy (The Chain)",
       supplements:["high-crp","bells-palsy","d3"],
       description:"Labs confirmed the chain: D3 at ~102,800 IU (since reduced to ~42,800) → calcium 11.3 (HIGH) → NLRP3 inflammasome → CRP 74.8 → ongoing inflammation at 21 months. HOWEVER, ankylosing spondylitis (AS) is ALSO driving CRP — AS is autoimmune inflammation that produces elevated CRP independently. The CRP of 74.8 likely reflects BOTH sources: D3-induced hypercalcemia AND AS disease activity. The persistent Bell's palsy is maintained by inflammation from TWO sources — supplement-driven (fixable) and autoimmune (requires AS treatment).",
       recommendation:"D3 has been reduced from ~102,800 to ~42,800 IU/day. This should significantly lower CRP but may not normalize it — AS itself drives inflammation. Address BOTH sources: (1) enforce strict dietary calcium restriction with the reduced dose, (2) work with a rheumatologist or Coimbra physician to manage AS."
     },
     {
-      id:"int-56", severity:"critical", outcome:"Systemic Inflammation (CRP)",
+      id:"int-56", severity:"physician", outcome:"Systemic Inflammation (CRP)",
       title:"CONFIRMED: D3-Induced Hypercalcemia (11.3) Driving CRP of 74.8",
       supplements:["high-crp","d3","codeage-multi","protaflo"],
       description:"LAB CONFIRMED (at prior dose of ~102,800 IU/day): Calcium 11.3 (HIGH). D3 has since been reduced to ~42,800 IU/day. At the prior dose, D3 pushed calcium above safe range despite ~6,580 mcg K2. High calcium activates NLRP3 inflammasome → IL-1β → CRP 74.8. Normal WBC (9.7) confirms this is NOT infection. The dose reduction should lower calcium → lower CRP.",
@@ -1074,21 +1088,21 @@ const DATA = {
       recommendation:"Check homocysteine levels as part of the inflammatory workup. This methylation trio is well-designed and provides modest CRP benefit."
     },
     {
-      id:"int-60", severity:"critical", outcome:"Liver & Kidney",
+      id:"int-60", severity:"physician", outcome:"Liver & Kidney",
       title:"CONFIRMED: Stage 3a Kidney Disease (eGFR 53) from Hypercalcemia",
       supplements:["d3","codeage-multi","protaflo","potassium","mag-threonate","mag-glycinate"],
       description:"LAB CONFIRMED 9/15/2026 (at prior dose of ~102,800 IU/day): eGFR 53 (LOW), BUN 26 (HIGH), Creatinine 1.16 (HIGH) = Stage 3a CKD. Caused by calcium 11.3 (D3-induced hypercalcemia) depositing in kidney tubules. D3 has been reduced to ~42,800 IU/day. With reduced kidney function: potassium (1,020 mg) needs monitoring, magnesium (~209 mg) clearance is slower. Stage 3a is REVERSIBLE if calcium normalizes with the reduced dose.",
       recommendation:"D3 has been reduced from ~102,800 to ~42,800 IU/day. Monitor potassium and magnesium. Strict dietary calcium restriction and 2.5L+ water essential for kidney recovery. Recheck eGFR, BUN, creatinine in 4-6 weeks. If eGFR continues to decline, nephrology referral needed."
     },
     {
-      id:"int-61", severity:"critical", outcome:"Autoimmune (Ankylosing Spondylitis)",
+      id:"int-61", severity:"physician", outcome:"Autoimmune (Ankylosing Spondylitis)",
       title:"Coimbra Protocol for AS: High-Dose D3 Requires Strict Dietary Compliance",
       supplements:["ankylosing-spondylitis","d3","k2"],
       description:"The ~42,800 IU D3 (40,000 standalone) is an intentional Coimbra Protocol approach for ankylosing spondylitis — a legitimate medical protocol that uses 40,000-200,000 IU D3 to suppress autoimmune activity. D3 was reduced from ~102,800 IU to address lab-confirmed hypercalcemia and kidney damage. The protocol requirements are now being met: (1) dairy-free diet eliminating primary calcium sources, (2) 2.5+ liters of water daily to flush calcium through the kidneys, (3) Coimbra-trained physician supervision with regular bloodwork. Labs at the prior dose (calcium 11.3, eGFR 53) prompted these corrective steps. Awaiting follow-up labs to confirm improvement.",
       recommendation:"Protocol compliance is now in place with dairy-free diet, high water intake, and Coimbra physician supervision. The dose reduction from ~102,800 to ~42,800 IU/day combined with proper dietary compliance should allow calcium to normalize and kidneys to recover. Recheck calcium, eGFR, PTH, and 25(OH)D in 4-6 weeks. The Coimbra physician will adjust the dose based on lab results — the current 40,000 IU standalone may be increased if labs improve with proper compliance."
     },
     {
-      id:"int-63", severity:"critical", outcome:"Autoimmune (Ankylosing Spondylitis)",
+      id:"int-63", severity:"physician", outcome:"Autoimmune (Ankylosing Spondylitis)",
       title:"AS Drives CRP Independently — D3 Reduction Alone May Not Normalize It",
       supplements:["ankylosing-spondylitis","high-crp","d3"],
       description:"The CRP of 74.8 has TWO drivers: (1) D3-induced hypercalcemia activating the NLRP3 inflammasome (fixable by reducing D3/fixing diet), and (2) ankylosing spondylitis autoimmune inflammation (requires disease management). CRP levels of 20-80+ mg/L are common during active AS flares — the AS alone could account for much of the elevation. This means even after D3 is reduced and calcium normalizes, the CRP may remain elevated if AS is in an active flare. The high CRP in turn drives: persistent Bell's palsy (nerve inflammation), kidney stress (inflammatory load on already-damaged kidneys), and general tissue damage. The Coimbra Protocol aims to address the AS component by suppressing autoimmune activity with D3, but at the current unsupervised dose, it's causing MORE inflammation through hypercalcemia than it's preventing through immune suppression.",
@@ -1119,10 +1133,10 @@ function getInteractionCountForSupplement(suppId) {
 }
 
 function renderSummary() {
-  const counts = { critical: 0, high: 0, moderate: 0, low: 0 };
+  const counts = { critical: 0, physician: 0, high: 0, moderate: 0, low: 0 };
   DATA.interactions.forEach(i => { counts[i.severity]++; });
   document.getElementById('totalCount').textContent = DATA.supplements.length + ' supplements';
-  const labels = { critical:'Critical', high:'High', moderate:'Moderate', low:'Synergistic' };
+  const labels = { critical:'Critical', physician:'Physician Advised', high:'High', moderate:'Moderate', low:'Synergistic' };
   document.getElementById('summaryPills').innerHTML = Object.entries(counts)
     .filter(([,v]) => v > 0)
     .map(([k,v]) => `<span class="severity-count ${k}"><span class="severity-dot"></span>${v} ${labels[k]}</span>`)
@@ -1212,8 +1226,8 @@ function renderInteractions() {
 }
 
 function renderSeverityView(container, filtered) {
-  const order = ['critical','high','moderate','low'];
-  const labels = { critical:'Critical', high:'High Risk', moderate:'Moderate', low:'Synergistic' };
+  const order = ['critical','physician','high','moderate','low'];
+  const labels = { critical:'Critical', physician:'Physician Advised', high:'High Risk', moderate:'Moderate', low:'Synergistic' };
   let html = '';
   let lastSeverity = '';
 
@@ -1284,7 +1298,7 @@ function renderOutcomeView(container, filtered) {
       html += `
           <div class="outcome-item" id="oi-${interaction.id}">
             <div class="outcome-item-header" onclick="toggleOutcomeItem('${interaction.id}')" tabindex="0" onkeydown="if(event.key==='Enter')toggleOutcomeItem('${interaction.id}')">
-              <span class="severity-badge ${interaction.severity}">${interaction.severity}</span>
+              <span class="severity-badge ${interaction.severity}">${badgeLabels[interaction.severity] || interaction.severity}</span>
               <div class="outcome-item-title">${interaction.title}</div>
               <svg class="expand-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
             </div>
@@ -1304,6 +1318,8 @@ function renderOutcomeView(container, filtered) {
   container.innerHTML = html;
 }
 
+const badgeLabels = { critical:'critical', physician:'physician advised', high:'high', moderate:'moderate', low:'low' };
+
 function renderInteractionCard(interaction) {
   const pills = interaction.supplements
     .map(s => suppMap[s] ? `<span class="supp-pill">${suppMap[s].name.split('(')[0].trim()}</span>` : '')
@@ -1315,7 +1331,7 @@ function renderInteractionCard(interaction) {
         <div class="stripe ${interaction.severity}"></div>
         <div class="card-content">
           <div class="card-header" tabindex="0" onclick="toggleCard('${interaction.id}')" onkeydown="if(event.key==='Enter')toggleCard('${interaction.id}')">
-            <span class="severity-badge ${interaction.severity}">${interaction.severity}</span>
+            <span class="severity-badge ${interaction.severity}">${badgeLabels[interaction.severity] || interaction.severity}</span>
             <div class="card-title-area">
               <div class="card-title">${interaction.title}</div>
               <div class="card-supplements">${pills}</div>
@@ -1390,6 +1406,7 @@ function renderSupplements() {
     categories[cat].forEach(s => {
       const intCount = getInteractionCountForSupplement(s.id);
       const flagClass = s.flag === 'critical' ? 'color:var(--critical);font-weight:600' :
+                        s.flag === 'physician' ? 'color:var(--physician);font-weight:600' :
                         s.flag === 'high' ? 'color:var(--high);font-weight:600' : '';
       let subHtml = '';
       if (s.subIngredients && s.subIngredients.length) {

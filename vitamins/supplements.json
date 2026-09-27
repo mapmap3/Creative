@@ -9,7 +9,7 @@
       "doseValue": 40000,
       "doseUnit": "IU",
       "category": "Fat-Soluble Vitamins",
-      "notes": "Coimbra Protocol therapeutic dose for ankylosing spondylitis — reduced from 100,000 IU to address lab-confirmed hypercalcemia (calcium 11.3) and kidney damage (eGFR 53). Requires strict low-calcium diet, 2.5L+ water daily, and Coimbra physician supervision. Recheck labs in 4-6 weeks."
+      "notes": "Coimbra Protocol therapeutic dose for ankylosing spondylitis — under physician supervision. Reduced from 100,000 IU; now with dairy-free diet, 2.5L+ water daily, and regular lab monitoring in place. Recheck calcium, eGFR, 25(OH)D in 4-6 weeks."
     },
     {
       "id": "k2",
@@ -410,7 +410,7 @@
     },
     {
       "id": "int-02",
-      "severity": "critical",
+      "severity": "physician",
       "outcome": "Bone & Mineral Balance",
       "title": "D3 Reduced to ~42,800 IU: Monitoring Hypercalcemia & Kidney Recovery",
       "supplements": ["d3", "k2", "codeage-multi", "protaflo"],
@@ -529,7 +529,7 @@
     },
     {
       "id": "int-45",
-      "severity": "critical",
+      "severity": "physician",
       "outcome": "Facial Nerve (Bell's Palsy)",
       "title": "CONFIRMED: Hypercalcemia (11.3) Worsening Bell's Palsy Symptoms",
       "supplements": ["bells-palsy", "d3", "codeage-multi", "protaflo"],
@@ -601,7 +601,7 @@
     },
     {
       "id": "int-55",
-      "severity": "critical",
+      "severity": "physician",
       "outcome": "Systemic Inflammation (CRP)",
       "title": "CONFIRMED: D3 → High Calcium → High CRP → Persistent Bell's Palsy (The Chain)",
       "supplements": ["high-crp", "bells-palsy", "d3"],
@@ -610,7 +610,7 @@
     },
     {
       "id": "int-56",
-      "severity": "critical",
+      "severity": "physician",
       "outcome": "Systemic Inflammation (CRP)",
       "title": "CONFIRMED: D3-Induced Hypercalcemia (11.3) Driving CRP of 74.8",
       "supplements": ["high-crp", "d3", "codeage-multi", "protaflo"],
@@ -637,7 +637,7 @@
     },
     {
       "id": "int-60",
-      "severity": "critical",
+      "severity": "physician",
       "outcome": "Liver & Kidney",
       "title": "CONFIRMED: Stage 3a Kidney Disease (eGFR 53) from Hypercalcemia",
       "supplements": ["d3", "codeage-multi", "protaflo", "potassium", "mag-threonate", "mag-glycinate"],
@@ -646,7 +646,7 @@
     },
     {
       "id": "int-61",
-      "severity": "critical",
+      "severity": "physician",
       "outcome": "Autoimmune (Ankylosing Spondylitis)",
       "title": "Coimbra Protocol for AS: High-Dose D3 Requires Strict Dietary Compliance",
       "supplements": ["ankylosing-spondylitis", "d3", "k2"],
@@ -655,7 +655,7 @@
     },
     {
       "id": "int-63",
-      "severity": "critical",
+      "severity": "physician",
       "outcome": "Autoimmune (Ankylosing Spondylitis)",
       "title": "AS Drives CRP Independently — D3 Reduction Alone May Not Normalize It",
       "supplements": ["ankylosing-spondylitis", "high-crp", "d3"],
