@@ -29,6 +29,9 @@
   --physician: #3574A5;
   --physician-bg: #EFF5FA;
   --physician-border: #A8C8E0;
+  --condition: #5C6878;
+  --condition-bg: #F1F3F5;
+  --condition-border: #C4CAD2;
   --pill-bg: #EDEAE4;
   --pill-text: #4A4740;
   --category-bg: #E8E5DE;
@@ -68,6 +71,9 @@
     --physician: #5EAADB;
     --physician-bg: #1C2832;
     --physician-border: #2E4A62;
+    --condition: #8DA0B5;
+    --condition-bg: #222830;
+    --condition-border: #384050;
     --pill-bg: #35363C;
     --pill-text: #C5C2BA;
     --category-bg: #32333A;
@@ -103,6 +109,9 @@
   --physician: #5EAADB;
   --physician-bg: #1C2832;
   --physician-border: #2E4A62;
+  --condition: #8DA0B5;
+  --condition-bg: #222830;
+  --condition-border: #384050;
   --pill-bg: #35363C;
   --pill-text: #C5C2BA;
   --category-bg: #32333A;
@@ -900,9 +909,9 @@ const DATA = {
     { id:"astaxanthin", name:"Astaxanthin", dose:"12 mg", category:"Antioxidants", notes:"Powerful antioxidant from algae — 6,000x stronger than vitamin C. Protects eyes, skin, and joints. Mild blood-thinning effect." },
     { id:"protaflo", name:"Protaflo (Enclave BioActives)", dose:"2 capsules", category:"Specialty Blends", notes:"Prostate health formula with zinc, selenium, pumpkin seed, turmeric (95% curcuminoids), beta-sitosterol, nettle, black walnut hull, probiotics, lycopene, BioPerine, and vitamins D3 and K2.",
       subIngredients: ["Vitamin D3 (Cholecalciferol) 50 mcg / 2,000 IU","Zinc (Zinc Picolinate) 15 mg","Selenium (L-Selenomethionine) 200 mcg","Pumpkin Seed 320 mg","Turmeric Root Extract (95% Curcuminoids) 200 mg","Beta Sitosterol Complex (40%) 130 mg","Black Walnut Hull Powder 100 mg","Nettle Leaf 100 mg","5-Strain Probiotic Blend (6B CFU) 50 mg","Lycopene 15 mg","Black Pepper Extract (BioPerine, 95% Piperine) 5 mg","Vitamin K2 (MK-7) 100 mcg"] },
-    { id:"bells-palsy", name:"Bell's Palsy (Facial Nerve Paralysis)", dose:"Since Dec 2024", category:"Health Conditions", notes:"Onset December 2024. As of September 2026 (~21 months), face not notably droopy — just slightly — but extreme downward pressure sensation, like someone pulling downward on face. CN VII nerve paralysis from viral reactivation or inflammation in the bony fallopian canal.", flag:"high" },
-    { id:"high-crp", name:"Elevated CRP (C-Reactive Protein)", dose:"74.8 mg/L", category:"Health Conditions", notes:"Lab confirmed 9/15/2026: CRP 74.8 (ref <8.0), ESR 56 (ref ≤30). Calcium 11.3 (HIGH) confirms D3-induced hypercalcemia driving the inflammation. eGFR 53 (LOW) = Stage 3a kidney disease. WBC normal (9.7) — not infection-driven. D3 dose reduction is the primary fix.", flag:"critical" },
-    { id:"ankylosing-spondylitis", name:"Ankylosing Spondylitis (AS)", dose:"Diagnosed", category:"Health Conditions", notes:"Autoimmune inflammatory disease attacking the spine and sacroiliac joints. Currently treating with high-dose D3 (Coimbra Protocol) under physician supervision. Protocol REQUIRES: strict low-calcium diet (dairy-free), 2.5L+ water daily, regular bloodwork, Coimbra-trained physician. Protocol compliance is now in place. Labs at prior dose (9/15/2026) showed calcium 11.3 (HIGH), eGFR 53 — D3 has been reduced and dietary compliance established. Awaiting follow-up labs.", flag:"critical" }
+    { id:"bells-palsy", name:"Bell's Palsy (Facial Nerve Paralysis)", dose:"Since Dec 2024", category:"Health Conditions", notes:"Onset December 2024. As of September 2026 (~21 months), face not notably droopy — just slightly — but extreme downward pressure sensation, like someone pulling downward on face. CN VII nerve paralysis from viral reactivation or inflammation in the bony fallopian canal.", flag:"condition" },
+    { id:"high-crp", name:"Elevated CRP (C-Reactive Protein)", dose:"74.8 mg/L", category:"Health Conditions", notes:"Lab confirmed 9/15/2026: CRP 74.8 (ref <8.0), ESR 56 (ref ≤30). Calcium 11.3 (HIGH) confirms D3-induced hypercalcemia driving the inflammation. eGFR 53 (LOW) = Stage 3a kidney disease. WBC normal (9.7) — not infection-driven. D3 dose reduction is the primary fix.", flag:"condition" },
+    { id:"ankylosing-spondylitis", name:"Ankylosing Spondylitis (AS)", dose:"Diagnosed", category:"Health Conditions", notes:"Autoimmune inflammatory disease attacking the spine and sacroiliac joints. Currently treating with high-dose D3 (Coimbra Protocol) under physician supervision. Protocol REQUIRES: strict low-calcium diet (dairy-free), 2.5L+ water daily, regular bloodwork, Coimbra-trained physician. Protocol compliance is now in place. Labs at prior dose (9/15/2026) showed calcium 11.3 (HIGH), eGFR 53 — D3 has been reduced and dietary compliance established. Awaiting follow-up labs.", flag:"condition" }
   ],
   interactions: [
     {
@@ -1407,7 +1416,8 @@ function renderSupplements() {
       const intCount = getInteractionCountForSupplement(s.id);
       const flagClass = s.flag === 'critical' ? 'color:var(--critical);font-weight:600' :
                         s.flag === 'physician' ? 'color:var(--physician);font-weight:600' :
-                        s.flag === 'high' ? 'color:var(--high);font-weight:600' : '';
+                        s.flag === 'high' ? 'color:var(--high);font-weight:600' :
+                        s.flag === 'condition' ? 'color:var(--condition)' : '';
       let subHtml = '';
       if (s.subIngredients && s.subIngredients.length) {
         subHtml = `<details class="supp-sub-ingredients"><summary>${s.subIngredients.length} sub-ingredients</summary><ul>${s.subIngredients.map(si => `<li>${si}</li>`).join('')}</ul></details>`;
