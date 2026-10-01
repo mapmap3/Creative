@@ -1,0 +1,15 @@
+{
+  "name": "mapmap3",
+  "owner": {
+    "name": "mapmap3"
+  },
+  "description": "Claude Code plugins from the mapmap3/creative repo",
+  "plugins": [
+    {
+      "name": "creative",
+      "source": "./plugin",
+      "description": "Starter plugin for the Creative project",
+      "version": "0.1.0"
+    }
+  ]
+}
