@@ -17,9 +17,10 @@ Ask anything, then pick who answers. Choose from an original cast of characters 
 /persona explain how vaccines work
 /persona write a chorus about Monday mornings
 /persona cast            # show the full cast
+/persona build           # create your own character
 ```
 
-You'll get three characters to pick from, plus **More options…** for the next three best fits (no repeats until the cast runs out) and **Someone else…** to type any style. The character sticks for follow-ups until you ask to switch.
+You'll get three characters to pick from, plus **More options…** for the next three best fits (no repeats until the cast runs out), **Build your own…** to create a character from five quick questions (personality, voice, background, quirk, name), and **Someone else…** to type any style. The character sticks for follow-ups until you ask to switch.
 
 ## The cast
 
