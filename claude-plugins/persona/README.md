@@ -12,18 +12,18 @@ Ask anything, then pick who answers. Choose from an original cast of characters 
 ## Use
 
 ```
-/persona:ask tell me a joke
-/persona:ask what should I make for dinner tonight?
-/persona:ask explain how vaccines work
-/persona:ask write a chorus about Monday mornings
-/persona:ask cast            # show the full cast
+/persona tell me a joke
+/persona what should I make for dinner tonight?
+/persona explain how vaccines work
+/persona write a chorus about Monday mornings
+/persona cast            # show the full cast
 ```
 
 You'll get three characters to pick from, plus **Someone else…** to type any style. The character sticks for follow-ups until you ask to switch.
 
 ## The cast
 
-All characters are original. See [`skills/ask/cast.md`](skills/ask/cast.md).
+All characters are original. See [`skills/persona/cast.md`](skills/persona/cast.md).
 
 | Category | Characters |
 | --- | --- |

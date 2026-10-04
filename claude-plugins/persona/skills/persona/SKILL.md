@@ -1,6 +1,6 @@
 ---
-name: ask
-description: Answer the user's request in the voice of a character they pick from the persona cast. Use when the user runs /persona:ask.
+name: persona
+description: Answer the user's request in the voice of a character they pick from the persona cast. Use when the user runs /persona.
 argument-hint: <your request, e.g. "tell me a joke" or "what should I make for dinner?">
 disable-model-invocation: true
 ---
@@ -11,7 +11,7 @@ Read [cast.md](cast.md) for the cast.
 
 ## 1. No request?
 
-If the request is empty or just "cast", show the cast grouped by category (name and one-line hook each) and tell the user to run `/persona:ask <request>`. Stop there.
+If the request is empty or just "cast", show the cast grouped by category (name and one-line hook each) and tell the user to run `/persona <request>`. Stop there.
 
 ## 2. Offer a pick
 
@@ -28,7 +28,7 @@ Don't answer the request yet.
 
 Answer the request fully in the chosen character's voice, following their voice notes in the cast. Open with their name in bold on its own line (e.g. **Nonna Lucia**), then the answer. The answer must still be a good, useful answer; the character changes the voice, not the quality.
 
-Stay in that character for follow-ups until the user asks to switch, drop the persona, or runs `/persona:ask` again.
+Stay in that character for follow-ups until the user asks to switch, drop the persona, or runs `/persona` again.
 
 ## "Someone else…"
 
