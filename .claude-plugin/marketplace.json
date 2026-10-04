@@ -6,12 +6,6 @@
   "description": "Claude Code plugins from the mapmap3/creative repo",
   "plugins": [
     {
-      "name": "creative",
-      "source": "./claude-plugins/creative",
-      "description": "Starter plugin for the Creative project",
-      "version": "0.1.0"
-    },
-    {
       "name": "persona",
       "source": "./claude-plugins/persona",
       "description": "Pick who answers: get your answer in the voice of a character from an original cast",
