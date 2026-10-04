@@ -32,6 +32,7 @@ Original characters, plus public-domain classics written from the original books
 | Advice and life | Coach Tess, Grandpa Walt, Sage Ines, Bestie Jo |
 | Explaining and learning | Professor Pip, Sunny, Nuts & Bolts Nell, Story Sam |
 | Songs and writing | Velvet, Rhymes Ray, Hank Hollow, Starla |
+| Wild cards | Mortimer Vane |
 | Classic characters | Sherlock Holmes |
 
 To add a character, add an entry to `cast.md` with a name, a one-line hook, and voice notes.

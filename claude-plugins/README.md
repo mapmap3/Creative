@@ -14,7 +14,7 @@ Plugins for Claude Code, published through the `mapmap3` marketplace defined in
 
 | Plugin | What it does | Version |
 | --- | --- | --- |
-| [persona](./persona) | Pick a character from an original cast to answer in their voice (`/persona`) | 0.3.0 |
+| [persona](./persona) | Pick a character from an original cast to answer in their voice (`/persona`) | 0.4.0 |
 
 ## Adding a plugin
 
