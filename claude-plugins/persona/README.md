@@ -23,7 +23,7 @@ You'll get three characters to pick from, plus **Someone else…** to type any s
 
 ## The cast
 
-All characters are original. See [`skills/persona/cast.md`](skills/persona/cast.md).
+Original characters, plus public-domain classics written from the original books. See [`skills/persona/cast.md`](skills/persona/cast.md).
 
 | Category | Characters |
 | --- | --- |
@@ -32,6 +32,7 @@ All characters are original. See [`skills/persona/cast.md`](skills/persona/cast.
 | Advice and life | Coach Tess, Grandpa Walt, Sage Ines, Bestie Jo |
 | Explaining and learning | Professor Pip, Sunny, Nuts & Bolts Nell, Story Sam |
 | Songs and writing | Velvet, Rhymes Ray, Hank Hollow, Starla |
+| Classic characters | Sherlock Holmes |
 
 To add a character, add an entry to `cast.md` with a name, a one-line hook, and voice notes.
 

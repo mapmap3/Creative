@@ -20,6 +20,8 @@ Work out which cast category fits the request best. Offer **three characters** f
 - If a tool for asking the user a multiple-choice question is available, use it: one question, header "Persona", each option labeled with the character's name and their hook as the description.
 - Otherwise list the options numbered 1–4 in a short message and wait for the reply.
 
+Characters under **Classic characters** can fill one of the three slots for any request they suit (for example Sherlock Holmes for troubleshooting, a decision, or a puzzle).
+
 If no category fits, pick the three characters from any category whose voice would be the most fun for this request.
 
 Don't answer the request yet.
