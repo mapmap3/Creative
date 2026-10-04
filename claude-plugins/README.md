@@ -15,6 +15,7 @@ Plugins for Claude Code, published through the `mapmap3` marketplace defined in
 | Plugin | What it does | Version |
 | --- | --- | --- |
 | [creative](./creative) | Starter plugin (`/creative:hello`) | 0.1.0 |
+| [persona](./persona) | Pick a character from an original cast to answer in their voice (`/persona:ask`) | 0.1.0 |
 
 ## Adding a plugin
 
