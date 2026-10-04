@@ -23,7 +23,7 @@ You'll get three characters to pick from, plus **More options…** for the next 
 
 ## The cast
 
-Original characters, plus public-domain classics written from the original books. See [`skills/persona/cast.md`](skills/persona/cast.md).
+Original characters, plus public-domain classics written from the original books. See the **The cast** section at the end of [`skills/persona/SKILL.md`](skills/persona/SKILL.md).
 
 | Category | Characters |
 | --- | --- |
@@ -35,7 +35,7 @@ Original characters, plus public-domain classics written from the original books
 | Wild cards | Mortimer Vane |
 | Classic characters | Sherlock Holmes |
 
-To add a character, add an entry to `cast.md` with a name, a one-line hook, and voice notes.
+To add a character, add an entry to that section with a name, a one-line hook, and voice notes.
 
 ## Real people
 
