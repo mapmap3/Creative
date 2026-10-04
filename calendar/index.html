@@ -653,8 +653,16 @@
     border-bottom-color: #7c6f9c;
   }
 
-  .view-week, .view-month { display: none; }
-  .view-week.active, .view-month.active { display: block; }
+  .view-week, .view-month {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .view-week.active, .view-month.active {
+    display: flex;
+  }
 
   /* Month grid */
   .month-container {
