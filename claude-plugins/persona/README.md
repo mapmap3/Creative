@@ -19,7 +19,7 @@ Ask anything, then pick who answers. Choose from an original cast of characters 
 /persona cast            # show the full cast
 ```
 
-You'll get three characters to pick from, plus **Someone else…** to type any style. The character sticks for follow-ups until you ask to switch.
+You'll get three characters to pick from, plus **More options…** for the next three best fits (no repeats until the cast runs out) and **Someone else…** to type any style. The character sticks for follow-ups until you ask to switch.
 
 ## The cast
 

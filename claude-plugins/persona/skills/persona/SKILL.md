@@ -15,16 +15,29 @@ If the request is empty or just "cast", show the cast grouped by category (name 
 
 ## 2. Offer a pick
 
-Work out which cast category fits the request best. Offer **three characters** from it, plus a fourth option: **"Someone else…"** (the user types any name or style).
+Rank the whole cast by how well each character fits this request:
 
-- If a tool for asking the user a multiple-choice question is available, use it: one question, header "Persona", each option labeled with the character's name and their hook as the description.
-- Otherwise list the options numbered 1–4 in a short message and wait for the reply.
+- Characters from the category that fits best come first.
+- **Wild cards** and **Classic characters** rank wherever they suit the request (for example Mortimer Vane for a tough decision, or Sherlock Holmes for troubleshooting or a puzzle).
+- After those, characters from other categories whose voice would be fun for this request, best first.
 
-Characters under **Wild cards** and **Classic characters** can fill one of the three slots for any request they suit (for example Mortimer Vane for a tough decision, or Sherlock Holmes for troubleshooting or a puzzle).
+Offer the top **three** characters, plus two more options:
 
-If no category fits, pick the three characters from any category whose voice would be the most fun for this request.
+- **"More options…"**: show the next three.
+- **"Someone else…"**: the user types any name or style.
 
-Don't answer the request yet.
+How to ask:
+
+- If a tool for asking the user a multiple-choice question is available, use it: one question, header "Persona", each character labeled with their name and their hook as the description, then "More options…" as the last option. If the tool has a built-in free-text answer (such as "Other"), that serves as "Someone else…" and you don't list it; otherwise list it too.
+- Otherwise list the options numbered (three characters, then "More options…", then "Someone else…") in a short message and wait for the reply.
+
+### More options
+
+When the user picks "More options…", ask again with the **next three** characters in your ranking. Every round shows exactly three characters, even if that leaves only one or two for the next round. Never show a character again in the same pick: each round draws only from characters not offered yet. Keep the same layout each round.
+
+When fewer than three characters are left, offer the ones that remain. When none are left, say the cast has run out and offer "Someone else…" or "Start over" (which shows the top three again).
+
+Don't answer the request until the user picks a character.
 
 ## 3. Answer in character
 
