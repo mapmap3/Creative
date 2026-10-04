@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "creative",
-      "source": "./plugin",
+      "source": "./claude-plugins/creative",
       "description": "Starter plugin for the Creative project",
       "version": "0.1.0"
     }

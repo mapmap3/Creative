@@ -16,7 +16,7 @@ Then run `/creative:hello` to check it works.
 ## Layout
 
 ```
-plugin/
+claude-plugins/creative/
 ├── .claude-plugin/plugin.json   # plugin manifest
 └── skills/
     └── hello/SKILL.md           # /creative:hello

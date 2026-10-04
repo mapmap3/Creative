@@ -1,0 +1,10 @@
+{
+  "name": "PLUGIN_NAME",
+  "description": "One sentence on what this plugin does and who it's for",
+  "version": "0.1.0",
+  "author": {
+    "name": "mapmap3"
+  },
+  "repository": "https://github.com/mapmap3/creative",
+  "license": "MIT"
+}
