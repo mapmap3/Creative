@@ -1350,6 +1350,7 @@ async function toggleDate(day) {
   }
 
   render();
+  if (currentTab === 'month') renderMonth();
   await saveBookings();
 }
 
