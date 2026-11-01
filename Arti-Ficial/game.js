@@ -868,13 +868,19 @@ function updatePlayer(dt) {
   if (keys.ArrowRight) ix += 1;
   ix += input.joy.x; iz += input.joy.y;
   const il = Math.hypot(ix, iz); if (il > 1) { ix /= il; iz /= il; }
-  const fwdX = -Math.sin(cam.yaw), fwdZ = -Math.cos(cam.yaw), rgtX = Math.cos(cam.yaw), rgtZ = -Math.sin(cam.yaw);
+  // Directions are read relative to the camera as it was when this input started, so the camera can
+  // swing around (e.g. after pressing Down to turn back) without bending Arti's path.
+  const inAng = Math.atan2(ix, iz);
+  if (il < 0.15) player.ctrlYaw = null;
+  else if (player.ctrlYaw == null || Math.abs(Math.atan2(Math.sin(inAng - player.inAng), Math.cos(inAng - player.inAng))) > 0.4) { player.ctrlYaw = cam.yaw; player.inAng = inAng; }
+  const cy = player.ctrlYaw ?? cam.yaw;
+  const fwdX = -Math.sin(cy), fwdZ = -Math.cos(cy), rgtX = Math.cos(cy), rgtZ = -Math.sin(cy);
   const mx = rgtX * ix + fwdX * -iz, mz = rgtZ * ix + fwdZ * -iz;
-  // swing in behind Arti while moving (not while backing toward the camera, which would spin it around)
+  // swing in behind Arti while moving, including all the way around when he turns back toward the camera
   const hSpeed = Math.hypot(player.vel.x, player.vel.z);
-  if (cam.manualT <= 0 && hSpeed > 1.5 && iz < 0.3) {
+  if (cam.manualT <= 0 && hSpeed > 1.5) {
     let d = (player.facing + Math.PI) - cam.yaw; d = Math.atan2(Math.sin(d), Math.cos(d));
-    cam.yaw += d * (1 - Math.exp(-1.6 * Math.min(1, hSpeed / 8) * dt));
+    cam.yaw += d * (1 - Math.exp(-2.0 * Math.min(1, hSpeed / 8) * dt));
     cam.pitch = lerp(cam.pitch, 0.32, 1 - Math.exp(-0.8 * dt));
   }
 
