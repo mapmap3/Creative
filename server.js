@@ -35,7 +35,7 @@ app.use('/teach', express.static(join(__dirname, 'teach')));
 app.use('/vitamins', express.static(join(__dirname, 'vitamins')));
 app.use('/tree', express.static(join(__dirname, 'tree')));
 app.use('/food', express.static(join(__dirname, 'food')));
-app.use('/arty-ficial', express.static(join(__dirname, 'Arty-Ficial')));
+app.use('/arti-ficial', express.static(join(__dirname, 'Arti-Ficial')));
 
 async function githubRequest(endpoint, options = {}) {
   const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}${endpoint}`;

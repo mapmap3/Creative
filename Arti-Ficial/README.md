@@ -1,18 +1,18 @@
-# Arty-Ficial
+# Arti-Ficial
 
 A 3D tin-toy robot rescue game for the browser, inspired by the old Pangea Software classic *Otto Matic*. It's all original: a 1950s B-movie feel, a chrome robot with a glass head, and a lot of goofy aliens.
 
-The Glorpians have swept through the solar system and snatched up folks on every world. Arty flies a red-and-cream rocket from planet to planet, rescues everyone, zaps the Glorpians and takes down the Glorp Mothership on Plutonly.
+The Glorpians have swept through the solar system and snatched up folks on every world. Arti flies a red-and-cream rocket from planet to planet, rescues everyone, zaps the Glorpians and takes down the Glorp Mothership on Plutonly.
 
 ## Play
 
 Open `index.html` through any static server. It loads three.js from a CDN, so there's no build step:
 
 ```bash
-cd Arty-Ficial && python3 -m http.server 8000
+cd Arti-Ficial && python3 -m http.server 8000
 ```
 
-When the main `server.js` app runs, the game is also served at `/arty-ficial/`.
+When the main `server.js` app runs, the game is also served at `/arti-ficial/`.
 
 ## The solar system (more or less)
 

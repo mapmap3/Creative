@@ -1,4 +1,4 @@
-// ARTY-FICIAL — a tin-toy robot rescue romp across a (slightly renamed) solar system.
+// ARTI-FICIAL — a tin-toy robot rescue romp across a (slightly renamed) solar system.
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
 /* =========================================================================
@@ -126,7 +126,7 @@ const SCALES = {
 /* =========================================================================
    Save data
    ========================================================================= */
-const SAVE_KEY = 'arty-ficial-save-v1';
+const SAVE_KEY = 'arti-ficial-save-v1';
 let save = { unlocked: 1, cleared: [], score: 0, best: {} };
 try { const s = JSON.parse(localStorage.getItem(SAVE_KEY)); if (s && typeof s.unlocked === 'number') save = { ...save, ...s }; } catch (e) { /* storage blocked */ }
 function writeSave() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(save)); } catch (e) { /* ignore */ } }
@@ -285,7 +285,7 @@ const std = (color, o = {}) => new THREE.MeshStandardMaterial({ color, roughness
 const glowMat = (color) => new THREE.MeshBasicMaterial({ color });
 function M(geo, mat, x = 0, y = 0, z = 0) { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = true; return m; }
 
-function buildArty() {
+function buildArti() {
   const g = new THREE.Group();
   const chrome = std(0xd9dee8, { metalness: 0.95, roughness: 0.22 });
   const red = std(0xe2402f, { metalness: 0.35, roughness: 0.35 });
@@ -515,7 +515,7 @@ let mapSel = Math.max(0, Math.min(save.unlocked - 1, PLANETS.length - 1));
 const isTouch = matchMedia('(pointer: coarse)').matches;
 if (isTouch) document.body.classList.add('touch');
 
-const art = buildArty();
+const art = buildArti();
 scene.add(art.group); art.group.visible = false;
 const player = {
   pos: new THREE.Vector3(), vel: new THREE.Vector3(), facing: 0, onGround: false, jumps: 0,
@@ -943,12 +943,12 @@ function updatePlayer(dt) {
   // rocket
   if (L.ready && Math.hypot(player.pos.x, player.pos.z) < 3.4) startLaunch();
 
-  animateArty(dt, Math.hypot(player.vel.x, player.vel.z));
+  animateArti(dt, Math.hypot(player.vel.x, player.vel.z));
   // camera shadow follow
   sun.position.copy(player.pos).addScaledVector(SUN_DIR, 80); sun.target.position.copy(player.pos);
 }
 
-function animateArty(dt, spd) {
+function animateArti(dt, spd) {
   art.group.position.copy(player.pos);
   art.group.rotation.y = player.facing;
   player.walkT += dt * (player.onGround ? spd * 1.4 : 2);
@@ -1019,7 +1019,7 @@ function killPlayer() {
   Sound.sfx('die'); burst(tmpV.copy(player.pos).setY(player.pos.y + 1), 0xd9dee8, 30, 9, 1.2, 5); burst(tmpV, 0xe2402f, 20, 8, 1.2, 5);
   art.group.visible = false; cam.shake = 0.8;
   updateHUD();
-  message(player.lives > 0 ? 'ARTY GOT SCRAMBLED! REBOOTING…' : 'OUT OF SPARE PARTS!', 2.2);
+  message(player.lives > 0 ? 'ARTI GOT SCRAMBLED! REBOOTING…' : 'OUT OF SPARE PARTS!', 2.2);
 }
 
 /* =========================================================================
@@ -1321,7 +1321,7 @@ function levelComplete() {
   const final = i === PLANETS.length - 1;
   showResult({
     eyebrow: final ? 'THE SOLAR SYSTEM IS SAVED' : `PLANET ${i + 1} CLEARED`,
-    title: final ? 'Victory, Arty!' : `${P.name} Is Safe!`,
+    title: final ? 'Victory, Arti!' : `${P.name} Is Safe!`,
     text: final
       ? 'The Glorp Mothership is scrap and the Glorpians have scrambled back past the Kuiper Belt. Every folk is home, and Plutonly finally gets the planet party it deserves.'
       : `All ${L.total} folks are heading home. Next stop: ${PLANETS[i + 1].name}.`,
@@ -1337,7 +1337,7 @@ function gameOver() {
   const i = L.i;
   showResult({
     eyebrow: 'MISSION FAILED', title: 'Out of Spare Parts',
-    text: `The Glorpians got the better of Arty on ${L.P.name}. The folks are still waiting, so dust off and try again.`,
+    text: `The Glorpians got the better of Arti on ${L.P.name}. The folks are still waiting, so dust off and try again.`,
     stats: [['Folks saved', `${L.saved}/${L.total}`], ['Bolts', L.bolts], ['Glorpians zapped', L.kills]],
     main: 'Try Again', onMain: () => startLevel(i),
     alt: 'Back to Solar Map', onAlt: () => toMap(),
@@ -1368,7 +1368,7 @@ function updateHUD(force) {
   set('hud-folks', `${L.saved}/${L.total}`);
   set('hud-bolts', String(L.bolts));
   set('hud-score', String(L.score));
-  set('hud-lives', `SPARE ARTYS × ${Math.max(0, player.lives - 1)}`);
+  set('hud-lives', `SPARE ARTIS × ${Math.max(0, player.lives - 1)}`);
   const hpKey = `${player.hp}/${player.maxHp}`;
   if (force || hudCache.hp !== hpKey) {
     hudCache.hp = hpKey;
@@ -1529,7 +1529,7 @@ addEventListener('resize', () => {
 });
 
 /* =========================================================================
-   Title-screen backdrop: Arty floating in front of a spinning planet
+   Title-screen backdrop: Arti floating in front of a spinning planet
    ========================================================================= */
 const titleGroup = new THREE.Group(); scene.add(titleGroup);
 (function buildTitleScene() {
@@ -1599,4 +1599,4 @@ function frame() {
 frame();
 
 // expose a tiny debug hook for testing in the console
-window.__arty = { get state() { return state; }, get L() { return L; }, player, startLevel, PLANETS, save };
+window.__arti = { get state() { return state; }, get L() { return L; }, player, startLevel, PLANETS, save };
