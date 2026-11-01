@@ -1,4 +1,4 @@
-// ARTI-FICIAL — a tin-toy robot rescue romp across a (slightly renamed) solar system.
+// ARTI-FICIAL — a tin-toy robot rescue romp across a made-up solar system.
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
 /* =========================================================================
@@ -32,11 +32,11 @@ function fbm(x, y, s, oct = 5) {
 function seeded(seed) { let s = seed >>> 0 || 1; return () => { s = (Math.imul(s, 1664525) + 1013904223) >>> 0; return s / 4294967296; }; }
 
 /* =========================================================================
-   The (renamed) solar system
+   The Toasty System: nine made-up worlds circling Big Toasty
    ========================================================================= */
 const PLANETS = [
   {
-    name: 'Scorchury', was: 'Mercury', tag: 'Closest to Big Toasty. Bring sunscreen. Bring two.',
+    name: 'Cindergulp', kind: 'a volcano world', tag: 'The ground burps. The ground is also on fire. Watch your step.',
     gim: 'Low gravity and seas of lava. Magma Gloobs bounce around the craters.',
     sky: 0xff9b55, fog: 0xff8a45, fogNear: 40, fogFar: 170, sunColor: 0xfff1c4, sunI: 2.8, hemiSky: 0xffc89a, hemiGround: 0x502010,
     ground: [0x2d1b19, 0x7a3e26, 0xc98a52], gravity: 0.6, seed: 11, amp: 14, scale: 0.02, style: 'craters',
@@ -45,7 +45,7 @@ const PLANETS = [
     sky3d: { sun: 90 }, stars: false, music: { root: 196, scale: 'minor', seed: 3 }, mapColor: '#c98a52', mapSize: 6,
   },
   {
-    name: 'Venusauna', was: 'Venus', tag: 'The galaxy’s hottest hot tub. Pea-soup fog included.',
+    name: 'Fizzmire', kind: 'a swamp world', tag: 'Steamy, soupy and gently carbonated. Do not drink the scenery.',
     gim: 'Bubbling acid pools and thick fog. Saucers lurk in the haze.',
     sky: 0xd8c86a, fog: 0xcfc06a, fogNear: 10, fogFar: 85, sunColor: 0xfff6c0, sunI: 1.8, hemiSky: 0xf0e090, hemiGround: 0x506020,
     ground: [0x5a4e1e, 0x9a8a3a, 0xdccb7a], gravity: 0.9, seed: 23, amp: 16, scale: 0.016, style: 'rolling',
@@ -54,7 +54,7 @@ const PLANETS = [
     sky3d: { sun: 40 }, stars: false, music: { root: 220, scale: 'dorian', seed: 7 }, mapColor: '#e7d27c', mapSize: 9,
   },
   {
-    name: 'Dirtball', was: 'Earth', tag: 'Mostly harmless. Mostly wet. Home sweet home.',
+    name: 'Mossbottom', kind: 'a garden world', tag: 'Pine trees, puddles and picnic weather. Glorpians not invited.',
     gim: 'The water is fine for wading. Glorp Saucers and Tripods patrol the hills.',
     sky: 0x8fd0ff, fog: 0xbfe4ff, fogNear: 50, fogFar: 190, sunColor: 0xfffbe8, sunI: 2.6, hemiSky: 0xbfe6ff, hemiGround: 0x2e4a1e,
     ground: [0x8a7a4a, 0x3f8a3a, 0x2c5e2a], gravity: 1.0, seed: 37, amp: 18, scale: 0.015, style: 'rolling', colorByHeight: [0.0, 0.18, 0.55],
@@ -63,7 +63,7 @@ const PLANETS = [
     sky3d: { moon: true }, stars: false, music: { root: 262, scale: 'major', seed: 11 }, mapColor: '#3f8ad8', mapSize: 9,
   },
   {
-    name: 'Marzipan', was: 'Mars', tag: 'Red, dusty, and faintly almond-scented.',
+    name: 'Crumblecrag', kind: 'a canyon world', tag: 'A giant staircase of red rock that nobody remembers building.',
     gim: 'Terraced canyons, low gravity, and lots of Tripod walkers. No hazards, just bad neighbours.',
     sky: 0xf0b49a, fog: 0xe0a080, fogNear: 45, fogFar: 180, sunColor: 0xfff0e0, sunI: 2.4, hemiSky: 0xffd0b8, hemiGround: 0x5a2010,
     ground: [0x6a2414, 0xb5502a, 0xe09060], gravity: 0.6, seed: 41, amp: 22, scale: 0.014, style: 'mesas',
@@ -72,7 +72,7 @@ const PLANETS = [
     sky3d: { moons: 2 }, stars: false, music: { root: 175, scale: 'phrygian', seed: 13 }, mapColor: '#d0603a', mapSize: 7,
   },
   {
-    name: 'Jumbopiter', was: 'Jupiter', tag: 'Big planet. Bigger gravity. Even bigger storm.',
+    name: 'Thunderbelly', kind: 'a storm giant', tag: 'So heavy it hugs your boots. The rumbling below is the weather.',
     gim: 'Heavy gravity squashes your jumps. Don’t fall into the storm below the cloud-banks.',
     sky: 0xf5d7a8, fog: 0xf0c890, fogNear: 40, fogFar: 170, sunColor: 0xffffff, sunI: 2.2, hemiSky: 0xffe6c0, hemiGround: 0x6a3a1a,
     ground: [0xc06a3a, 0xf0d8b0, 0xa05030], gravity: 1.6, seed: 53, amp: 14, scale: 0.018, style: 'bands',
@@ -81,7 +81,7 @@ const PLANETS = [
     sky3d: { moons: 4 }, stars: false, music: { root: 147, scale: 'minor', seed: 17 }, mapColor: '#e8b27a', mapSize: 20,
   },
   {
-    name: 'Ringaling', was: 'Saturn', tag: 'If you liked it, then you should have put a ring on it.',
+    name: 'Glimmerloop', kind: 'a ringed desert', tag: 'Golden dunes under a sky-sized hula hoop.',
     gim: 'Golden dunes beneath enormous rings. Sinking Ring-Goo lies in the low spots.',
     sky: 0x1f2a4a, fog: 0x3a3a5a, fogNear: 40, fogFar: 170, sunColor: 0xfff0d0, sunI: 2.2, hemiSky: 0xa0a8d8, hemiGround: 0x5a4a20,
     ground: [0x7a5a20, 0xd8b050, 0xf4e0a0], gravity: 1.05, seed: 67, amp: 12, scale: 0.02, style: 'dunes',
@@ -90,7 +90,7 @@ const PLANETS = [
     sky3d: { rings: true }, stars: true, music: { root: 196, scale: 'lydian', seed: 19 }, mapColor: '#e8cf8a', mapSize: 17, ring: true,
   },
   {
-    name: 'Tiltania', was: 'Uranus', tag: 'Lying down on the job since the dawn of time.',
+    name: 'Frostwobble', kind: 'an ice world', tag: 'Everything is slippery, and the sky fell over sideways long ago.',
     gim: 'Slippery ice everywhere, even the sky is sideways. Liquid methane stings.',
     sky: 0x6fd8e0, fog: 0x9ae8ee, fogNear: 40, fogFar: 170, sunColor: 0xeefcff, sunI: 2.2, hemiSky: 0xd0fcff, hemiGround: 0x2a6a7a,
     ground: [0x3a8a9a, 0x8fd8e0, 0xf0ffff], gravity: 0.9, seed: 79, amp: 16, scale: 0.017, style: 'ridged', slippery: true, roll: 0.07,
@@ -99,7 +99,7 @@ const PLANETS = [
     sky3d: { rings: true, tilt: true }, stars: true, music: { root: 233, scale: 'dorian', seed: 23 }, mapColor: '#8fe0e8', mapSize: 13, ring: true, ringTilt: true,
   },
   {
-    name: 'Neptunes', was: 'Neptune', tag: 'Where the winds have got the blues.',
+    name: 'Gustopia', kind: 'a wind world', tag: 'The breeze here has opinions, and it will push you to share them.',
     gim: 'Howling winds shove you around. Wade through the shallows and mind the gusts.',
     sky: 0x1a3a8a, fog: 0x2a4aa0, fogNear: 35, fogFar: 160, sunColor: 0xc8d8ff, sunI: 1.8, hemiSky: 0x7aa0ff, hemiGround: 0x101a40,
     ground: [0x1a2a6a, 0x3a5ac0, 0x8ab0ff], gravity: 1.1, seed: 89, amp: 18, scale: 0.016, style: 'rolling', wind: 6,
@@ -108,7 +108,7 @@ const PLANETS = [
     sky3d: { moons: 1 }, stars: true, music: { root: 165, scale: 'blues', seed: 29 }, mapColor: '#3a62e0', mapSize: 12,
   },
   {
-    name: 'Plutonly', was: 'Pluto', tag: 'Still a planet in our hearts. Literally, it has a heart.',
+    name: 'Valentoid', kind: 'a tiny heart world', tag: 'Small, chilly and full of love. The Glorpians parked their Mothership right on the heart.',
     gim: 'Floaty low gravity. The Glorp Mothership is parked here. Bring it down!',
     sky: 0x0c0c1c, fog: 0x1c1a30, fogNear: 50, fogFar: 190, sunColor: 0xe0e0ff, sunI: 1.6, hemiSky: 0x8080b0, hemiGround: 0x302030,
     ground: [0x5a4a4a, 0xa89080, 0xd8c8b8], gravity: 0.35, seed: 97, amp: 15, scale: 0.018, style: 'craters', heart: true,
@@ -631,7 +631,7 @@ function loadLevel(i) {
   art.group.visible = true;
   Sound.setSong(P.music);
   updateHUD(true);
-  showBanner(`PLANET ${i + 1} OF ${PLANETS.length} · FORMERLY ${P.was.toUpperCase()}`, P.name, P.tag);
+  showBanner(`PLANET ${i + 1} OF ${PLANETS.length} · ${P.kind.toUpperCase()}`, P.name, P.tag);
   $('hud-hint').style.opacity = 0.7;
   setTimeout(() => { if ($('hud-hint')) $('hud-hint').style.opacity = 0; }, 12000);
 }
@@ -885,7 +885,7 @@ function updatePlayer(dt) {
     player.facing += d * (1 - Math.exp(-12 * dt));
   }
 
-  // wind (Neptunes)
+  // wind (Gustopia)
   if (P.wind) {
     L.gustT -= dt;
     if (L.gustT <= 0) { L.gustT = rand(3, 6); const a = rand(0, Math.PI * 2); L.windTarget = new THREE.Vector3(Math.cos(a), 0, Math.sin(a)).multiplyScalar(P.wind * rand(0.4, 1)); if (L.windTarget.length() > P.wind * 0.75) message('WHOOSH! A GUST!', 1.2); }
@@ -1320,10 +1320,10 @@ function levelComplete() {
   writeSave();
   const final = i === PLANETS.length - 1;
   showResult({
-    eyebrow: final ? 'THE SOLAR SYSTEM IS SAVED' : `PLANET ${i + 1} CLEARED`,
+    eyebrow: final ? 'THE TOASTY SYSTEM IS SAVED' : `PLANET ${i + 1} CLEARED`,
     title: final ? 'Victory, Arti!' : `${P.name} Is Safe!`,
     text: final
-      ? 'The Glorp Mothership is scrap and the Glorpians have scrambled back past the Kuiper Belt. Every folk is home, and Plutonly finally gets the planet party it deserves.'
+      ? 'The Glorp Mothership is scrap and the Glorpians have scrambled off the edge of the map. Every folk is home, and Valentoid throws the biggest party the Toasty System has ever seen.'
       : `All ${L.total} folks are heading home. Next stop: ${PLANETS[i + 1].name}.`,
     stats: [['Folks saved', `${L.saved}/${L.total}`], ['Bolts', L.bolts], ['Glorpians zapped', L.kills], ['Time', fmtTime(L.time)], ['Time bonus', timeBonus], ['Spare-parts bonus', livesBonus], ['Planet score', total, true]],
     main: final ? 'Back to the Solar Map' : `On to ${PLANETS[i + 1].name}`,
@@ -1466,7 +1466,7 @@ function selectPlanet(i) {
   mapSel = clamp(i, 0, PLANETS.length - 1);
   const P = PLANETS[mapSel]; const locked = mapSel >= save.unlocked;
   $('mp-order').textContent = `PLANET ${mapSel + 1} OF ${PLANETS.length}${save.cleared.includes(mapSel) ? ' · CLEARED' : ''}`;
-  $('mp-name').textContent = P.name; $('mp-was').textContent = `formerly known as ${P.was}`;
+  $('mp-name').textContent = P.name; $('mp-was').textContent = P.kind;
   $('mp-tag').textContent = P.tag;
   $('mp-grav').textContent = `${P.gravity.toFixed(2)} g`;
   $('mp-haz').textContent = P.hazard ? P.hazard.label : 'None';
