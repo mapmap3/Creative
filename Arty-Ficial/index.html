@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Arty-Ficial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Chakra+Petch:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game"></div>
+
+<!-- In-level HUD -->
+<div id="hud" hidden>
+  <div id="hud-tl">
+    <div id="hud-planet">SCORCHURY</div>
+    <div id="hud-hp" aria-label="Battery"></div>
+    <div id="hud-lives"></div>
+  </div>
+  <div id="hud-tr">
+    <div class="stat"><span>FOLKS SAVED</span><b id="hud-folks">0/0</b></div>
+    <div class="stat"><span>BOLTS</span><b id="hud-bolts">0</b></div>
+    <div class="stat"><span>SCORE</span><b id="hud-score">0</b></div>
+    <div id="hud-power" hidden>TRIPLE ZAP <b id="hud-power-t">15</b></div>
+  </div>
+  <canvas id="radar" width="300" height="300"></canvas>
+  <div id="hud-msg"></div>
+  <div id="boss-bar" hidden><span>GLORP MOTHERSHIP</span><div class="track"><i id="boss-fill"></i></div></div>
+  <div id="floaters"></div>
+  <div id="hud-hint">WASD move · SPACE jump (twice to jet) · CLICK/F zap · Q/E or mouse turn camera · P pause</div>
+</div>
+
+<!-- Arrival banner -->
+<div id="banner" hidden>
+  <small id="banner-sub">PLANET 1 OF 9</small>
+  <h2 id="banner-title">SCORCHURY</h2>
+  <p id="banner-tag"></p>
+</div>
+
+<!-- Title screen -->
+<section id="title" class="screen">
+  <div class="title-card">
+    <p class="eyebrow">A Tin-Toy Space Adventure</p>
+    <h1 class="logo">ARTY<span>-</span>FICIAL</h1>
+    <p class="lede">The Glorpians have swept through the solar system and snatched up folks on every world from Scorchury to Plutonly. One small robot with a glass head and a blaster is all that stands between them and the cosmic zoo.</p>
+    <div class="btn-row">
+      <button id="btn-start" class="btn primary">Start Adventure</button>
+      <button id="btn-reset" class="btn ghost">Erase Saved Progress</button>
+    </div>
+    <div class="controls">
+      <div><kbd>W A S D</kbd> move</div>
+      <div><kbd>Space</kbd> jump · twice to jet</div>
+      <div><kbd>Click</kbd>/<kbd>F</kbd> zap</div>
+      <div><kbd>Q</kbd><kbd>E</kbd>/mouse camera</div>
+      <div><kbd>P</kbd> pause · <kbd>M</kbd> mute</div>
+    </div>
+    <p id="reset-confirm" class="fine" hidden>Progress erased. Arty is back on the launch pad.</p>
+  </div>
+</section>
+
+<!-- Solar map -->
+<section id="map" class="screen" hidden>
+  <canvas id="map-canvas"></canvas>
+  <header class="map-head">
+    <h2>The Solar System <small>(more or less)</small></h2>
+    <div class="map-score">TOTAL SCORE <b id="map-score">0</b></div>
+  </header>
+  <aside id="map-panel">
+    <small id="mp-order">PLANET 1</small>
+    <h3 id="mp-name">Scorchury</h3>
+    <p class="was" id="mp-was">formerly known as Mercury</p>
+    <p id="mp-tag"></p>
+    <dl>
+      <div><dt>Gravity</dt><dd id="mp-grav"></dd></div>
+      <div><dt>Hazard</dt><dd id="mp-haz"></dd></div>
+      <div><dt>Folks</dt><dd id="mp-folks"></dd></div>
+    </dl>
+    <p class="gimmick" id="mp-gim"></p>
+    <button id="btn-launch" class="btn primary">Launch!</button>
+    <p class="fine" id="mp-locked" hidden>Locked. Rescue everyone on the previous planet to plot a course here.</p>
+  </aside>
+  <p class="map-tip">Tap a planet to select it. Arrow keys work too, Enter launches.</p>
+</section>
+
+<!-- Pause -->
+<section id="pause" class="screen dim" hidden>
+  <div class="card">
+    <h2>Paused</h2>
+    <div class="btn-row col">
+      <button id="btn-resume" class="btn primary">Resume</button>
+      <button id="btn-restart" class="btn">Restart Planet</button>
+      <button id="btn-tomap" class="btn ghost">Abandon to Solar Map</button>
+    </div>
+  </div>
+</section>
+
+<!-- Result -->
+<section id="result" class="screen dim" hidden>
+  <div class="card">
+    <small id="res-eyebrow">MISSION REPORT</small>
+    <h2 id="res-title">Planet Cleared!</h2>
+    <p id="res-text"></p>
+    <dl id="res-stats"></dl>
+    <div class="btn-row col">
+      <button id="btn-res-main" class="btn primary">Back to Solar Map</button>
+      <button id="btn-res-alt" class="btn ghost" hidden>Try Again</button>
+    </div>
+  </div>
+</section>
+
+<!-- Touch controls -->
+<div id="touch" hidden>
+  <div id="stick-zone"><div id="stick"><i></i></div></div>
+  <button id="t-jump" class="tbtn">JUMP</button>
+  <button id="t-zap" class="tbtn zap">ZAP</button>
+  <button id="t-pause" class="tbtn small" aria-label="Pause">II</button>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>
