@@ -779,11 +779,11 @@ function showBanner(sub, title, tag) {
 const keys = {};
 const input = { jump: false, fire: false, joy: { x: 0, y: 0 }, camDX: 0, camDY: 0, mouseFire: false, touchFire: false };
 addEventListener('keydown', (e) => {
-  if (e.repeat && (e.code === 'Space')) { e.preventDefault(); return; }
+  if (e.repeat && (e.code === 'Space' || e.code === 'KeyS')) { e.preventDefault(); return; }
   keys[e.code] = true;
   if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) e.preventDefault();
   if (state === 'playing') {
-    if (e.code === 'Space') input.jump = true;
+    if (e.code === 'KeyS' || e.code === 'Space') input.jump = true;
     if (e.code === 'KeyP' || e.code === 'Escape') pauseGame();
   } else if (state === 'paused' && (e.code === 'KeyP' || e.code === 'Escape')) resumeGame();
   else if (state === 'map') mapKey(e);
@@ -856,17 +856,17 @@ function updatePlayer(dt) {
   const G = 32 * P.gravity;
   // camera control
   const rotSpeed = 2.2;
-  if (keys.KeyQ) cam.yaw += rotSpeed * dt;
-  if (keys.KeyE) cam.yaw -= rotSpeed * dt;
+  if (keys.KeyA || keys.KeyQ) cam.yaw += rotSpeed * dt;
+  if (keys.KeyD || keys.KeyE) cam.yaw -= rotSpeed * dt;
   cam.yaw -= input.camDX * 0.0045; cam.pitch = clamp(cam.pitch + input.camDY * 0.003, 0.05, 1.1);
   input.camDX = 0; input.camDY = 0;
 
   // movement input relative to camera
   let ix = 0, iz = 0;
-  if (keys.KeyW || keys.ArrowUp) iz -= 1;
-  if (keys.KeyS || keys.ArrowDown) iz += 1;
-  if (keys.KeyA || keys.ArrowLeft) ix -= 1;
-  if (keys.KeyD || keys.ArrowRight) ix += 1;
+  if (keys.ArrowUp) iz -= 1;
+  if (keys.ArrowDown) iz += 1;
+  if (keys.ArrowLeft) ix -= 1;
+  if (keys.ArrowRight) ix += 1;
   ix += input.joy.x; iz += input.joy.y;
   const il = Math.hypot(ix, iz); if (il > 1) { ix /= il; iz /= il; }
   const fwdX = -Math.sin(cam.yaw), fwdZ = -Math.cos(cam.yaw), rgtX = Math.cos(cam.yaw), rgtZ = -Math.sin(cam.yaw);
@@ -935,7 +935,7 @@ function updatePlayer(dt) {
 
   // shooting
   player.shootCd -= dt;
-  const firing = keys.KeyF || keys.KeyJ || keys.KeyK || keys.Enter || input.mouseFire || input.touchFire;
+  const firing = keys.KeyW || keys.KeyF || keys.KeyJ || keys.KeyK || keys.Enter || input.mouseFire || input.touchFire;
   if (firing && player.shootCd <= 0) fire();
   player.triple = Math.max(0, player.triple - dt);
   player.inv = Math.max(0, player.inv - dt);

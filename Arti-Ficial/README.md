@@ -33,10 +33,10 @@ When the main `server.js` app runs, the game is also served at `/arti-ficial/`.
 
 | Action | Keyboard / mouse | Touch |
 |--------|------------------|-------|
-| Move | WASD / arrows | Left stick |
-| Jump / jet (press twice) | Space | JUMP |
-| Zap (auto-aims) | Click, F, J or Enter | ZAP |
-| Camera | Mouse (click to lock), Q / E | Drag on the right side |
+| Move | Arrow keys | Left stick |
+| Jump / jet (press twice) | S (or Space) | JUMP |
+| Zap (auto-aims) | W (or click, F) | ZAP |
+| Turn camera | A / D (or mouse, click to lock) | Drag on the right side |
 | Pause | P / Esc | II |
 | Mute | M | |
 
