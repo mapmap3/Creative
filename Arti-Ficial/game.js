@@ -779,11 +779,11 @@ function showBanner(sub, title, tag) {
 const keys = {};
 const input = { jump: false, fire: false, joy: { x: 0, y: 0 }, camDX: 0, camDY: 0, mouseFire: false, touchFire: false };
 addEventListener('keydown', (e) => {
-  if (e.repeat && (e.code === 'Space' || e.code === 'KeyS')) { e.preventDefault(); return; }
+  if (e.repeat && (e.code === 'Space' || e.code === 'KeyD')) { e.preventDefault(); return; }
   keys[e.code] = true;
   if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) e.preventDefault();
   if (state === 'playing') {
-    if (e.code === 'KeyS' || e.code === 'Space') input.jump = true;
+    if (e.code === 'KeyD' || e.code === 'Space') input.jump = true;
     if (e.code === 'KeyP' || e.code === 'Escape') pauseGame();
   } else if (state === 'paused' && (e.code === 'KeyP' || e.code === 'Escape')) resumeGame();
   else if (state === 'map') mapKey(e);
@@ -798,7 +798,6 @@ canvas.addEventListener('mousedown', (e) => {
   if (state !== 'playing') return;
   if (e.button === 0) input.mouseFire = true;
   dragging = true;
-  if (!pointerLocked && canvas.requestPointerLock) { try { const p = canvas.requestPointerLock(); if (p && p.catch) p.catch(() => {}); } catch (err) { /* not allowed */ } }
 });
 addEventListener('mouseup', () => { input.mouseFire = false; dragging = false; });
 addEventListener('mousemove', (e) => {
@@ -855,9 +854,9 @@ function updatePlayer(dt) {
   const P = L.P;
   const G = 32 * P.gravity;
   // camera control
-  const rotSpeed = 2.2;
-  if (keys.KeyA || keys.KeyQ) cam.yaw += rotSpeed * dt;
-  if (keys.KeyD || keys.KeyE) cam.yaw -= rotSpeed * dt;
+  // automatic follow camera; a mouse drag or touch drag can nudge it and it recentres on its own
+  if (input.camDX || input.camDY) cam.manualT = 1.5;
+  cam.manualT = Math.max(0, (cam.manualT || 0) - dt);
   cam.yaw -= input.camDX * 0.0045; cam.pitch = clamp(cam.pitch + input.camDY * 0.003, 0.05, 1.1);
   input.camDX = 0; input.camDY = 0;
 
@@ -871,6 +870,13 @@ function updatePlayer(dt) {
   const il = Math.hypot(ix, iz); if (il > 1) { ix /= il; iz /= il; }
   const fwdX = -Math.sin(cam.yaw), fwdZ = -Math.cos(cam.yaw), rgtX = Math.cos(cam.yaw), rgtZ = -Math.sin(cam.yaw);
   const mx = rgtX * ix + fwdX * -iz, mz = rgtZ * ix + fwdZ * -iz;
+  // swing in behind Arti while moving (not while backing toward the camera, which would spin it around)
+  const hSpeed = Math.hypot(player.vel.x, player.vel.z);
+  if (cam.manualT <= 0 && hSpeed > 1.5 && iz < 0.3) {
+    let d = (player.facing + Math.PI) - cam.yaw; d = Math.atan2(Math.sin(d), Math.cos(d));
+    cam.yaw += d * (1 - Math.exp(-1.6 * Math.min(1, hSpeed / 8) * dt));
+    cam.pitch = lerp(cam.pitch, 0.32, 1 - Math.exp(-0.8 * dt));
+  }
 
   const floor = floorH(player.pos.x, player.pos.z);
   const inWater = P.hazard && !P.hazard.harmful && player.pos.y < P.hazard.level - 0.2;
@@ -935,7 +941,7 @@ function updatePlayer(dt) {
 
   // shooting
   player.shootCd -= dt;
-  const firing = keys.KeyW || keys.KeyF || keys.KeyJ || keys.KeyK || keys.Enter || input.mouseFire || input.touchFire;
+  const firing = keys.KeyS || keys.KeyF || keys.KeyJ || keys.KeyK || keys.Enter || input.mouseFire || input.touchFire;
   if (firing && player.shootCd <= 0) fire();
   player.triple = Math.max(0, player.triple - dt);
   player.inv = Math.max(0, player.inv - dt);

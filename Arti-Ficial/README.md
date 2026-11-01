@@ -35,9 +35,9 @@ Nine made-up worlds circling a sun called **Big Toasty**:
 | Action | Keyboard / mouse | Touch |
 |--------|------------------|-------|
 | Move | Arrow keys | Left stick |
-| Jump / jet (press twice) | S (or Space) | JUMP |
-| Zap (auto-aims) | W (or click, F) | ZAP |
-| Turn camera | A / D (or mouse, click to lock) | Drag on the right side |
+| Jump / jet (press twice) | D (or Space) | JUMP |
+| Zap (auto-aims) | S (or click, F) | ZAP |
+| Camera | Follows automatically (drag the mouse to peek) | Follows automatically (drag on the right side to peek) |
 | Pause | P / Esc | II |
 | Mute | M | |
 
