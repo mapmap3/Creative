@@ -192,6 +192,9 @@ const Sound = {
       case 'launch': this.noise(3.2, 0.35, 900); this.tone('sawtooth', 60, 400, 3.2, 0.08); break;
       case 'ready': [392, 494, 587, 784].forEach((f, i) => this.tone('triangle', f, f, 0.25, 0.1, i * 0.14)); break;
       case 'select': this.tone('sine', 660, 990, 0.08, 0.1); break;
+      case 'land': this.noise(3.0, 0.3, 700); this.tone('sawtooth', 220, 70, 3.0, 0.05); break;
+      case 'thud': this.noise(0.5, 0.45, 300); this.tone('sine', 90, 35, 0.4, 0.3); break;
+      case 'hatch': this.tone('square', 90, 140, 0.5, 0.04); this.noise(0.5, 0.08, 1800); this.tone('triangle', 660, 660, 0.06, 0.06, 0.5); break;
       case 'die': this.tone('sawtooth', 600, 40, 1.0, 0.2); this.noise(0.8, 0.3, 700); break;
     }
   },
@@ -328,6 +331,7 @@ function buildArti() {
   return { group: g, body, head, armL, armR, legL: legL.l, legR: legR.l, flames: [legL.flame, legR.flame], bulb, lights, brain, mats: [chrome, red] };
 }
 
+const HATCH = { hingeY: 1.6, hingeZ: 0.95, len: 2.6, closed: -Math.PI / 2, open: Math.asin(1.4 / 2.6) };
 function buildRocket() {
   const g = new THREE.Group();
   const cream = std(0xf4e9cf, { metalness: 0.3, roughness: 0.35 });
@@ -338,12 +342,22 @@ function buildRocket() {
   const nose = M(new THREE.ConeGeometry(0.42, 1.2, 20), red, 0, 9.3, 0); g.add(nose);
   for (let i = 0; i < 3; i++) {
     const fin = M(new THREE.BoxGeometry(0.14, 2.6, 1.6), red, 0, 0, 0);
-    const piv = new THREE.Group(); piv.rotation.y = (i / 3) * Math.PI * 2; fin.position.set(0, 1.8, 1.25); fin.rotation.x = -0.25; piv.add(fin); g.add(piv);
+    const piv = new THREE.Group(); piv.rotation.y = (i / 3) * Math.PI * 2 + Math.PI / 3; fin.position.set(0, 1.8, 1.25); fin.rotation.x = -0.25; piv.add(fin); g.add(piv);
   }
   const port = M(new THREE.TorusGeometry(0.42, 0.08, 8, 20), red, 0, 5.4, 1.08); port.rotation.x = -0.12; g.add(port);
   const glass = new THREE.Mesh(new THREE.CircleGeometry(0.4, 20), std(0x7fe8ff, { emissive: 0x2fa8c0, emissiveIntensity: 0.6, metalness: 0.2, roughness: 0.1 }));
   glass.position.set(0, 5.4, 1.1); glass.rotation.x = -0.12; g.add(glass);
   g.add(M(new THREE.CylinderGeometry(0.7, 0.9, 0.6, 20), std(0x333844, { metalness: 0.8, roughness: 0.4 }), 0, 0.75, 0));
+  // airlock: a little housing on the hull with a drawbridge hatch that folds down into a ramp
+  g.add(M(new THREE.BoxGeometry(1.6, 2.9, 0.8), cream, 0, 2.95, 0.5));
+  const doorway = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 2.6), new THREE.MeshBasicMaterial({ color: 0x4a3418 }));
+  doorway.position.set(0, 2.9, 0.905); g.add(doorway);
+  const lamp = new THREE.Mesh(new THREE.SphereGeometry(0.12, 10, 8), glowMat(0xffd27a)); lamp.position.set(0, 4.0, 0.6); g.add(lamp);
+  const hatch = new THREE.Group(); hatch.position.set(0, HATCH.hingeY, HATCH.hingeZ); g.add(hatch);
+  const plate = M(new THREE.BoxGeometry(1.24, 0.1, HATCH.len), red, 0, 0, HATCH.len / 2); hatch.add(plate);
+  for (let k = 0; k < 5; k++) hatch.add(M(new THREE.BoxGeometry(1.0, 0.05, 0.1), cream, 0, 0.07, 0.35 + k * 0.48));
+  const hatchRivets = M(new THREE.TorusGeometry(0.28, 0.05, 6, 16), cream, 0, -0.07, HATCH.len * 0.62); hatchRivets.rotation.x = Math.PI / 2; hatch.add(hatchRivets);
+  hatch.rotation.x = HATCH.closed;
   const pad = new THREE.Mesh(new THREE.CylinderGeometry(3.6, 3.9, 0.4, 32), std(0x55606e, { metalness: 0.5, roughness: 0.6 }));
   pad.position.y = 0.0; pad.receiveShadow = true; g.add(pad);
   const ringMat = glowMat(0xffd23f);
@@ -352,7 +366,7 @@ function buildRocket() {
   beam.position.y = 30; beam.visible = false; g.add(beam);
   const flame = new THREE.Mesh(new THREE.ConeGeometry(0.8, 3, 16), new THREE.MeshBasicMaterial({ color: 0xffa020, transparent: true, opacity: 0.9 }));
   flame.rotation.x = Math.PI; flame.position.y = -1; flame.visible = false; g.add(flame);
-  return { group: g, beam, flame, ringMat };
+  return { group: g, beam, flame, ringMat, hatch };
 }
 
 function buildFolk(suitColor) {
@@ -593,7 +607,7 @@ function loadLevel(i) {
   buildSky(P);
   buildDecor(P);
 
-  const r = buildRocket(); L.rocket = r; r.group.position.set(0, H(0, 0) + 0.2, 0); L.world.add(r.group);
+  const r = buildRocket(); L.rocket = r; r.restY = H(0, 0) + 0.2; r.group.position.set(0, r.restY, 0); L.world.add(r.group);
   L.colliders.push({ x: 0, z: 0, r: 1.8 });
 
   const folkColors = [0xff8a3a, 0x3a9aff, 0xffd23f, 0xff5ab0, 0x7ad04a, 0xb07aff];
@@ -632,8 +646,6 @@ function loadLevel(i) {
   Sound.setSong(P.music);
   updateHUD(true);
   showBanner(`PLANET ${i + 1} OF ${PLANETS.length} · ${P.kind.toUpperCase()}`, P.name, P.tag);
-  $('hud-hint').style.opacity = 0.7;
-  setTimeout(() => { if ($('hud-hint')) $('hud-hint').style.opacity = 0; }, 12000);
 }
 
 function respawnPlayer() {
@@ -779,6 +791,7 @@ function showBanner(sub, title, tag) {
 const keys = {};
 const input = { jump: false, fire: false, joy: { x: 0, y: 0 }, camDX: 0, camDY: 0, mouseFire: false, touchFire: false };
 addEventListener('keydown', (e) => {
+  if (state === 'arriving' && arriveT > 0.4 && !e.repeat) { e.preventDefault(); finishArrival(); return; }
   if (e.repeat && (e.code === 'Space' || e.code === 'KeyD')) { e.preventDefault(); return; }
   keys[e.code] = true;
   if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) e.preventDefault();
@@ -790,6 +803,7 @@ addEventListener('keydown', (e) => {
   if (e.code === 'KeyM') { Sound.setMuted(!Sound.muted); if (state === 'playing') message(Sound.muted ? 'SOUND OFF' : 'SOUND ON', 1.2); }
 });
 addEventListener('keyup', (e) => { keys[e.code] = false; });
+addEventListener('pointerdown', () => { if (state === 'arriving' && arriveT > 0.4) finishArrival(); });
 addEventListener('blur', () => { for (const k in keys) keys[k] = false; input.mouseFire = false; if (state === 'playing') pauseGame(); });
 
 const canvas = renderer.domElement;
@@ -953,7 +967,7 @@ function updatePlayer(dt) {
   player.inv = Math.max(0, player.inv - dt);
 
   // rocket
-  if (L.ready && Math.hypot(player.pos.x, player.pos.z) < 3.4) startLaunch();
+  if (L.ready && Math.hypot(player.pos.x, player.pos.z) < 4.2) startBoarding();
 
   animateArti(dt, Math.hypot(player.vel.x, player.vel.z));
   // camera shadow follow
@@ -1307,6 +1321,141 @@ function startLaunch() {
   art.group.visible = false; L.rocket.beam.visible = false; L.rocket.flame.visible = true;
   Sound.sfx('launch'); message('3… 2… 1… BLAST OFF!', 2.5);
 }
+
+// --- walking paths for the hatch cutscenes
+function makePath(pts) {
+  const seg = []; let total = 0;
+  for (let k = 1; k < pts.length; k++) { const d = pts[k].distanceTo(pts[k - 1]); seg.push(d); total += d; }
+  return { pts, seg, total };
+}
+function pathAt(p, s, out) {
+  s = clamp(s, 0, p.total);
+  for (let k = 0; k < p.seg.length; k++) {
+    if (s <= p.seg[k] || k === p.seg.length - 1) return out.lerpVectors(p.pts[k], p.pts[k + 1], p.seg[k] ? clamp(s / p.seg[k], 0, 1) : 1);
+    s -= p.seg[k];
+  }
+  return out.copy(p.pts[p.pts.length - 1]);
+}
+function rampPoints() {
+  const gy = L.rocket.group.position.y;
+  return [
+    new THREE.Vector3(0, gy + HATCH.hingeY, 0.35),                                            // inside the airlock
+    new THREE.Vector3(0, gy + HATCH.hingeY, HATCH.hingeZ),                                    // top of the ramp
+    new THREE.Vector3(0, gy + HATCH.hingeY - HATCH.len * Math.sin(HATCH.open), HATCH.hingeZ + HATCH.len * Math.cos(HATCH.open)), // foot of the ramp
+    new THREE.Vector3(0, H(0, 4.3), 4.3),
+  ];
+}
+function setHatch(k) { L.rocket.hatch.rotation.x = lerp(HATCH.closed, HATCH.open, smooth(0, 1, k)); }
+function walkArti(dt, from, to) {
+  const dx = to.x - from.x, dz = to.z - from.z;
+  if (Math.hypot(dx, dz) > 0.001) player.facing = Math.atan2(dx, dz);
+  player.pos.copy(to); player.onGround = true; player.jumps = 0; player.jetT = 0;
+  animateArti(dt, Math.hypot(dx, dz) / Math.max(dt, 1e-4));
+}
+function cutsceneCamera(dt, look, at, rate = 2.5) {
+  cam.pos.lerp(at, 1 - Math.exp(-rate * dt));
+  camera.position.copy(cam.pos);
+  if (cam.shake > 0) { cam.shake = Math.max(0, cam.shake - dt); const s = cam.shake * 0.5; camera.position.x += rand(-s, s); camera.position.y += rand(-s, s); }
+  camera.lookAt(look);
+  if (L.P.roll) camera.rotateZ(L.P.roll);
+  sun.position.copy(look).addScaledVector(SUN_DIR, 80); sun.target.position.copy(look);
+}
+
+// --- arrival: the rocket lands, the hatch drops, Arti walks out
+const ARRIVE = { land: 3.0, settle: 3.5, open: 4.4, walk: 7.0, close: 7.8 };
+let arriveT = 0, arrivePath = null;
+function startArrival() {
+  state = 'arriving'; arriveT = 0; player.inv = 0;
+  const r = L.rocket; r.group.position.y = r.restY + 70; r.flame.visible = true; setHatch(0);
+  art.group.visible = false;
+  arrivePath = null;
+  cam.pos.set(13, r.restY + 9, 19);
+  Sound.sfx('land');
+  message('PRESS ANY KEY TO SKIP', 2.5); $('hud-hint').style.opacity = 0;
+}
+function updateArrival(dt) {
+  arriveT += dt;
+  const r = L.rocket, g = r.group, t = arriveT;
+  if (t < ARRIVE.land) {
+    const k = t / ARRIVE.land;
+    g.position.y = r.restY + 70 * Math.pow(1 - k, 3);
+    r.flame.visible = true; r.flame.scale.set(1 + Math.random() * 0.3, 1.2 + Math.random() * 0.6, 1);
+    if (Math.random() < 0.8) burst(tmpV.copy(g.position).setY(g.position.y - 1), pick([0xffa020, 0xffd23f, 0xdddddd]), 2, 3, 0.7, -2);
+  } else if (g.position.y !== r.restY) {
+    g.position.y = r.restY; r.flame.visible = false; cam.shake = 0.35;
+    burst(tmpV.copy(g.position).setY(g.position.y + 0.3), 0xcfc6b8, 30, 9, 0.9, 1);
+    Sound.sfx('thud');
+  }
+  if (t >= ARRIVE.settle && t < ARRIVE.open + 0.05) {
+    if (!r.opening) { r.opening = true; Sound.sfx('hatch'); }
+    setHatch((t - ARRIVE.settle) / (ARRIVE.open - ARRIVE.settle));
+  }
+  if (t >= ARRIVE.open && t < ARRIVE.walk) {
+    if (!arrivePath) { const p = rampPoints(); p.push(new THREE.Vector3(0, H(0, 6.5), 6.5)); arrivePath = makePath(p); art.group.visible = true; }
+    const prev = tmpV2.copy(player.pos.lengthSq() ? player.pos : arrivePath.pts[0]);
+    const s = smooth(0, 1, (t - ARRIVE.open) / (ARRIVE.walk - ARRIVE.open)) * arrivePath.total;
+    walkArti(dt, prev.clone(), pathAt(arrivePath, s, new THREE.Vector3()));
+  }
+  if (t >= ARRIVE.walk) {
+    if (art.group.visible === false) art.group.visible = true;
+    player.pos.set(0, H(0, 6.5), 6.5); player.facing = 0; animateArti(dt, 0);
+    art.armR.rotation.z = 2.4 + Math.sin(t * 14) * 0.4;  // wave hello
+    setHatch(1 - (t - ARRIVE.walk) / (ARRIVE.close - ARRIVE.walk));
+    if (r.opening) { r.opening = false; Sound.sfx('hatch'); }
+  }
+  const look = t < ARRIVE.land ? tmpV.copy(g.position).setY(g.position.y + 3) : tmpV.set(0, r.restY + 2.2, 2.5);
+  const at = t < ARRIVE.open ? tmpV2.set(13, r.restY + 9, 19) : tmpV2.set(4.5, r.restY + 3.4, 14);
+  cutsceneCamera(dt, look.clone(), at.clone(), t < ARRIVE.open ? 1.5 : 1.2);
+  if (t >= ARRIVE.close) finishArrival();
+}
+function finishArrival() {
+  if (state !== 'arriving') return;
+  const r = L.rocket;
+  r.group.position.y = r.restY; r.flame.visible = false; r.opening = false; setHatch(0);
+  respawnPlayer(); player.inv = 1;
+  state = 'playing';
+  $('touch').hidden = !isTouch;
+  cam.pos.set(player.pos.x, player.pos.y + 4, player.pos.z + 10);
+  clearTimeout(finishArrival._t);
+  $('hud-hint').style.opacity = 0.7; finishArrival._t = setTimeout(() => { $('hud-hint').style.opacity = 0; }, 12000);
+}
+
+// --- departure: Arti walks up the ramp, the hatch shuts, then lift-off
+let boardT = 0, boardPath = null, boardWalk = 0;
+function startBoarding() {
+  state = 'boarding'; boardT = 0;
+  const ramp = rampPoints().reverse();             // ground -> foot of ramp -> top -> inside
+  const pts = [player.pos.clone()];
+  if (player.pos.z < 3.5) {                         // behind or beside the rocket: walk round the front first
+    const side = player.pos.x >= 0 ? 1 : -1;
+    if (player.pos.z < 0) pts.push(new THREE.Vector3(side * 4.4, H(side * 4.4, 0), 0));
+    pts.push(new THREE.Vector3(side * 3.2, H(side * 3.2, 4.6), 4.6));
+  }
+  boardPath = makePath(pts.concat(ramp));
+  boardWalk = clamp(boardPath.total / 5.5, 1.4, 3.2);
+  player.vel.set(0, 0, 0); player.triple = 0;
+  L.rocket.beam.visible = false;
+  $('touch').hidden = true;
+  Sound.sfx('hatch');
+  message('ALL ABOARD!', 1.6);
+}
+function updateBoarding(dt) {
+  boardT += dt;
+  const t = boardT, open = 0.7, walkEnd = open + boardWalk, shut = walkEnd + 0.8;
+  if (t < open) { setHatch(t / open); animateArti(dt, 0); }
+  else if (t < walkEnd) {
+    setHatch(1);
+    const s = smooth(0, 1, (t - open) / boardWalk) * boardPath.total;
+    walkArti(dt, player.pos.clone(), pathAt(boardPath, s, new THREE.Vector3()));
+  } else {
+    art.group.visible = false;
+    if (!L.rocket.closing) { L.rocket.closing = true; Sound.sfx('hatch'); }
+    setHatch(1 - (t - walkEnd) / 0.8);
+  }
+  const gy = L.rocket.restY;
+  cutsceneCamera(dt, tmpV.set(player.pos.x * 0.5, gy + 2.4, player.pos.z * 0.5 + 1.2).clone(), tmpV2.set(6, gy + 4, 13).clone(), 2);
+  if (t >= shut) { setHatch(0); L.rocket.closing = false; startLaunch(); }
+}
 function updateLaunch(dt) {
   launchT += dt;
   const r = L.rocket.group;
@@ -1512,9 +1661,10 @@ function toMap() {
 function startLevel(i) {
   Sound.init(); hideScreens();
   loadLevel(i);
-  state = 'playing'; $('hud').hidden = false; $('touch').hidden = !isTouch; $('boss-bar').hidden = true;
+  $('hud').hidden = false; $('touch').hidden = true; $('boss-bar').hidden = true;
   hudCache = {}; updateHUD(true);
-  cam.pos.set(player.pos.x, player.pos.y + 6, player.pos.z + 12);
+  player.pos.set(0, 0, 0);
+  startArrival();
 }
 function pauseGame() {
   if (state !== 'playing') return;
@@ -1599,6 +1749,10 @@ function frame() {
     if (player.triple > 0) { $('hud-power').hidden = false; $('hud-power-t').textContent = Math.ceil(player.triple); } else $('hud-power').hidden = true;
     updateHUD(); drawRadar();
     if (L.ready) { L.rocket.beam.rotation.y += dt; L.rocket.beam.material.opacity = 0.14 + Math.sin(t * 4) * 0.06; }
+  } else if (state === 'arriving' || state === 'boarding') {
+    if (state === 'arriving') updateArrival(dt); else updateBoarding(dt);
+    updateEnemies(dt); updateFolks(dt); updatePickups(dt); updateShots(dt); updateParticles(dt);
+    drawRadar();
   } else if (state === 'launching') {
     updateLaunch(dt); updateParticles(dt); updateFolks(dt);
   } else if (state === 'paused' || state === 'result') {
@@ -1611,4 +1765,4 @@ function frame() {
 frame();
 
 // expose a tiny debug hook for testing in the console
-window.__arti = { get state() { return state; }, get L() { return L; }, player, startLevel, PLANETS, save };
+window.__arti = { get state() { return state; }, setCutT(t) { if (state === "arriving") arriveT = t; else boardT = t; }, get L() { return L; }, player, startLevel, PLANETS, save };
