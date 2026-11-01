@@ -46,6 +46,17 @@ body {
 .btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .btn-row.col { flex-direction: column; align-items: stretch; }
+.fs-icon {
+  width: 40px; height: 40px; border-radius: 10px; cursor: pointer; pointer-events: auto;
+  font: 400 20px/1 var(--font-body); color: var(--cream);
+  background: rgba(13, 20, 36, .6); border: 2px solid var(--line);
+}
+.fs-icon:hover { border-color: var(--cream); }
+.fs-icon:focus-visible { outline: 3px solid var(--raygun); outline-offset: 2px; }
+body.no-fs .fs-toggle { display: none !important; }
+#hud-fs { position: absolute; left: 50%; margin-left: -20px; top: max(14px, env(safe-area-inset-top, 0px)); }
+body.touch #hud-fs { margin-left: 30px; top: max(14px, env(safe-area-inset-top, 0px)); }
+.map-right { display: flex; align-items: center; gap: 12px; }
 
 /* ---------- screens ---------- */
 .screen {

@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Arti-Ficial">
 <title>Arti-Ficial</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +33,8 @@
   <div id="hud-msg"></div>
   <div id="boss-bar" hidden><span>GLORP MOTHERSHIP</span><div class="track"><i id="boss-fill"></i></div></div>
   <div id="floaters"></div>
-  <div id="hud-hint">Arrows move · D jump (twice to jet) · S zap · camera follows you · P pause</div>
+  <button id="hud-fs" class="fs-toggle fs-icon" aria-label="Fullscreen" title="Fullscreen (Y)">⛶</button>
+  <div id="hud-hint">Arrows move · D jump (twice to jet) · S zap · camera follows you · P pause · Y fullscreen</div>
 </div>
 
 <!-- Arrival banner -->
@@ -47,6 +52,7 @@
     <p class="lede">The Glorpians have swept through the Toasty System and snatched up folks on every world from Cindergulp to Valentoid. One small robot with a glass head and a blaster is all that stands between them and the cosmic zoo.</p>
     <div class="btn-row">
       <button id="btn-start" class="btn primary">Start Adventure</button>
+      <button class="btn fs-toggle">Fullscreen</button>
       <button id="btn-reset" class="btn ghost">Erase Saved Progress</button>
     </div>
     <div class="controls">
@@ -54,7 +60,7 @@
       <div><kbd>D</kbd> jump · twice to jet</div>
       <div><kbd>S</kbd>/<kbd>Click</kbd> zap</div>
       <div>Camera follows automatically</div>
-      <div><kbd>P</kbd> pause · <kbd>M</kbd> mute</div>
+      <div><kbd>P</kbd> pause · <kbd>M</kbd> mute · <kbd>Y</kbd> fullscreen</div>
     </div>
     <p id="reset-confirm" class="fine" hidden>Progress erased. Arti is back on the launch pad.</p>
   </div>
@@ -65,7 +71,7 @@
   <canvas id="map-canvas"></canvas>
   <header class="map-head">
     <h2>The Toasty System <small>9 worlds, 1 robot</small></h2>
-    <div class="map-score">TOTAL SCORE <b id="map-score">0</b></div>
+    <div class="map-right"><div class="map-score">TOTAL SCORE <b id="map-score">0</b></div><button class="fs-toggle fs-icon" aria-label="Fullscreen" title="Fullscreen (Y)">⛶</button></div>
   </header>
   <aside id="map-panel">
     <small id="mp-order">PLANET 1</small>
@@ -91,6 +97,7 @@
     <div class="btn-row col">
       <button id="btn-resume" class="btn primary">Resume</button>
       <button id="btn-restart" class="btn">Restart Planet</button>
+      <button class="btn fs-toggle">Fullscreen</button>
       <button id="btn-tomap" class="btn ghost">Abandon to Solar Map</button>
     </div>
   </div>

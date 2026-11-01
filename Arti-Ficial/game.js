@@ -800,6 +800,7 @@ addEventListener('keydown', (e) => {
     if (e.code === 'KeyP' || e.code === 'Escape') pauseGame();
   } else if (state === 'paused' && (e.code === 'KeyP' || e.code === 'Escape')) resumeGame();
   else if (state === 'map') mapKey(e);
+  if (e.code === 'KeyY' && !e.repeat) toggleFullscreen();
   if (e.code === 'KeyM') { Sound.setMuted(!Sound.muted); if (state === 'playing') message(Sound.muted ? 'SOUND OFF' : 'SOUND ON', 1.2); }
 });
 addEventListener('keyup', (e) => { keys[e.code] = false; });
@@ -1676,6 +1677,29 @@ function pauseGame() {
 function resumeGame() { if (state !== 'paused') return; $('pause').hidden = true; state = 'playing'; clock.getDelta(); }
 
 $('btn-start').addEventListener('click', () => { Sound.init(); Sound.sfx('select'); toMap(); });
+
+// Fullscreen (hidden where the browser doesn't allow it, e.g. iPhone Safari; there, Add to Home Screen opens it without browser bars)
+const fsEl = document.documentElement;
+const fsSupported = !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+const fsActive = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+function toggleFullscreen() {
+  if (!fsSupported) return;
+  try {
+    if (fsActive()) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    else { const p = (fsEl.requestFullscreen || fsEl.webkitRequestFullscreen).call(fsEl, { navigationUI: 'hide' }); if (p && p.catch) p.catch(() => {}); }
+  } catch (err) { /* refused */ }
+}
+function syncFsButtons() {
+  const on = fsActive();
+  document.querySelectorAll('.fs-toggle').forEach((b) => {
+    if (b.classList.contains('fs-icon')) { b.textContent = on ? '\u2715' : '\u26f6'; b.setAttribute('aria-label', on ? 'Exit fullscreen' : 'Fullscreen'); }
+    else b.textContent = on ? 'Exit Fullscreen' : 'Fullscreen';
+  });
+}
+if (!fsSupported) document.body.classList.add('no-fs');
+document.querySelectorAll('.fs-toggle').forEach((b) => b.addEventListener('click', (e) => { e.stopPropagation(); toggleFullscreen(); b.blur(); }));
+document.addEventListener('fullscreenchange', syncFsButtons);
+document.addEventListener('webkitfullscreenchange', syncFsButtons);
 $('btn-reset').addEventListener('click', () => {
   save = { unlocked: 1, cleared: [], score: 0, best: {} }; writeSave(); mapSel = 0;
   $('reset-confirm').hidden = false;
