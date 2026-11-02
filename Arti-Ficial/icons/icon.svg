@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="85%" r="75%">
+      <stop offset="0" stop-color="#e8503a" stop-opacity=".55"/>
+      <stop offset=".55" stop-color="#17223a"/>
+      <stop offset="1" stop-color="#0d1424"/>
+    </radialGradient>
+    <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".35" stop-color="#d9dee8"/>
+      <stop offset=".7" stop-color="#8a93a6"/>
+      <stop offset="1" stop-color="#4a5262"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff6a52"/>
+      <stop offset="1" stop-color="#b8301f"/>
+    </linearGradient>
+    <radialGradient id="glass" cx="38%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".75"/>
+      <stop offset=".25" stop-color="#bff0ff" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#7fd8ff" stop-opacity=".18"/>
+    </radialGradient>
+    <radialGradient id="brain" cx="40%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#ffd0ea"/>
+      <stop offset="1" stop-color="#ff4fa0"/>
+    </radialGradient>
+    <radialGradient id="bulb" cx="40%" cy="35%" r="60%">
+      <stop offset="0" stop-color="#fff0c0"/>
+      <stop offset=".4" stop-color="#ff5a3b"/>
+      <stop offset="1" stop-color="#c0201a"/>
+    </radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g fill="#f4e9cf">
+    <circle cx="62" cy="70" r="3"/><circle cx="120" cy="150" r="2"/><circle cx="440" cy="60" r="3"/>
+    <circle cx="470" cy="170" r="2"/><circle cx="60" cy="250" r="2"/><circle cx="400" cy="120" r="2"/>
+    <circle cx="180" cy="40" r="2"/><circle cx="455" cy="290" r="2.5"/><circle cx="40" cy="380" r="2"/>
+  </g>
+  <ellipse cx="256" cy="300" rx="236" ry="74" fill="none" stroke="#ffd23f" stroke-opacity=".55" stroke-width="5" transform="rotate(-14 256 300)"/>
+  <!-- body -->
+  <ellipse cx="256" cy="512" rx="172" ry="150" fill="url(#chrome)"/>
+  <rect x="88" y="452" width="336" height="26" rx="13" fill="url(#red)"/>
+  <rect x="196" y="388" width="120" height="56" rx="10" fill="#262b36"/>
+  <circle cx="226" cy="416" r="11" fill="#ff4040"/><circle cx="256" cy="416" r="11" fill="#ffd23f"/><circle cx="286" cy="416" r="11" fill="#4fd1c5"/>
+  <!-- neck -->
+  <rect x="226" y="332" width="60" height="40" rx="8" fill="#262b36"/>
+  <!-- antenna -->
+  <path d="M318 168 L338 84" stroke="#d9dee8" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="340" cy="72" r="30" fill="#ff3b30" filter="url(#glow)" opacity=".8"/>
+  <circle cx="340" cy="72" r="20" fill="url(#bulb)"/>
+  <!-- dome + brain -->
+  <path d="M136 262 A120 120 0 0 1 376 262 Z" fill="#7fd8ff" fill-opacity=".12"/>
+  <path d="M190 236 C178 196 214 168 238 180 C252 160 292 164 300 186 C330 180 344 214 326 236 C318 254 196 256 190 236 Z" fill="url(#brain)"/>
+  <path d="M232 196 C244 206 230 218 244 228 M276 192 C266 206 286 214 274 230" stroke="#c8307a" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M136 262 A120 120 0 0 1 376 262 Z" fill="url(#glass)" stroke="#e8fbff" stroke-opacity=".7" stroke-width="5"/>
+  <path d="M170 220 A92 92 0 0 1 222 168" stroke="#ffffff" stroke-opacity=".8" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- head band -->
+  <rect x="122" y="252" width="268" height="88" rx="26" fill="url(#red)"/>
+  <rect x="122" y="252" width="268" height="14" rx="7" fill="#ff8a76" opacity=".6"/>
+  <circle cx="206" cy="298" r="26" fill="#8ff8ff" filter="url(#glow)" opacity=".9"/>
+  <circle cx="306" cy="298" r="26" fill="#8ff8ff" filter="url(#glow)" opacity=".9"/>
+  <circle cx="206" cy="298" r="19" fill="#dffeff"/>
+  <circle cx="306" cy="298" r="19" fill="#dffeff"/>
+  <circle cx="200" cy="292" r="6" fill="#ffffff"/><circle cx="300" cy="292" r="6" fill="#ffffff"/>
+</svg>
