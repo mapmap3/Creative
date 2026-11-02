@@ -331,7 +331,9 @@ function buildArti() {
   return { group: g, body, head, armL, armR, legL: legL.l, legR: legR.l, flames: [legL.flame, legR.flame], bulb, lights, brain, mats: [chrome, red] };
 }
 
-const HATCH = { hingeY: 1.6, hingeZ: 0.95, len: 2.6, closed: -Math.PI / 2, open: Math.asin(1.4 / 2.6) };
+// ROCKET_FOOT: how far the fins/nozzle reach below the group origin; the rocket stands on them, no pad
+const ROCKET_FOOT = 0.45;
+const HATCH = { hingeY: 1.6, hingeZ: 0.95, len: 2.6, closed: -Math.PI / 2, open: Math.asin((1.6 - ROCKET_FOOT) / 2.6) };
 function buildRocket() {
   const g = new THREE.Group();
   const cream = std(0xf4e9cf, { metalness: 0.3, roughness: 0.35 });
@@ -358,15 +360,11 @@ function buildRocket() {
   for (let k = 0; k < 5; k++) hatch.add(M(new THREE.BoxGeometry(1.0, 0.05, 0.1), cream, 0, 0.07, 0.35 + k * 0.48));
   const hatchRivets = M(new THREE.TorusGeometry(0.28, 0.05, 6, 16), cream, 0, -0.07, HATCH.len * 0.62); hatchRivets.rotation.x = Math.PI / 2; hatch.add(hatchRivets);
   hatch.rotation.x = HATCH.closed;
-  const pad = new THREE.Mesh(new THREE.CylinderGeometry(3.6, 3.9, 0.4, 32), std(0x55606e, { metalness: 0.5, roughness: 0.6 }));
-  pad.position.y = 0.0; pad.receiveShadow = true; g.add(pad);
-  const ringMat = glowMat(0xffd23f);
-  const padRing = new THREE.Mesh(new THREE.TorusGeometry(3.3, 0.06, 6, 40), ringMat); padRing.rotation.x = Math.PI / 2; padRing.position.y = 0.22; g.add(padRing);
   const beam = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 2.6, 60, 24, 1, true), new THREE.MeshBasicMaterial({ color: 0xffd23f, transparent: true, opacity: 0.18, side: THREE.DoubleSide, depthWrite: false, fog: false }));
   beam.position.y = 30; beam.visible = false; g.add(beam);
   const flame = new THREE.Mesh(new THREE.ConeGeometry(0.8, 3, 16), new THREE.MeshBasicMaterial({ color: 0xffa020, transparent: true, opacity: 0.9 }));
   flame.rotation.x = Math.PI; flame.position.y = -1; flame.visible = false; g.add(flame);
-  return { group: g, beam, flame, ringMat, hatch };
+  return { group: g, beam, flame, hatch };
 }
 
 function buildFolk(suitColor) {
@@ -509,7 +507,6 @@ function buildTerrain(P) {
     t = clamp(t + j, 0, 1);
     if (t < 0.5) c.lerpColors(c0, c1, t * 2); else c.lerpColors(c1, c2, (t - 0.5) * 2);
     if (P.heart && heartInside(x, z)) c.lerp(new THREE.Color(0xfff2e8), 0.75);
-    if (Math.hypot(x, z) < 6.5) c.lerp(new THREE.Color(0x707680), 0.5);
     cols[i * 3] = c.r; cols[i * 3 + 1] = c.g; cols[i * 3 + 2] = c.b;
   }
   geo.setAttribute('color', new THREE.BufferAttribute(cols, 3));
@@ -607,7 +604,7 @@ function loadLevel(i) {
   buildSky(P);
   buildDecor(P);
 
-  const r = buildRocket(); L.rocket = r; r.restY = H(0, 0) + 0.2; r.group.position.set(0, r.restY, 0); L.world.add(r.group);
+  const r = buildRocket(); L.rocket = r; r.restY = H(0, 0) - ROCKET_FOOT; r.group.position.set(0, r.restY, 0); L.world.add(r.group);
   L.colliders.push({ x: 0, z: 0, r: 1.8 });
 
   const folkColors = [0xff8a3a, 0x3a9aff, 0xffd23f, 0xff5ab0, 0x7ad04a, 0xb07aff];
@@ -1235,7 +1232,7 @@ function checkReady() {
   }
   if (L.boss) return;
   if (!L.ready) {
-    L.ready = true; L.rocket.beam.visible = true; L.rocket.ringMat.color.set(0x7dff6a);
+    L.ready = true; L.rocket.beam.visible = true;
     message('ALL FOLKS ABOARD! HEAD BACK TO THE ROCKET!', 3.2); Sound.sfx('ready');
   }
 }
